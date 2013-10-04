@@ -1,0 +1,2 @@
+class NextController < ApplicationController
+end
