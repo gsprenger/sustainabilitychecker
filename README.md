@@ -1,9 +1,8 @@
-#Unsustainability checker
+#Unsustainability checker  
 [![Dependency Status](https://gemnasium.com/gsprenger/sustainabilitychecker.png)](https://gemnasium.com/gsprenger/sustainabilitychecker)
 [![Code Climate](https://codeclimate.com/github/gsprenger/sustainabilitychecker.png)](https://codeclimate.com/github/gsprenger/sustainabilitychecker)
-[![Build Status](https://travis-ci.org/gsprenger/sustainabilitychecker.png)](https://travis-ci-org/gsprenger/sustainabilitychecker)
-  
-=======================
+[![Build Status](https://travis-ci.org/gsprenger/sustainabilitychecker.png)](https://travis-ci-org/gsprenger/sustainabilitychecker)  
+
 Work in progress.  
 
 **See Also:**  
