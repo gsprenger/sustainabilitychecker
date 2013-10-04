@@ -1,4 +1,4 @@
-unsustainable
+Unsustainable
 =============
 
 Unsustainability checker.
