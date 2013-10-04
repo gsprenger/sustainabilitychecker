@@ -1,4 +1,7 @@
-Unsustainability checker
+Unsustainability checker 
+[![Dependency Status](https://gemnasium.com/gsprenger/sustainabilitychecker.png)](https://gemnasium.com/gsprenger/sustainabilitychecker)
+[![Code Climate](https://codeclimate.com/github/gsprenger/sustainabilitychecker.png)](https://codeclimate.com/github/gsprenger/sustainabilitychecker)
+
 ============
 
 Work in progress.  
