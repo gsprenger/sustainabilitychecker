@@ -3,6 +3,6 @@ rvm:
   - 2.0.0
   
 before_script:
-  - psql -c "CREATE USER sustainabilitychecker WITH PASSWORD 'coucou' AND SUPERUSER;" -U postgres
+  - psql -c "CREATE USER sustainabilitychecker WITH SUPERUSER PASSWORD 'root';" -U postgres
 
 
