@@ -1,6 +1,4 @@
 Sustainabilitychecker::Application.routes.draw do
-  get "next/index"
-  get "unsustainable/index"
   # ROOT
   root 'home#index'
 
