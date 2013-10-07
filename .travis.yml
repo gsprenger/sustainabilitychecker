@@ -4,4 +4,6 @@ rvm:
   
 before_script:
   - psql -c "CREATE USER sustainabilitychecker WITH PASSWORD 'coucou';" -U postgres
+  - psql -c "CREATE ROLE sustainabilitychecker WITH SUPERUSER;" -U postgres
+
 
