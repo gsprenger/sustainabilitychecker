@@ -1,0 +1,27 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sustainabilitychecker_development
+  pool: 5
+  username: sustainabilitychecker
+  password: 
+  host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sustainabilitychecker_test
+  pool: 5
+  username: sustainabilitychecker
+  password: 
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sustainabilitychecker_production
+  pool: 5
+  username: sustainabilitychecker
+  password:
