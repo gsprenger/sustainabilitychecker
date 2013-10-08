@@ -15,7 +15,8 @@
 /log/*.log
 /tmp
 
+# Ignore database.yml to keep passwords secret
+config/database.yml
+
 # Ignore RubyMine files
-/.idea
-.idea/
-.idea/*
+.idea
