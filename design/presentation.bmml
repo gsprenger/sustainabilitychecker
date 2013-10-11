@@ -1,0 +1,63 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1685" measuredH="769" mockupW="1280" mockupH="720">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="405" y="49" w="1280" h="720" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>The%20Sustainability%20Sudoku%0Ahttp%3A//www.unsustainability.org</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="646" y="145" w="-1" h="-1" measuredW="471" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20Sustainability%20Sudoku</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="646" y="188" w="861" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::HRule" x="646" y="683" w="861" h="-1" measuredW="100" measuredH="10" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Paragraph" x="646" y="693" w="861" h="18" measuredW="200" measuredH="80" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>All%20natural%20and%20technological%20processes%20proceed%20in%20such%20a%20way%20that%20the%20availability%20of%20the%20remaining%20energy%20decreases.</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="__group__" x="920" y="711" w="312" h="21" measuredW="312" measuredH="21" zOrder="5" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::LinkBar" x="0" y="1" w="-1" h="-1" measuredW="189" measuredH="19" zOrder="0" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>Home%2C%20Contact%20Us%2C%20Legal%2C</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="205" y="0" w="-1" h="-1" measuredW="107" measuredH="21" zOrder="1" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>IASTE%202013-2014</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Icon" x="189" y="2" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="2" locked="false" isInGroup="39">
+          <controlProperties>
+            <icon>CreativeCommonsIcon%7Cxsmall</icon>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Paragraph" x="646" y="240" w="861" h="120" measuredW="200" measuredH="80" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>All%20natural%20and%20technological%20processes%20proceed%20in%20such%20a%20way%20that%20the%20availability%20of%20the%20remaining%20energy%20decreases.%20In%20all%20energy%20exchanges%2C%20if%20no%20energy%20enters%20or%20leaves%20an%20isolated%20system%2C%20the%20entropy%20of%20that%20system%20increases.%20Energy%20continuously%20flows%20from%20being%20concentrated%2C%20to%20becoming%20dispersed%2C%20spread%20out%2C%20wasted%20and%20useless.%20New%20energy%20cannot%20be%20created%20and%20high%20grade%20energy%20is%20being%20destroyed.%20An%20economy%20based%20on%20endless%20growth%20is%20unsustainable.%20The%20fundamental%20laws%20of%20thermodynamics%20will%20place%20fixed%20limits%20on%20technological%20innovation%20and%20human%20advancement.%20In%20an%20isolated%20system%20the%20entropy%20can%20only%20increase.%20A%20species%20set%20on%20endless%20growth%20is%20unsustainable.%20All%20natural%20and%20technological%20processes%20proceed%20in%20such%20a%20way%20that%20the%20availability%20of%20the%20remaining%20energy%20decreases.%20In%20all%20energy%20exchanges%2C%20if%20no%20energy%20enters%20or%20leaves%20an%20isolated%20system%2C%20the%20entropy%20of%20that%20system%20increases.%0A%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::SubTitle" x="646" y="203" w="-1" h="-1" measuredW="115" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>What%20is%20it%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::SiteMap" x="906" y="375" w="-1" h="-1" measuredW="340" measuredH="190" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sustainability%20Sudoku%0A-Demand%0A-Supply%0A-Check</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Button" x="982" y="611" w="189" h="43" measuredW="89" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>demand%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22577%2C562%2C766%2C605%22%20href%3D%22demand.bmml%22%20alt%3D%22demand%22%20id%3D%2244%22/%3E</map>
+        <text>Let%27s%20begin%21</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

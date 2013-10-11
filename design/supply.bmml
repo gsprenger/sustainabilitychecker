@@ -1,0 +1,153 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1685" measuredH="769" mockupW="1280" mockupH="720">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="405" y="49" w="1280" h="720" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>The%20Sustainability%20Sudoku%0Ahttp%3A//www.unsustainability.org</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="599" y="140" w="-1" h="-1" measuredW="471" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20Sustainability%20Sudoku</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Accordion" x="599" y="189" w="959" h="453" measuredW="150" measuredH="132" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Energy%0AFood</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::SubTitle" x="1085" y="156" w="-1" h="-1" measuredW="334" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Phase%202%3A%20Supply-side%20variables</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::HRule" x="599" y="175" w="959" h="-1" measuredW="100" measuredH="10" zOrder="5" locked="false" isInGroup="-1"/>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::Label" x="664" y="342" w="-1" h="-1" measuredW="68" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>Electricity%3A</text>
+        <textOrientation>right</textOrientation>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="695" y="547" w="-1" h="-1" measuredW="37" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <text>Fuels%3A</text>
+        <textOrientation>right</textOrientation>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Image" x="847" y="239" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <borderStyle>square</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Image" x="1040" y="239" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::Image" x="1232" y="239" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Image" x="848" y="370" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <borderStyle>none</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Image" x="1041" y="370" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="65" controlTypeID="com.balsamiq.mockups::Image" x="1233" y="370" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Image" x="848" y="518" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>false</bold>
+        <borderStyle>none</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Image" x="1041" y="518" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="15" locked="false" isInGroup="-1"/>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Image" x="1233" y="518" w="-1" h="-1" measuredW="77" measuredH="79" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Icon" x="1354" y="393" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Button" x="1360" y="657" w="192" h="68" measuredW="127" measuredH="28" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>check%26bm%3Bcheck.bmml%26bm%3Bcheck.bmml%26bm%3Bcheck.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22955%2C608%2C1147%2C676%22%20href%3D%22check.bmml%22%20alt%3D%22check%22%20id%3D%2273%22/%3E</map>
+        <menuIcon>false</menuIcon>
+        <size>20</size>
+        <state>up</state>
+        <text>Next%20Phase</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Canvas" x="584" y="122" w="983" h="618" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.25</backgroundAlpha>
+        <borderStyle>none</borderStyle>
+        <color>0</color>
+      </controlProperties>
+    </control>
+    <control controlID="75" controlTypeID="com.balsamiq.mockups::Paragraph" x="833" y="661" w="372" h="64" measuredW="200" measuredH="80" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <color>0</color>
+        <size>13</size>
+        <text>You%20have%20selected%20the%20following%20options%3A%0A-%20Your%20country%20produces%20electricity%20using%20...%28xx%25%29%2C%20...%28xx%25%29%20and%20...%28xx%25%29.%20Fuels%3A%20xx%25.%0A-%20Food%20production%20consists%20mainly%20of%20........</text>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Icon" x="1528" y="618" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::HSlider" x="848" y="322" w="77" h="-1" measuredW="33" measuredH="11" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <value>26</value>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::HSlider" x="1041" y="322" w="77" h="-1" measuredW="33" measuredH="11" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <value>46</value>
+      </controlProperties>
+    </control>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::HSlider" x="1041" y="453" w="77" h="-1" measuredW="33" measuredH="11" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <value>30</value>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::Icon" x="1354" y="541" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::Paragraph" x="1162" y="682" w="192" h="19" measuredW="200" measuredH="80" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>right</align>
+        <color>3700253</color>
+        <size>16</size>
+        <text>You%27re%20good%20to%20go%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Icon" x="1529" y="193" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>CheckMarkIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::Button" x="599" y="657" w="192" h="68" measuredW="162" measuredH="28" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>demand%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22194%2C608%2C386%2C676%22%20href%3D%22demand.bmml%22%20alt%3D%22demand%22%20id%3D%2286%22/%3E</map>
+        <menuIcon>false</menuIcon>
+        <size>20</size>
+        <state>up</state>
+        <text>Previous%20Phase</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
