@@ -106,8 +106,8 @@ GEM
       rspec-mocks (~> 2.14.0)
     rubyzip (0.9.9)
     sass (3.2.12)
-    sass-rails (4.0.0)
-      railties (>= 4.0.0.beta, < 5.0)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     sdoc (0.3.20)
@@ -159,7 +159,7 @@ DEPENDENCIES
   rails (= 4.0.0)
   rails_12factor
   rspec-rails
-  sass-rails
+  sass-rails (= 4.0.1)
   sdoc
   selenium-webdriver
   therubyracer

@@ -5,7 +5,7 @@ gem 'rails', '4.0.0'
 gem 'pg'
 
 gem 'therubyracer', platforms: :ruby
-gem 'sass-rails'
+gem 'sass-rails', '4.0.1'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
