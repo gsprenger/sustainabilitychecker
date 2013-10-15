@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Sustainability Sudoku</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header class="container">
+    <h1>The Sustainability Sudoku</h1>
+  </header>
+
+  <hr />
+  <div class="container">
+    <%= yield %>
+  </div>
+  <hr />
+
+  <footer class="container text-center">
+    <p>
+      <small>All natural and technological processes proceed in such a way that the availability of the remaining energy decreases.</small>
+    </p>
+    <p>
+      <small>
+        <a href="/">Home</a> |
+        <a href="#">Contact Us</a> |
+        <a href="#">Legal</a> |
+        &copy; <abbr title="attribute">IASTE</abbr> 2013-2014
+      </small>
+    </p>
+  </footer>
+</body>
+</html>
