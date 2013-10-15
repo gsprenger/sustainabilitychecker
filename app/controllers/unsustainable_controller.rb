@@ -1,2 +1,0 @@
-class UnsustainableController < ApplicationController
-end

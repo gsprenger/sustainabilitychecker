@@ -1,2 +1,0 @@
-class DemandController < ApplicationController
-end

@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Sustainabilitychecker::Application.config.secret_key_base = '88794144f96e36a3a9068f920fcc13727bd167c158e80c44cf5c367bb4603d1bc3d015583f47f427f75cd5159e67b7046ace947a9d7696eef6d6a3b72122d4aa'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+                                
+Sustainabilitychecker::Application.config.secret_key_base = secure_token
+
