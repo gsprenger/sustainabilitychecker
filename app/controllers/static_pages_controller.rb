@@ -4,4 +4,10 @@ class StaticPagesController < ApplicationController
 
   def presentation
   end
+
+  def contact
+  end
+
+  def legal
+  end
 end
