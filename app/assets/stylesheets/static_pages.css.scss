@@ -1,6 +1,37 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// Remove link decoration for main banner and footer and create fake hr
+.banner, .banner:visited {
+	display: block;
+	background-color: #5cb85c;
+
+	text-decoration: none;
+	color: #FFF;
+
+	border-bottom: 1px solid #eeeeee;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.banner:hover {
+	text-decoration: none;
+}
+
+.footer {
+	padding-top: 10px;
+	background-color: #eeeeee;
+}
+
+// Pushes home main container a little bit below because there is no <h1> to apply a margin
+.home-push {
+	margin-bottom: 20px;
+}
+
+// Makes paragraphs more readable by spacing and coloring 
+.main p {
+	line-height: 22px;
+	color: #555;
+}
+
+// Colors for social icons
 a .icon-twitter-sign, a .icon-facebook-sign, a .icon-google-plus-sign, a .icon-globe {
   text-decoration: none;
 }

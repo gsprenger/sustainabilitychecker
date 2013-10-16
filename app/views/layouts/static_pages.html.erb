@@ -8,28 +8,29 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <header class="container">
-    <h1>The Sustainability Sudoku</h1>
-  </header>
+  <div class="wrap">
+    <a href="/" class="banner">
+      <header class="container">
+        <h1>The Sustainability Sudoku</h1>
+      </header>
+    </a>
 
-  <hr />
-  <div class="container">
-    <%= yield %>
+    <div class="main container">
+      <%= yield %>
+    </div>
   </div>
-  <hr />
-
-  <footer class="container text-center">
-    <p>
-      <small>All natural and technological processes proceed in such a way that the availability of the remaining energy decreases.</small>
-    </p>
-    <p>
-      <small>
-        <a href="/">Home</a> |
-        <a href="#">Contact Us</a> |
-        <a href="#">Legal</a> |
-        &copy; <abbr title="attribute">IASTE</abbr> 2013-2014
-      </small>
-    </p>
+  <footer class="footer">
+    <div class="container text-center">
+      <p>
+        <small>All natural and technological processes proceed in such a way that the availability of the remaining energy decreases.</small><br/>
+        <small>
+          <a href="/">Home</a> |
+          <a href="/contact">Contact Us</a> |
+          <a href="/legal">Legal</a> |
+          &copy; <abbr title="Integrated Assessment: Sociology, Technology and the Environment">IASTE</abbr> 2013-2014
+        </small>
+      </p>
+    </div>
   </footer>
 </body>
 </html>
