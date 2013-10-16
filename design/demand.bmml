@@ -12,6 +12,7 @@
     </control>
     <control controlID="44" controlTypeID="com.balsamiq.mockups::Accordion" x="599" y="189" w="959" h="453" measuredW="150" measuredH="159" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
+        <selectedIndex>0</selectedIndex>
         <text>Material%0AConsumption%0ADemographics</text>
       </controlProperties>
     </control>
@@ -124,6 +125,21 @@
       <controlProperties>
         <icon>XIcon%7Csmall</icon>
       </controlProperties>
+    </control>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::HelpButton" x="718" y="270" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="26" locked="false" isInGroup="-1"/>
+    <control controlID="83" controlTypeID="__group__" x="768" y="277" w="200" h="170" measuredW="200" measuredH="170" zOrder="27" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::FieldSet" x="0" y="0" w="-1" h="-1" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="83">
+          <controlProperties>
+            <text>Household</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Paragraph" x="12" y="25" w="175" h="130" measuredW="200" measuredH="80" zOrder="1" locked="false" isInGroup="83">
+          <controlProperties>
+            <text>Text%20text%20Text%20textText%20text%0AText%20textText%20textText%20text%0AText%20textvText%20text%0A%20%0A%5BRead%20More%5D</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
     </control>
   </controls>
 </mockup>
