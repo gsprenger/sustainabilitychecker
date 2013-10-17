@@ -20,6 +20,14 @@
 	background-color: #eeeeee;
 }
 
+// Format main subtitle
+h1 small {
+	padding-left: 10px;
+	color: #eeeeee;
+	font-style: italic;
+	font-size: 20px;
+}
+
 // Pushes home main container a little bit below because there is no <h1> to apply a margin
 .home-push {
 	margin-bottom: 20px;
