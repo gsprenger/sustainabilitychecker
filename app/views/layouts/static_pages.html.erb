@@ -6,32 +6,16 @@
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= render "layouts/shim" %>
 </head>
 <body>
   <div class="wrap">
-    <a href="/" class="banner">
-      <header class="container">
-        <h1>The Sustainability Sudoku<small>A didactic, interactive tool to understand and discuss sustainability issues</small></h1>
-      </header>
-    </a>
+    <%= render "layouts/static_pages/header" %>
 
     <div class="main container">
       <%= yield %>
     </div>
   </div>
-  <footer class="footer">
-    <div class="container text-center">
-      <p>
-        <small>A didactic, interactive tool to understand and discuss sustainability issues
-proposed by the IASTE research group of the Universitat Autònoma de Barcelona.</small><br/>
-        <small>
-          <a href="/">Home</a> |
-          <a href="/contact">Contact Us</a> |
-          <a href="/legal">Legal</a> |
-          &copy; <abbr title="Integrated Assessment: Sociology, Technology and the Environment">IASTE</abbr> 2013-2014
-        </small>
-      </p>
-    </div>
-  </footer>
+  <%= render "layouts/static_pages/footer" %>
 </body>
 </html>
