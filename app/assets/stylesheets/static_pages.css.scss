@@ -1,3 +1,25 @@
+/*****************************************************
+* GENERAL LAYOUT
+*****************************************************/
+$footerH: 60px;
+
+html {
+	overflow-y: scroll;
+}
+
+html,
+body {
+  height: 99.9%;
+}
+
+.wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto (-$footerH);
+  padding: 0 0 $footerH;
+}
+
 // HEADER
 .banner, .banner:visited {
 	display: block;
@@ -9,61 +31,78 @@
 	border-bottom: 1px solid #999;
 	padding-bottom: 10px;
 	margin-bottom: 20px;
-}
 
-.banner:hover {
-	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+
+	h1 {
+		text-shadow: 1px 1px 1px #366B36;
+
+		small {
+			text-shadow: none;
+			padding-left: 10px;
+			color: #eeeeee;
+			font-style: italic;
+			font-size: 20px;
+		}
+	}
 }
 
 // FOOTER
 .footer {
+  height: $footerH;
+  background-color: #eee;
 	border-top: 1px solid #dddddd;
 	padding-top: 10px;
-	background-color: #eeeeee;
-	color: #666;
+	color: #555;
+
+  nav, ul, li {
+    display: inline;
+  }
+
+  ul {
+    list-style: none;
+  }
 }
 
-// Format main subtitle
-.banner h1 {
-	text-shadow: 1px 1px 1px #366B36;
+// MAIN CONTAINER
+.main {
+	p {
+		// Makes paragraphs more readable by spacing and coloring 
+		line-height: 22px;
+		color: #555;
+	}
 }
 
-.banner h1 small {
-	text-shadow: none;
-	padding-left: 10px;
-	color: #eeeeee;
-	font-style: italic;
-	font-size: 20px;
-}
-
-// Pushes home main container a little bit below because there is no <h1> to apply a margin
+/*****************************************************
+* HOME
+*****************************************************/
+// Compensates lack of title by applying margin top
 .home-push {
 	margin-bottom: 20px;
 }
 
-// Makes paragraphs more readable by spacing and coloring 
-.main p {
-	line-height: 22px;
-	color: #555;
-}
-
 // Colors for social icons
-a .icon-twitter-sign, a .icon-facebook-sign, a .icon-google-plus-sign, a .icon-globe {
-  text-decoration: none;
+a {
+	.icon-twitter-sign, .icon-facebook-sign, .icon-google-plus-sign, .icon-globe {
+  	text-decoration: none;
+  }
+
+  .icon-twitter-sign {
+	  color: #4099FF;
+	}
+
+	.icon-facebook-sign {
+	  color: #3B5998;
+	}
+
+	.icon-google-plus-sign {
+	  color: #D34836;
+	}
+
+	.icon-globe {
+	  color: #444;
+	}
 }
 
-a .icon-twitter-sign {
-  color: #4099FF;
-}
-
-a .icon-facebook-sign {
-  color: #3B5998;
-}
-
-a .icon-google-plus-sign {
-  color: #D34836;
-}
-
-a .icon-globe {
-  color: #444;
-}

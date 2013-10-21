@@ -1,14 +1,14 @@
-<footer class="footer">
-  <div class="container text-center">
-    <p>
-      <small>A didactic, interactive tool to understand and discuss sustainability issues
-proposed by the IASTE research group of the Universitat Autònoma de Barcelona.</small><br/>
-      <small>
-        <a href="/">Home</a> |
-        <a href="/contact">Contact Us</a> |
-        <a href="/legal">Legal</a> |
-        &copy; 2013 <abbr title="Integrated Assessment: Sociology, Technology and the Environment">IASTE</abbr>
-      </small>
-    </p>
-  </div>
+<footer class="footer text-center">
+  <small>
+    A didactic, interactive tool to understand and discuss sustainability issues proposed by the IASTE research group of the Universitat Autònoma de Barcelona.<br/>
+    
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %> |</li>
+        <li><%= link_to "Contact Us", contact_path %> |</li>
+        <li><%= link_to "Legal Terms", legal_path %></li>
+      </ul>
+    </nav>
+    <em>&copy; 2013 <abbr title="Integrated Assessment: Sociology, Technology and the Environment">IASTE</abbr></em>
+    </small>
 </footer>
