@@ -1,13 +1,18 @@
 class VariablesController < ApplicationController
-  def supply
+  # initialize is not used because we need the session context
+  def init
     @user = retrieve_user
-    @type = "Supply"
+    @type = params[:action]
+    @model = Variables.get_structured(@type)
+  end
+
+  def supply
+    init
     render :variables
   end
 
   def demand
-    @user = retrieve_user
-    @type = "Demand"
+    init
     render :variables
   end
 
