@@ -2,7 +2,11 @@ class Variables
   require 'json'
 
   def self.get(name)
-    File.read(Rails.root + "app/models/variables/" + (name + ".json"))
+    JSON.parse(
+      File.read(
+        Rails.root + "app/models/variables/" + (name + ".json")
+      )
+    )
   end
 
   def self.get_structured(name)
