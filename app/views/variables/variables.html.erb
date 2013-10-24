@@ -1,10 +1,44 @@
-<p>This is the Variables page, with content modified according to user's variables and flow of the experience.</p>
+<!-- ACCORDION LIST BEGIN -->
+<div class="panel-group" id="accordion">
+  <% first = true %>
+  <% @data_model.each do |lv1| %>
+    <!-- LEVEL 1 -->
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#<%= collapse_id(lv1) %>">
+            <%= lv1['name'] %>
+          </a>
+        </h4>
+      </div>
+      <div id="<%= collapse_id(lv1) %>" class="panel-collapse collapse<%= " in" if first %>">
+        <div class="panel-body">
+          <!-- LEVEL 2 -->
+          <% lv1['values'].each do |lv2| %>
+            <h4><%= lv2['name'] %></h4>
+            <!-- LEVEL 3 -->
+            <%= generate_lv3(lv2['name'], lv2['type'], lv2['values']).html_safe %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% first = false %>
+  <% end %>
+</div>
 
-<h3>Current user ID: </h3>
-<%= @user %>
-
-<h3>Current type:</h3>
-<%= @type %>
-
-<h3>Current data model: </h3>
-<pre><%= @model %></pre>
+<br>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#debug">
+        Debug
+      </a>
+    </h4>
+  </div>
+  <div id="debug" class="panel-collapse collapse">
+    <p>Current user ID: <%= @user %></p>
+    <p>Current type: <%= @type %></p>
+    <p>Current data model: </p>
+    <pre><%= @tree %></pre>    
+  </div>
+</div>
