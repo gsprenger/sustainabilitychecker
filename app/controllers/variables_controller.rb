@@ -3,7 +3,8 @@ class VariablesController < ApplicationController
   def init
     @user = retrieve_user
     @type = params[:action]
-    @model = Variables.get_structured(@type)
+    @data_model = Variables.get(@type)
+    @tree = Variables.get_structured(@type)
   end
 
   def supply
