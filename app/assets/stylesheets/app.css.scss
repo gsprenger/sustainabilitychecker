@@ -1,0 +1,31 @@
+/**
+* APP CSS. Applied to all app pages.
+**/
+// padding for fixed top navbar
+body { 
+  padding: 55px 10px 65px 10px; 
+}
+
+.header {
+  .navbar-brand {
+    color: #333;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 60px;
+
+  padding: 7px 15px 7px 15px;
+
+  background-color: #f8f8f8;
+  border-top: 1px solid #e7e7e7;
+
+  p {
+    line-height: 45px;
+    font-size: 1.1em;
+  }
+}
