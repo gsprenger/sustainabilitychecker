@@ -3,10 +3,6 @@
 *****************************************************/
 $footerH: 60px;
 
-html {
-	overflow-y: scroll;
-}
-
 html,
 body {
   height: 99.9%;
@@ -85,23 +81,23 @@ body {
 
 // Colors for social icons
 a {
-	.icon-twitter-sign, .icon-facebook-sign, .icon-google-plus-sign, .icon-globe {
+	.fa-twitter-square, .fa-facebook-square, .fa-google-plus-square, .fa-globe {
   	text-decoration: none;
   }
 
-  .icon-twitter-sign {
+  .fa-twitter-square {
 	  color: #4099FF;
 	}
 
-	.icon-facebook-sign {
+	.fa-facebook-square {
 	  color: #3B5998;
 	}
 
-	.icon-google-plus-sign {
+	.fa-google-plus-square {
 	  color: #D34836;
 	}
 
-	.icon-globe {
+	.fa-globe {
 	  color: #444;
 	}
 }
