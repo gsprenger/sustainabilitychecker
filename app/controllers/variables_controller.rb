@@ -1,4 +1,6 @@
 class VariablesController < ApplicationController
+  layout "app"
+  
   # initialize is not used because we need the session context
   def init
     @user = retrieve_user
@@ -9,11 +11,17 @@ class VariablesController < ApplicationController
 
   def supply
     init
+    @title = "Phase 2: Supply variables"
+    @next = "#"
+
     render :variables
   end
 
   def demand
     init
+    @next = "/supply"
+    @title = "Phase 1: Demand variables"
+
     render :variables
   end
 

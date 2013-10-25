@@ -1,9 +1,10 @@
+<% provide(:title, @title) %>
 <!-- ACCORDION LIST BEGIN -->
 <div class="panel-group" id="accordion">
   <% first = true %>
   <% @data_model.each do |lv1| %>
     <!-- LEVEL 1 -->
-    <div class="panel panel-danger">
+    <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#<%= collapse_id(lv1) %>">
@@ -24,21 +25,23 @@
     </div>
     <% first = false %>
   <% end %>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse"  data-parent="#accordion" href="#debug">
+          Debug
+        </a>
+      </h4>
+    </div>
+    <div id="debug" class="panel-collapse collapse">
+      <div class="panel-body">
+        <p>Current user ID: <%= @user %></p>
+        <p>Current type: <%= @type %></p>
+        <p>Current data model: </p>
+        <pre><%= @tree %></pre>    
+      </div>
+    </div>
+  </div>
 </div>
 
-<br>
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h4 class="panel-title">
-      <a data-toggle="collapse" href="#debug">
-        Debug
-      </a>
-    </h4>
-  </div>
-  <div id="debug" class="panel-collapse collapse">
-    <p>Current user ID: <%= @user %></p>
-    <p>Current type: <%= @type %></p>
-    <p>Current data model: </p>
-    <pre><%= @tree %></pre>    
-  </div>
-</div>
+
