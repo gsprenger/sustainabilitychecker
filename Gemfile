@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 
+gem 'mail_form', '1.5.0'
+
 group :development, :test do
   gem 'rspec-rails'
 end
