@@ -2,7 +2,7 @@
 <hr/>
 <div class="row">
 	<div class="col-md-6">
-		<div class="panel panel-default">
+		<div class="panel panel-default">		
 			<div class="panel-heading">
 				<h3 class="panel-header">Visit us!</h3>
 			</div>
@@ -15,31 +15,33 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-header">Via email</h3>
 			</div>
 			<div class="panel-body">
-				<form class="form-horizontal" role="form">
+				<%= form_tag(contact_send_path, method: 'post',remote: 'true', class: "form-horizontal", role: "form") do %>
 				  <div class="form-group">
-				    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+					  <%= label_tag :email, "Email", class: "col-lg-2 control-label" %>
 				    <div class="col-lg-10">
-				      <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email...">
-				    </div>
-				  </div>
+							<%= email_field_tag :email, nil, class: "form-control", placeholder: "Enter your email..." %>
+							<%= text_field_tag :nickname, nil, class: "hidden" %>
+						</div>
+					</div>
 				  <div class="form-group">
-				    <label for="inputText" class="col-lg-2 control-label">Message</label>
+				 	  <%= label_tag :message, "Message", class: "col-lg-2 control-label" %>
 				    <div class="col-lg-10">
-				      <textarea class="form-control" rows="4" placeholder="Write your message here..."></textarea>
-				    </div>
-				  </div>
+							<%= text_area_tag :message, nil, class: "form-control", rows: "4", placeholder: "Write your message here..." %>
+						</div>
+					</div>
 				  <div class="form-group">
 				    <div class="col-lg-offset-2 col-lg-10">
-				      <button type="submit" class="btn btn-default">Send</button>
-				    </div>
-				  </div>
-				</form>
+				 		  <%= submit_tag "Send", class: "btn btn-default"%>
+						</div>
+					</div>
+				<% end %>
 			</div>
 		</div>
 
