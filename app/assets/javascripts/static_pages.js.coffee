@@ -1,3 +1,17 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+  $('#btnsubmit').click ->
+    setTimeout ->
+      $('#btnsubmit').attr('disabled', 'disabled')
+    , 10
+    $('#btnsubmit').val('Sending...')
+
+  $('form#formcontact').bind 'ajax:success', (evt, data, status, xhr) ->
+      $('#btnsubmit').removeClass("btn-default")
+      if xhr.responseText == "success"
+        $('#btnsubmit').addClass("btn-success")
+        $('#btnsubmit').val('Sent!')
+      else if xhr.responseText == "failure"
+        $('#btnsubmit').addClass("btn-danger")
+        $('#btnsubmit').val('Failure. Please retry.')
+      $('#btnsubmit').removeAttr('disabled')
+

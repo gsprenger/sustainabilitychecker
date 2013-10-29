@@ -33,7 +33,7 @@ Sustainabilitychecker::Application.configure do
     port:                 587,
     domain:               'gmail.com',
     user_name:            'gabriel.sprenger',
-    password:             'd6zzmn2p',
+    password:             'd6qwzzmn2p',
     authentication:       'plain',
     enable_starttls_auto: true  
   }

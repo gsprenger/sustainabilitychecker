@@ -9,11 +9,13 @@ class StaticPagesController < ApplicationController
   end
 
   def contact_send
+    success = "failure"
+
     c = Contact.new(params)
-    if c.deliver 
-      render json: "{success: true}"
-    else
-      render json: "{success: false}"
+    success = "success" if c.deliver 
+
+    respond_to do |format|
+      format.html { render :json => success, :status => :ok }
     end
   end
 
