@@ -21,3 +21,6 @@
 
 # Rubymine crap
 /.idea
+
+# Cloud 9 specific
+.bashrc
