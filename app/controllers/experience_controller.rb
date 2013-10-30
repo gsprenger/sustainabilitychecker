@@ -1,4 +1,4 @@
-class ExperienceController < ApplicationController
+class ExperimentController < ApplicationController
   def begin
     # Init params for new experience and redirects
     session[:uid] = "#1452"
