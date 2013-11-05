@@ -13,8 +13,13 @@ Bundler.require(:default, Rails.env)
 
 module Sustainabilitychecker
   class Application < Rails::Application
+    # heroku
+    config.assets.initialize_on_precompile = false
+    
     # bootstrap
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    
+    
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
