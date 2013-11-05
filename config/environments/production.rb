@@ -9,6 +9,9 @@ Sustainabilitychecker::Application.configure do
     :domain         => 'sustainabilitychecker.heroku.com',
     :authentication => :plain,
   }
+  
+  # heroku
+  config.assets.initialize_on_precompile = false
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -36,10 +39,12 @@ Sustainabilitychecker::Application.configure do
   # config.assets.css_compressor = :sass
 
   # CUSTOM: render all individual css files:
-  config.assets.precompile << "*.css"
+  config.assets.precompile = ['.js(.coffee)?', '.css(.scss)?']
+  #config.assets.precompile << "*.css"
+  #config.assets.precompile << "*.js"
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
