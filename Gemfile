@@ -15,6 +15,10 @@ gem 'jbuilder'
 
 gem 'mail_form', '1.5.0'
 
+group :c9 do
+  gem 'mysql2'
+end
+
 group :development, :test do
   gem 'rspec-rails'
 end
