@@ -1,11 +1,70 @@
-<nav class="header navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="navbar-header">
-    <a class="navbar-brand" href="#">Sustainability Sudoku</a>
+<div class='header'>
+  <div class='header-menu'>
+    <div class='menu-wrapper'>
+      <div class='menu-btn'>
+        <i class='fa fa-leaf fa-4x'></i>
+      </div>
+    </div>
+    <div class='menu-nav'>
+      <div class='menu-nav-box demand'>
+        <div class='menu-nav-title'>
+          Demand
+        </div>
+        <div class='menu-nav-content'>
+          <div class='menu-nav-item space'>&nbsp;</div>
+          <a href='<%= demand_demographics_path %>'>
+            <div class='menu-nav-item icon' title="Demographics"><i class='fa fa-globe'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= demand_diet_path %>'>
+            <div class='menu-nav-item icon' title="Diet"><i class='fa fa-cutlery'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= demand_households_path %>'>
+            <div class='menu-nav-item icon' title="Households"><i class='fa fa-home'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+        </div>
+      </div>
+      <div class='menu-nav-box supply'>
+        <div class='menu-nav-title'>
+          Supply
+        </div>
+        <div class='menu-nav-content'>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= supply_services_path %>'>
+            <div class='menu-nav-item icon' title="Services"><i class='fa fa-briefcase'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= supply_electricity_path %>'>
+            <div class='menu-nav-item icon' title="Electricity"><i class='fa fa-bolt'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= supply_fuels_path %>'>
+            <div class='menu-nav-item icon' title="Fuels"><i class='fa fa-tint'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= supply_industrialization_path %>'>
+            <div class='menu-nav-item icon' title="Industrialization"><i class='fa fa-truck'></i></div>
+          </a>
+          <div class='menu-nav-item line'></div>
+        </div>
+      </div>
+      <div class='menu-nav-box check'>
+        <div class='menu-nav-title'>
+          Check
+        </div>
+        <div class='menu-nav-content'>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <a href='<%= check_path %>'>
+            <div class='menu-nav-item icon' title="Check"><i class='fa fa-check'></i></div>
+          </a>
+          <div class='menu-nav-item space'>&nbsp;</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <p class="navbar-text"><%= yield :title %></p>
-  <ul class="nav navbar-nav navbar-right">
-      <li>
-        <a href="#"><i class="fa fa-save fa-1g"></i> Save</a>
-      </li>
-    </ul>
-</nav>
+  <div class='header-user'>
+    
+  </div>
+</div>

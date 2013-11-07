@@ -1,31 +1,54 @@
 class VariablesController < ApplicationController
   layout "app"
+
+  ###
+  # Non visual methods:
+  ###
   
-  # initialize is not used because we need the session context
+  # Initialize is not used because we need the session context
   def init
     @user = retrieve_user
-    @type = params[:action]
-    @data_model = Variables.get(@type)
-    @tree = Variables.get_structured(@type)
-  end
-
-  def supply
-    init
-    @title = "Phase 2: Supply variables"
-    @next = "#"
-
-    render :variables
-  end
-
-  def demand
-    init
-    @next = "/supply"
-    @title = "Phase 1: Demand variables"
-
-    render :variables
   end
 
   def retrieve_user
     session[:uid] || "None"
+  end
+
+  ###
+  # Index actions: Demand Supply
+  ###
+  def demand
+    render nil
+  end
+
+  def supply
+    render nil
+  end
+
+  ###
+  # Demand views
+  ###
+  def demographics
+  end
+  
+  def diet
+  end
+  
+  def households
+  end
+
+  ###
+  # Supply views
+  ###
+  def services
+  end
+  
+  def electricity
+  end
+  
+  def fuels
+  end
+  
+  def industrialization
   end
 end

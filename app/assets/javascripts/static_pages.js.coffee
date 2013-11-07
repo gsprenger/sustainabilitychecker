@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   $('#btnsubmit').click ->
     setTimeout ->
       $('#btnsubmit').attr('disabled', 'disabled')
@@ -15,3 +15,6 @@ $(document).ready ->
         $('#btnsubmit').val('Failure. Please retry.')
       $('#btnsubmit').removeAttr('disabled')
 
+# Turbolinks workaround      
+$(document).ready(ready)
+$(document).on('page:load', ready)

@@ -1,31 +1,128 @@
 /**
 * APP CSS. Applied to all app pages.
 **/
-// padding for fixed top navbar
-body { 
-  padding: 55px 10px 65px 10px; 
-}
+
+/** HEADER **/
+$demand: #f0ad4e;
+$supply: #39b3d7;
+$check: #5cb85c;
 
 .header {
-  .navbar-brand {
-    color: #333;
+  height: 65px;
+  background-color: #F8F8F8;
+  border-bottom: 2px solid #E7E7E7;
+  
+  .header-menu {
+    position: relative;
+    
+    .menu-wrapper {
+      background-color: #428BCA;
+      height: 65px;
+      width: 68px;
+      float: left;
+      border: 1px solid #357EBD;
+      cursor: pointer;
+      color: #FFFFFF;
+      :hover { 
+        background-color: #3276B1; 
+        color: #EEE;
+      }
+      
+      .menu-btn {
+        padding: 3px 0 0 4px;
+        height: 63px;
+        width: 66px;
+        
+        i { 
+          text-shadow: 1px 1px 5px #000;
+        }
+      }
+    }
+    
+    .menu-nav {
+      margin: auto;
+      width: 465px;
+        
+      .demand { border-top: 2px solid $demand;}
+      .supply { border-top: 2px solid $supply;}
+      .check { border-top: 2px solid $check;}
+      .menu-nav-box {
+        float: left;
+        position: relative;
+        text-align: center; 
+        
+        .menu-nav-title {
+          height: 22px;
+          font-size: 12px;
+          line-height: 14px;
+          font-weight: bold;
+        }
+        
+        .menu-nav-content {
+          color: #444;
+            
+          a, a:focus, a:visited, a:hover {
+            color: inherit;
+            text-decoration: none;
+          }
+          
+          .menu-nav-item {
+            float: left;
+            cursor: pointer;
+          }
+          
+          .line {
+            width: 20px;
+            height: 15px;
+            border-bottom: 2px solid #333;
+          }
+         
+          .space {
+            width: 20px;
+          }
+         
+          .icon {
+            width: 30px;
+            line-height: 25px;
+            border: 2px solid #333;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+  
+  .header-user {
+    
   }
 }
 
-.footer {
-  position: fixed;
+/** PAGES **/
+.cont {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/** NAVIGATION ARROWS **/
+.navarrow {
+  position: absolute;
+  top: 0;
   bottom: 0;
-  right: 0;
-  left: 0;
-  height: 60px;
-
-  padding: 7px 15px 7px 15px;
-
-  background-color: #f8f8f8;
-  border-top: 1px solid #e7e7e7;
-
-  p {
-    line-height: 45px;
-    font-size: 1.1em;
+  width: 50px;
+  background-color: #E7E7E7;
+  color: #555;
+  :hover {
+    color: #333;
+    background-color: #DDDDDD;
   }
 }
+
+.navarrow-left {
+  left: 0;
+}
+
+.navarrow-right {
+  right: 0;
+}
+

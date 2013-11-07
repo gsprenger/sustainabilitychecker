@@ -3,9 +3,19 @@ Sustainabilitychecker::Application.routes.draw do
 
   # Experience
   get "begin" => "experiment#begin"
-  # Phase One
-  get "demand" => "variables#demand"
-  get "supply" => "variables#supply"
+  #   Demand pages
+    get "demand" => "variables#demand"
+    get "demand/demographics" => "variables#demographics"
+    get "demand/diet" => "variables#diet"
+    get "demand/households" => "variables#households"
+  #   Supply pages
+    get "supply" => "variables#supply"
+    get "supply/services" => "variables#services"
+    get "supply/electricity" => "variables#electricity"
+    get "supply/fuels" => "variables#fuels"
+    get "supply/industrialization" => "variables#industrialization"
+  #   Check
+    get "check" => "check#index"
 
   # StaticPages
   get "home" => "static_pages#home"
