@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 gem 'pg'
 
 gem 'therubyracer', platforms: :ruby
 gem 'sass-rails', '4.0.1'
-gem 'uglifier'
-gem 'coffee-rails'
+gem 'uglifier', '2.3.0'
+gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
@@ -24,7 +24,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.37.0'
   gem 'capybara'
 end
 
