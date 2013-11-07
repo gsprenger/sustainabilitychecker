@@ -4,7 +4,7 @@ Sustainabilitychecker::Application.routes.draw do
   # Experience
   get "begin" => "experiment#begin"
   #   Demand pages
-    get "demand" => "variables#demand"
+    get "demand" => "variables#demographics"
     get "demand/demographics" => "variables#demographics"
     get "demand/diet" => "variables#diet"
     get "demand/households" => "variables#households"
