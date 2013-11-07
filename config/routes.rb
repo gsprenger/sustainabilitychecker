@@ -2,7 +2,7 @@ Sustainabilitychecker::Application.routes.draw do
   root "static_pages#home"
 
   # Experience
-  get "begin" => "experience#begin"
+  get "begin" => "experiment#begin"
   # Phase One
   get "demand" => "variables#demand"
   get "supply" => "variables#supply"
