@@ -23,7 +23,7 @@ $check: #5cb85c;
       border: 1px solid #357EBD;
       cursor: pointer;
       color: #FFFFFF;
-      :hover { 
+      &:hover { 
         background-color: #3276B1; 
         color: #EEE;
       }
@@ -43,9 +43,24 @@ $check: #5cb85c;
       margin: auto;
       width: 465px;
         
-      .demand { border-top: 2px solid $demand;}
-      .supply { border-top: 2px solid $supply;}
-      .check { border-top: 2px solid $check;}
+      .demand { 
+        border-top: 2px solid $demand; 
+        .icon:hover{
+          background-color: $demand; 
+        }
+      }
+      .supply { 
+        border-top: 2px solid $supply;
+        .icon:hover{
+          background-color: $supply; 
+        }
+      }
+      .check { 
+        border-top: 2px solid $check;
+        .icon:hover{
+          background-color: $check; 
+        }
+      }
       .menu-nav-box {
         float: left;
         position: relative;
@@ -59,7 +74,7 @@ $check: #5cb85c;
         }
         
         .menu-nav-content {
-          color: #444;
+          color: #333;
             
           a, a:focus, a:visited, a:hover {
             color: inherit;
@@ -99,30 +114,35 @@ $check: #5cb85c;
 
 /** PAGES **/
 .cont {
-  height: 100%;
-  width: 100%;
-  position: relative;
+  margin: 0 90px;
 }
 
 /** NAVIGATION ARROWS **/
 .navarrow {
   position: absolute;
-  top: 0;
+  top: 65px;
   bottom: 0;
-  width: 50px;
-  background-color: #E7E7E7;
-  color: #555;
-  :hover {
-    color: #333;
-    background-color: #DDDDDD;
+  width: 68px;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.02);
+  &:hover {
+    color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  i {
+    position: absolute;
+    bottom: 50%;
   }
 }
 
 .navarrow-left {
   left: 0;
+  i { left: 5px;}
 }
 
 .navarrow-right {
   right: 0;
+  i { right: 5px;}
 }
 
