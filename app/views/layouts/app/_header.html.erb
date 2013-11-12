@@ -6,50 +6,65 @@
       </div>
     </div>
     <div class='menu-nav'>
+    <!-- Demand -->
       <div class='menu-nav-box demand'>
         <div class='menu-nav-title'>
           Demand
         </div>
         <div class='menu-nav-content'>
           <div class='menu-nav-item space'>&nbsp;</div>
+          <!-- Demographics -->
           <a href='<%= demand_path(anchor: 'demographics') %>'>
             <div class='menu-nav-item icon' title="Demographics"><i class='fa fa-globe'></i></div>
           </a>
           <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Diet -->
           <a href='<%= demand_path(anchor: 'diet') %>'>
             <div class='menu-nav-item icon' title="Diet"><i class='fa fa-cutlery'></i></div>
           </a>
           <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Households -->
           <a href='<%= demand_path(anchor: 'households') %>'>
             <div class='menu-nav-item icon' title="Households"><i class='fa fa-home'></i></div>
           </a>
           <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Services -->
+          <a href='<%= demand_path(anchor: 'services') %>'>
+            <div class='menu-nav-item icon' title="Services"><i class='fa fa-medkit'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Transportation -->
+          <a href='<%= demand_path(anchor: 'transportation') %>'>
+            <div class='menu-nav-item icon' title="Transportation"><i class='fa fa-truck'></i></div>
+          </a>
+          <div class='menu-nav-item line'>&nbsp;</div>
         </div>
       </div>
+      <!-- Supply -->
       <div class='menu-nav-box supply'>
         <div class='menu-nav-title'>
           Supply
         </div>
         <div class='menu-nav-content'>
           <div class='menu-nav-item line'>&nbsp;</div>
-          <a href='<%= supply_path(anchor: 'services') %>'>
-            <div class='menu-nav-item icon' title="Services"><i class='fa fa-briefcase'></i></div>
+          <!-- Supply -->
+          <a href='<%= supply_path(anchor: 'agriculture') %>'>
+            <div class='menu-nav-item icon' title="Agriculture"><i class='fa fa-leaf'></i></div>
           </a>
           <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Energy -->
           <a href='<%= supply_path(anchor: 'electricity') %>'>
-            <div class='menu-nav-item icon' title="Electricity"><i class='fa fa-bolt'></i></div>
+            <div class='menu-nav-item icon' title="Energy"><i class='fa fa-bolt'></i></div>
           </a>
           <div class='menu-nav-item line'>&nbsp;</div>
-          <a href='<%= supply_path(anchor: 'fuels') %>'>
-            <div class='menu-nav-item icon' title="Fuels"><i class='fa fa-tint'></i></div>
-          </a>
-          <div class='menu-nav-item line'>&nbsp;</div>
+          <!-- Industrialization -->
           <a href='<%= supply_path(anchor: 'industrialization') %>'>
-            <div class='menu-nav-item icon' title="Industrialization"><i class='fa fa-truck'></i></div>
+            <div class='menu-nav-item icon' title="Industrialization"><i class='fa fa-cogs'></i></div>
           </a>
           <div class='menu-nav-item line'></div>
         </div>
       </div>
+      <!-- Check -->
       <div class='menu-nav-box check'>
         <div class='menu-nav-title'>
           Check
