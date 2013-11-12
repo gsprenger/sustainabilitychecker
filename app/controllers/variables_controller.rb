@@ -2,15 +2,28 @@ class VariablesController < ApplicationController
   layout "app"
 
   ###
-  # Non visual methods:
-  ###
-  
+  # Helpers:
+  ###  
   # Initialize is not used because we need the session context
-  def init
-    @user = retrieve_user
+  def init part
+    # determine part
+    @part = part
+
+    # determine section
+    if part == 'demand'
+      sections = %w[demographics diet households] 
+    elsif part == 'supply'
+      sections = %w[services electricity fuels industrialization]
+    end
+    @section = params[:section]
+    @section = sections[0] unless 
+      sections.any? { |p| @section == p }
+
+    # determine session
+    @session = retrieve_session
   end
 
-  def retrieve_user
+  def retrieve_session
     session[:uid] || "None"
   end
 
@@ -18,37 +31,12 @@ class VariablesController < ApplicationController
   # Index actions: Demand Supply
   ###
   def demand
-    render nil
+    init 'demand'
+    render :demand
   end
 
   def supply
-    render nil
-  end
-
-  ###
-  # Demand views
-  ###
-  def demographics
-  end
-  
-  def diet
-  end
-  
-  def households
-  end
-
-  ###
-  # Supply views
-  ###
-  def services
-  end
-  
-  def electricity
-  end
-  
-  def fuels
-  end
-  
-  def industrialization
+    init 'supply'
+    render :supply
   end
 end

@@ -114,8 +114,28 @@ $check: #5cb85c;
 
 /** PAGES **/
 .cont {
-  margin: 0 90px;
+  //height: 100%;
+  margin: 5px 75px;
 }
+
+/** ACCORDION **/
+/**
+#accordion {
+  height: 100%;
+}
+
+.panel-group {
+  margin-bottom: 0;
+  border:none;
+  border-radius:0;
+}
+
+.panel-body {
+  padding:0;
+  margin:0;
+  border:none;
+}
+**/
 
 /** NAVIGATION ARROWS **/
 .navarrow {
@@ -146,3 +166,10 @@ $check: #5cb85c;
   i { right: 14px;}
 }
 
+.navarrow-off {
+  color: rgba(0, 0, 0, 0.2);
+  &:hover {
+    color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+}

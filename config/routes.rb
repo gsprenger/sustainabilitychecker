@@ -4,18 +4,13 @@ Sustainabilitychecker::Application.routes.draw do
   # Experience
   get "begin" => "experiment#begin"
   #   Demand pages
-    get "demand" => "variables#demographics"
-    get "demand/demographics" => "variables#demographics"
-    get "demand/diet" => "variables#diet"
-    get "demand/households" => "variables#households"
+  get "demand" => "variables#demand"
+  get "demand/:section" => "variables#demand"
   #   Supply pages
-    get "supply" => "variables#supply"
-    get "supply/services" => "variables#services"
-    get "supply/electricity" => "variables#electricity"
-    get "supply/fuels" => "variables#fuels"
-    get "supply/industrialization" => "variables#industrialization"
+  get "supply" => "variables#supply"
+  get "supply/:section" => "variables#supply"
   #   Check
-    get "check" => "check#index"
+  get "check" => "check#index"
 
   # StaticPages
   get "home" => "static_pages#home"

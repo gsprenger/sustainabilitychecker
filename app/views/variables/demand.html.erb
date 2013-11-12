@@ -1,0 +1,90 @@
+<div class='cont'>
+  <!-- navarrows -->
+  <div class='navarrow navarrow-left navarrow-off'>
+    <i class="fa fa-chevron-left fa-4x"></i>
+  </div>
+  <a href='<%= supply_path %>'>
+    <div class='navarrow navarrow-right'>
+      <i class="fa fa-chevron-right fa-4x"></i>
+    </div>    
+  </a>
+
+  <!-- accordion -->
+  <div class="panel-group" id="accordion">
+    <!-- demographics -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#demographics">
+            Demographics
+          </a>
+        </h4>
+      </div>
+      <div id="demographics" class="panel-collapse collapse<%= " in" if @section == 'demographics' %>">
+        <div class="panel-body">
+            Demographics
+        </div>
+      </div>
+    </div>
+    <!-- diet -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#diet">
+            Diet
+          </a>
+        </h4>
+      </div>
+      <div id="diet" class="panel-collapse collapse<%= " in" if @section == 'diet' %>">
+        <div class="panel-body">
+            Demographics
+        </div>
+      </div>
+    </div>
+    <!-- households -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#households">
+            Households
+          </a>
+        </h4>
+      </div>
+      <div id="households" class="panel-collapse collapse<%= " in" if @section == 'households' %>">
+        <div class="panel-body">
+            Demographics
+        </div>
+      </div>
+    </div>
+    <!-- services -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#services">
+            Services
+          </a>
+        </h4>
+      </div>
+      <div id="services" class="panel-collapse collapse<%= " in" if @section == 'services' %>">
+        <div class="panel-body">
+            Demographics
+        </div>
+      </div>
+    </div>
+    <!-- transportation -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a class="panel-toggle" data-toggle="collapse" data-parent="#accordion" href="#transportation">
+            Transportation
+          </a>
+        </h4>
+      </div>
+      <div id="transportation" class="panel-collapse collapse<%= " in" if @section == 'transportation' %>">
+        <div class="panel-body">
+            Demographics
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
