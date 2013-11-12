@@ -9,9 +9,9 @@
     </div>    
   </a>
 
-  <!-- accordion -->
+  <!-- Accordion -->
   <div class="panel-group" id="accordion">
-    <!-- demographics -->
+    <!-- Demographics -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -22,11 +22,66 @@
       </div>
       <div id="demographics" class="panel-collapse collapse<%= " in" if @section == 'demographics' %>">
         <div class="panel-body">
-            Demographics
+          <!-- Life expectancy -->
+          <h5>Life Expectancy</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-le" value="inf60">
+                  &lt;60
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-le" value="6080">
+                  60-80
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-le" value="sup80">
+                  &gt;80
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Age dependancy -->
+          <h5>Age Dependancy</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-ad" value="i40">
+                  &lt;40%
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-ad" value="405">
+                  40-55%
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="demo-ad" value="s55">
+                  &gt;55%
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- diet -->
+    <!-- Diet -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -37,11 +92,37 @@
       </div>
       <div id="diet" class="panel-collapse collapse<%= " in" if @section == 'diet' %>">
         <div class="panel-body">
-            Demographics
+          <!-- Diet -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="diet" value="veg">
+                  Vegan
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="diet" value="mid">
+                  50-50
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="diet" value="him">
+                  High Meat
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- households -->
+    <!-- Households -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -52,11 +133,45 @@
       </div>
       <div id="households" class="panel-collapse collapse<%= " in" if @section == 'households' %>">
         <div class="panel-body">
-            Demographics
+          <!-- Households -->
+          <div class="row">
+            <div class="col-md-3">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="households" value="sub">
+                  Suburban
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="households" value="urb">
+                  Urban
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="households" value="slu">
+                  Slums
+                </label>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="households" value="rur">
+                  Rural
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- services -->
+    <!-- Services -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -67,7 +182,118 @@
       </div>
       <div id="services" class="panel-collapse collapse<%= " in" if @section == 'services' %>">
         <div class="panel-body">
-            Demographics
+          <!-- Education -->
+          <h5>Education</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ed" value="low">
+                  Low
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ed" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ed" value="hig">
+                  High
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Healthcare -->
+          <h5>Healthcare</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-hc" value="low">
+                  Low
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-hc" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-hc" value="hig">
+                  High
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Leisure -->
+          <h5>Leisure, Medias</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-lm" value="low">
+                  Low
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-lm" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-lm" value="hig">
+                  High
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Others -->
+          <h5>Other Services ()</h5>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ot" value="low">
+                  Low
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ot" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="serv-ot" value="hig">
+                  High
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -82,7 +308,33 @@
       </div>
       <div id="transportation" class="panel-collapse collapse<%= " in" if @section == 'transportation' %>">
         <div class="panel-body">
-            Demographics
+          <!-- Transportations -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="transp" value="car">
+                  Cars
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="transp" value="pub">
+                  Public Tranportation
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="transp" value="ric">
+                  Bikes, Rickshaws...
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

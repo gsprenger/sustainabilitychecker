@@ -11,9 +11,9 @@ class VariablesController < ApplicationController
 
     # determine section
     if part == 'demand'
-      sections = %w[demographics diet households] 
+      sections = %w[demographics diet households services transportation] 
     elsif part == 'supply'
-      sections = %w[services electricity fuels industrialization]
+      sections = %w[agriculture energy industrialization]
     end
     @section = params[:section]
     @section = sections[0] unless 

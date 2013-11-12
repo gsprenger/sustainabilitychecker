@@ -11,9 +11,9 @@
     </div>    
   </a>
 
-<!-- accordion -->
+<!-- Accordion -->
   <div class="panel-group" id="accordion">
-    <!-- agriculture -->
+    <!-- Agriculture -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -24,10 +24,37 @@
       </div>
       <div id="agriculture" class="panel-collapse collapse<%= " in" if @section == 'agriculture' %>">
         <div class="panel-body">
+          <!-- Agriculture -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="agri" value="ind">
+                  Heavily Industrialized
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="agri" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="agri" value="lab">
+                  Labor-intensive
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- energy -->
+    <!-- Energy -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -38,10 +65,64 @@
       </div>
       <div id="energy" class="panel-collapse collapse<%= " in" if @section == 'energy' %>">
         <div class="panel-body">
+          <!-- Electricity -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-elec" value="ff">
+                  100% Fossile Fuels
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-elec" value="5050">
+                  50% Fossile Fuels, 50% Nuclear Energy
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-elec" value="ren">
+                  100% Renewable
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Fuels -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-fuels" value="ff">
+                  100% Fossile Fuels
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-fuels" value="5050">
+                  50% Fossile Fuels, 50% Biomass
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="energy-fuels" value="bio">
+                  100% Biomass
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- industrialization -->
+    <!-- Industrialization -->
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
@@ -52,6 +133,33 @@
       </div>
       <div id="industrialization" class="panel-collapse collapse<%= " in" if @section == 'industrialization' %>">
         <div class="panel-body">
+          <!-- Industrialization -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="indus" value="low">
+                  Low
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="indus" value="med">
+                  Medium
+                </label>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="indus" value="hig">
+                  Heavy
+                </label>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
