@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131030150859) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "experiments", force: true do |t|
     t.text     "json"
     t.datetime "created_at"
