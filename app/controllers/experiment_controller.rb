@@ -3,6 +3,6 @@ class ExperimentController < ApplicationController
     # Init params for new experience and redirects
     session[:uid] = "#1452"
     
-    redirect_to demand_path
+    redirect_to checker_path
   end
 end

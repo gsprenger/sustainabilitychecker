@@ -1,5 +1,5 @@
 /**
-* APP CSS. Applied to all app pages.
+* Checker. Applies to everything related to the first part of the Experiment.
 **/
 
 /** HEADER **/
@@ -112,23 +112,22 @@ $check: #5cb85c;
   }
 }
 
-/** PAGES **/
+/** VARIABLES **/
 #container {
   margin: 5px 75px;
+  
+  #accordion {
+    .panel-title, h5 {
+      font-weight: bold;
+    }
+  
+    .row {
+       text-align: center;
+    }
+  }
 }
 
-/** ACCORDION **/
-#accordion {
-  .panel-title, h5 {
-    font-weight: bold;
-  }
-
-  .row {
-     text-align: center;
-  }
-}
-
-/** NAVIGATION ARROWS **/
+// nav arrwos
 .navarrow {
   position: absolute;
   top: 65px;

@@ -1,16 +1,13 @@
 Sustainabilitychecker::Application.routes.draw do
   root "static_pages#home"
 
-  # Experience
+  # Experiments
   get "begin" => "experiment#begin"
-  #   Demand pages
-  get "demand" => "variables#demand"
-  get "demand/:section" => "variables#demand"
-  #   Supply pages
-  get "supply" => "variables#supply"
-  get "supply/:section" => "variables#supply"
-  #   Check
-  get "check" => "check#index"
+  #1: Checker
+    get "checker" => "checker#variables"
+    get "checker/check" => "checker#check"
+  #2: Sudoku
+  #3: Rekcehc
 
   # StaticPages
   get "home" => "static_pages#home"
