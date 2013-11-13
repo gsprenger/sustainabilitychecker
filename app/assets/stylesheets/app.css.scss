@@ -44,19 +44,19 @@ $check: #5cb85c;
       width: 520px;
         
       .demand { 
-        border-top: 2px solid $demand; 
+        border-top: 3px solid $demand; 
         .icon:hover{
           background-color: $demand; 
         }
       }
       .supply { 
-        border-top: 2px solid $supply;
+        border-top: 3px solid $supply;
         .icon:hover{
           background-color: $supply; 
         }
       }
       .check { 
-        border-top: 2px solid $check;
+        border-top: 3px solid $check;
         .icon:hover{
           background-color: $check; 
         }
