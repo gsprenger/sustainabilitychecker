@@ -112,83 +112,67 @@ $check: #5cb85c;
   }
 }
 
-/** VARIABLES **/
-#container {
-  margin: 5px 75px;
-  
-  #accordion {
-    .panel-title, h5 {
-      font-weight: bold;
-    }
-  
-    .row {
-       text-align: center;
-    }
-  }
-}
-
-// nav arrwos
-.navarrow {
-  position: absolute;
-  top: 65px;
-  bottom: 0;
-  width: 68px;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: rgba(0, 0, 0, 0.02);
-  &:hover {
-    color: rgba(0, 0, 0, 0.8);
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  
-  i {
-    position: absolute;
-    bottom: 50%;
-  }
-}
-
-.navarrow-left {
-  left: 0;
-  i { left: 14px;}
-}
-
-.navarrow-right {
-  right: 0;
-  i { right: 14px;}
-}
-
-.navarrow-off {
+/** PAGES **/
+#loading {
+  margin-top: 150px;
+  text-align: center;
   color: rgba(0, 0, 0, 0.2);
-  &:hover {
-    color: rgba(0, 0, 0, 0.2);
-    background-color: rgba(0, 0, 0, 0.02);
+   
+  .cogs {
+    width: 80px;
+    height: 95px;
+    margin: auto;
+    position: relative;
+    .fa-2x {
+      position: absolute;
+      top: 68px;
+      left: 33px;
+    }
+    .fa-3x {
+      position: absolute;
+      top: 39px;
+      left: 5px;
+      -moz-animation: spin 2s infinite linear reverse;
+      -o-animation: spin 2s infinite linear reverse;
+      -webkit-animation: spin 2s infinite linear reverse;
+      animation: spin 2s infinite linear reverse;
+    }
+    .fa-4x {
+      position: absolute;
+      top: 0px;
+      left: 28px;
+    }
   }
 }
 
-/** CHECK **/
-.cogs {
-  width: 125px;
-  margin: auto;
-  position: relative;
-
-  .fa-2x {
-    position: absolute;
-    top: 20px;
-    left: 38px;
+// Cards
+.card {
+  border: 1px solid #D7D7D7;
+  width: 550px;
+  color: #333;
+  margin: 15px auto;
+  
+  .card-header {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #E7E7E7;
+    padding: 5px 15px;
+    
+    .card-title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .card-question {
+    }
   }
-
-  .fa-3x {
-    position: absolute;
-    top: 36px;
-    left: 15px;
-    -moz-animation: spin 2s infinite linear reverse;
-    -o-animation: spin 2s infinite linear reverse;
-    -webkit-animation: spin 2s infinite linear reverse;
-    animation: spin 2s infinite linear reverse;
-  }
-
-  .fa-4x {
-    position: absolute;
-    top: 54px;
-    left: 38px;
+  
+  .card-body {
+    padding: 15px;
+    
+    .card-choice {
+      margin-bottom: 15px;
+    }
+    .card-subtitle {
+      font-style: italic;
+    }
   }
 }

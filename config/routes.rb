@@ -6,6 +6,7 @@ Sustainabilitychecker::Application.routes.draw do
   #1: Checker
     get "checker" => "checker#variables"
     get "checker/check" => "checker#check"
+    get "checker/cards" => "checker#load_cards"
   #2: Sudoku
   #3: Rekcehc
 
