@@ -45,9 +45,9 @@ load_progression = ->
   $('.icon').each (i, el) ->
     title = $(el).attr('title').toLowerCase()
     $(el).parent().on 'click', ->
-      $('.icon').removeClass 'active'
-      $(el).addClass 'active'
-      next_card(semantic_nav[title])
+      next_card semantic_nav[title], ->
+        update_progression()
+
   # place tooltips on header
   $('.icon').tooltip {placement: 'bottom'}
 
@@ -71,7 +71,8 @@ remove_loading = (main, callback) ->
 load_variables_view = ->
   # Attach events
   $('#nextbtn').on 'click', ->
-    next_card()
+    next_card false, ->
+      update_progression()
   # Load cards
   $.get '/checker/cards', (data) -> 
     insert_cards JSON.parse data
@@ -80,12 +81,12 @@ insert_cards = (cards) ->
   $('#cards').append card.html for card in cards
 
   # if progression null show first card
-  $('.icon').first().addClass 'active'
   remove_loading '#cards', ->
-    show_card '#'+ordered_nav[0]
+    show_card '#'+ordered_nav[0], ->
+      update_progression()
 
   
-next_card = (card) ->
+next_card = (card, callback) ->
   current = $('.card.active').attr 'id'
   if card
     next = card
@@ -93,7 +94,8 @@ next_card = (card) ->
     next = ordered_nav[ordered_nav.indexOf(current)+1]
   if next != 'undefined'
     hide_card '#'+current, ->
-      show_card '#'+next
+      show_card '#'+next, ->
+        callback() if callback
 
 hide_card = (id, callback) ->
   $(id).addClass 'bounceOutRight'
@@ -110,6 +112,13 @@ show_card = (id, callback) ->
     $(id).removeClass 'bounceInLeft' 
     callback() if callback
   , 1000
+
+update_progression = ->
+  $('.icon').removeClass 'active'
+  card = $('.card.active').attr 'id'
+  $('.icon').each (i, el) ->
+    if card == semantic_nav[$(el).attr('data-original-title').toLowerCase()]
+      $(el).addClass 'active'
 
 ###########
 ## CHECK ##
