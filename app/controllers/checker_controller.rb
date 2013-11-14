@@ -1,4 +1,6 @@
 class CheckerController < ApplicationController
+  require 'json'
+
   ###
   # Logic methods:
   ###  
@@ -9,18 +11,24 @@ class CheckerController < ApplicationController
   end
 
   def retrieve_session
-    session[:uid] || "None"
+    session[:uid] || 'None'
   end
   
   # Looks for all cards in the cards folder and return them
   def load_cards
-    html = ""
-    Dir.entries(Rails.root + "app/views/checker/cards/").each { |entry|
-      html += File.read(Rails.root + "app/views/checker/cards/" + entry) unless entry == '.' || entry == '..'
+    cards = []
+    Dir.entries(Rails.root + 'app/views/checker/cards/').each { |entry|
+      unless entry == '.' || entry == '..'
+        card = {
+          name: entry.chomp('.html.erb'),
+          html: File.read(Rails.root + 'app/views/checker/cards/' + entry) 
+        }
+        cards.push card
+      end
     }
     
     respond_to do |format|
-      format.js { render text: html }
+      format.js { render json: cards }
     end
   end
 
@@ -28,6 +36,7 @@ class CheckerController < ApplicationController
   # View methods: Variables, Check
   ###
   def variables
+    @nav = %w[demographics diet households services density agriculture energy industrialization]
   end
 
   def check

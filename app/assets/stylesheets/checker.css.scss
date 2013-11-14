@@ -1,6 +1,7 @@
 /**
 * Checker. Applies to everything related to the first part of the Experiment.
 **/
+html, body {overflow-x: none;}
 
 /** HEADER **/
 $demand: #f0ad4e;
@@ -45,19 +46,19 @@ $check: #5cb85c;
         
       .demand { 
         border-top: 3px solid $demand; 
-        .icon:hover{
+        .icon:hover, .active {
           background-color: $demand; 
         }
       }
       .supply { 
         border-top: 3px solid $supply;
-        .icon:hover{
+        .icon:hover, .active {
           background-color: $supply; 
         }
       }
       .check { 
         border-top: 3px solid $check;
-        .icon:hover{
+        .icon:hover, .active {
           background-color: $check; 
         }
       }
@@ -114,7 +115,7 @@ $check: #5cb85c;
 
 /** PAGES **/
 #loading {
-  margin-top: 150px;
+  margin-top: 50px;
   text-align: center;
   color: rgba(0, 0, 0, 0.2);
    
@@ -146,33 +147,36 @@ $check: #5cb85c;
 }
 
 // Cards
-.card {
-  border: 1px solid #D7D7D7;
-  width: 550px;
-  color: #333;
-  margin: 15px auto;
-  
-  .card-header {
-    background-color: #F8F8F8;
-    border-bottom: 1px solid #E7E7E7;
-    padding: 5px 15px;
+.card-container {
+  margin-top: 15px;
+  .card {
+    border: 1px solid #D7D7D7;
+    width: 550px;
+    color: #333;
+    margin: 15px auto;
     
-    .card-title {
-      font-weight: bold;
-      font-size: 1.2em;
+    .card-header {
+      background-color: #F8F8F8;
+      border-bottom: 1px solid #E7E7E7;
+      padding: 5px 15px;
+      
+      .card-title {
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+      .card-question {
+      }
     }
-    .card-question {
-    }
-  }
-  
-  .card-body {
-    padding: 15px;
     
-    .card-choice {
-      margin-bottom: 15px;
-    }
-    .card-subtitle {
-      font-style: italic;
+    .card-body {
+      padding: 15px;
+      
+      .card-choice {
+        margin-bottom: 15px;
+      }
+      .card-subtitle {
+        font-style: italic;
+      }
     }
   }
 }
