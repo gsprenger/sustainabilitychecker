@@ -2,7 +2,7 @@ Sustainabilitychecker::Application.routes.draw do
   root "static_pages#home"
 
   # Experiments
-  get "begin" => "experiment#begin"
+  get "begin" => "checker#variables"
   #1: Checker
     get "checker" => "checker#variables"
     get "checker/check" => "checker#check"
