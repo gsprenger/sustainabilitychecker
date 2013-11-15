@@ -36,7 +36,7 @@ class CheckerController < ApplicationController
   end
 
   def save_experiment
-    if e = Experiment.find_by id: params[:id]
+    if (e = Experiment.find_by id: params[:id])
       e.json = params[:json]
       success = e.save
     end
