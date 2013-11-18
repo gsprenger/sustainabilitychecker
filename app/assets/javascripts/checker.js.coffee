@@ -4,20 +4,24 @@
 ############
 ## COMMON ##
 ############
-# Nav tree
+## Animations for cards
+animIn  = 'fadeInLeft'
+animOut = 'fadeOutRight'
+
+## Navigation trees
 ordered_nav = [
-  'd_dem',
-  'd_die',
-  'd_hou',
-  'd_ser_edu', 
-  'd_ser_hea', 
-  'd_ser_lei', 
-  'd_ser_oth',
-  's_den',
-  's_agr',
-  's_ene_ele', 
-  's_ene_fue',
-  's_ind'
+  'd_dem',     # Demographics
+  'd_die',     # Diet
+  'd_hou',     # Households
+  'd_ser_edu', # Services / Education
+  'd_ser_hea', # Services / Healthcare
+  'd_ser_lei', # Services / Leisure
+  'd_ser_oth', # Services / Others
+  's_den',     # Density
+  's_agr',     # Agriculture
+  's_ene_ele', # Energy / Electricity
+  's_ene_fue', # Energy / Fuels
+  's_ind'      # Industrialization
 ]
 semantic_nav = {
   'demographics':      'd_dem',
@@ -39,15 +43,8 @@ ready = ->
   else
     load_check_view()
 
-## Loads things necessary to keep track of progression
+## 
 load_progression = ->
-  # place navigation on icons
-  $('.icon').each (i, el) ->
-    title = $(el).attr('title').toLowerCase()
-    $(el).parent().on 'click', ->
-      next_card semantic_nav[title], ->
-        update_progression()
-
   # place tooltips on header
   $('.icon').tooltip {placement: 'bottom'}
 
@@ -68,24 +65,32 @@ remove_loading = (main, callback) ->
 ###############  
 ## VARIABLES ##
 ###############
+## Attach card nav events on nav elements and loads cards
 load_variables_view = ->
-  # Attach events
+  # Nav icons
+  $('.icon').each (i, el) ->
+    title = $(el).attr('data-original-title').toLowerCase()
+    $(el).parent().on 'click', ->
+      next_card semantic_nav[title], ->
+        update_header()
+  # Next btn
   $('#nextbtn').on 'click', ->
     next_card false, ->
-      update_progression()
+      update_header()
   # Load cards
   $.get '/checker/cards', (data) -> 
     insert_cards JSON.parse data
 
+## Inserts given cards in the #cards container
 insert_cards = (cards) ->
   $('#cards').append card.html for card in cards
 
   # if progression null show first card
   remove_loading '#cards', ->
     show_card '#'+ordered_nav[0], ->
-      update_progression()
+      update_header()
 
-  
+## Switches current card with either the next card in nav or given card  
 next_card = (card, callback) ->
   current = $('.card.active').attr 'id'
   if card
@@ -97,27 +102,30 @@ next_card = (card, callback) ->
       show_card '#'+next, ->
         callback() if callback
 
+## Hides a card givin its #ID
 hide_card = (id, callback) ->
-  $(id).addClass 'bounceOutRight'
+  $(id).addClass animOut
   setTimeout ->
     $(id).addClass 'hidden'
-    $(id).removeClass 'active bounceOutRight'
+    $(id).removeClass 'active ' + animOut
     callback() if callback
   , 1000
 
+## Shows a card given its #ID
 show_card = (id, callback) ->
   $(id).removeClass 'hidden'
-  $(id).addClass 'active bounceInLeft' 
+  $(id).addClass 'active ' + animIn
   setTimeout ->
-    $(id).removeClass 'bounceInLeft' 
+    $(id).removeClass animIn 
     callback() if callback
   , 1000
 
-update_progression = ->
+## Updates
+update_header = ->
   $('.icon').removeClass 'active'
   card = $('.card.active').attr 'id'
   $('.icon').each (i, el) ->
-    if card == semantic_nav[$(el).attr('data-original-title').toLowerCase()]
+    if card[0..4] == semantic_nav[$(el).attr('data-original-title').toLowerCase()][0..4]
       $(el).addClass 'active'
 
 ###########
