@@ -8,6 +8,12 @@
 animIn  = 'fadeInLeft'
 animOut = 'fadeOutRight'
 
+## Progression Object
+prog = {
+  current: '',
+  values: []
+}
+
 ## Navigation trees
 ordered_nav = [
   'd_dem',     # Demographics
@@ -37,9 +43,9 @@ semantic_nav = {
 ## Main execution loop
 ready = ->
   load_progression()
-  # If cards exist we are in variables view
+  # If cards exist we are in cards view
   if $('#cards').length
-    load_variables_view()
+    load_cards_view()
   else
     load_check_view()
 
@@ -47,8 +53,13 @@ ready = ->
 load_progression = ->
   # place tooltips on header
   $('.icon').tooltip {placement: 'bottom'}
+  $.get '/checker/get_experiment?id='+$('#uid').text(), (data) -> 
+    exp = JSON.parse data
+    json = JSON.parse exp[0].json
+    prog.current = json.current
+    prog.values = json.values
 
-
+## Removes the loading screen and displays the given Element afterwards
 remove_loading = (main, callback) ->
   $('#loading').addClass 'fadeOut'
   setTimeout ->
@@ -63,10 +74,10 @@ remove_loading = (main, callback) ->
   , 800
 
 ###############  
-## VARIABLES ##
+## CARDS ##
 ###############
 ## Attach card nav events on nav elements and loads cards
-load_variables_view = ->
+load_cards_view = ->
   # Nav icons
   $('.icon').each (i, el) ->
     title = $(el).attr('data-original-title').toLowerCase()
@@ -127,6 +138,7 @@ update_header = ->
   $('.icon').each (i, el) ->
     if card[0..4] == semantic_nav[$(el).attr('data-original-title').toLowerCase()][0..4]
       $(el).addClass 'active'
+      false
 
 ###########
 ## CHECK ##

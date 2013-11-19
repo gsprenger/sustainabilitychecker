@@ -72,7 +72,7 @@
         <div class='menu-nav-content'>
           <div class='menu-nav-item line'>&nbsp;</div>
           <a href="/checker/check">
-            <div class='menu-nav-item icon' title="Check"><i class='fa fa-check'></i></div>
+            <div class='menu-nav-item checkicon' title="Check"><i class='fa fa-check'></i></div>
           </a>
           <div class='menu-nav-item space'>&nbsp;</div>
         </div>
@@ -82,4 +82,5 @@
   <div class='header-user'>
     ID: <%= @experiment.id %>
   </div>
+  <div id='uid' class='hidden'><%= @experiment.id %></div>
 </div>

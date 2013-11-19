@@ -19,7 +19,7 @@ class CheckerController < ApplicationController
         e = Experiment.find_by id: cookies[:uid]
       end 
       unless cookies[:uid] && e
-        e = Experiment.new(json: '{}')
+        e = Experiment.new(json: '{current: '', values: []}')
         e.save
       end
     end
@@ -31,7 +31,8 @@ class CheckerController < ApplicationController
   def get_experiment
     e = Experiment.find_by id: params[:id]
     respond_to do |format|
-      format.js { render json: e }
+      format.js { render json: [e] }
+      format.html { redirect_to checker_path }
     end
   end
 
@@ -41,7 +42,8 @@ class CheckerController < ApplicationController
       success = e.save
     end
     respond_to do |format|
-      format.js { render json: success }
+      format.js { render json: [success] }
+      format.html { redirect_to checker_path }
     end
   end
   
@@ -60,13 +62,14 @@ class CheckerController < ApplicationController
     
     respond_to do |format|
       format.js { render json: cards }
+      format.html { redirect_to checker_path }
     end
   end
 
   ###
-  # View methods: Variables, Check
+  # View methods: Cards, Check
   ###
-  def variables
+  def cards
     init_view
   end
 

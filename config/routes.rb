@@ -2,11 +2,13 @@ Sustainabilitychecker::Application.routes.draw do
   root "static_pages#home"
 
   # Experiments
-  get "begin" => "checker#variables"
+  get "begin" => "checker#cards"
   #1: Checker
-    get "checker" => "checker#variables"
+    get "checker" => "checker#cards"
     get "checker/check" => "checker#check"
     get "checker/cards" => "checker#load_cards"
+    get "checker/get_experiment" => "checker#get_experiment"
+    post "checker/save_experiment" => "checker#save_experiment"
   #2: Sudoku
   #3: Rekcehc
 
