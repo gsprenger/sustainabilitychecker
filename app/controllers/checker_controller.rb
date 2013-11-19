@@ -29,7 +29,7 @@ class CheckerController < ApplicationController
   end
   
   def new_log
-    e = Experiment.new(json: '{current: '', values: []}')
+    e = Experiment.new(json: '{"current": "", "values": []}')
     e.save
     return e
   end
