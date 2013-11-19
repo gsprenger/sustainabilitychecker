@@ -10,21 +10,27 @@ class CheckerController < ApplicationController
   end
 
   def log_in
-    if session[:uid] 
-      e = Experiment.find_by id: session[:uid]
+    if (e = log_with_session)
+    elsif (e = log_with_cookie)
+    else 
+      e = new_log
     end
-    # if no session or cant find the one recorded in the session: check cookies
-    unless session[:uid] && e
-      if cookies[:uid]
-        e = Experiment.find_by id: cookies[:uid]
-      end 
-      unless cookies[:uid] && e
-        e = Experiment.new(json: '{current: '', values: []}')
-        e.save
-      end
-    end
-
+    # set session and cookie for later use
     cookies.permanent[:uid] = session[:uid] = e.id
+    return e
+  end
+  
+  def log_with_session
+    session[:uid] ? Experiment.find_by(id: session[:uid]) : false
+  end
+  
+  def log_with_cookie
+    cookies[:uid] ? Experiment.find_by(id: cookies[:uid]) : false
+  end
+  
+  def new_log
+    e = Experiment.new(json: '{current: '', values: []}')
+    e.save
     return e
   end
 
