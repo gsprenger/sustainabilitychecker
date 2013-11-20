@@ -8,10 +8,11 @@
 animIn  = 'fadeInLeft'
 animOut = 'fadeOutRight'
 
-## Progression Object
+## Progression Object and ID
+exp_id = 0;
 prog = {
-  current: '',
-  values: []
+  "current": '',
+  "values": []
 }
 
 ## Navigation trees
@@ -49,11 +50,12 @@ ready = ->
   else
     load_check_view()
 
-## 
+## Gets ID and loads prog with Ajax call
 load_progression = ->
+  exp_id = $('#uid').text()
   # place tooltips on header
   $('.icon').tooltip {placement: 'bottom'}
-  $.get '/checker/get_experiment?id='+$('#uid').text(), (data) -> 
+  $.get '/checker/get_experiment?id='+exp_id, (data) -> 
     exp = JSON.parse data
     json = JSON.parse exp[0].json
     prog.current = json.current
@@ -78,7 +80,7 @@ remove_loading = (main, callback) ->
 ###############
 ## Attach card nav events on nav elements and loads cards
 load_cards_view = ->
-  # Nav icons
+  # Navigation icons on header
   $('.icon').each (i, el) ->
     title = $(el).attr('data-original-title').toLowerCase()
     $(el).parent().on 'click', ->
@@ -92,13 +94,21 @@ load_cards_view = ->
   $.get '/checker/cards', (data) -> 
     insert_cards JSON.parse data
 
-## Inserts given cards in the #cards container
+## Inserts given cards in the #cards container and attach click events
 insert_cards = (cards) ->
   $('#cards').append card.html for card in cards
-
+  # get all data-cv-value elements and attach click events
+  $('[data-cv-value]').each (i, el) ->
+    $(el).parent().on 'click', ->
+      item = {
+        "name": $(el).closest('.card').attr('id')
+        "value": $(el).attr('data-cv-value')
+      }
+      update_progression item
   # if progression null show first card
   remove_loading '#cards', ->
-    show_card '#'+ordered_nav[0], ->
+    card = prog.current || ordered_nav[0]
+    show_card '#'+card, ->
       update_header()
 
 ## Switches current card with either the next card in nav or given card  
@@ -139,6 +149,23 @@ update_header = ->
     if card[0..4] == semantic_nav[$(el).attr('data-original-title').toLowerCase()][0..4]
       $(el).addClass 'active'
       false
+      
+##Updates the prog object and runs a save
+update_progression = (item) ->
+  prog.current = ordered_nav[ordered_nav.indexOf(item.name)+1]
+  prog.values.push(item)
+  save_progression()
+
+## Saves the prog object in the db
+save_progression = ->
+  data = {
+    "id": exp_id
+    "json": JSON.stringify prog
+  }
+  save_request = $.post '/checker/save_experiment', data
+  save_request.success (data) ->
+    $('.header-user').append 'Saved! '
+
 
 ###########
 ## CHECK ##

@@ -48,7 +48,7 @@ class CheckerController < ApplicationController
       success = e.save
     end
     respond_to do |format|
-      format.js { render json: [success] }
+      format.js { render json: [success: success] }
       format.html { redirect_to checker_path }
     end
   end
