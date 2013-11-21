@@ -12,12 +12,13 @@ class Checker
 
   launch: ->
     if (@progression.current != 'check')
+      @removeAndDisplay(@loadingContainer, @cardsContainer)
       @launchCards()
     else
-      @launchCheck()
+      @removeAndDisplay(@loadingContainer, @checkContainer)
+      @navigation.goToCheck()
 
   launchCards: ->
-    @removeLoading(@cardsContainer)
     # accounts for the time it take to remove the loading screen
     setTimeout =>
       @navigation.goTo @getCardBySlug @progression.current
@@ -44,24 +45,28 @@ class Checker
       return card if card.slug == slug
 
   launchCheck: ->
-    @removeLoading(@checkContainer)
+    json = ''
+    for val in @progression.values
+      json += 'Name: ' + val.name + '\n'
+      json += 'Value: ' + val.value + '\n\n'
+    $('.checkvar').text(json)
 
-  removeLoading: (el, flag1, flag2) ->
+  removeAndDisplay: (elA, elB, flag1, flag2) ->
     if !flag1
-      $(@loadingContainer).addClass 'fadeOut'
+      $(elA).addClass 'fadeOut'
       setTimeout =>
-        @removeLoading el, true
+        @removeAndDisplay elA, elB, true
       , 800
     else if !flag2
-      $(@loadingContainer).addClass 'hidden'
-      $(@loadingContainer).removeClass 'fadeOut'
-      $(el).removeClass 'hidden'
-      $(el).addClass 'fadeIn'
+      $(elA).addClass 'hidden'
+      $(elA).removeClass 'fadeOut'
+      $(elB).removeClass 'hidden'
+      $(elB).addClass 'fadeIn'
       setTimeout =>
-        @removeLoading el, true, true
+        @removeAndDisplay elA, elB, true, true
       , 800
     else
-      $(el).removeClass 'fadeIn'
+      $(elB).removeClass 'fadeIn'
 
 
 ## Card Class ##
@@ -115,7 +120,7 @@ class Progression
           break
       # attach a click event to 
       $(el).on 'click', =>
-        $('.card-choice-cell.active').removeClass('active')
+        $('#'+name+' .card-choice-cell.active').removeClass('active')
         $(el).addClass('active')
         @current = name
         item = {
@@ -196,12 +201,23 @@ class Navigation
     $(@navIcons+'[data-original-title]').filter(->
       $(this).attr('data-original-title').toLowerCase() == card.name
     ).addClass('active')
+    # if check is shown hide it before
+    if !$(@app.checkContainer).hasClass('hidden')
+      @app.removeAndDisplay @app.checkContainer, @app.cardsContainer
     @app.showCard card.slug
 
-  goToCheck: ->
+  goToCheck: (flag) ->
+    if $('.card.active').length && !flag
+      card = @app.getCardBySlug $('.card.active').attr('id')
+      card.hide()
+      setTimeout =>
+        @goToCheck(true)
+      , 800
+      return
     $(@navIcons+','+@checkIcon).removeClass 'active'
     $(@checkIcon).addClass 'active'
-    @app.launchCheck
+    @app.removeAndDisplay @app.cardsContainer, @app.checkContainer
+    @app.launchCheck()
 
 ## Main execution ##
 ready = ->
