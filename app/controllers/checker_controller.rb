@@ -58,11 +58,14 @@ class CheckerController < ApplicationController
     cards = []
     Dir.entries(Rails.root + 'app/views/checker/cards/').each { |entry|
       unless entry == '.' || entry == '..'
+        /([^\.]+)-([^\.]+)-([^\.]+)\.html\.erb/.match(entry)
         card = {
-          name: entry.chomp('.html.erb'),
+          id: $1,
+          name: $2,
+          slug: $3,
           html: File.read(Rails.root + 'app/views/checker/cards/' + entry) 
         }
-        cards.push card
+        cards[$1.to_i-1] = card
       end
     }
     
@@ -83,3 +86,4 @@ class CheckerController < ApplicationController
     init_view
   end
 end
+

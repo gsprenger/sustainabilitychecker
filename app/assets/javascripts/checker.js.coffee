@@ -1,176 +1,180 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-############
-## COMMON ##
-############
-## Animations for cards
-animIn  = 'fadeInLeft'
-animOut = 'fadeOutRight'
+## Application Class ##
+class Checker
+  loadingContainer: '#loading'
+  cardsContainer:   '#cards'
 
-## Progression Object and ID
-exp_id = 0;
-prog = {
-  "current": '',
-  "values": []
-}
+  constructor: ->
 
-## Navigation trees
-ordered_nav = [
-  'd_dem',     # Demographics
-  'd_die',     # Diet
-  'd_hou',     # Households
-  'd_ser_edu', # Services / Education
-  'd_ser_hea', # Services / Healthcare
-  'd_ser_lei', # Services / Leisure
-  'd_ser_oth', # Services / Others
-  's_den',     # Density
-  's_agr',     # Agriculture
-  's_ene_ele', # Energy / Electricity
-  's_ene_fue', # Energy / Fuels
-  's_ind'      # Industrialization
-]
-semantic_nav = {
-  'demographics':      'd_dem',
-  'diet':              'd_die',
-  'households':        'd_hou',
-  'services':          'd_ser_edu', 
-  'density':           's_den',
-  'agriculture':       's_agr',
-  'energy':            's_ene_ele', 
-  'industrialization': 's_ind'
-}
+  launch: ->
+    if ($(@cardsContainer).length)
+      @launchCards()
+    else
+      @launchCheck()
 
-## Main execution loop
-ready = ->
-  load_progression()
-  # If cards exist we are in cards view
-  if $('#cards').length
-    load_cards_view()
-  else
-    load_check_view()
+  removeLoading: (el, flag1, flag2) ->
+    if !flag1
+      $(@loadingContainer).addClass 'fadeOut'
+      setTimeout =>
+        @removeLoading el, true
+      , 800
+    else if !flag2
+      $(@loadingContainer).addClass 'hidden'
+      $(@loadingContainer).removeClass 'fadeOut'
+      $(el).removeClass 'hidden'
+      $(el).addClass 'fadeIn'
+      setTimeout =>
+        @removeLoading el, true, true
+      , 800
+    else
+      $(el).removeClass 'fadeIn'
 
-## Gets ID and loads prog with Ajax call
-load_progression = ->
-  exp_id = $('#uid').text()
-  # place tooltips on header
-  $('.icon').tooltip {placement: 'bottom'}
-  $.get '/checker/get_experiment?id='+exp_id, (data) -> 
-    exp = JSON.parse data
-    json = JSON.parse exp[0].json
-    prog.current = json.current
-    prog.values = json.values
+  launchCards: ->
+    @cards = Card.getAll()
+    $(@cardsContainer).append card.html for card in @cards
+    @progression = new Progression(this)
+    @navigation = new Navigation(this)
+    @removeLoading(@cardsContainer)
+    # accounts for the time it take to remove the loading screen
+    setTimeout =>
+      @navigation.goTo @getCardBySlug @progression.current
+    , 1600
 
-## Removes the loading screen and displays the given Element afterwards
-remove_loading = (main, callback) ->
-  $('#loading').addClass 'fadeOut'
-  setTimeout ->
-    $('#loading').addClass 'hidden'
-    $('#loading').removeClass 'fadeOut'
-    $(main).removeClass 'hidden'
-    $(main).addClass 'fadeIn'
-    setTimeout ->
-      $(main).removeClass 'fadeIn'
-      callback() if callback
+  showCard: (slug, flag) ->
+    if $('.card.active').length 
+      prevCard = @getCardBySlug $('.card.active').attr('id')
+      prevCard.hide()
+      # this is here to give enough time for the fadeOut animation to perform
+      setTimeout =>
+        @showCard slug, true
+      , 800
+    else
+      card = @getCardBySlug(slug)
+      card.show()
+
+  getCardByName: (name) ->
+    for card in @cards
+      return card if card.name == name
+
+  getCardBySlug: (slug) ->
+    for card in @cards
+      return card if card.slug == slug
+
+  launchCheck: ->
+
+
+## Card Class ##
+class Card
+  animIn: 'fadeInLeft'
+  animOut: 'fadeOutRight'
+
+  constructor: (options) ->
+    {@id, @name, @slug, @html} = options
+
+  show: ->
+    $('#'+@slug).removeClass 'hidden'
+    $('#'+@slug).addClass 'active ' + @animIn
+    setTimeout =>
+      $('#'+@slug).removeClass @animIn
     , 800
-  , 800
 
-###############  
-## CARDS ##
-###############
-## Attach card nav events on nav elements and loads cards
-load_cards_view = ->
-  # Navigation icons on header
-  $('.icon').each (i, el) ->
-    title = $(el).attr('data-original-title').toLowerCase()
-    $(el).parent().on 'click', ->
-      next_card semantic_nav[title], ->
-        update_header()
-  # Next btn
-  $('#nextbtn').on 'click', ->
-    next_card false, ->
-      update_header()
-  # Load cards
-  $.get '/checker/cards', (data) -> 
-    insert_cards JSON.parse data
+  hide: ->
+    $('#'+@slug).addClass @animOut
+    setTimeout =>
+      $('#'+@slug).addClass 'hidden'
+      $('#'+@slug).removeClass 'active ' + @animOut
+    , 800
 
-## Inserts given cards in the #cards container and attach click events
-insert_cards = (cards) ->
-  $('#cards').append card.html for card in cards
-  # get all data-cv-value elements and attach click events
-  $('[data-cv-value]').each (i, el) ->
-    $(el).parent().on 'click', ->
-      item = {
-        "name": $(el).closest('.card').attr('id')
-        "value": $(el).attr('data-cv-value')
-      }
-      update_progression item
-  # if progression null show first card
-  remove_loading '#cards', ->
-    card = prog.current || ordered_nav[0]
-    show_card '#'+card, ->
-      update_header()
+  @getAll: ->
+    cardsRaw = JSON.parse $.ajax({
+      type:  'GET',
+      url:   '/checker/cards',
+      async: false
+    }).responseText
+    cards = []
+    cards.push(new Card(cardRaw)) for cardRaw in cardsRaw
+    return cards
 
-## Switches current card with either the next card in nav or given card  
-next_card = (card, callback) ->
-  current = $('.card.active').attr 'id'
-  if card
-    next = card
-  else 
-    next = ordered_nav[ordered_nav.indexOf(current)+1]
-  if next != 'undefined'
-    hide_card '#'+current, ->
-      show_card '#'+next, ->
-        callback() if callback
+## Progression Class ##
+class Progression
+  constructor: (@app) ->
+    @id = $('#uid').text()
+    @load()
+    @setup()
 
-## Hides a card givin its #ID
-hide_card = (id, callback) ->
-  $(id).addClass animOut
-  setTimeout ->
-    $(id).addClass 'hidden'
-    $(id).removeClass 'active ' + animOut
-    callback() if callback
-  , 1000
+  setup: ->
+    $('[data-cv-value]').each (i, el) =>
+      # get the card they belong to and their value
+      name = $(el).closest('.card').attr('id')
+      value = $(el).attr('data-cv-value')
+      # attach a click event to 
+      $(el).parent().on 'click', =>
+        item = {
+          "name": name
+          "value": value
+        }
+        @addToValues item
+        @save()
 
-## Shows a card given its #ID
-show_card = (id, callback) ->
-  $(id).removeClass 'hidden'
-  $(id).addClass 'active ' + animIn
-  setTimeout ->
-    $(id).removeClass animIn 
-    callback() if callback
-  , 1000
+  addToValues: (item) ->
+    console.log item
+    for val in @values
+      # if item already exists: update it
+      if val.name == item.name
+        console.log 'updating value'
+        val.value == item.value
+        return
+    # if item not found add it
+    console.log 'creating new item'
+    @values.push item
 
-## Updates
-update_header = ->
-  $('.icon').removeClass 'active'
-  card = $('.card.active').attr 'id'
-  $('.icon').each (i, el) ->
-    if card[0..4] == semantic_nav[$(el).attr('data-original-title').toLowerCase()][0..4]
-      $(el).addClass 'active'
-      false
-      
-##Updates the prog object and runs a save
-update_progression = (item) ->
-  prog.current = ordered_nav[ordered_nav.indexOf(item.name)+1]
-  prog.values.push(item)
-  save_progression()
+  load: ->
+    data = JSON.parse $.ajax({
+      type:  'GET',
+      url:   '/checker/get_experiment?id='+@id,
+      async: false
+    }).responseText
+    exp = JSON.parse data[0].json
+    @current = exp.current || @app.cards[0].slug
+    @values = exp.values
 
-## Saves the prog object in the db
-save_progression = ->
-  data = {
-    "id": exp_id
-    "json": JSON.stringify prog
-  }
-  save_request = $.post '/checker/save_experiment', data
-  save_request.success (data) ->
-    $('.header-user').append 'Saved! '
+  save: ->
+    json = {
+      "current": @current
+      "values":  @values
+    }
+    data = {
+      "id": @id
+      "json": JSON.stringify json
+    }
+    $.post '/checker/save_experiment', data
 
+## Navigation Class ##
+class Navigation
+  navIcons: '.icon'
 
-###########
-## CHECK ##
-###########
-load_check_view = ->
-  
+  constructor: (@app) ->
+    @setup()
+
+  setup: ->
+    # Initiate Bootstrap tooltips
+    $('.icon,.checkicon').tooltip {placement: 'bottom'}
+    # Set navigation click events on header icons
+    $(@navIcons).each (i, el) =>
+      $(el).parent().on 'click', =>
+        @goTo @app.getCardByName $(el).attr('data-original-title').toLowerCase()
+
+  goTo: (card) ->
+    # TODO go only if progression allows it
+    $('.icon').removeClass 'active'
+    $('.icon[data-original-title]').filter(->
+      $(this).attr('data-original-title').toLowerCase() == card.name
+    ).addClass('active')
+    @app.showCard card.slug
+
+## Main execution ##
+ready = ->
+  app = new Checker()
+  app.launch()
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
