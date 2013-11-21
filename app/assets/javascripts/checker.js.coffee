@@ -110,6 +110,8 @@ class Progression
       value = $(el).attr('data-cv-value')
       # attach a click event to 
       $(el).parent().on 'click', =>
+        $('.card-choice-item.active').removeClass('active')
+        $(el).addClass('active')
         @current = name
         item = {
           "name": name
