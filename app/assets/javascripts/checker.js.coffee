@@ -120,6 +120,12 @@ class Progression
         @addToValues item
         @next()
         @save()
+        setTimeout =>
+          if @current == 'check' 
+            @app.navigation.goToCheck()
+          else
+            @app.navigation.goTo @app.getCardBySlug @current
+        , 500
 
   next: ->
     index = parseInt(@app.getCardBySlug(@current).id)
@@ -186,6 +192,11 @@ class Navigation
       $(this).attr('data-original-title').toLowerCase() == card.name
     ).addClass('active')
     @app.showCard card.slug
+
+  goToCheck: ->
+    $(@navIcons+','+@checkIcon).removeClass 'active'
+    $(@checkIcon).addClass 'active'
+    @app.launchCheck
 
 ## Main execution ##
 ready = ->

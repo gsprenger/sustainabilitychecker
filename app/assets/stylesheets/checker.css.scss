@@ -179,7 +179,9 @@ $check: #5cb85c;
 
         .card-choice-item {
           height: 60px;
-          line-height: 60px;
+          width: inherit;
+          display: table-cell; 
+          vertical-align: middle;
           font-weight: bold;
           cursor: pointer;
           border-bottom: 2px solid #FFF;
