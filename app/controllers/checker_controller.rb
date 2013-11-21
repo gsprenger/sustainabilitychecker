@@ -11,16 +11,16 @@ class CheckerController < ApplicationController
       e = new_log
     end
     # set session and cookie for later use
-    cookies.permanent[:uid] = session[:uid] = e.id
+    cookies.permanent[:expid] = session[:expid] = e.id
     return e
   end
   
   def log_with_session
-    session[:uid] ? Experiment.find_by(id: session[:uid]) : false
+    session[:expid] ? Experiment.find_by(id: session[:expid]) : false
   end
   
   def log_with_cookie
-    cookies[:uid] ? Experiment.find_by(id: cookies[:uid]) : false
+    cookies[:expid] ? Experiment.find_by(id: cookies[:expid]) : false
   end
   
   def new_log
