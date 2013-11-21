@@ -108,6 +108,11 @@ class Progression
       # get the card they belong to and their value
       name = $(el).closest('.card').attr('id')
       value = $(el).attr('data-cv-value')
+      # check if selected in progression and activate it
+      for val in @values
+        if val.name == name && val.value == value
+          $(el).addClass('active')
+          break
       # attach a click event to 
       $(el).parent().on 'click', =>
         $('.card-choice-item.active').removeClass('active')
