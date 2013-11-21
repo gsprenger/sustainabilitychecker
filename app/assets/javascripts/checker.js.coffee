@@ -114,8 +114,8 @@ class Progression
           $(el).addClass('active')
           break
       # attach a click event to 
-      $(el).parent().on 'click', =>
-        $('.card-choice-item.active').removeClass('active')
+      $(el).on 'click', =>
+        $('.card-choice-cell.active').removeClass('active')
         $(el).addClass('active')
         @current = name
         item = {
@@ -130,7 +130,7 @@ class Progression
             @app.navigation.goToCheck()
           else
             @app.navigation.goTo @app.getCardBySlug @current
-        , 500
+        , 250
 
   next: ->
     index = parseInt(@app.getCardBySlug(@current).id)
