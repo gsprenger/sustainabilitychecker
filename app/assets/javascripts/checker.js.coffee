@@ -2,37 +2,21 @@
 class Checker
   loadingContainer: '#loading'
   cardsContainer:   '#cards'
+  checkContainer:   '#check'
 
   constructor: ->
-
-  launch: ->
-    if ($(@cardsContainer).length)
-      @launchCards()
-    else
-      @launchCheck()
-
-  removeLoading: (el, flag1, flag2) ->
-    if !flag1
-      $(@loadingContainer).addClass 'fadeOut'
-      setTimeout =>
-        @removeLoading el, true
-      , 800
-    else if !flag2
-      $(@loadingContainer).addClass 'hidden'
-      $(@loadingContainer).removeClass 'fadeOut'
-      $(el).removeClass 'hidden'
-      $(el).addClass 'fadeIn'
-      setTimeout =>
-        @removeLoading el, true, true
-      , 800
-    else
-      $(el).removeClass 'fadeIn'
-
-  launchCards: ->
     @cards = Card.getAll()
     $(@cardsContainer).append card.html for card in @cards
     @progression = new Progression(this)
     @navigation = new Navigation(this)
+
+  launch: ->
+    if (@progression.current != 'check')
+      @launchCards()
+    else
+      @launchCheck()
+
+  launchCards: ->
     @removeLoading(@cardsContainer)
     # accounts for the time it take to remove the loading screen
     setTimeout =>
@@ -60,6 +44,24 @@ class Checker
       return card if card.slug == slug
 
   launchCheck: ->
+    @removeLoading(@checkContainer)
+
+  removeLoading: (el, flag1, flag2) ->
+    if !flag1
+      $(@loadingContainer).addClass 'fadeOut'
+      setTimeout =>
+        @removeLoading el, true
+      , 800
+    else if !flag2
+      $(@loadingContainer).addClass 'hidden'
+      $(@loadingContainer).removeClass 'fadeOut'
+      $(el).removeClass 'hidden'
+      $(el).addClass 'fadeIn'
+      setTimeout =>
+        @removeLoading el, true, true
+      , 800
+    else
+      $(el).removeClass 'fadeIn'
 
 
 ## Card Class ##
@@ -108,23 +110,29 @@ class Progression
       value = $(el).attr('data-cv-value')
       # attach a click event to 
       $(el).parent().on 'click', =>
+        @current = name
         item = {
           "name": name
           "value": value
         }
         @addToValues item
+        @next()
         @save()
 
+  next: ->
+    index = parseInt(@app.getCardBySlug(@current).id)
+    if @app.cards.length <= index
+      @current = 'check'
+    else 
+      @current = @app.cards[index].slug
+
   addToValues: (item) ->
-    console.log item
     for val in @values
       # if item already exists: update it
       if val.name == item.name
-        console.log 'updating value'
         val.value == item.value
         return
     # if item not found add it
-    console.log 'creating new item'
     @values.push item
 
   load: ->
@@ -151,6 +159,7 @@ class Progression
 ## Navigation Class ##
 class Navigation
   navIcons: '.icon'
+  checkIcon: '.checkicon'
 
   constructor: (@app) ->
     @setup()
@@ -162,11 +171,16 @@ class Navigation
     $(@navIcons).each (i, el) =>
       $(el).parent().on 'click', =>
         @goTo @app.getCardByName $(el).attr('data-original-title').toLowerCase()
+    # Set navigation on check icon
+    $(@checkIcon).parent().on 'click', =>
+      $(@navIcons).removeClass 'active'
+      $(@checkIcon).addClass('active')
+      @app.launchCheck()
 
   goTo: (card) ->
     # TODO go only if progression allows it
-    $('.icon').removeClass 'active'
-    $('.icon[data-original-title]').filter(->
+    $(@navIcons+','+@checkIcon).removeClass 'active'
+    $(@navIcons+'[data-original-title]').filter(->
       $(this).attr('data-original-title').toLowerCase() == card.name
     ).addClass('active')
     @app.showCard card.slug

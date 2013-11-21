@@ -4,11 +4,6 @@ class CheckerController < ApplicationController
   ###
   # Logic methods:
   ###  
-  # Initialize is not used because we need the session context
-  def init_view
-    @experiment = log_in
-  end
-
   def log_in
     if (e = log_with_session)
     elsif (e = log_with_cookie)
@@ -78,12 +73,8 @@ class CheckerController < ApplicationController
   ###
   # View methods: Cards, Check
   ###
-  def cards
-    init_view
-  end
-
-  def check
-    init_view
+  def index
+    @experiment = log_in
   end
 end
 

@@ -2,10 +2,9 @@ Sustainabilitychecker::Application.routes.draw do
   root "static_pages#home"
 
   # Experiments
-  get "begin" => "checker#cards"
+  get "begin" => "checker#index"
   #1: Checker
-    get "checker" => "checker#cards"
-    get "checker/check" => "checker#check"
+    get "checker" => "checker#index"
     get "checker/cards" => "checker#load_cards"
     get "checker/get_experiment" => "checker#get_experiment"
     post "checker/save_experiment" => "checker#save_experiment"
