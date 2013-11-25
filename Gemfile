@@ -14,7 +14,7 @@ gem 'turbolinks', '1.3.1'
 gem 'jbuilder'
 
 gem 'mail_form', '1.5.0'
-gem 'animate-rails'
+gem 'animate-rails', '1.0.4'
 
 group :c9 do
   gem 'mysql2'
