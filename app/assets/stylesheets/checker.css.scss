@@ -171,9 +171,7 @@ $check: #5cb85c;
       }
     }
     
-    .card-body {
-      padding-bottom: 15px;
-      
+    .card-body {      
       .card-choice {
         display: table;
         height: 70px;
@@ -213,6 +211,7 @@ $check: #5cb85c;
       }
 
       .card-subtitle {
+        padding: 15px;
         font-style: italic;
         text-align: center;
       }
