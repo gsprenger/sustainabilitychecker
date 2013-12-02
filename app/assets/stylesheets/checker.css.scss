@@ -171,8 +171,10 @@ $check: #5cb85c;
       }
     }
     
-    .card-body {      
-      .card-choice {
+    .card-body {
+      // CHOICE COMPONENTS: several ways to display the card-choice container
+      // GRID: Selection in grid of 3 (lg4) or 4 (lg3) options aligned on a row.      
+      .choice-grid {
         display: table;
         height: 70px;
         width: 100%;
@@ -180,10 +182,10 @@ $check: #5cb85c;
         border-spacing: 5px;
         margin-bottom: 15px;
 
-        .card-choice-row {
+        .choice-grid-row {
           display: table-row;
 
-          .card-choice-cell {
+          .lg3, .lg4 {
             display: table-cell; 
             font-weight: bold;
             cursor: pointer;
@@ -194,18 +196,18 @@ $check: #5cb85c;
               border-bottom: 2px solid #428BCA;
             }
           }
+          .lg3 {
+            width: 25%;
+          }   
+          .lg4 {
+            width: 33.33%;
+          }
           .active {
             background-color: #F7F7F7;
             border-bottom: 2px solid #5cb85c;
             &:hover { 
               border-bottom: 2px solid #5cb85c;
             }
-          }
-          .lg3 {
-            width: 25%;
-          }   
-          .lg4 {
-            width: 33.33%;
           }   
         }
       }
