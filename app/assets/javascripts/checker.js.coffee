@@ -184,7 +184,7 @@ class Navigation
 
   setup: ->
     # Initiate Bootstrap tooltips
-    $('.icon,.checkicon').tooltip {placement: 'bottom'}
+    $('.btooltip').tooltip {placement: 'bottom'}
     # Set navigation click events on header icons
     $(@navIcons).each (i, el) =>
       $(el).parent().on 'click', =>
