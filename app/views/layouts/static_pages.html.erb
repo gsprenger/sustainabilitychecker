@@ -3,9 +3,11 @@
 <head>
   <title>The Sustainability Sudoku</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    params[:controller], "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "bootstrap", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    params[:controller], "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
   <%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>
   <%= favicon_link_tag %>
   <%= csrf_meta_tags %>

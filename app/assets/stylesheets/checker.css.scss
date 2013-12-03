@@ -212,6 +212,39 @@ $check: #5cb85c;
         }
       }
 
+      // SOLO SLIDER. Sliders that are independant
+      .choice-soloslider {
+        padding: 15px;
+        h3 {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .choice-ss-body {
+          margin: 20px 0px;
+          .choice-ss-slider {
+            width: 90%;
+            float: left;
+          }
+          .choice-ss-value {
+            width: 30px;
+          }
+        }
+      }
+
+      // SERVICE SLIDER. Sliders that are specific to Services
+      .choice-services {
+        padding: 10px 0px;
+        .choice-ss-body {
+          .choice-ss-slider {
+            margin: auto;
+          }
+          .choice-ss-value {
+            padding-top: 10px;
+            text-align: center;
+          }
+        }
+      }
+
       .card-subtitle {
         padding: 15px;
         font-style: italic;
