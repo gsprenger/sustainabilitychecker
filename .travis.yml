@@ -5,7 +5,7 @@ rvm:
 before_script:
   - psql -c "CREATE USER sustainabilitychecker WITH SUPERUSER PASSWORD '';" -U postgres
   - cp config/database.yml.example config/database.yml
-  - rake db:create
-  - rake db:migrate
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
 
 
