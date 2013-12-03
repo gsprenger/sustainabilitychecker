@@ -20,7 +20,7 @@ class window.Card
       $('#'+@slug).removeClass 'active ' + @animOut
     , 800
 
-  @getAll: ->
+  @getCards: ->
     cardsRaw = JSON.parse $.ajax({
       type:  'GET',
       url:   '/checker/cards',

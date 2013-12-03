@@ -4,7 +4,7 @@ class window.App
   checkContainer:   '#check'
 
   constructor: ->
-    Card.cards = Card.getAll()
+    Card.cards = Card.getCards()
     $(@cardsContainer).append card.html for card in Card.cards
     @progression = new Progression(this)
     @navigation = new Navigation(this)
