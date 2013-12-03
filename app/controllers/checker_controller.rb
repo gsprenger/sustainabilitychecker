@@ -32,7 +32,7 @@ class CheckerController < ApplicationController
   def get_experiment
     e = Experiment.find_by id: params[:id]
     respond_to do |format|
-      format.js { render json: [e] }
+      format.json { render json: e }
       format.html { redirect_to checker_path }
     end
   end
@@ -43,7 +43,7 @@ class CheckerController < ApplicationController
       success = e.save
     end
     respond_to do |format|
-      format.js { render json: [success: success] }
+      format.json { render json: {success: success} }
       format.html { redirect_to checker_path }
     end
   end
@@ -65,7 +65,7 @@ class CheckerController < ApplicationController
     }
     
     respond_to do |format|
-      format.js { render json: cards }
+      format.json { render json: cards }
       format.html { redirect_to checker_path }
     end
   end

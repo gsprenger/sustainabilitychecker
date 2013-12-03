@@ -1,108 +1,4 @@
-## Application Class ##
-class Checker
-  loadingContainer: '#loading'
-  cardsContainer:   '#cards'
-  checkContainer:   '#check'
-
-  constructor: ->
-    @cards = Card.getAll()
-    $(@cardsContainer).append card.html for card in @cards
-    @progression = new Progression(this)
-    @navigation = new Navigation(this)
-
-  launch: ->
-    if (@progression.current != 'check')
-      @removeAndDisplay(@loadingContainer, @cardsContainer)
-      @launchCards()
-    else
-      @removeAndDisplay(@loadingContainer, @checkContainer)
-      @navigation.goToCheck()
-
-  launchCards: ->
-    # accounts for the time it take to remove the loading screen
-    setTimeout =>
-      @navigation.goTo @getCardBySlug @progression.current
-    , 1600
-
-  showCard: (slug, flag) ->
-    if $('.card.active').length
-      prevCard = @getCardBySlug $('.card.active').attr('id')
-      prevCard.hide()
-      # this is here to give enough time for the fadeOut animation to perform
-      setTimeout =>
-        @showCard slug, true
-      , 800
-    else
-      card = @getCardBySlug(slug)
-      card.show()
-
-  getCardByName: (name) ->
-    for card in @cards
-      return card if card.name == name
-
-  getCardBySlug: (slug) ->
-    for card in @cards
-      return card if card.slug == slug
-
-  launchCheck: ->
-    json = ''
-    for val in @progression.values
-      json += 'Name: ' + val.name + '\n'
-      json += 'Value: ' + val.value + '\n\n'
-    $('.checkvar').text(json)
-
-  removeAndDisplay: (elA, elB, flag1, flag2) ->
-    if !flag1
-      $(elA).addClass 'fadeOut'
-      setTimeout =>
-        @removeAndDisplay elA, elB, true
-      , 800
-    else if !flag2
-      $(elA).addClass 'hidden'
-      $(elA).removeClass 'fadeOut'
-      $(elB).removeClass 'hidden'
-      $(elB).addClass 'fadeIn'
-      setTimeout =>
-        @removeAndDisplay elA, elB, true, true
-      , 800
-    else
-      $(elB).removeClass 'fadeIn'
-
-
-## Card Class ##
-class Card
-  animIn: 'fadeInLeft'
-  animOut: 'fadeOutRight'
-
-  constructor: (options) ->
-    {@id, @name, @slug, @html} = options
-
-  show: ->
-    $('#'+@slug).removeClass 'hidden'
-    $('#'+@slug).addClass 'active ' + @animIn
-    setTimeout =>
-      $('#'+@slug).removeClass @animIn
-    , 800
-
-  hide: ->
-    $('#'+@slug).addClass @animOut
-    setTimeout =>
-      $('#'+@slug).addClass 'hidden'
-      $('#'+@slug).removeClass 'active ' + @animOut
-    , 800
-
-  @getAll: ->
-    cardsRaw = JSON.parse $.ajax({
-      type:  'GET',
-      url:   '/checker/cards',
-      async: false
-    }).responseText
-    cards = []
-    cards.push(new Card(cardRaw)) for cardRaw in cardsRaw
-    return cards
-
-## Progression Class ##
-class Progression
+class window.Progression
   constructor: (@app) ->
     @id = $('#uid').text()
     @load()
@@ -132,12 +28,13 @@ class Progression
 
   load: ->
     data = JSON.parse $.ajax({
-      type:  'GET',
-      url:   '/checker/get_experiment?id='+@id,
-      async: false
+      type:     'GET',
+      dataType: 'json',
+      url:      '/checker/get_experiment?id='+@id,
+      async:    false
     }).responseText
-    exp = JSON.parse data[0].json
-    @current = exp.current || @app.cards[0].slug
+    exp = JSON.parse data.json
+    @current = exp.current || Card.cards[0].slug
     @values = exp.values || []
 
   save: ->
@@ -324,60 +221,3 @@ class Progression
           $(sliderEl).slider('value', val.value)
           $(sliderEl).siblings('.choice-ss-value').text(val.value)
           break
-
-## Navigation Class ##
-class Navigation
-  navIcons: '.icon'
-  checkIcon: '.checkicon'
-
-  constructor: (@app) ->
-    @setup()
-
-  setup: ->
-    # Initiate Bootstrap tooltips
-    $('.btooltip').tooltip {placement: 'bottom'}
-    # Set navigation click events on header icons
-    $(@navIcons).each (i, el) =>
-      $(el).parent().on 'click', =>
-        @goTo @app.getCardByName @formatTitle($(el).attr('data-original-title'))
-    # Set navigation on check icon
-    $(@checkIcon).parent().on 'click', =>
-      @goToCheck()
-
-  goTo: (card) ->
-    # TODO go only if progression allows it
-    $(@navIcons+','+@checkIcon).removeClass 'active'
-    that = @
-    $(@navIcons+'[data-original-title]').filter(->
-      that.formatTitle($(this).attr('data-original-title')) == card.name
-    ).addClass('active')
-    # if check is shown hide it before
-    if !$(@app.checkContainer).hasClass('hidden')
-      @app.removeAndDisplay @app.checkContainer, @app.cardsContainer
-    @app.showCard card.slug
-
-  goToCheck: (flag) ->
-    if $('.card.active').length && !flag
-      card = @app.getCardBySlug $('.card.active').attr('id')
-      card.hide()
-      setTimeout =>
-        @goToCheck(true)
-      , 800
-      return
-    $(@navIcons+','+@checkIcon).removeClass 'active'
-    $(@checkIcon).addClass 'active'
-    @app.removeAndDisplay @app.cardsContainer, @app.checkContainer
-    @app.launchCheck()
-
-  formatTitle: (originalTitle) ->
-    if originalTitle.indexOf(' ') != -1
-      originalTitle = originalTitle.substr 0, originalTitle.indexOf(' ')
-    return originalTitle.toLowerCase()
-
-## Main execution ##
-ready = ->
-  app = new Checker()
-  app.launch()
-
-$(document).ready(ready)
-$(document).on('page:load', ready)
