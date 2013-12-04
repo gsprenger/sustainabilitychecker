@@ -7,7 +7,7 @@ gem 'pg'
 
 gem 'therubyracer', platforms: :ruby
 gem 'sass-rails', '4.0.1'
-gem 'uglifier', '2.3.1'
+gem 'uglifier', '2.3.2'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails'
 gem 'turbolinks', '1.3.1'
