@@ -29,6 +29,9 @@ class CheckerController < ApplicationController
     return e
   end
 
+  ###
+  # API methods:
+  ###  
   def get_experiment
     e = Experiment.find_by id: params[:id]
     respond_to do |format|
@@ -47,31 +50,9 @@ class CheckerController < ApplicationController
       format.html { redirect_to checker_path }
     end
   end
-  
-  # Looks for all cards in the cards folder and return them
-  def load_cards
-    cards = []
-    Dir.entries(Rails.root + 'app/views/checker/cards/').each { |entry|
-      unless entry == '.' || entry == '..'
-        /([^\.]+)-([^\.]+)-([^\.]+)\.html\.erb/.match(entry)
-        card = {
-          id: $1,
-          name: $2,
-          slug: $3,
-          html: File.read(Rails.root + 'app/views/checker/cards/' + entry) 
-        }
-        cards[$1.to_i-1] = card
-      end
-    }
-    
-    respond_to do |format|
-      format.json { render json: cards }
-      format.html { redirect_to checker_path }
-    end
-  end
 
   ###
-  # View methods: Cards, Check
+  # View method: index
   ###
   def index
     @experiment = log_in
