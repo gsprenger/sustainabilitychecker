@@ -5,7 +5,6 @@ class window.App
 
   constructor: ->
     Card.generateCards()
-    console.log Card.cards
     @progression = new Progression(this)
     @navigation = new Navigation(this)
 

@@ -7,12 +7,12 @@ class window.Progression
   setup: ->
     $('[data-choice-type]').each (i, el) =>
       switch $(el).attr('data-choice-type')
-        when 'radio' then @radioSetup el
-        when 'soloslider' then @soloSliderSetup el
-        when 'soloslider2' then @soloSlider2Setup el
-        when 'soloslider3' then @soloSlider3Setup el
-        when 'services' then @servicesSetup el
-        when 'services2' then @services2Setup el
+        when 'radio'
+          RadioChoice.create el, this
+        when 'slider'
+          SliderChoice.create el, this
+        when 'slidergroup'
+          SliderGroupChoice.create el, this
 
   addToValues: (item) ->
     found = false
@@ -36,6 +36,7 @@ class window.Progression
     exp = JSON.parse data.json
     @current = exp.current || Card.cards[0].slug
     @values = exp.values || []
+    console.log @values
 
   save: ->
     json = {
@@ -94,126 +95,6 @@ class window.Progression
           }
           @addToValues item
           @save()
-      })
-      # if slider has previsouly been set: set its value
-      for val in @values
-        if val.name == name
-          $(sliderEl).slider('value', val.value)
-          $(sliderEl).siblings('.choice-ss-value').text(val.value)
-          break
-
-  soloSlider2Setup: (el) ->
-    $(el).find('.choice-ss-slider').each (i, sliderEl) =>
-      name = $(sliderEl).closest('.card').attr('id')
-      # init the slider element for jquery
-      $(sliderEl).slider({
-        orientation: 'horizontal',
-        range: 'min',
-        min: 1,
-        max: 3,
-        step: 1,
-        slide: (e, ui) ->
-          # when slider changes, update the value field
-          $(sliderEl).siblings('.choice-ss-value').text(ui.value)
-        , 
-        change: =>
-          @current = name
-          item = {
-            "name": name
-            "value": $(sliderEl).slider('value')
-          }
-          @addToValues item
-          @save()
-      })
-      # if slider has previsouly been set: set its value
-      for val in @values
-        if val.name == name
-          $(sliderEl).slider('value', val.value)
-          $(sliderEl).siblings('.choice-ss-value').text(val.value)
-          break
-
-  soloSlider3Setup: (el) ->
-    $(el).find('.choice-ss-slider').each (i, sliderEl) =>
-      name = $(sliderEl).closest('.card').attr('id')
-      # init the slider element for jquery
-      $(sliderEl).slider({
-        orientation: 'horizontal',
-        range: 'min',
-        min: 0,
-        max: 100,
-        step: 25,
-        slide: (e, ui) ->
-          # when slider changes, update the value field
-          $(sliderEl).siblings('.choice-ss-value').text(ui.value+'%')
-        , 
-        change: =>
-          @current = name
-          item = {
-            "name": name
-            "value": $(sliderEl).slider('value')
-          }
-          @addToValues item
-          @save()
-      })
-      # if slider has previsouly been set: set its value
-      for val in @values
-        if val.name == name
-          $(sliderEl).slider('value', val.value)
-          $(sliderEl).siblings('.choice-ss-value').text(val.value)
-          break
-
-  servicesSetup: (el) ->
-    $(el).find('.choice-ss-slider').each (i, sliderEl) =>
-      name = $(sliderEl).closest('.card').attr('id')
-      # init the slider element for jquery
-      $(sliderEl).slider({
-        orientation: 'vertical',
-        range: 'min',
-        min: 1,
-        max: 3,
-        step: 1,
-        slide: (e, ui) ->
-          # when slider changes, update the value field
-          $(sliderEl).siblings('.choice-ss-value').text(ui.value)
-        , 
-        change: =>
-          #@current = name
-          item = {
-            "name": name
-            "value": $(sliderEl).slider('value')
-          }
-          #@addToValues item
-          #@save()
-      })
-      # if slider has previsouly been set: set its value
-      for val in @values
-        if val.name == name
-          $(sliderEl).slider('value', val.value)
-          $(sliderEl).siblings('.choice-ss-value').text(val.value)
-          break
-
-  services2Setup: (el) ->
-    $(el).find('.choice-ss-slider').each (i, sliderEl) =>
-      name = $(sliderEl).closest('.card').attr('id')
-      # init the slider element for jquery
-      $(sliderEl).slider({
-        orientation: 'vertical',
-        range: 'min',
-        min: 0,
-        max: 100,
-        step: 1,
-        slide: (e, ui) ->
-          # when slider changes, update the value field
-          $(sliderEl).siblings('.choice-ss-value').text(ui.value + '%')
-        , 
-        change: =>
-          #@current = name
-          item = {
-            "name": name
-            "value": $(sliderEl).slider('value')
-          }
-          #@addToValues item
-          #@save()
       })
       # if slider has previsouly been set: set its value
       for val in @values
