@@ -81,11 +81,11 @@ class window.Choice
     for val in Progression.values
       if val.name == name
         slider.slider('value', val.value)
-        updateValueField(val.value)
         found = true
         break
     unless found
       Progression.addToValues name, slider.slider('value') 
+    updateValueField(slider.slider('value'))
     # set slide and change events
     slider.on 'mouseover', (e, ui) ->
       Choice.lastSlider = name
