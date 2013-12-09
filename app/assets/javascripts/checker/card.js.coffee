@@ -6,19 +6,25 @@ class window.Card
   constructor: (options) ->
     {@id, @name, @slug} = options
 
-  show: ->
+  show: (noTransition) ->
     $('#'+@slug).removeClass 'hidden'
-    $('#'+@slug).addClass 'active ' + @animIn
-    setTimeout =>
-      $('#'+@slug).removeClass @animIn
-    , 800
+    $('#'+@slug).addClass 'active'
+    unless noTransition
+      $('#'+@slug).addClass 'active ' + @animIn
+      setTimeout =>
+        $('#'+@slug).removeClass @animIn
+      , 800
 
-  hide: ->
-    $('#'+@slug).addClass @animOut
-    setTimeout =>
+  hide: (noTransition) ->
+    if noTransition
+      $('#'+@slug).removeClass 'active'
       $('#'+@slug).addClass 'hidden'
-      $('#'+@slug).removeClass 'active ' + @animOut
-    , 800
+    else
+      $('#'+@slug).addClass @animOut
+      setTimeout =>
+        $('#'+@slug).addClass 'hidden'
+        $('#'+@slug).removeClass 'active ' + @animOut
+      , 800
 
   @generateCards: ->
     $('.card').each (i, el) =>

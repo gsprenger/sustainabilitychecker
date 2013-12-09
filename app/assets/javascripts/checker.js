@@ -6,13 +6,9 @@
 //= require checker/navigation
 //= require checker/progression
 //= require checker/choice
-//= require checker/radiochoice
-//= require checker/sliderchoice
-//= require checker/slidergroupchoice
 
 var ready = function() {
-  var app = new App();
-  app.launch();
+  App.launch();
 };
 
 $(document).ready(ready);

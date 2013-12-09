@@ -1,48 +1,60 @@
 class window.Navigation
-  navIcons: '.icon'
-  checkIcon: '.checkicon'
-
-  constructor: (@app) ->
-    @setup()
-
-  setup: ->
+  @setup: ->
     # Initiate Bootstrap tooltips
     $('.btooltip').tooltip {placement: 'bottom'}
     # Set navigation click events on header icons
-    $(@navIcons).each (i, el) =>
-      $(el).parent().on 'click', =>
-        @goTo Card.getCardByName @formatTitle($(el).attr('data-original-title'))
+    $('.icon').each (i, el) ->
+      $(el).parent().on 'click', ->
+        Navigation.goTo Card.getCardBySlug $(el).attr('data-card-slug')
     # Set navigation on check icon
-    $(@checkIcon).parent().on 'click', =>
-      @goToCheck()
+    $('.checkicon').parent().on 'click', ->
+      Navigation.goToCheck()
 
-  goTo: (card) ->
-    # TODO go only if progression allows it
-    $(@navIcons+','+@checkIcon).removeClass 'active'
-    that = @
-    $(@navIcons+'[data-original-title]').filter(->
-      that.formatTitle($(this).attr('data-original-title')) == card.name
-    ).addClass('active')
-    # if check is shown hide it before
-    if !$(@app.checkContainer).hasClass('hidden')
-      @app.removeAndDisplay @app.checkContainer, @app.cardsContainer
-    @app.showCard card.slug
+  @goTo: (card) ->
+    $('.icon, .checkicon').removeClass 'active'
+    $('.icon[data-card-slug='+card.slug+']').addClass('active')
+    # if check is shown transition to Cards
+    if $('#cards').hasClass('hidden')
+      # hide potentiel previous card and show goto card
+      prevCardSlug = $('.card.active').attr('id')
+      (Card.getCardBySlug(prevCardSlug)).hide(true) if prevCardSlug
+      card.show true
+      Navigation.removeAndDisplay '#check', '#cards'
+    else
+      prevCard = Card.getCardBySlug $('.card.active').attr('id')
+      prevCard.hide()
+      setTimeout ->
+        card.show()
+      , 800
 
-  goToCheck: (flag) ->
+  @goToCheck: (flag) ->
     if $('.card.active').length && !flag
       card = Card.getCardBySlug $('.card.active').attr('id')
       card.hide()
-      setTimeout =>
-        @goToCheck(true)
+      setTimeout ->
+        Navigation.goToCheck(true)
       , 800
       return
-    $(@navIcons+','+@checkIcon).removeClass 'active'
-    $(@checkIcon).addClass 'active'
-    @app.removeAndDisplay @app.cardsContainer, @app.checkContainer
-    @app.launchCheck()
+    $('.icon, .checkicon').removeClass 'active'
+    $('.checkicon').addClass 'active'
+    Navigation.removeAndDisplay '#cards', '#loading'
+    setTimeout ->
+      App.launchCheck()
+    , 1600
 
-  formatTitle: (originalTitle) ->
-    if originalTitle.indexOf(' ') != -1
-      originalTitle = originalTitle.substr 0, originalTitle.indexOf(' ')
-    return originalTitle.toLowerCase()
-
+  @removeAndDisplay: (elA, elB, flag1, flag2) ->
+    if !flag1
+      $(elA).addClass 'fadeOut'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true
+      , 800
+    else if !flag2
+      $(elA).addClass 'hidden'
+      $(elA).removeClass 'fadeOut'
+      $(elB).removeClass 'hidden'
+      $(elB).addClass 'fadeIn'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true, true
+      , 800
+    else
+      $(elB).removeClass 'fadeIn'
