@@ -1,7 +1,7 @@
 /**
 * Checker. Applies to everything related to the first part of the Experiment.
 **/
-html, body {overflow-x: none;}
+html, body {overflow-x: hidden;}
 
 /** HEADER **/
 $demand: #f0ad4e;
@@ -116,7 +116,7 @@ $check: #5cb85c;
   }
 }
 
-/** CHECKER **/
+/** LOADING **/
 #loading {
   margin-top: 50px;
   text-align: center;
@@ -149,7 +149,7 @@ $check: #5cb85c;
   }
 }
 
-// Cards
+/** CARDS **/
 .card-container {
   margin-top: 15px;
   .card {
@@ -254,7 +254,7 @@ $check: #5cb85c;
   }
 }
 
-// check
+/** CHECK **/
 .check-container {
   margin-top: 15px;
 }

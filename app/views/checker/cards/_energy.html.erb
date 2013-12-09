@@ -9,40 +9,53 @@
   </div>
   <div class='card-body'>
     <div class='card-choice choice-soloslider' data-choice-type='soloslider3'>
-
       <h3>Energy Carriers:</h3>
       <p>What percentage of each carrier is used directly by your society?</p>
       <div class='choice-ss-body'>
         <div>Fuels:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
+        <div class='choice-slider' data-choice-type='slider'>
+          <div class='slider' data-slider-options="{range:'min'}"></div>
+          <div class='slidervalue' data-slider-type='percent'>0%</div>
+        </div>
       </div>
       <div class='choice-ss-body'>
         <div>Electricity:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
+        <div class='choice-slider' data-choice-type='slider'>
+          <div class='slider' data-slider-options="{range:'min'}"></div>
+          <div class='slidervalue' data-slider-type='percent'>0%</div>
+        </div>
       </div>
       <h3>Primary Energy Sources:</h3>
       <p>Which primary energy sources (local gradients entering into the EM sector) are making your local supply?</p>
-      <div class='choice-ss-body'>
-        <div>Nuclear:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
-      </div>
-      <div class='choice-ss-body'>
-        <div>Hydropower:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
-      </div>
-      <div class='choice-ss-body'>
-        <div>Photovoltaics:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
-      </div>
-      <div class='choice-ss-body'>
-        <div>Wind Power:</div>
-        <div class='choice-ss-slider'></div>
-        <div class='choice-ss-value pull-right'>0</div>
+      <div data-choice-type='slidergroup'>
+        <div class='choice-ss-body'>
+          <div>Nuclear:</div>
+          <div class='choice-slider'>
+            <div class='slider' data-slider-options="{range:'min', step:25, value:25}"></div>
+            <div class='slidervalue' data-slider-type='percent'>0%</div>
+          </div>
+        </div>
+        <div class='choice-ss-body'>
+          <div>Hydropower:</div>
+          <div class='choice-slider'>
+            <div class='slider' data-slider-options="{range:'min', step:25, value:25}"></div>
+            <div class='slidervalue' data-slider-type='percent'>0%</div>
+          </div>
+        </div>
+        <div class='choice-ss-body'>
+          <div>Photovoltaics:</div>
+          <div class='choice-slider'>
+            <div class='slider' data-slider-options="{range:'min', step:25, value:25}"></div>
+            <div class='slidervalue' data-slider-type='percent'>0%</div>
+          </div>
+        </div>
+        <div class='choice-ss-body'>
+          <div>Wind Power:</div>
+          <div class='choice-slider'>
+            <div class='slider' data-slider-options="{range:'min', step:25, value:25}"></div>
+            <div class='slidervalue' data-slider-type='percent'>0%</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class='card-subtitle'>

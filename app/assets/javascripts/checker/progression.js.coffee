@@ -18,11 +18,11 @@ class window.Progression
     $('[data-choice-type]').each (i, el) ->
       switch $(el).attr('data-choice-type')
         when 'radio'
-          Choice.createRadio el
+          Choice.initRadio el
         when 'slider'
-          Choice.createSlider el
+          Choice.initSlider el
         when 'slidergroup'
-          Choice.createSliderGroup el
+          Choice.initSliderGroup el
 
   @addToValues: (name, value) ->
     found = false
