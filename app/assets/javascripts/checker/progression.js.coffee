@@ -8,12 +8,12 @@ class window.Progression
     data = JSON.parse $.ajax({
       type:     'GET',
       dataType: 'json',
-      url:      '/checker/get_experiment?id='+@id,
+      url:      '/checker/get_experiment?id='+Progression.id,
       async:    false
     }).responseText
     exp = JSON.parse data.json
-    @current = exp.current || Card.cards[0].slug
-    @values = exp.values || []
+    Progression.current = exp.current || Card.cards[0].slug
+    Progression.values = exp.values || []
     # Init events for all choices
     $('[data-choice-type]').each (i, el) ->
       switch $(el).attr('data-choice-type')
@@ -34,16 +34,15 @@ class window.Progression
         break
     # if item not found add it
     unless found 
-      @values.push {'name': name, 'value': value}
-    @current = name
+      Progression.values.push {'name': name, 'value': value}
 
   @save: ->
     json = {
-      "current": @current
-      "values":  @values
+      "current": Progression.current
+      "values":  Progression.values
     }
     data = {
-      "id": @id
+      "id": Progression.id
       "json": JSON.stringify json
     }
     $.post '/checker/save_experiment', data

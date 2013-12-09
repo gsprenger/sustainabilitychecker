@@ -7,23 +7,25 @@ class window.Card
     {@id, @name, @slug} = options
 
   show: (noTransition) ->
-    $('#'+@slug).removeClass 'hidden'
-    $('#'+@slug).addClass 'active'
+    cardEl = $('.card[data-card-slug='+@slug+']')
+    cardEl.removeClass 'hidden'
+    cardEl.addClass 'active'
     unless noTransition
-      $('#'+@slug).addClass 'active ' + @animIn
+      cardEl.addClass 'active ' + @animIn
       setTimeout =>
-        $('#'+@slug).removeClass @animIn
+        cardEl.removeClass @animIn
       , 800
 
   hide: (noTransition) ->
+    cardEl = $('.card[data-card-slug='+@slug+']')
     if noTransition
-      $('#'+@slug).removeClass 'active'
-      $('#'+@slug).addClass 'hidden'
+      cardEl.removeClass 'active'
+      cardEl.addClass 'hidden'
     else
-      $('#'+@slug).addClass @animOut
+      cardEl.addClass @animOut
       setTimeout =>
-        $('#'+@slug).addClass 'hidden'
-        $('#'+@slug).removeClass 'active ' + @animOut
+        cardEl.addClass 'hidden'
+        cardEl.removeClass 'active ' + @animOut
       , 800
 
   @generateCards: ->

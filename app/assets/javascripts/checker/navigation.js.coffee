@@ -16,12 +16,12 @@ class window.Navigation
     # if check is shown transition to Cards
     if $('#cards').hasClass('hidden')
       # hide potentiel previous card and show goto card
-      prevCardSlug = $('.card.active').attr('id')
+      prevCardSlug = $('.card.active').attr('data-card-slug')
       (Card.getCardBySlug(prevCardSlug)).hide(true) if prevCardSlug
       card.show true
       Navigation.removeAndDisplay '#check', '#cards'
     else
-      prevCard = Card.getCardBySlug $('.card.active').attr('id')
+      prevCard = Card.getCardBySlug $('.card.active').attr('data-card-slug')
       prevCard.hide()
       setTimeout ->
         card.show()
@@ -29,7 +29,7 @@ class window.Navigation
 
   @goToCheck: (flag) ->
     if $('.card.active').length && !flag
-      card = Card.getCardBySlug $('.card.active').attr('id')
+      card = Card.getCardBySlug $('.card.active').attr('data-card-slug')
       card.hide()
       setTimeout ->
         Navigation.goToCheck(true)
