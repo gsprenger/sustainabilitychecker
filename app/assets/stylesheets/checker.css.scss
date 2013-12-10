@@ -211,7 +211,14 @@ $check: #5cb85c;
           }   
         }
       }
-
+      .choice-slider {
+        text-align: center;
+        .slider {
+          margin: auto;
+          margin-bottom: 10px;
+        }        
+      }
+  
       // SOLO SLIDER. Sliders that are independant
       .choice-soloslider {
         padding: 15px;

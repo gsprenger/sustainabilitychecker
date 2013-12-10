@@ -33,33 +33,44 @@ class window.Choice
     $(el).find('.slider').each (i, slider) ->
       name = $(slider).attr('data-slider-name')
       Choice.createSlider($(slider))
+      min = $(slider).slider('option', 'min')
+      max = $(slider).slider('option', 'max')
+      step = $(slider).slider('option', 'step')
       sliders.push(slider)
       $(slider).on 'slide', (e, ui) ->
-        oth = []
-        for s in sliders
-          sname = $(s).attr('data-slider-name')
-          unless sname == name
-            oth.push(s)
-        oldVal = $(this).slider('value')
-        diff = ui.value - oldVal
-        for s in oth
-          curVal = $(s).slider('value')
-          $(s).slider('value', curVal - (diff / oth.length))
-        for s in oth
-          if $(s).slider('value') < 0
-            diff = -1 * $(s).slider('value')
+        stepNb = (ui.value - $(slider).slider('value')) / step
+        goingUp = stepNb > 0
+        for [1..Math.abs(stepNb)] 
+          for s in sliders
             sname = $(s).attr('data-slider-name')
-            for so in oth
-              soname = $(so).attr('data-slider-name')
-              if soname != sname
-                prevVal = $(so).slider('value')
-                $(so).slider('value', prevVal + (diff / (oth.length - 1)))
+            unless sname == name
+              if (goingUp && $(s).slider('value') != min) || (!goingUp && $(s).slider('value') != max)
+                oldVal = $(s).slider('value')
+                sliderToChange = s
+          $(sliderToChange).slider('value', oldVal + (if goingUp then -1 * step else step))
       $(slider).on 'slidechange', (e, ui) ->
         if Choice.lastSlider == name
           Progression.current = card.slug
           for s in sliders
             Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
             Progression.save()
+    # Check if collective value is not overflowing/undervalued
+    total = 0
+    min = $(sliders[0]).slider('option', 'min')
+    max = $(sliders[0]).slider('option', 'max')
+    step = $(sliders[0]).slider('option', 'step')
+    for s in sliders
+      total += $(s).slider('value')
+    if total != max
+      overflow = total > max
+      add = if overflow then -1*step else step
+      while ((overflow && (total > max)) || (!overflow && (total < max)))
+        for s in sliders
+          if (overflow && ($(s).slider('value') != min)) || (!overflow && ($(s).slider('value') != max))
+            $(s).slider('value', $(s).slider('value') + add)
+            total += add
+            if total == max
+              break;
 
   @createSlider: (slider) ->   
     name = slider.attr('data-slider-name')
@@ -73,7 +84,7 @@ class window.Choice
         when 'lmh'
           vals = ['Low', 'Medium', 'High']
           valueField.text(vals[value])
-    # init slider and remove options from DOM
+    # init slider and remove options from DOM 
     slider.slider(JSON.parse(slider.attr('data-slider-options')))
     slider.removeAttr('data-slider-options') # for clarity and protection
     # if slider value is present, set it, otherwise set its default (=0)
