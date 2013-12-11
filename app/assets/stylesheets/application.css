@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require animate
+ *= require flick/jquery_ui
  *= require core
  */
