@@ -2,6 +2,7 @@
 // listed below.
 //
 //= require checker/app
+//= require checker/check
 //= require checker/card
 //= require checker/navigation
 //= require checker/progression

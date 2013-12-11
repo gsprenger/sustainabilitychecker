@@ -1,3 +1,4 @@
+<!-- LOADING -->
 <div id="loading" class='animated'>
   <div class="cogs">
     <i class="fa fa-cog fa-spin fa-2x"></i>
@@ -5,6 +6,7 @@
     <i class="fa fa-cog fa-spin fa-4x"></i>
   </div>
 </div>
+<!-- CARDS -->
 <div class='card-container animated hidden' id='cards'>
   <%= render "checker/cards/demographics" %>
   <%= render "checker/cards/diet" %>
@@ -16,7 +18,42 @@
   <%= render "checker/cards/building" %>
   <%= render "checker/cards/energy" %>
 </div>
+<!-- CHECK -->
 <div class='check-container animated hidden' id='check'>
+  <h2>Sustainability Check</h2>
+  <div class='check-result'>
+    <h3 class='check-result-title'>Failed!</h3>
+  </div>
+  <div class='check-graph-container'>
+    <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-2 col-energy-local'></div>
+      <div class='col-md-2'></div>
+      <div class='col-md-2 col-food-local'></div>
+      <div class='col-md-3'></div>
+    </div>
+    <hr class='check-graph-axis'>
+    <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-2  col-energy-imported'></div>
+      <div class='col-md-2'></div>
+      <div class='col-md-2  col-food-imported'></div>
+      <div class='col-md-3'></div>
+    </div>
+    <div class='row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-2'>Energy</div>
+      <div class='col-md-2'></div>
+      <div class='col-md-2'>Food</div>
+      <div class='col-md-3'></div>
+    </div>
+  </div>
+  <div class='check-next'>
+    <div class='btn btn-default'>Try Again</div>
+    <div>..or go to <a href='#'>next level</a></div>
+  </div>
+
+  <!-- debug -->
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">

@@ -16,9 +16,12 @@ class window.App
 
 
   @launchCheck: ->
+    # debug
     json = ''
     for val in Progression.values
       json += 'Name: ' + val.name + '\n'
       json += 'Value: ' + val.value + '\n\n'
     $('.checkvar').text(json)
+    # real code
+    Check.setup()
     Navigation.removeAndDisplay '#loading', '#check'
