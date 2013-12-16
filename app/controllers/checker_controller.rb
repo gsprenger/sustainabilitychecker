@@ -52,9 +52,9 @@ class CheckerController < ApplicationController
   end
 
   ###
-  # View method: index
+  # View method: app
   ###
-  def index
+  def app
     @experiment = log_in
   end
 end
