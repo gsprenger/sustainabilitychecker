@@ -11,7 +11,7 @@ class window.Choice
           break
       # attach a click event to the radio element
       $(radio).on 'click', ->
-        $('#'+card.slug+' .choice-grid-radio.active').removeClass('active')
+        $('.card[data-card-id='+card.id+'] .choice-grid-radio.active').removeClass('active')
         $(radio).addClass('active')
         Progression.current = card.slug
         Progression.addToValues card.slug, value
