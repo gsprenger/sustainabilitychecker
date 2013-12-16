@@ -11,16 +11,16 @@
   <%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>
   <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
-  <%= render "layouts/shim" %>
+  <%= render "layouts/common/shim" %>
 </head>
 <body>
   <div class="wrap">
-    <%= render "layouts/static_pages/header" %>
+    <%= render "static_pages/header" %>
 
     <div class="main container">
       <%= yield %>
     </div>
   </div>
-  <%= render "layouts/static_pages/footer" %>
+  <%= render "static_pages/footer" %>
 </body>
 </html>

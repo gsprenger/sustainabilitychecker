@@ -5,17 +5,11 @@
         <text>The%20Sustainability%20Sudoku%0Ahttp%3A//www.unsustainability.org</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="599" y="140" w="-1" h="-1" measuredW="471" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="860" y="132" w="-1" h="-1" measuredW="378" measuredH="43" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>The%20Sustainability%20Sudoku</text>
+        <text>Sustainability%20Check%3A</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::SubTitle" x="1085" y="156" w="-1" h="-1" measuredW="354" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Phase%203%3A%20Checking%20sustainability</text>
-      </controlProperties>
-    </control>
-    <control controlID="46" controlTypeID="com.balsamiq.mockups::HRule" x="599" y="175" w="959" h="-1" measuredW="100" measuredH="10" zOrder="4" locked="false" isInGroup="-1"/>
     <control controlID="74" controlTypeID="com.balsamiq.mockups::Canvas" x="584" y="122" w="983" h="735" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
         <backgroundAlpha>0.25</backgroundAlpha>
@@ -23,114 +17,95 @@
         <color>0</color>
       </controlProperties>
     </control>
-    <control controlID="89" controlTypeID="com.balsamiq.mockups::SubTitle" x="612" y="198" w="-1" h="-1" measuredW="311" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::SubTitle" x="1011" y="255" w="-1" h="-1" measuredW="69" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Violated%20Constraints%3A%20%28funds%29</text>
+        <italic>true</italic>
+        <text>Failed%21</text>
       </controlProperties>
     </control>
-    <control controlID="90" controlTypeID="com.balsamiq.mockups::SubTitle" x="612" y="326" w="-1" h="-1" measuredW="417" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::SubTitle" x="612" y="326" w="-1" h="-1" measuredW="417" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>How%20much%20do%20I%20need%20to%20import%3F%20%28flows%29</text>
       </controlProperties>
     </control>
-    <control controlID="91" controlTypeID="com.balsamiq.mockups::RedX" x="786" y="233" w="90" h="39" measuredW="240" measuredH="104" zOrder="7" locked="false" isInGroup="-1"/>
-    <control controlID="92" controlTypeID="com.balsamiq.mockups::RedX" x="997" y="233" w="90" h="39" measuredW="240" measuredH="104" zOrder="8" locked="false" isInGroup="-1"/>
-    <control controlID="93" controlTypeID="com.balsamiq.mockups::RedX" x="1214" y="233" w="90" h="39" measuredW="240" measuredH="104" zOrder="9" locked="false" isInGroup="-1"/>
-    <control controlID="94" controlTypeID="com.balsamiq.mockups::Label" x="988" y="287" w="-1" h="-1" measuredW="115" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::RedX" x="1000" y="201" w="90" h="39" measuredW="240" measuredH="104" zOrder="5" locked="false" isInGroup="-1"/>
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::HRule" x="740" y="445" w="671" h="-1" measuredW="100" measuredH="10" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::Label" x="1317" y="421" w="-1" h="-1" measuredW="94" measuredH="24" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
-        <text>Power%20Capacity</text>
+        <text>Local%20Supply</text>
       </controlProperties>
     </control>
-    <control controlID="95" controlTypeID="com.balsamiq.mockups::Label" x="1205" y="287" w="-1" h="-1" measuredW="108" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>16</size>
-        <text>Managed%20Land</text>
-      </controlProperties>
-    </control>
-    <control controlID="96" controlTypeID="com.balsamiq.mockups::Label" x="779" y="287" w="-1" h="-1" measuredW="110" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>16</size>
-        <text>Human%20Activity</text>
-      </controlProperties>
-    </control>
-    <control controlID="99" controlTypeID="com.balsamiq.mockups::HRule" x="740" y="445" w="671" h="-1" measuredW="100" measuredH="10" zOrder="13" locked="false" isInGroup="-1"/>
-    <control controlID="100" controlTypeID="com.balsamiq.mockups::Label" x="1313" y="421" w="-1" h="-1" measuredW="98" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>16</size>
-        <text>Self-provided</text>
-      </controlProperties>
-    </control>
-    <control controlID="101" controlTypeID="com.balsamiq.mockups::Label" x="1345" y="455" w="-1" h="-1" measuredW="66" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="101" controlTypeID="com.balsamiq.mockups::Label" x="1345" y="455" w="-1" h="-1" measuredW="66" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Imported</text>
       </controlProperties>
     </control>
-    <control controlID="102" controlTypeID="com.balsamiq.mockups::Canvas" x="879" y="381" w="123" h="91" measuredW="100" measuredH="70" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::Canvas" x="879" y="381" w="123" h="91" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>squareBreakline</borderStyle>
         <color>9684093</color>
       </controlProperties>
     </control>
-    <control controlID="103" controlTypeID="com.balsamiq.mockups::Canvas" x="879" y="430" w="123" h="161" measuredW="100" measuredH="70" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="103" controlTypeID="com.balsamiq.mockups::Canvas" x="879" y="430" w="123" h="161" measuredW="100" measuredH="70" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>squareBreaklineTop</borderStyle>
         <color>14706278</color>
       </controlProperties>
     </control>
-    <control controlID="104" controlTypeID="com.balsamiq.mockups::Canvas" x="1094" y="410" w="123" h="62" measuredW="100" measuredH="70" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::Canvas" x="1094" y="410" w="123" h="62" measuredW="100" measuredH="70" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>squareBreakline</borderStyle>
         <color>9684093</color>
       </controlProperties>
     </control>
-    <control controlID="105" controlTypeID="com.balsamiq.mockups::Canvas" x="1094" y="430" w="123" h="146" measuredW="100" measuredH="70" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::Canvas" x="1094" y="430" w="123" h="146" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>squareBreaklineTop</borderStyle>
         <color>14706278</color>
       </controlProperties>
     </control>
-    <control controlID="106" controlTypeID="com.balsamiq.mockups::Label" x="1138" y="576" w="-1" h="-1" measuredW="35" measuredH="24" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="106" controlTypeID="com.balsamiq.mockups::Label" x="1138" y="576" w="-1" h="-1" measuredW="35" measuredH="24" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Food</text>
       </controlProperties>
     </control>
-    <control controlID="107" controlTypeID="com.balsamiq.mockups::Label" x="915" y="591" w="-1" h="-1" measuredW="51" measuredH="24" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="107" controlTypeID="com.balsamiq.mockups::Label" x="915" y="591" w="-1" h="-1" measuredW="51" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Energy</text>
       </controlProperties>
     </control>
-    <control controlID="108" controlTypeID="com.balsamiq.mockups::Paragraph" x="816" y="675" w="502" h="82" measuredW="200" measuredH="80" zOrder="22" locked="false" isInGroup="-1">
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::Paragraph" x="813" y="654" w="502" h="82" measuredW="200" measuredH="80" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <size>20</size>
         <text>Your%20country%20and%20society%20are%20unsustainable%21%0AYour%20society%20reached%20the%20limits%20of%20local%20supply%20capacity%20of%20your%20country</text>
       </controlProperties>
     </control>
-    <control controlID="110" controlTypeID="com.balsamiq.mockups::HRule" x="599" y="650" w="959" h="-1" measuredW="100" measuredH="10" zOrder="23" locked="false" isInGroup="-1"/>
-    <control controlID="111" controlTypeID="com.balsamiq.mockups::Button" x="694" y="736" w="330" h="106" measuredW="305" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="110" controlTypeID="com.balsamiq.mockups::HRule" x="596" y="629" w="959" h="-1" measuredW="100" measuredH="10" zOrder="16" locked="false" isInGroup="-1"/>
+    <control controlID="111" controlTypeID="com.balsamiq.mockups::Button" x="694" y="736" w="330" h="106" measuredW="100" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <href>demand%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml%26bm%3Bdemand.bmml</href>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22289%2C687%2C619%2C793%22%20href%3D%22demand.bmml%22%20alt%3D%22demand%22%20id%3D%22111%22/%3E</map>
         <size>16</size>
-        <text>Go%20back%20to%20Supply%20%26%20Demand%20variables</text>
+        <text>Try%20Again%20%21</text>
       </controlProperties>
     </control>
-    <control controlID="112" controlTypeID="com.balsamiq.mockups::Button" x="1138" y="736" w="330" h="106" measuredW="269" measuredH="27" zOrder="25" locked="false" isInGroup="-1">
+    <control controlID="112" controlTypeID="com.balsamiq.mockups::Button" x="1138" y="736" w="330" h="106" measuredW="94" measuredH="27" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
-        <text>Open%20the%20box%2C%20let%27s%20see%20the%20maths%21</text>
+        <text>Next%20level</text>
       </controlProperties>
     </control>
-    <control controlID="115" controlTypeID="com.balsamiq.mockups::Label" x="926" y="516" w="-1" h="-1" measuredW="28" measuredH="21" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="115" controlTypeID="com.balsamiq.mockups::Label" x="926" y="516" w="-1" h="-1" measuredW="28" measuredH="21" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>80%25</text>
       </controlProperties>
     </control>
-    <control controlID="116" controlTypeID="com.balsamiq.mockups::Label" x="1141" y="507" w="-1" h="-1" measuredW="28" measuredH="21" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="116" controlTypeID="com.balsamiq.mockups::Label" x="1141" y="507" w="-1" h="-1" measuredW="28" measuredH="21" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>70%25</text>
       </controlProperties>

@@ -13,10 +13,10 @@
   <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
   <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
-  <%= render "layouts/shim" %>
+  <%= render "layouts/common/shim" %>
 </head>
 <body>
-  <%= render "layouts/checker/header" %>
+  <%= render "checker/header" %>
   <div class="container">
     <%= yield %>
   </div>
