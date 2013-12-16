@@ -273,6 +273,19 @@ $check: #5cb85c;
       border-color: #333;
       border-width: 1px;
     }
+
+    .graph-imported, .graph-local {
+      text-align: right;
+    }
+
+    .graph-local {
+      position: relative;
+      div {
+        position: absolute;
+        right: 15px;
+        bottom: -80px;
+      }
+    }
   }
 
   .check-next {
