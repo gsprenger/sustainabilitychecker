@@ -39,7 +39,7 @@ Sustainabilitychecker::Application.configure do
   # config.assets.css_compressor = :sass
 
   # CUSTOM: render all individual css files:
-  #config.assets.precompile = ['.js(.coffee)?', '.css(.scss)?']
+  config.assets.precompile = ['.js(.coffee)?', '.css(.scss)?']
   #config.assets.precompile << "*.css"
   #config.assets.precompile << "*.js"
 

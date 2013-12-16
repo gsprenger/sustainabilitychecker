@@ -15,6 +15,7 @@ gem 'jbuilder'
 
 gem 'mail_form', '1.5.0'
 gem 'animate-rails', '1.0.4'
+gem 'jquery-ui-rails'
 
 group :c9 do
   gem 'mysql2'
