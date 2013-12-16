@@ -53,7 +53,7 @@ class window.Choice
           Progression.current = card.slug
           for s in sliders
             Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
-            Progression.save()
+          Progression.save()
     # Check if collective value is not overflowing/undervalued
     total = 0
     min = $(sliders[0]).slider('option', 'min')
@@ -71,6 +71,9 @@ class window.Choice
             total += add
             if total == max
               break;
+      for s in sliders
+        Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
+      Progression.save()
 
   @createSlider: (slider) ->   
     name = slider.attr('data-slider-name')

@@ -14,29 +14,6 @@ $check: #5cb85c;
   .header-menu {
     position: relative;
     
-    .menu-wrapper {
-      background-color: #428BCA;
-      height: 65px;
-      width: 68px;
-      float: left;
-      border: 1px solid #357EBD;
-      cursor: pointer;
-      color: #FFFFFF;
-      &:hover { 
-        background-color: #3276B1; 
-      }
-      
-      .menu-btn {
-        padding: 3px 0 0 4px;
-        height: 63px;
-        width: 66px;
-        
-        i { 
-          text-shadow: 1px 1px 5px #000;
-        }
-      }
-    }
-    
     .menu-nav {
       margin: auto;
       width: 560px;
@@ -55,7 +32,7 @@ $check: #5cb85c;
       }
       .check { 
         border-top: 3px solid $check;
-        .icon:hover, .active {
+        .checkicon:hover, .active {
           background-color: $check; 
         }
       }
@@ -94,15 +71,11 @@ $check: #5cb85c;
             width: 20px;
           }
          
-          .icon {
+          .icon, .checkicon {
             width: 30px;
             line-height: 25px;
             border: 2px solid #333;
             border-radius: 50%;
-          }
-         
-          .checkicon {
-            @extend .icon
           }
         }
       }
@@ -262,19 +235,52 @@ $check: #5cb85c;
 /** CHECK **/
 .check-container {
   margin-top: 15px;
-  text-align: center;
+  h2 { 
+    text-align: center;
+  }
   .check-result {
+    text-align: center;
     font-style: italic;
   }
+
   .check-graph-container {
+    .check-graph-row {
+      .bar-energy .bar {
+        border: 2px solid #357ebd;
+      }
+      .bar-food .bar {
+        border: 2px solid #d43f3a;
+      }
+      .bar-upper .bar {
+        border-bottom: none;
+      }
+      .bar-lower .bar{
+        border-top: none;
+      }
+      .col-energy-local, .col-energy-imported {
+        background-color: #428bca;
+      }
+      .col-food-local, .col-food-imported {
+        background-color: #d9534f;
+      }
+      .bar-title {
+        text-align: center;
+      }
+    }
+
     hr {
       margin: 0;
       border-color: #333;
-      border-width: 2px;
+      border-width: 1px;
     }
-    .col-energy-local {background-color: #285e8e;}
-    .col-food-local {background-color: #ac2925;}
-    .col-energy-imported {background-color: #285e8e;}
-    .col-food-imported {background-color: #ac2925;}
+  }
+
+  .check-next {
+    text-align: center;
+  }
+
+  // debug
+  .panel {
+    margin-top: 25px;
   }
 }
