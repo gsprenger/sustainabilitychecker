@@ -4,7 +4,6 @@
   <title>The Sustainability Sudoku</title>
   <!-- Stylesheets -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag    "bootstrap", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag     params[:controller], "data-turbolinks-track" => true %>
   <!-- Javascripts -->
@@ -15,7 +14,7 @@
   <%= csrf_meta_tags %>
   <%= render "layouts/common/shim" %>
 </head>
-<body>
+<body data-spy="scroll" data-target=".menu-nav">
   <%= render "checker/header" %>
   <div class="container">
     <%= yield %>
