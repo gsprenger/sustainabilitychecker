@@ -5,9 +5,13 @@ Sustainabilitychecker::Application.routes.draw do
   get "begin" => "checker#app"
   #1: Checker
     get "checker" => "checker#app"
-    get "checker/cards" => "checker#load_cards"
     get "checker/get_experiment" => "checker#get_experiment"
     post "checker/save_experiment" => "checker#save_experiment"
+  #1: Checker2
+    get "checker2" => "checker2#app"
+    get "checker2/get_experiment" => "checker2#get_experiment"
+    post "checker2/save_experiment" => "checker2#save_experiment"
+
   #2: Sudoku
   #3: Rekcehc
 

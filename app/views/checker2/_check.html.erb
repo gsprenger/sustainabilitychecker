@@ -1,0 +1,64 @@
+<div class='check-container animated hidden' id='check'>
+  <h2>Sustainability Check</h2>
+  <div class='check-result'>
+    <h3 class='check-result-title failed'>Failed!</h3>
+    <h3 class='check-result-title passed hidden'>Passed!</h3>
+  </div>
+  <div class='check-graph-container'>
+    <!-- Upper row -->
+    <div class='row check-graph-row'>
+      <div class='col-md-3'></div>
+      <!-- Upper energy bar -->
+      <div class='col-md-2 bar-upper bar-energy'>
+        <div class='bar col-energy-local'></div>
+      </div>
+      <div class='col-md-2'></div>
+      <!-- Upper food bar -->
+      <div class='col-md-2 bar-upper bar-food'>
+        <div class='bar col-food-local'></div>
+      </div>
+      <div class='col-md-3 graph-local'><div>Local Supply</div></div>
+    </div>
+    <!-- Middle axis -->
+    <hr class='check-graph-axis'>
+    <!-- Lower row -->
+    <div class='row check-graph-row'>
+      <div class='col-md-3'></div>
+      <div class='col-md-2 bar-lower bar-energy'>
+        <div class='bar col-energy-imported'></div>
+        <div class='bar-title'>Energy</div>
+      </div>
+      <div class='col-md-2'></div>
+      <div class='col-md-2 bar-lower bar-food'>
+        <div class='bar col-food-imported'></div>
+        <div class='bar-title'>Food</div>
+      </div>
+      <div class='col-md-3 graph-imported'>Imported</div>
+    </div>
+  </div>
+
+  <div class='check-why'>
+    <blockquote>"A society that relies on imports to function is not sustainable... You failed the check because..."</blockquote>
+  </div>
+
+  <div class='check-next'>
+    <div class='btn btn-default'>Try Again</div>
+    <div>...or go to <a href='#'>next level</a></div>
+  </div>
+
+  <!-- debug -->
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#selecteddata">
+          Debug Data
+        </a>
+      </h4>
+    </div>
+    <div id="selecteddata" class="panel-collapse collapse">
+      <div class="panel-body">
+        <pre class="checkvar"></pre>
+      </div>
+    </div>
+  </div>  
+</div>
