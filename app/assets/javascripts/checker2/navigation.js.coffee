@@ -1,7 +1,19 @@
 class window.Navigation
   @setup: ->
+    # Initiate Bootstrap tooltips
+    $('[title]').tooltip {placement: 'bottom'}
     Navigation.initSmoothScrolling()
     Navigation.initScrollSpy()
+
+  @getNextSectionSlug: (curSlug) ->
+    $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
+
+  @getPrevSectionSlug: (curSlug) ->
+    $('[data-section-slug='+curSlug+']').previous().attr('data-section-slug') || curSlug
+
+  @goToSection: (sectionSlug) ->
+    sectionID = $('.section[data-section-slug='+sectionSlug+']').attr('id')
+    $('a[href=#'+sectionID+']').trigger('click')
 
   @initSmoothScrolling: ->
     $('a[href*=#]:not([href=#])').click ->
@@ -15,7 +27,7 @@ class window.Navigation
           return false
 
   @initScrollSpy: ->
-    topMenu = $(".menu-nav")
+    topMenu = $(".header")
     topMenuHeight = topMenu.outerHeight()+15
     menuItems = topMenu.find("a")
     scrollItems = menuItems.map ->
@@ -36,3 +48,20 @@ class window.Navigation
         menuItems.map ->
           $(this).find('.menu-nav-item').removeClass('active')
         $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
+
+  @removeAndDisplay: (elA, elB, flag1, flag2) ->
+    if !flag1
+      $(elA).addClass 'fadeOut'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true
+      , 800
+    else if !flag2
+      $(elA).addClass 'hidden'
+      $(elA).removeClass 'fadeOut'
+      $(elB).removeClass 'hidden'
+      $(elB).addClass 'fadeIn'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true, true
+      , 800
+    else
+      $(elB).removeClass 'fadeIn'

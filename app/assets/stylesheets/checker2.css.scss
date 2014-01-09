@@ -25,6 +25,7 @@ $check: #5cb85c;
   top: 0;
   background-color: rgba(240,242,244,.85);
   border-bottom: 1px solid #ddd;
+  z-index: 10;
   
   .header-menu {
     position: relative;
@@ -107,11 +108,52 @@ $check: #5cb85c;
   min-height: 100%;
   margin: 0;
   padding: 60px 20% 10px 20%;
-  font-weight: 300
+  font-weight: 300;
 
-  h1 {
-    margin-top: 0;
-    font-weight: 400
+  .title {
+    .subtitle {
+
+    }
+  }
+
+  .description {
+
+  }
+
+  .choice.radio {
+    display: table;
+    height: 70px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    margin-bottom: 15px;
+    .radio-row {
+      display: table-row;
+      .spacer {
+        width: 1px;
+      }
+      .lg4 {
+        display: table-cell; 
+        font-weight: bold;
+        cursor: pointer;
+        vertical-align: middle;
+        text-align: center;
+        border-bottom: 2px solid #FFF;
+        &:hover { 
+          border-bottom: 2px solid #428BCA;
+        }
+      }
+      .lg4 {
+        width: 33.33%;
+      }
+      .active {
+        background-color: #F7F7F7;
+        border-bottom: 2px solid #5cb85c;
+        &:hover { 
+          border-bottom: 2px solid #5cb85c;
+        }
+      }
+    }
   }
 }
 

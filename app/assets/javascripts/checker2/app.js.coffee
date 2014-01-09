@@ -7,9 +7,8 @@ class window.App
     else
       App.launchCheck()
 
-  @launchSelection: ->    
+  @launchSelection: ->     
     curHash = '#'+$('[data-section-slug='+Progression.current+']').attr('id')
-    $('html,body').animate({scrollTop: $(curHash).offset().top}, 1000)
-
+    $('a[href='+curHash+']').trigger('click')
 
   @launchCheck: ->
