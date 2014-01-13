@@ -1,9 +1,13 @@
 class window.Navigation
   @setup: ->
-    # Initiate Bootstrap tooltips
+    # Initiate Bootstrap tooltips and scroll helpers
     $('[title]').tooltip {placement: 'bottom'}
     Navigation.initSmoothScrolling()
     Navigation.initScrollSpy()
+    $('.checkicon').click ->
+      if $('.checksection').css('display') == 'none'
+        Navigation.showLoading('section')
+        App.launchCheck()
 
   @getNextSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
@@ -49,7 +53,14 @@ class window.Navigation
           $(this).find('.menu-nav-item').removeClass('active')
         $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
 
-  @showLoading: ->
+  @showLoading: (el) ->
+    if (el)
+      $('.'+el).css('visibility', 'hidden')
+      $('.'+el).css('opacity', '0')
+      $('.'+el).css('transition-delay', '0s')
+      setTimeout ->
+        $('.'+el).css('display', 'none')
+      , 750
     NProgress.configure({ trickleRate: 0.12, trickleSpeed: 200 });
     NProgress.start()
 

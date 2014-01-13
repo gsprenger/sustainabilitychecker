@@ -1,17 +1,20 @@
 class window.App
   @launch: ->
     Navigation.showLoading();
+    # Setup prog and nav
     Progression.setup($('#uid').text())
     Navigation.setup()
-    if ($('#check').hasClass('hidden'))
+    # Launch app
+    if (Progression.current != 'check')
+      curHash = '#'+$('[data-section-slug='+Progression.current+']').attr('id')
+      $('a[href='+curHash+']').trigger('click')
       App.launchSelection()
     else
       App.launchCheck()
 
   @launchSelection: ->     
-    curHash = '#'+$('[data-section-slug='+Progression.current+']').attr('id')
-    $('a[href='+curHash+']').trigger('click')
     Navigation.removeLoading('section');
 
   @launchCheck: ->
-    Navigation.removeLoading('check');
+    Check.setup()
+    Navigation.removeLoading('checksection');
