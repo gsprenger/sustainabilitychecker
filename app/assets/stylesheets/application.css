@@ -11,5 +11,6 @@
  *= require_self
  *= require animate
  *= require jquery.ui.all
+ *= require nprogress
  *= require core
  */

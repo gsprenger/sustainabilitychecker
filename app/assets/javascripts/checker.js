@@ -3,10 +3,10 @@
 //
 //= require jquery.ui.all
 //= require checker/app
-//= require checker/check
 //= require checker/navigation
 //= require checker/progression
 //= require checker/choice
+//= require checker/check
 
 var ready = function() {
   App.launch();

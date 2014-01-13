@@ -49,19 +49,21 @@ class window.Navigation
           $(this).find('.menu-nav-item').removeClass('active')
         $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
 
-  @removeAndDisplay: (elA, elB, flag1, flag2) ->
-    if !flag1
-      $(elA).addClass 'fadeOut'
+  @showLoading: ->
+    NProgress.configure({ trickleRate: 0.12, trickleSpeed: 200 });
+    NProgress.start()
+
+  @removeLoading: (el) ->
+    setTimeout ->
+      NProgress.done()
+      $('.'+el).css('display', 'block')
+      $('.header').css('display', 'block')
       setTimeout ->
-        Navigation.removeAndDisplay elA, elB, true
-      , 800
-    else if !flag2
-      $(elA).addClass 'hidden'
-      $(elA).removeClass 'fadeOut'
-      $(elB).removeClass 'hidden'
-      $(elB).addClass 'fadeIn'
-      setTimeout ->
-        Navigation.removeAndDisplay elA, elB, true, true
-      , 800
-    else
-      $(elB).removeClass 'fadeIn'
+        $('.'+el).css('visibility', 'visible')
+        $('.header').css('visibility', 'visible')
+        $('.'+el).css('opacity', '1')
+        $('.header').css('opacity', '1')
+        $('.'+el).css('transition-delay', '0s')
+        $('.header').css('transition-delay', '0s')
+      , 250
+    , 2000

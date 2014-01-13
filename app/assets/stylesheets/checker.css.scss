@@ -2,6 +2,14 @@
 * Checker. Applies to everything related to the first part of the Experiment.
 **/
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+/** COLORS **/
+$yellow: #f39c12;
+$red: #e74c3c;
+$green: #2ecc71;
+$blue: #2980b9;
+$black: #333333;
+$white: #fefefe;
+$gray: #f8f8f8;
 
 html, body { 
   height: 100%;
@@ -14,10 +22,6 @@ body {
 }
 
 /** HEADER **/
-$demand: #f39c12;
-$supply: #2980b9;
-$check: #2ecc71;
-
 .header {
   position: fixed;
   height: 65px;
@@ -26,6 +30,10 @@ $check: #2ecc71;
   background-color: rgba(240,242,244,.85);
   border-bottom: 1px solid #ddd;
   z-index: 10;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
   
   .header-menu {
     position: relative;
@@ -35,21 +43,21 @@ $check: #2ecc71;
       width: 560px;
         
       .demand { 
-        border-top: 3px solid $demand; 
-        .icon:hover, .active {
-          background-color: $demand; 
+        border-top: 3px solid $yellow; 
+        .active {
+          background-color: $yellow; 
         }
       }
       .supply { 
-        border-top: 3px solid $supply;
-        .icon:hover, .active {
-          background-color: $supply; 
+        border-top: 3px solid $blue;
+        .active {
+          background-color: $blue; 
         }
       }
       .check { 
-        border-top: 3px solid $check;
-        .checkicon:hover, .active {
-          background-color: $check; 
+        border-top: 3px solid $green;
+        .active {
+          background-color: $green; 
         }
       }
       .menu-nav-box {
@@ -65,7 +73,7 @@ $check: #2ecc71;
         }
         
         .menu-nav-content {
-          color: #333;
+          color: $black;
             
           a, a:focus, a:visited, a:hover {
             color: inherit;
@@ -74,13 +82,13 @@ $check: #2ecc71;
           
           .menu-nav-item {
             float: left;
-            transition: 1s all ease;
+            transition: background-color 1s ease, color 1s ease;
           }
           
           .line {
             width: 20px;
             height: 15px;
-            border-bottom: 2px solid #333;
+            border-bottom: 1px solid $black;
           }
          
           .space {
@@ -89,9 +97,12 @@ $check: #2ecc71;
          
           .icon, .checkicon {
             width: 30px;
-            line-height: 25px;
-            border: 2px solid #333;
+            line-height: 26px;
+            border: 1px solid $black;
             border-radius: 50%;
+            &:hover {
+              font-size: 16px;
+            }
           }
         }
       }
@@ -109,6 +120,10 @@ $check: #2ecc71;
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 
   .title {
     .subtitle {
@@ -138,43 +153,21 @@ $check: #2ecc71;
         cursor: pointer;
         vertical-align: middle;
         text-align: center;
-        border-bottom: 2px solid #FFF;
+        border-bottom: 2px solid $gray;
         &:hover { 
-          border-bottom: 2px solid #428BCA;
+          border-bottom: 2px solid $blue;
         }
       }
       .lg4 {
         width: 33.33%;
       }
       .active {
-        background-color: #F7F7F7;
-        border-bottom: 2px solid #5cb85c;
+        background-color: $gray;
+        border-bottom: 2px solid $green;
         &:hover { 
-          border-bottom: 2px solid #5cb85c;
+          border-bottom: 2px solid $blue;
         }
       }
     }
   }
 }
-
-#demographics {
-//  background-color: rgba(241, 196, 15,1.0);
-}
-
-#diet {
- // background-color: rgba(241, 196, 15,0.9);
-}
-
-#households {
-  //background-color: rgba(241, 196, 15,0.8);
-}
-
-#services {
-  //background-color: rgba(241, 196, 15,0.7);
-}
-
-#density {}
-#land {}
-#bm {}
-#agriculture {}
-#energy {}
