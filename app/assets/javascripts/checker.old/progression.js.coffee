@@ -1,6 +1,6 @@
 class window.Progression
-  @id = 0 # user ID in database
-  @current = 'dem' # section to display on startup
+  @id = 0 # ID in database
+  @current = 'dem' # Current card displayed
   @values = [] # Values entered by the user
 
   @setup: (@id) ->
@@ -12,7 +12,7 @@ class window.Progression
       async:    false
     }).responseText
     exp = JSON.parse data.json
-    Progression.current = exp.current || Progression.current
+    Progression.current = exp.current || Card.cards[0].slug
     Progression.values = exp.values || []
     # Init events for all choices
     $('[data-choice-type]').each (i, el) ->

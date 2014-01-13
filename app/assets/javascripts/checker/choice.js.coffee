@@ -1,34 +1,38 @@
-class window.Choice	
+class window.Choice 
   @initRadio: (el) ->
-    card = Card.cards[$(el).closest('.card').attr('data-card-id')]
+    sectionSlug = $(el).closest('.section').attr('data-section-slug')
     $(el).find('[data-cv-value]').each (i, radio) ->
-      # get the card they belong to and the value of the cv-value field
+      # get the section they belong to and the value of the cv-value field
       value = $(radio).attr('data-cv-value')
       # check if item is selected in Progression and activate it
       for val in Progression.values
-        if val.name == card.slug && val.value == value
+        if val.name == sectionSlug && val.value == value
           $(radio).addClass('active')
           break
       # attach a click event to the radio element
       $(radio).on 'click', ->
-        $('.card[data-card-id='+card.id+'] .choice-grid-radio.active').removeClass('active')
+        $('.section[data-section-slug='+sectionSlug+'] .active').removeClass('active')
         $(radio).addClass('active')
-        Progression.current = card.slug
-        Progression.addToValues card.slug, value
+        nextSlug = Navigation.getNextSectionSlug(sectionSlug)
+        Progression.current = nextSlug
+        Progression.addToValues sectionSlug, value
         Progression.save()
+        setTimeout ->
+          Navigation.goToSection(nextSlug)
+        , 1000
 
   @initSlider: (el) ->
-    card = Card.cards[$(el).closest('.card').attr('data-card-id')]
+    sectionSlug = $(el).closest('.section').attr('data-section-slug')
     slider = $(el).find('.slider')
     Choice.createSlider(slider)
     # save on Change
     slider.on 'slidechange', (e, ui) ->
-      Progression.current = card.slug
+      Progression.current = sectionSlug
       Progression.addToValues slider.attr('data-slider-name'), ui.value
       Progression.save()
 
   @initSliderGroup: (el) ->
-    card = Card.cards[$(el).closest('.card').attr('data-card-id')]
+    sectionSlug = $(el).closest('.section').attr('data-section-slug')
     sliders = []
     $(el).find('.slider').each (i, slider) ->
       name = $(slider).attr('data-slider-name')
@@ -50,7 +54,7 @@ class window.Choice
           $(sliderToChange).slider('value', oldVal + (if goingUp then -1 * step else step))
       $(slider).on 'slidechange', (e, ui) ->
         if Choice.lastSlider == name
-          Progression.current = card.slug
+          Progression.current = sectionSlug
           for s in sliders
             Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
           Progression.save()

@@ -4,7 +4,6 @@
 //= require jquery.ui.all
 //= require checker/app
 //= require checker/check
-//= require checker/card
 //= require checker/navigation
 //= require checker/progression
 //= require checker/choice

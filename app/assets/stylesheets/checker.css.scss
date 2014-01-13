@@ -1,15 +1,31 @@
 /**
 * Checker. Applies to everything related to the first part of the Experiment.
 **/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+html, body { 
+  height: 100%;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
 /** HEADER **/
-$demand: #f0ad4e;
-$supply: #39b3d7;
-$check: #5cb85c;
+$demand: #f39c12;
+$supply: #2980b9;
+$check: #2ecc71;
 
 .header {
+  position: fixed;
   height: 65px;
-  background-color: #F8F8F8;
-  border-bottom: 2px solid #E7E7E7;
+  width: 100%;
+  top: 0;
+  background-color: rgba(240,242,244,.85);
+  border-bottom: 1px solid #ddd;
+  z-index: 10;
   
   .header-menu {
     position: relative;
@@ -58,7 +74,7 @@ $check: #5cb85c;
           
           .menu-nav-item {
             float: left;
-            cursor: pointer;
+            transition: 1s all ease;
           }
           
           .line {
@@ -87,213 +103,78 @@ $check: #5cb85c;
   }
 }
 
-/** LOADING **/
-#loading {
-  margin-top: 50px;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.2);
-   
-  .cogs {
-    width: 80px;
-    height: 95px;
-    margin: auto;
-    position: relative;
-    .fa-2x {
-      position: absolute;
-      top: 68px;
-      left: 33px;
-    }
-    .fa-3x {
-      position: absolute;
-      top: 39px;
-      left: 5px;
-      -moz-animation: spin 2s infinite linear reverse;
-      -o-animation: spin 2s infinite linear reverse;
-      -webkit-animation: spin 2s infinite linear reverse;
-      animation: spin 2s infinite linear reverse;
-    }
-    .fa-4x {
-      position: absolute;
-      top: 0px;
-      left: 28px;
+.section {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 60px 20% 10px 20%;
+  font-weight: 300;
+
+  .title {
+    .subtitle {
+
     }
   }
-}
 
-/** CARDS **/
-.card-container {
-  margin-top: 15px;
-  .card {
-    border: 1px solid #D7D7D7;
-    width: 550px;
-    color: #333;
-    margin: 15px auto;
-    
-    .card-header {
-      background-color: #F8F8F8;
-      border-bottom: 1px solid #E7E7E7;
-      padding: 5px 15px;
-      
-      .card-title {
+  .description {
+
+  }
+
+  .choice.radio {
+    display: table;
+    height: 70px;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    margin-bottom: 15px;
+    .radio-row {
+      display: table-row;
+      .spacer {
+        width: 1px;
+      }
+      .lg4 {
+        display: table-cell; 
         font-weight: bold;
-        font-size: 1.2em;
-      }
-      .card-question {
-      }
-    }
-    
-    .card-body {
-      // CHOICE COMPONENTS: several ways to display the card-choice container
-      // GRID: Selection in grid of 3 (lg4) or 4 (lg3) options aligned on a row.      
-      .choice-grid {
-        display: table;
-        height: 70px;
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 5px;
-        margin-bottom: 15px;
-
-        .choice-grid-row {
-          display: table-row;
-
-          .lg3, .lg4 {
-            display: table-cell; 
-            font-weight: bold;
-            cursor: pointer;
-            vertical-align: middle;
-            text-align: center;
-            border-bottom: 2px solid #FFF;
-            &:hover { 
-              border-bottom: 2px solid #428BCA;
-            }
-          }
-          .lg3 {
-            width: 25%;
-          }   
-          .lg4 {
-            width: 33.33%;
-          }
-          .active {
-            background-color: #F7F7F7;
-            border-bottom: 2px solid #5cb85c;
-            &:hover { 
-              border-bottom: 2px solid #5cb85c;
-            }
-          }   
-        }
-      }
-      .choice-slider {
+        cursor: pointer;
+        vertical-align: middle;
         text-align: center;
-        .slider {
-          margin: auto;
-          margin-bottom: 10px;
-        }        
-      }
-  
-      // SOLO SLIDER. Sliders that are independant
-      .choice-soloslider {
-        padding: 15px;
-        h3 {
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-        .choice-ss-body {
-          margin: 20px 0px;
-          .choice-ss-slider {
-            width: 90%;
-            float: left;
-          }
-          .choice-ss-value {
-            width: 30px;
-          }
+        border-bottom: 2px solid #FFF;
+        &:hover { 
+          border-bottom: 2px solid #428BCA;
         }
       }
-
-      // SERVICE SLIDER. Sliders that are specific to Services
-      .choice-services {
-        padding: 10px 0px;
-        .choice-ss-body {
-          .choice-ss-slider {
-            margin: auto;
-          }
-          .choice-ss-value {
-            padding-top: 10px;
-            text-align: center;
-          }
-        }
+      .lg4 {
+        width: 33.33%;
       }
-
-      .card-subtitle {
-        padding: 15px;
-        font-style: italic;
-        text-align: center;
+      .active {
+        background-color: #F7F7F7;
+        border-bottom: 2px solid #5cb85c;
+        &:hover { 
+          border-bottom: 2px solid #5cb85c;
+        }
       }
     }
   }
 }
 
-/** CHECK **/
-.check-container {
-  margin-top: 15px;
-  h2 { 
-    text-align: center;
-  }
-  .check-result {
-    text-align: center;
-    font-style: italic;
-  }
-
-  .check-graph-container {
-    .check-graph-row {
-      .bar-energy .bar {
-        border: 2px solid #357ebd;
-      }
-      .bar-food .bar {
-        border: 2px solid #d43f3a;
-      }
-      .bar-upper .bar {
-        border-bottom: none;
-      }
-      .bar-lower .bar{
-        border-top: none;
-      }
-      .col-energy-local, .col-energy-imported {
-        background-color: #428bca;
-      }
-      .col-food-local, .col-food-imported {
-        background-color: #d9534f;
-      }
-      .bar-title {
-        text-align: center;
-      }
-    }
-
-    hr {
-      margin: 0;
-      border-color: #333;
-      border-width: 1px;
-    }
-
-    .graph-imported, .graph-local {
-      text-align: right;
-    }
-
-    .graph-local {
-      position: relative;
-      div {
-        position: absolute;
-        right: 15px;
-        bottom: -80px;
-      }
-    }
-  }
-
-  .check-next {
-    text-align: center;
-  }
-
-  // debug
-  .panel {
-    margin-top: 25px;
-  }
+#demographics {
+//  background-color: rgba(241, 196, 15,1.0);
 }
+
+#diet {
+ // background-color: rgba(241, 196, 15,0.9);
+}
+
+#households {
+  //background-color: rgba(241, 196, 15,0.8);
+}
+
+#services {
+  //background-color: rgba(241, 196, 15,0.7);
+}
+
+#density {}
+#land {}
+#bm {}
+#agriculture {}
+#energy {}

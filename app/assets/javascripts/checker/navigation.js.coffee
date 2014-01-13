@@ -1,46 +1,53 @@
 class window.Navigation
   @setup: ->
     # Initiate Bootstrap tooltips
-    $('.btooltip').tooltip {placement: 'bottom'}
-    # Set navigation click events on header icons
-    $('.icon').each (i, el) ->
-      $(el).parent().on 'click', ->
-        Navigation.goTo Card.getCardBySlug $(el).attr('data-card-slug')
-    # Set navigation on check icon
-    $('.checkicon').parent().on 'click', ->
-      Navigation.goToCheck()
+    $('[title]').tooltip {placement: 'bottom'}
+    Navigation.initSmoothScrolling()
+    Navigation.initScrollSpy()
 
-  @goTo: (card) ->
-    $('.icon, .checkicon').removeClass 'active'
-    $('.icon[data-card-slug='+card.slug+']').addClass('active')
-    # if check is shown transition to Cards
-    if $('#cards').hasClass('hidden')
-      # hide potentiel previous card and show goto card
-      prevCardSlug = $('.card.active').attr('data-card-slug')
-      (Card.getCardBySlug(prevCardSlug)).hide(true) if prevCardSlug
-      card.show true
-      Navigation.removeAndDisplay '#check', '#cards'
-    else
-      prevCard = Card.getCardBySlug $('.card.active').attr('data-card-slug')
-      prevCard.hide()
-      setTimeout ->
-        card.show()
-      , 800
+  @getNextSectionSlug: (curSlug) ->
+    $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
 
-  @goToCheck: (flag) ->
-    if $('.card.active').length && !flag
-      card = Card.getCardBySlug $('.card.active').attr('data-card-slug')
-      card.hide()
-      setTimeout ->
-        Navigation.goToCheck(true)
-      , 800
-      return
-    $('.icon, .checkicon').removeClass 'active'
-    $('.checkicon').addClass 'active'
-    Navigation.removeAndDisplay '#cards', '#loading'
-    setTimeout ->
-      App.launchCheck()
-    , 1600
+  @getPrevSectionSlug: (curSlug) ->
+    $('[data-section-slug='+curSlug+']').previous().attr('data-section-slug') || curSlug
+
+  @goToSection: (sectionSlug) ->
+    sectionID = $('.section[data-section-slug='+sectionSlug+']').attr('id')
+    $('a[href=#'+sectionID+']').trigger('click')
+
+  @initSmoothScrolling: ->
+    $('a[href*=#]:not([href=#])').click ->
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) 
+        if $(this.hash) 
+          target = $(this.hash) 
+        else 
+          target = $('[name=' + this.hash.slice(1) +']')
+        if (target.length)
+          $('html,body').animate({scrollTop: target.offset().top}, 1000)
+          return false
+
+  @initScrollSpy: ->
+    topMenu = $(".header")
+    topMenuHeight = topMenu.outerHeight()+15
+    menuItems = topMenu.find("a")
+    scrollItems = menuItems.map ->
+      item = $($(this).attr("href"))
+      if (item.length) 
+        return item
+      
+    $(window).scroll ->
+      fromTop = $(this).scrollTop()+topMenuHeight;
+      cur = scrollItems.map ->
+        if ($(this).offset().top < fromTop)
+          return this
+      cur = cur[cur.length-1]
+      if (cur && cur.length)
+        id = cur[0].id
+      if (lastId != id) 
+        lastId = id
+        menuItems.map ->
+          $(this).find('.menu-nav-item').removeClass('active')
+        $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
 
   @removeAndDisplay: (elA, elB, flag1, flag2) ->
     if !flag1

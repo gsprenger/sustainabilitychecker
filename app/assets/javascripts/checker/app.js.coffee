@@ -1,21 +1,14 @@
 class window.App
   @launch: ->
-    Card.generateCards()
-    Progression.setup $('#uid').text()
+    Progression.setup($('#uid').text())
     Navigation.setup()
-    if (Progression.current != 'check')
-      App.launchCards()
+    if ($('#check').hasClass('hidden'))
+      App.launchSelection()
     else
       App.launchCheck()
 
-  @launchCards: ->
-    currentCard = Card.getCardBySlug Progression.current
-    $('.icon[data-card-slug='+currentCard.slug+']').addClass('active')
-    currentCard.show true
-    Navigation.removeAndDisplay('#loading', '#cards')
-
+  @launchSelection: ->     
+    curHash = '#'+$('[data-section-slug='+Progression.current+']').attr('id')
+    $('a[href='+curHash+']').trigger('click')
 
   @launchCheck: ->
-    # real code
-    Check.setup()
-    Navigation.removeAndDisplay '#loading', '#check'
