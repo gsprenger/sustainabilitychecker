@@ -6,7 +6,6 @@ class window.Navigation
     Navigation.initScrollSpy()
     $('.checkicon').click ->
       if $('.checksection').css('display') == 'none'
-        Navigation.showLoading('section')
         App.launchCheck()
 
   @getNextSectionSlug: (curSlug) ->
@@ -53,14 +52,7 @@ class window.Navigation
           $(this).find('.menu-nav-item').removeClass('active')
         $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
 
-  @showLoading: (el) ->
-    if (el)
-      $('.'+el).css('visibility', 'hidden')
-      $('.'+el).css('opacity', '0')
-      $('.'+el).css('transition-delay', '0s')
-      setTimeout ->
-        $('.'+el).css('display', 'none')
-      , 750
+  @showLoading: ->
     NProgress.configure({ trickleRate: 0.12, trickleSpeed: 200 });
     NProgress.start()
 
