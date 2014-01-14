@@ -1,7 +1,7 @@
 // This is a manifest file that'll be compiled into checker.js, which will include all the files
 // listed below.
 //
-//= require jquery.ui.all
+//= require jquery.ui.slider
 //= require checker/app
 //= require checker/navigation
 //= require checker/progression
