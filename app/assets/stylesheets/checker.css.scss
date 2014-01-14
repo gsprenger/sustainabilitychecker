@@ -10,6 +10,7 @@ $blue: #2980b9;
 $black: #333333;
 $white: #fefefe;
 $gray: #f8f8f8;
+$alphagrey: rgba(255, 255, 255,.6);
 
 html, body { 
   height: 100%;
@@ -27,7 +28,7 @@ body {
   height: 65px;
   width: 100%;
   top: 0;
-  background-color: rgba(240,242,244,.85);
+  background-color: $alphagrey;
   border-bottom: 1px solid #ddd;
   z-index: 10;
   display: none;
@@ -126,6 +127,11 @@ body {
   opacity: 0;
   transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 
+  .section-wrapper {
+    padding: 0 30px 20px 30px;
+      background-color: $alphagrey;
+  }
+
   .title {
     .subtitle {
 
@@ -154,7 +160,7 @@ body {
         cursor: pointer;
         vertical-align: middle;
         text-align: center;
-        border-bottom: 2px solid $gray;
+        border-bottom: 2px solid rgba(240,242,244,0);
         &:hover { 
           border-bottom: 2px solid $blue;
         }
@@ -163,14 +169,27 @@ body {
         width: 33.33%;
       }
       .active {
-        background-color: $gray;
+        background-color: rgba(250,250,250,0.5);
         border-bottom: 2px solid $green;
         &:hover { 
-          border-bottom: 2px solid $blue;
+          border-bottom: 2px solid $green;
         }
       }
     }
   }
+}
+
+#demographics {
+  background: image-url("dem.png") no-repeat center center;
+  background-size: cover;
+}
+#diet {
+  background: image-url("die.png") no-repeat center center;
+  background-size: cover;
+}
+#households {
+  background: image-url("hou.png") no-repeat center center;
+  background-size: cover;
 }
 
 .checksection {
