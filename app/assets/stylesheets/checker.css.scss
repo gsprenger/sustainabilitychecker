@@ -89,7 +89,7 @@ body {
           .line {
             width: 20px;
             height: 15px;
-            border-bottom: 1px solid $black;
+            border-bottom: 2px solid $black;
           }
          
           .space {
@@ -98,8 +98,8 @@ body {
          
           .icon, .checkicon {
             width: 30px;
-            line-height: 26px;
-            border: 1px solid $black;
+            line-height: 25px;
+            border: 2px solid $black;
             border-radius: 50%;
             &:hover {
               font-size: 16px;
