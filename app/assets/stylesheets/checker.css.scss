@@ -92,7 +92,7 @@ header {
           transition: 
             background-color 1s ease, 
             color 1s ease;
-          &:hover { 
+          &:hover, &:focus, &:visited { 
             color: $black;
           }
           &.active.demand {
@@ -117,20 +117,6 @@ header {
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-
-  .title {
-    .subtitle {
-
-    }
-  }
-
-  .description {
-
-  }
 
   .choice.radio {
     display: table;
@@ -176,8 +162,4 @@ header {
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }

@@ -1,12 +1,16 @@
 class window.Navigation
+  # Setup navigation icons click events and helpers
   @setup: ->
-    # Initiate Bootstrap tooltips and scroll helpers
+    # Initiate Bootstrap tooltips
     $('[title]').tooltip {placement: 'bottom'}
-    Navigation.initSmoothScrolling()
+    # Automatic activation of active effect on scroll
     Navigation.initScrollSpy()
-    $('.checkicon').click ->
-      if $('.checksection').css('display') == 'none'
-        App.launchCheck()
+    # Click event for section icons
+    $('nav .demand, nav .supply').click ->
+      Navigation.goToSection(this.hash.substr(1))
+    # Click event for check icon
+    $('nav .check').click ->
+      App.launchCheck()
 
   @getNextSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
@@ -14,30 +18,24 @@ class window.Navigation
   @getPrevSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').previous().attr('data-section-slug') || curSlug
 
-  @goToSection: (sectionSlug) ->
-    sectionID = $('.section[data-section-slug='+sectionSlug+']').attr('id')
-    $('a[href=#'+sectionID+']').trigger('click')
+  @goToSection: (name, isSlug) ->
+    if isSlug
+      name = $('.section[data-section-slug='+name+']').attr('id')
+    target = $('.section[id='+name+']')
+    $('html,body').animate({scrollTop: target.offset().top}, 1000)
 
-  @initSmoothScrolling: ->
-    $('a[href*=#]:not([href=#])').click ->
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) 
-        if $(this.hash) 
-          target = $(this.hash) 
-        else 
-          target = $('[name=' + this.hash.slice(1) +']')
-        if (target.length)
-          $('html,body').animate({scrollTop: target.offset().top}, 1000)
-          return false
+  @goToCheck: ->
+    target = $('.checksection')
+    $('html,body').animate({scrollTop: target.offset().top}, 1000)    
 
   @initScrollSpy: ->
-    topMenu = $(".header")
+    topMenu = $("header")
     topMenuHeight = topMenu.outerHeight()+15
     menuItems = topMenu.find("a")
     scrollItems = menuItems.map ->
       item = $($(this).attr("href"))
       if (item.length) 
-        return item
-      
+        return item  
     $(window).scroll ->
       fromTop = $(this).scrollTop()+topMenuHeight;
       cur = scrollItems.map ->
@@ -49,24 +47,5 @@ class window.Navigation
       if (lastId != id) 
         lastId = id
         menuItems.map ->
-          $(this).find('.menu-nav-item').removeClass('active')
-        $('[href=#'+id+']').find('.menu-nav-item').addClass('active')
-
-  @showLoading: ->
-    NProgress.configure({ trickleRate: 0.12, trickleSpeed: 200 });
-    NProgress.start()
-
-  @removeLoading: (el) ->
-    setTimeout ->
-      NProgress.done()
-      $('.'+el).css('display', 'block')
-      $('.header').css('display', 'block')
-      setTimeout ->
-        $('.'+el).css('visibility', 'visible')
-        $('.header').css('visibility', 'visible')
-        $('.'+el).css('opacity', '1')
-        $('.header').css('opacity', '1')
-        $('.'+el).css('transition-delay', '0s')
-        $('.header').css('transition-delay', '0s')
-      , 250
-    , 2000
+          $(this).removeClass('active')
+        $('[href=#'+id+']').addClass('active')

@@ -1,4 +1,15 @@
 class window.Choice 
+  # Init events for all sections choices  
+  @setup: ->
+    $('[data-choice-type]').each (i, el) ->
+      switch $(el).attr('data-choice-type')
+        when 'radio'
+          Choice.initRadio el
+        when 'slider'
+          Choice.initSlider el
+        when 'slidergroup'
+          Choice.initSliderGroup el
+
   @initRadio: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')
     $(el).find('[data-cv-value]').each (i, radio) ->
@@ -18,7 +29,7 @@ class window.Choice
         Progression.addToValues sectionSlug, value
         Progression.save()
         setTimeout ->
-          Navigation.goToSection(nextSlug)
+          Navigation.goToSection(nextSlug, true)
         , 1000
 
   @initSlider: (el) ->
