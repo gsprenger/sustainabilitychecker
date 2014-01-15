@@ -13,7 +13,7 @@ Bundler.require(:default, Rails.env)
 
 module Sustainabilitychecker
   class Application < Rails::Application
-    # bootstrap
+    # Bootstrap requirement
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     
     

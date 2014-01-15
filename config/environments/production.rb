@@ -38,7 +38,7 @@ Sustainabilitychecker::Application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :sass
 
-  # CUSTOM: render all individual css files:
+  # CUSTOM: all individual css and js files:
   config.assets.precompile << "*.css"
   config.assets.precompile << "*.js"
 
