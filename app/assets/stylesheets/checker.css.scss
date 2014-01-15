@@ -156,10 +156,27 @@ header {
 }
 
 /** CHECK **/
-.checksection {
+#check {
   width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
+  display: table;
+
+  .precheck {
+    height: 100%;
+    display: table-cell;   
+    vertical-align: middle;
+    text-align: center;
+
+    .alert {
+      text-align: left;  
+      margin-top: 20px;
+    }
+  }
+
+  .checksection {
+    display: none;
+  }
 }

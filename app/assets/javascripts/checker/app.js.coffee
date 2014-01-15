@@ -14,4 +14,3 @@ class window.App
     Navigation.goToSection(Progression.current, true)
 
   @launchCheck: ->
-    Check.setup()

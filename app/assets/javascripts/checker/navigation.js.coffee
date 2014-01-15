@@ -10,7 +10,7 @@ class window.Navigation
       Navigation.goToSection(this.hash.substr(1))
     # Click event for check icon
     $('nav .check').click ->
-      App.launchCheck()
+      Navigation.goToCheck()
 
   @getNextSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
@@ -25,7 +25,7 @@ class window.Navigation
     $('html,body').animate({scrollTop: target.offset().top}, 1000)
 
   @goToCheck: ->
-    target = $('.checksection')
+    target = $('#check')
     $('html,body').animate({scrollTop: target.offset().top}, 1000)    
 
   @initScrollSpy: ->
