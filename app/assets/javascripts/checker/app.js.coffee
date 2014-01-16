@@ -4,13 +4,9 @@ class window.App
     Progression.setup()
     Navigation.setup()
     Choice.setup()
+    Check.setup()
     # Launch according to progression
     if (Progression.current != 'check')
-      App.launchSelection()
+      Navigation.goToSection(Progression.current, true)
     else
-      App.launchCheck()
-
-  @launchSelection: -> 
-    Navigation.goToSection(Progression.current, true)
-
-  @launchCheck: ->
+      Navigation.smoothScrollTo('#check')

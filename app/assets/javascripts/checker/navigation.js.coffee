@@ -8,9 +8,11 @@ class window.Navigation
     # Click event for section icons
     $('nav .demand, nav .supply').click ->
       Navigation.goToSection(this.hash.substr(1))
+      return false # prevent default anchor scroll
     # Click event for check icon
     $('nav .check').click ->
-      Navigation.goToCheck()
+      Navigation.smoothScrollTo('#check')
+      return false # prevent default anchor scroll
 
   @getNextSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
@@ -21,12 +23,11 @@ class window.Navigation
   @goToSection: (name, isSlug) ->
     if isSlug
       name = $('.section[data-section-slug='+name+']').attr('id')
-    target = $('.section[id='+name+']')
-    $('html,body').animate({scrollTop: target.offset().top}, 1000)
+    target = '.section[id='+name+']'
+    Navigation.smoothScrollTo(target)
 
-  @goToCheck: ->
-    target = $('#check')
-    $('html,body').animate({scrollTop: target.offset().top}, 1000)    
+  @smoothScrollTo: (target) ->
+    $('html,body').animate({scrollTop: $(target).offset().top}, 1000)    
 
   @initScrollSpy: ->
     topMenu = $("header")
@@ -49,3 +50,20 @@ class window.Navigation
         menuItems.map ->
           $(this).removeClass('active')
         $('[href=#'+id+']').addClass('active')
+
+  @removeAndDisplay: (elA, elB, flag1, flag2) ->
+    if !flag1
+      $(elA).addClass 'fadeOut'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true
+      , 800
+    else if !flag2
+      $(elA).addClass 'hidden'
+      $(elA).removeClass 'fadeOut'
+      $(elB).removeClass 'hidden'
+      $(elB).addClass 'fadeIn'
+      setTimeout ->
+        Navigation.removeAndDisplay elA, elB, true, true
+      , 800
+    else
+      $(elB).removeClass 'fadeIn'

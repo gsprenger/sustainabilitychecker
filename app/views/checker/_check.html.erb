@@ -1,18 +1,65 @@
 <div id='check'>
-  <div class='precheck'>
-    <div class="alert alert-danger">
-      <p><strong>You cannot proceed until you've set all the necessary variables!</strong></p>
-      <p>Missing variables: (click to go)
+  <!-- PRECHECK SECTION -->
+  <div class='precheck animated'>
+    <div class="alert alert-info">
+      <p><strong>Data selected:</strong> (data defaults to average value when nothing is selected)
         <ul>
           <li>
-            <a href='#demographics' class='alert-link'>Demographics</a>
+            <a href='#demographics' class='alert-link'>Demographics:</a>
+            <span class='d_dem'>60-80y.</span>
+          </li>
+          <li>
+            <a href='#diet' class='alert-link'>
+            Diet:</a>
+            <span class='d_die'>Average</span>
+          </li>
+          <li>
+            <a href='#households' class='alert-link'>Households:</a>
+            <span class='d_hou_urb'>25%</span> Urban, including 
+            <span class='d_hou_sub'>25%</span> Rich suburbs, 
+            <span class='d_hou_apa'>50%</span> Middle-class appartments and 
+            <span class='d_hou_slu'>25%</span> slums.
+          </li>
+          <li>
+            <a href='#services' class='alert-link'>Services &amp; Government:</a>
+            <span class='d_ser_edu'>Medium</span> education and healthcare, 
+            <span class='d_ser_med'>Medium</span> media and tourism, 
+            <span class='d_ser_pub'>Medium</span> public institutions, 
+            <span class='d_ser_tra'>Medium</span> transportation and retailing.
+          </li>
+          <li>
+            <a href='#density' class='alert-link'>Population Density:</a>
+            <span class='s_den'>Average</span>
+          </li>
+          <li>
+            <a href='#land' class='alert-link'>Land:</a>
+            <span class='s_lan'>0.2-0.3</span> hectare per capita of arable land.
+          </li>
+          <li>
+            <a href='#bm' class='alert-link'>Building &amp; Manufacturing:</a>
+            <span class='s_bm'>Average</span>
+          </li>
+          <li>
+            <a href='#agriculture' class='alert-link'>Agriculture:</a>
+            <span class='s_agr'>Mixed</span>
+          </li>
+          <li>
+            <a href='#energy' class='alert-link'>Energy:</a>
+            Energy production: <span class='s_ene_nuc'>25%</span> nuclear, 
+            <span class='s_ene_hyd'>25%</span> hydropower, 
+            <span class='s_ene_pho'>25%</span> photovoltaics, 
+            <span class='s_ene_win'>25%</span> wind power.<br>
+            Fuels production: <span class='s_ene_bio'>25%</span> biofuels, 
+            <span class='s_ene_hyg'>50%</span> hydrogen, 
+            <span class='s_ene_ncf'>25%</span> non-conventional fossile resources.
           </li>
         </ul>
       </p>
     </div>
-    <button type="button"  class='btn btn-primary btn-lg' disabled=disabled>Check Sustainability Levels</button>
+    <button type="button"  class='btn btn-primary btn-lg'>Check Sustainability Levels</button>
   </div>
-  <div class='checksection'>
+  <!-- CHECK SECTION -->
+  <div class='checksection animated hidden'>
     <h2>Sustainability Check</h2>
     <div class='check-result'>
       <h3 class='check-result-title failed'>Failed!</h3>
@@ -56,24 +103,8 @@
     </div>
 
     <div class='check-next'>
-      <div class='btn btn-default'>Try Again</div>
-      <div>...or go to <a href='#'>next level</a></div>
+      <div class='btn btn-default'>Try again</div>
+      <div class='btn btn-primary'>Next level</div>
     </div>
-
-    <!-- debug -->
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" href="#selecteddata">
-            Debug Data
-          </a>
-        </h4>
-      </div>
-      <div id="selecteddata" class="panel-collapse collapse in">
-        <div class="panel-body">
-          <pre class="checkvar"></pre>
-        </div>
-      </div>
-    </div>  
   </div>
 </div>

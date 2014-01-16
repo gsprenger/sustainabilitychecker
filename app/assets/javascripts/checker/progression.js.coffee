@@ -10,6 +10,7 @@ class window.Progression
     Progression.current = exp.current || Progression.current
     Progression.values = exp.values || []
 
+
   @addToValues: (name, value) ->
     found = false
     for val in @values

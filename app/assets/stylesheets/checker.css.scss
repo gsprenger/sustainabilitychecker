@@ -148,7 +148,7 @@ header {
         background-color: $white;
         border-bottom: 2px solid $green;
         &:hover { 
-          border-bottom: 2px solid $blue;
+          border-bottom: 2px solid $green;
         }
       }
     }
@@ -174,9 +174,5 @@ header {
       text-align: left;  
       margin-top: 20px;
     }
-  }
-
-  .checksection {
-    display: none;
   }
 }

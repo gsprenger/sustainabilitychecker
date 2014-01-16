@@ -1,13 +1,11 @@
 class window.Check
   @setup: ->
-    # debug
-    json = ''
-    for val in Progression.values
-      json += val.name + ' = ' + val.value + '\n'
-    $('.checkvar').text(json)
-    $('.col-energy-local').height(80)
-    $('.col-food-local').height(80)
-    $('.col-energy-imported').height(100)
-    $('.col-food-imported').height(130)
-    Navigation.goToCheck()
-
+    $('.precheck .btn').click ->
+      Navigation.removeAndDisplay('.precheck', '.checksection')
+    $('.checksection .btn-default').click ->
+      Navigation.removeAndDisplay('.checksection', '.precheck')
+      setTimeout ->
+        Navigation.smoothScrollTo('#demographics')
+      , 1600
+    $('.checksection .btn-primary').click ->
+      alert('Not so fast! This is not ready yet!')

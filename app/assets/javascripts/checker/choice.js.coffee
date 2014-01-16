@@ -19,11 +19,15 @@ class window.Choice
       for val in Progression.values
         if val.name == sectionSlug && val.value == value
           $(radio).addClass('active')
+          # update check summary
+          $('span.'+sectionSlug).text($(radio).text())
           break
       # attach a click event to the radio element
       $(radio).on 'click', ->
+        # activate element
         $('.section[data-section-slug='+sectionSlug+'] .active').removeClass('active')
         $(radio).addClass('active')
+        # get next section, save values and scroll to next
         nextSlug = Navigation.getNextSectionSlug(sectionSlug)
         Progression.current = nextSlug
         Progression.addToValues sectionSlug, value
@@ -31,6 +35,8 @@ class window.Choice
         setTimeout ->
           Navigation.goToSection(nextSlug, true)
         , 1000
+        # update check summary
+        $('span.'+sectionSlug).text($(radio).text())
 
   @initSlider: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')
@@ -38,9 +44,12 @@ class window.Choice
     Choice.createSlider(slider)
     # save on Change
     slider.on 'slidechange', (e, ui) ->
+      sliderSlug = slider.attr('data-slider-name')
       Progression.current = sectionSlug
-      Progression.addToValues slider.attr('data-slider-name'), ui.value
+      Progression.addToValues sliderSlug, ui.value
       Progression.save()
+      # update check summary
+      $('span.'+sliderSlug).text(slider.siblings('.slidervalue').text())
 
   @initSliderGroup: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')
@@ -68,6 +77,7 @@ class window.Choice
           Progression.current = sectionSlug
           for s in sliders
             Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
+            $('span.'+$(s).attr('data-slider-name')).text($(s).siblings('.slidervalue').text())
           Progression.save()
     # Check if collective value is not overflowing/undervalued
     total = 0
@@ -115,6 +125,8 @@ class window.Choice
     unless found
       Progression.addToValues name, slider.slider('value') 
     updateValueField(slider.slider('value'))
+    # update check summary
+    $('span.'+name).text(valueField.text())
     # set slide and change events
     slider.on 'mouseover', (e, ui) ->
       Choice.lastSlider = name
