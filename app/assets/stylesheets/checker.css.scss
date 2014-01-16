@@ -14,7 +14,7 @@ body {
 $yellow: #f39c12;
 $red: #e74c3c;
 $green: #2ecc71;
-$blue: #2980b9;
+$blue: #3498db;
 $black: #333333;
 $white: #f2f2f2;
 $alphawhite: rgba(242,242,242,.75);
@@ -151,6 +151,36 @@ header {
           border-bottom: 2px solid $green;
         }
       }
+    }
+  }
+  .slider {
+    .ui-widget-header {
+      background: #4D90FE;
+    }
+
+    .min-limit, .max-limit {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: #ddd;
+      z-index: 2;
+    }
+
+    .min-limit {
+      left: 0;
+      background-color: rgba(208, 208, 208, 0.5);
+    }
+    .max-limit {
+      right: 0;
+    }
+    .l25 {
+      width: 25%;
+    }
+    .l50 {
+      width: 50%;
+    }
+    .l75 {
+      width: 75%;
     }
   }
 }

@@ -60,17 +60,25 @@ class window.Choice
       min = $(slider).slider('option', 'min')
       max = $(slider).slider('option', 'max')
       step = $(slider).slider('option', 'step')
+      sMinLimit = $(slider).find('.min-limit').attr('data-min-limit') || false
+      sMaxLimit = $(slider).find('.max-limit').attr('data-max-limit') || false
       sliders.push(slider)
       $(slider).on 'slide', (e, ui) ->
+        if (sMinLimit || sMaxLimit) && (ui.value < sMinLimit || ui.value > sMaxLimit)
+          return false
         stepNb = (ui.value - $(slider).slider('value')) / step
         goingUp = stepNb > 0
         for [1..Math.abs(stepNb)] 
           for s in sliders
             sname = $(s).attr('data-slider-name')
             unless sname == name
-              if (goingUp && $(s).slider('value') != min) || (!goingUp && $(s).slider('value') != max)
-                oldVal = $(s).slider('value')
-                sliderToChange = s
+              val = $(s).slider('value')
+              if (goingUp && (val != min)) || (!goingUp && (val != max))
+                minLimit = parseInt($(s).slider('option', 'minlimit'), 10)
+                maxLimit = parseInt($(s).slider('option', 'maxlimit'), 10)
+                if ((goingUp && (val != minLimit)) || (!goingUp && (val != maxLimit))) 
+                  oldVal = $(s).slider('value')
+                  sliderToChange = s
           $(sliderToChange).slider('value', oldVal + (if goingUp then -1 * step else step))
       $(slider).on 'slidechange', (e, ui) ->
         if Choice.lastSlider == name
@@ -115,6 +123,10 @@ class window.Choice
     # init slider and remove options from DOM 
     slider.slider(JSON.parse(slider.attr('data-slider-options')))
     slider.removeAttr('data-slider-options') # for clarity and protection
+    minLimit = slider.find('.min-limit').attr('data-min-limit') || false
+    maxLimit = slider.find('.max-limit').attr('data-max-limit') || false
+    slider.slider('option', 'minlimit', minLimit)
+    slider.slider('option', 'maxlimit', maxLimit)
     # if slider value is present, set it, otherwise set its default (=0)
     found = false
     for val in Progression.values
@@ -131,6 +143,8 @@ class window.Choice
     slider.on 'mouseover', (e, ui) ->
       Choice.lastSlider = name
     slider.on 'slide', (e, ui) ->
+      if (minLimit || maxLimit) && (ui.value < minLimit || ui.value > maxLimit)
+        return false
       updateValueField(ui.value)
     slider.on 'slidechange', (e, ui) ->
       updateValueField(ui.value)
