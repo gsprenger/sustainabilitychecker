@@ -1,66 +1,68 @@
 <div id='check'>
+  <h2>Sustainability Check</h2>
   <!-- PRECHECK SECTION -->
   <div class='precheck animated'>
-    <div class="alert alert-info">
-      <p><strong>Data selected:</strong> (data defaults to average value when nothing is selected)
-        <ul>
-          <li>
-            <a href='#demographics' class='alert-link'>Demographics:</a>
-            <span class='d_dem'>60-80y.</span> life expectancy.
-          </li>
-          <li>
-            <a href='#diet' class='alert-link'>
-            Diet:</a>
-            <span class='d_die'>Average</span> meat consumption.
-          </li>
-          <li>
-            <a href='#households' class='alert-link'>Households:</a>
-            <span class='d_hou_urb'>25%</span> Urban, including 
-            <span class='d_hou_sub'>25%</span> Rich suburbs, 
-            <span class='d_hou_apa'>50%</span> Middle-class appartments and 
-            <span class='d_hou_slu'>25%</span> slums.
-          </li>
-          <li>
-            <a href='#services' class='alert-link'>Services &amp; Government:</a>
-            <span class='d_ser_edu'>Medium</span> education and healthcare, 
-            <span class='d_ser_med'>Medium</span> media and tourism, 
-            <span class='d_ser_pub'>Medium</span> public institutions, 
-            <span class='d_ser_tra'>Medium</span> transportation and retailing.
-          </li>
-          <li>
-            <a href='#density' class='alert-link'>Population Density:</a>
-            <span class='s_den'>Average</span>
-          </li>
-          <li>
-            <a href='#land' class='alert-link'>Land:</a>
-            <span class='s_lan'>0.2-0.3</span> hectare per capita of arable land.
-          </li>
-          <li>
-            <a href='#bm' class='alert-link'>Building &amp; Manufacturing:</a>
-            <span class='s_bm'>Average</span>
-          </li>
-          <li>
-            <a href='#agriculture' class='alert-link'>Agriculture:</a>
-            <span class='s_agr'>Mixed</span>
-          </li>
-          <li>
-            <a href='#energy' class='alert-link'>Energy:</a>
-            Energy production: <span class='s_ene_nuc'>25%</span> nuclear, 
-            <span class='s_ene_hyd'>25%</span> hydropower, 
-            <span class='s_ene_pho'>25%</span> photovoltaics, 
-            <span class='s_ene_win'>25%</span> wind power.<br>
-            Fuels production: <span class='s_ene_bio'>25%</span> biofuels, 
-            <span class='s_ene_hyg'>50%</span> hydrogen, 
-            <span class='s_ene_ncf'>25%</span> non-conventional fossile resources.
-          </li>
-        </ul>
-      </p>
+    <div class='wrapper'>
+      <div class="alert alert-info">
+        <p><strong>Summary of selected data:</strong> (data defaults to average value when nothing is selected)
+          <ul>
+            <li>
+              <a href='#demographics' class='alert-link'>Demographics:</a>
+              <span class='d_dem'>60-80y.</span> life expectancy.
+            </li>
+            <li>
+              <a href='#diet' class='alert-link'>
+              Diet:</a>
+              <span class='d_die'>Average</span> meat consumption.
+            </li>
+            <li>
+              <a href='#households' class='alert-link'>Households:</a>
+              <span class='d_hou_urb'>25%</span> Urban, including 
+              <span class='d_hou_sub'>25%</span> Rich suburbs, 
+              <span class='d_hou_apa'>50%</span> Middle-class appartments and 
+              <span class='d_hou_slu'>25%</span> slums.
+            </li>
+            <li>
+              <a href='#services' class='alert-link'>Services &amp; Government:</a>
+              <span class='d_ser_edu'>Medium</span> education and healthcare, 
+              <span class='d_ser_med'>Medium</span> media and tourism, 
+              <span class='d_ser_pub'>Medium</span> public institutions, 
+              <span class='d_ser_tra'>Medium</span> transportation and retailing.
+            </li>
+            <li>
+              <a href='#density' class='alert-link'>Population Density:</a>
+              <span class='s_den'>Average</span>
+            </li>
+            <li>
+              <a href='#land' class='alert-link'>Land:</a>
+              <span class='s_lan'>0.2-0.3</span> hectare per capita of arable land.
+            </li>
+            <li>
+              <a href='#bm' class='alert-link'>Building &amp; Manufacturing:</a>
+              <span class='s_bm'>Average</span>
+            </li>
+            <li>
+              <a href='#agriculture' class='alert-link'>Agriculture:</a>
+              <span class='s_agr'>Mixed</span>
+            </li>
+            <li>
+              <a href='#energy' class='alert-link'>Energy:</a>
+              Energy production: <span class='s_ene_nuc'>25%</span> nuclear, 
+              <span class='s_ene_hyd'>25%</span> hydropower, 
+              <span class='s_ene_pho'>25%</span> photovoltaics, 
+              <span class='s_ene_win'>25%</span> wind power.<br>
+              Fuels production: <span class='s_ene_bio'>25%</span> biofuels, 
+              <span class='s_ene_hyg'>50%</span> hydrogen, 
+              <span class='s_ene_ncf'>25%</span> non-conventional fossile resources.
+            </li>
+          </ul>
+        </p>
+      </div>
+      <button type="button"  class='btn btn-primary btn-lg'>Check now!  </button>
     </div>
-    <button type="button"  class='btn btn-primary btn-lg'>Check Sustainability Levels</button>
   </div>
   <!-- CHECK SECTION -->
   <div class='checksection animated hidden'>
-    <h2>Sustainability Check</h2>
     <div class='check-result'>
       <h3 class='check-result-title failed'>Failed!</h3>
       <h3 class='check-result-title passed hidden'>Passed!</h3>
@@ -69,14 +71,14 @@
       <!-- Upper row -->
       <div class='row check-graph-row'>
         <div class='col-md-3'></div>
-        <!-- Upper energy bar -->
-        <div class='col-md-2 bar-upper bar-energy'>
-          <div class='bar col-energy-local'></div>
-        </div>
-        <div class='col-md-2'></div>
         <!-- Upper food bar -->
         <div class='col-md-2 bar-upper bar-food'>
           <div class='bar col-food-local'></div>
+        </div>
+        <div class='col-md-2'></div>
+        <!-- Upper energy bar -->
+        <div class='col-md-2 bar-upper bar-energy'>
+          <div class='bar col-energy-local'></div>
         </div>
         <div class='col-md-3 graph-local'><div>Local Supply</div></div>
       </div>
@@ -85,14 +87,16 @@
       <!-- Lower row -->
       <div class='row check-graph-row'>
         <div class='col-md-3'></div>
-        <div class='col-md-2 bar-lower bar-energy'>
-          <div class='bar col-energy-imported'></div>
-          <div class='bar-title'>Energy</div>
-        </div>
-        <div class='col-md-2'></div>
+        <!-- Lower food bar -->
         <div class='col-md-2 bar-lower bar-food'>
           <div class='bar col-food-imported'></div>
           <div class='bar-title'>Food</div>
+        </div>
+        <div class='col-md-2'></div>
+        <!-- Lower energy bar -->
+        <div class='col-md-2 bar-lower bar-energy'>
+          <div class='bar col-energy-imported'></div>
+          <div class='bar-title'>Energy</div>
         </div>
         <div class='col-md-3 graph-imported'>Imported</div>
       </div>
