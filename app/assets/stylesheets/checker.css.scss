@@ -217,4 +217,93 @@ header {
       }
     } 
   }
+
+  .checksection {
+    .check-result {
+      margin-top: 0;
+      text-align: center;
+      color: $red;
+      &.passed {
+        color: $green;
+      }
+    }
+
+    .check-graph {
+      .graph-axis {
+        margin: 0;
+        border-color: $black;
+      }
+
+      .row {
+        .cell {
+          height: 150px;
+          position: relative;
+
+          .bar-food, .bar-energy {
+            transition: 
+              height 1s ease,
+              background-color 1s ease;
+            height: 0;
+            width: 100%;
+            position: absolute;
+          }
+
+          .bar-food {
+            border: 1px solid #27AE60;
+            background-color: $green;
+
+          }
+
+          .bar-energy { 
+            border: 1px solid #2980b9;
+            background-color: $blue;
+          }
+
+          .bar-upper {
+            bottom: 0;
+            border-bottom: none;
+          }
+
+          .bar-lower {
+            top: 0;
+            border-top: none;
+
+            .bar-percent {
+              color: $red;
+            }
+          }
+
+          .bar-percent {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 45%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            color: $white;
+            font-weight: 400;
+          }
+
+          .bar-title {
+            position: absolute;
+            bottom: -25px;
+            text-align: center;
+            width: 100%;
+            font-weight: 400;
+          }
+
+          .graph-title {
+            font-weight: 400;
+            &.upper {
+              position: absolute;
+              bottom: 0;
+            }
+            &.lower {
+              color: $red;
+            }
+          } 
+        }
+      } 
+    }
+  }
 }

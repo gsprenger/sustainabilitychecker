@@ -63,42 +63,49 @@
   </div>
   <!-- CHECK SECTION -->
   <div class='checksection animated hidden'>
-    <div class='check-result'>
-      <h3 class='check-result-title failed'>Failed!</h3>
-      <h3 class='check-result-title passed hidden'>Passed!</h3>
-    </div>
-    <div class='check-graph-container'>
+    <h3 class='check-result'>Failed!</h3>
+    <div class='check-graph'>
       <!-- Upper row -->
-      <div class='row check-graph-row'>
-        <div class='col-md-3'></div>
+      <div class='row'>
+        <!-- Upper graph title -->
+        <div class='cell col-md-3'>
+          <div class='graph-title upper'>Local supply</div>
+        </div>
         <!-- Upper food bar -->
-        <div class='col-md-2 bar-upper bar-food'>
-          <div class='bar col-food-local'></div>
+        <div class='cell col-md-2'>
+          <div class='bar-upper bar-food'>
+            <div class='bar-percent'>0%</div>
+          </div>
         </div>
-        <div class='col-md-2'></div>
         <!-- Upper energy bar -->
-        <div class='col-md-2 bar-upper bar-energy'>
-          <div class='bar col-energy-local'></div>
+        <div class='cell col-md-2 col-md-offset-2'>
+          <div class=' bar-upper bar-energy'>
+            <div class='bar-percent'>0%</div>
+          </div>
         </div>
-        <div class='col-md-3 graph-local'><div>Local Supply</div></div>
       </div>
       <!-- Middle axis -->
-      <hr class='check-graph-axis'>
+      <hr class='graph-axis'>
       <!-- Lower row -->
-      <div class='row check-graph-row'>
-        <div class='col-md-3'></div>
+      <div class='row'>
+        <!-- Lower graph title -->
+        <div class='cell col-md-3'>
+          <div class='graph-title lower'>Imported</div>
+        </div>
         <!-- Lower food bar -->
-        <div class='col-md-2 bar-lower bar-food'>
-          <div class='bar col-food-imported'></div>
-          <div class='bar-title'>Food</div>
+        <div class='cell col-md-2'>
+          <div class='bar-lower bar-food'>
+            <div class='bar-percent'>0%</div>
+            <div class='bar-title'>Food</div>
+          </div>
         </div>
-        <div class='col-md-2'></div>
         <!-- Lower energy bar -->
-        <div class='col-md-2 bar-lower bar-energy'>
-          <div class='bar col-energy-imported'></div>
-          <div class='bar-title'>Energy</div>
+        <div class='cell col-md-2 col-md-offset-2'>
+          <div class='bar-lower bar-energy'>
+            <div class='bar-percent'>0%</div>
+            <div class='bar-title'>Energy</div>
+          </div>
         </div>
-        <div class='col-md-3 graph-imported'>Imported</div>
       </div>
     </div>
 
@@ -106,9 +113,13 @@
       <blockquote>"A society that relies on imports to function is not sustainable... You failed the check because..."</blockquote>
     </div>
 
-    <div class='check-next'>
-      <div class='btn btn-default'>Try again</div>
-      <div class='btn btn-primary'>Next level</div>
+    <div class='check-next text-center  row'>
+      <div class='col-md-6'>
+        <div class='btn btn-default btn-lg'>Try again</div>
+      </div>
+      <div class='col-md-6'>
+        <div class='btn btn-primary btn-lg'>Next level</div>
+      </div>
     </div>
   </div>
 </div>
