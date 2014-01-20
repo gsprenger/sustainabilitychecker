@@ -1,17 +1,5 @@
-/**
-* Checker. Applies to everything related to the first part of the Experiment.
-**/
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-/** COLORS **/
-$yellow: #f39c12;
-$red: #e74c3c;
-$green: #2ecc71;
-$blue: #2980b9;
-$black: #333333;
-$white: #fefefe;
-$gray: #f8f8f8;
-$alphagrey: rgba(255, 255, 255,0.6);
-
+/** CHECKER **/
+/** COMMON **/
 html, body { 
   height: 100%;
   width: 100%;
@@ -22,125 +10,113 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+/** COLORS **/
+$yellow: #f39c12;
+$red: #e74c3c;
+$green: #2ecc71;
+$blue: #3498db;
+$black: #333333;
+$white: #f2f2f2;
+$alphawhite: rgba(242,242,242,.75);
+$grey: #dddddd;
+$invisible: rgba(0, 0, 0, 0);
+
 /** HEADER **/
-.header {
+header {
   position: fixed;
   height: 65px;
   width: 100%;
-  top: 0;
-  background-color: $alphagrey;
-  border-bottom: 1px solid #ddd;
+  background-color: $alphawhite;
+  border-bottom: 1px solid $grey;
   z-index: 10;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-  
-  .header-menu {
+
+  nav {
     position: relative;
-    
-    .menu-nav {
-      margin: auto;
-      width: 560px;
-        
-      .demand { 
-        border-top: 3px solid $yellow; 
-        .active {
-          background-color: $yellow; 
-        }
-      }
-      .supply { 
-        border-top: 3px solid $blue;
-        .active {
-          background-color: $blue; 
-        }
-      }
-      .check { 
-        border-top: 3px solid $green;
-        .active {
-          background-color: $green; 
-        }
-      }
-      .menu-nav-box {
+    margin: auto;
+    width: 560px;
+
+    .titles {
+      position: absolute;
+      top: 0px;
+      text-align: center;
+
+      .title {
         float: left;
-        position: relative;
-        text-align: center; 
-        
-        .menu-nav-title {
-          height: 22px;
-          font-size: 12px;
-          line-height: 14px;
-          font-weight: bold;
-        }
-        
-        .menu-nav-content {
+        font-weight: 500;
+      }
+
+      .demand {
+        border-top: 2px solid $yellow;
+        width: 220px;
+      }
+
+      .supply {
+        border-top: 2px solid $blue;
+        width: 270px;
+      }
+
+      .check {
+        border-top: 2px solid $green;
+        width: 70px;
+      }
+    }
+
+    hr {
+      margin: auto;
+      width: 510px;
+      border-bottom: 2px solid $black;
+      height: 40px;
+    }
+
+    ul {
+      position: absolute;
+      top: 27px;
+      list-style-type: none;
+      padding-left: 0;
+
+      li {
+        float: left; 
+        line-height: 25px;
+        text-align: center;
+
+        a {
+          display: block;
+          width: 31px;
+          height: 30px;
+          margin: 0 12px;
+          padding-left: 1px;
+          background-color: $white;
+          border: 2px solid $black;
+          border-radius: 50%;
           color: $black;
-            
-          a, a:focus, a:visited, a:hover {
-            color: inherit;
-            text-decoration: none;
+          transition: 
+            background-color 1s ease, 
+            color 1s ease;
+          &:hover, &:focus, &:visited { 
+            color: $black;
           }
-          
-          .menu-nav-item {
-            float: left;
-            transition: background-color 1s ease, color 1s ease;
-            cursor: pointer
+          &.active.demand {
+            background-color: $yellow;
           }
-          
-          .line {
-            width: 20px;
-            height: 15px;
-            border-bottom: 2px solid $black;
+          &.active.supply {
+            background-color: $blue;
           }
-         
-          .space {
-            width: 20px;
-          }
-         
-          .icon, .checkicon {
-            width: 30px;
-            line-height: 25px;
-            border: 2px solid $black;
-            border-radius: 50%;
-            &:hover {
-              font-size: 16px;
-            }
+          &.active.check {
+            background-color: $green;
           }
         }
       }
     }
   }
-  
-  .header-save {
-    margin: 15px 15px 0 0;
-  }
 }
 
+/** SECTIONS **/
 .section {
   width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
-
-  .section-wrapper {
-    padding: 0 30px 20px 30px;
-      background-color: $alphagrey;
-  }
-
-  .title {
-    .subtitle {
-
-    }
-  }
-
-  .description {
-
-  }
 
   .choice.radio {
     display: table;
@@ -177,8 +153,42 @@ body {
       }
     }
   }
-}
+  .slider {
+    .ui-widget-header {
+      background: none;
+      background-color: #428BCA;
+    }
 
+    .min-limit, .max-limit {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: 2;
+      background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+      background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+      background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+      background-size: 35px 35px;
+    }
+
+    .min-limit {
+      left: 0;
+    }
+    .max-limit {
+      right: 0;
+      background-color: #bbb;
+    }
+    .l25 {
+      width: 25%;
+    }
+    .l50 {
+      width: 50%;
+    }
+    .l75 {
+      width: 75%;
+    }
+  }
+}
 #demographics {
   background: image-url("dem.png") no-repeat center center;
   background-size: cover;
@@ -192,14 +202,120 @@ body {
   background-size: cover;
 }
 
-.checksection {
+/** CHECK **/
+#check {
   width: 100%;
   min-height: 100%;
   margin: 0;
   padding: 60px 20% 10px 20%;
   font-weight: 300;
-  display: none;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+
+  .precheck {
+    display: table; 
+    height: 100%;
+    display: table-cell;  
+    vertical-align: middle;
+    text-align: center;
+
+    .wrapper {
+      height: 100%;
+      display: table-cell;  
+      vertical-align: middle;
+      text-align: center;
+
+      .alert {
+        text-align: left;  
+        margin-top: 20px;
+      }
+    } 
+  }
+
+  .checksection {
+    .check-result {
+      margin-top: 0;
+      text-align: center;
+      color: $red;
+      &.passed {
+        color: $green;
+      }
+    }
+
+    .check-graph {
+      .graph-axis {
+        margin: 0;
+        border-color: $black;
+      }
+
+      .row {
+        .cell {
+          height: 150px;
+          position: relative;
+
+          .bar-food, .bar-energy {
+            transition: 
+              height 1s ease,
+              background-color 1s ease;
+            height: 0;
+            width: 100%;
+            position: absolute;
+          }
+
+          .bar-food {
+            border: 1px solid #27AE60;
+            background-color: $green;
+
+          }
+
+          .bar-energy { 
+            border: 1px solid #2980b9;
+            background-color: $blue;
+          }
+
+          .bar-upper {
+            bottom: 0;
+            border-bottom: none;
+          }
+
+          .bar-lower {
+            top: 0;
+            border-top: none;
+
+            .bar-percent {
+              color: $red;
+            }
+          }
+
+          .bar-percent {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 45%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            color: $white;
+            font-weight: 400;
+          }
+
+          .bar-title {
+            position: absolute;
+            bottom: -25px;
+            text-align: center;
+            width: 100%;
+            font-weight: 400;
+          }
+
+          .graph-title {
+            font-weight: 400;
+            &.upper {
+              position: absolute;
+              bottom: 0;
+            }
+            &.lower {
+              color: $red;
+            }
+          } 
+        }
+      } 
+    }
+  }
 }

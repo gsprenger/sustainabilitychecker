@@ -6,11 +6,11 @@
   </div>
   <div class='choice radio' data-choice-type='radio'>
     <div class='radio-row'>
-      <div class='lg4' data-cv-value='inf60' title='e.g. South Africa'>&lt; 60y.</div>
+      <div class='lg4' data-cv-value='inf60' title='e.g. South Africa'>&lt;60y.</div>
       <div class='spacer'></div>
       <div class='lg4' data-cv-value='60-80' title='e.g. USA'>60-80y.</div>
       <div class='spacer'></div>
-      <div class='lg4' data-cv-value='sup80' title='e.g. Japan'>&gt; 80y.</div>
+      <div class='lg4' data-cv-value='sup80' title='e.g. Japan'>&gt;80y.</div>
       <div class='spacer'></div>
     </div>
   </div>
@@ -51,15 +51,22 @@
   <p><strong>Within the urban areas, how are your cities laid out?</strong></p>
   <div data-choice-type='slidergroup'>
     <div>Rich, Suburbs
-      <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%'>
+        <div data-max-limit=25 class='max-limit l75'></div>
+      </div>
       <div class='slidervalue' data-slider-type='percent'>0%</div> 
     </div>
     <div>Middle-class, Appartments
-      <div class='slider' data-slider-name='d_hou_apa' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_hou_apa' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}' title='Possible values: 25%, 50%, 75%'>
+        <div data-min-limit=25 class='min-limit l25'></div>
+        <div data-max-limit=75 class='max-limit l25'></div>
+      </div>
       <div class='slidervalue' data-slider-type='percent'>0%</div> 
     </div>
     <div>Poor, Slums
-      <div class='slider' data-slider-name='d_hou_slu' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_hou_slu' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%, 50%'>
+        <div data-max-limit=50 class='max-limit l50'></div>
+      </div>
       <div class='slidervalue' data-slider-type='percent'>0%</div> 
     </div>
   </div>
@@ -74,22 +81,22 @@
   <div class='choice'>
     <div data-choice-type='slider'>    
       <p><strong>Education &amp; Healthcare</strong></p>
-      <div class='slider' data-slider-name='d_ser_edu' data-slider-options='{"range":"min","max":2,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_ser_edu' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
       <div class='slidervalue' data-slider-type='lmh'>Low</div>
     </div>
     <div data-choice-type='slider'>    
       <p><strong>Media, Entertainment, Tourism</strong></p>
-      <div class='slider' data-slider-name='d_ser_med' data-slider-options='{"range":"min","max":2,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_ser_med' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
       <div class='slidervalue' data-slider-type='lmh'>Low</div>
     </div>
     <div data-choice-type='slider'>    
       <p><strong>Public Institutions, Government, Military</strong></p>
-      <div class='slider' data-slider-name='d_ser_pub' data-slider-options='{"range":"min","max":2,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_ser_pub' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
       <div class='slidervalue' data-slider-type='lmh'>Low</div>
     </div>
     <div data-choice-type='slider'>    
       <p><strong>Transportation, Retailing</strong></p>
-      <div class='slider' data-slider-name='d_ser_tra' data-slider-options='{"range":"min","max":2,"animate":"true"}'></div>
+      <div class='slider' data-slider-name='d_ser_tra' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
       <div class='slidervalue' data-slider-type='lmh'>Low</div>
     </div>
   </div>

@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require animate
- *= require jquery.ui.all
- *= require nprogress
+ *= require jquery.ui.slider
+ *= require bootstrap
  *= require core
  */

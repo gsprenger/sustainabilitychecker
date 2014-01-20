@@ -1,28 +1,15 @@
 class window.Progression
   @id = 0 # user ID in database
-  @current = 'dem' # section to display on startup
+  @current = 'd_dem' # section to display on startup
   @values = [] # Values entered by the user
 
-  @setup: (@id) ->
-    # Load progression via API
-    data = JSON.parse $.ajax({
-      type:     'GET',
-      dataType: 'json',
-      url:      '/checker/get_experiment?id='+Progression.id,
-      async:    false
-    }).responseText
-    exp = JSON.parse data.json
+  # Loads the experiment from DB or create it if non existent
+  @setup: ->
+    Progression.id = $('#uid').text()
+    exp = Progression.load(Progression.id)
     Progression.current = exp.current || Progression.current
     Progression.values = exp.values || []
-    # Init events for all choices
-    $('[data-choice-type]').each (i, el) ->
-      switch $(el).attr('data-choice-type')
-        when 'radio'
-          Choice.initRadio el
-        when 'slider'
-          Choice.initSlider el
-        when 'slidergroup'
-          Choice.initSliderGroup el
+
 
   @addToValues: (name, value) ->
     found = false
@@ -35,6 +22,16 @@ class window.Progression
     # if item not found add it
     unless found 
       Progression.values.push {'name': name, 'value': value}
+
+  @load: (id) -> 
+    # Load progression via API
+    data = JSON.parse $.ajax({
+      type:     'GET',
+      dataType: 'json',
+      url:      '/checker/get_experiment?id='+id,
+      async:    false
+    }).responseText
+    exp = JSON.parse data.json
 
   @save: ->
     json = {
