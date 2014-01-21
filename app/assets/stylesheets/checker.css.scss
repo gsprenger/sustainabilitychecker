@@ -117,8 +117,17 @@ header {
   width: 100%;
   min-height: 100%;
   margin: 0;
-  padding: 60px 20% 10px 20%;
+  padding: 65px 20% 10px 20%;
   font-weight: 300;
+
+  .section-wrapper {
+    padding: 5px 40px 40px 40px;
+    background-color: rgba(242, 242, 242, 0.75);
+  }
+
+  h2 small {
+    color: #666;
+  }
 
   .choice.radio {
     display: table;
@@ -190,6 +199,42 @@ header {
       width: 75%;
     }
   }
+}
+#demographics {
+  background: image-url("dem.png") no-repeat center center;
+  background-size: cover;
+}
+#diet {
+  background: image-url("die.png") no-repeat center center;
+  background-size: cover;
+}
+#households {
+  background: image-url("hou.png") no-repeat center center;
+  background-size: cover;
+}
+#services {
+  background: image-url("ser.png") no-repeat center center;
+  background-size: cover;
+}
+#density {
+  background: image-url("den.png") no-repeat center center;
+  background-size: cover;
+}
+#land {
+  background: image-url("lan.png") no-repeat center center;
+  background-size: cover;
+}
+#bm {
+  background: image-url("bm.png") no-repeat center center;
+  background-size: cover;
+}
+#agriculture {
+  background: image-url("agr.png") no-repeat center center;
+  background-size: cover;
+}
+#energy {
+  background: image-url("ene.png") no-repeat center center;
+  background-size: cover;
 }
 
 /** CHECK **/
