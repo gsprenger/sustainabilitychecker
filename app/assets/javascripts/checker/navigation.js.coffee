@@ -41,6 +41,9 @@ class window.Navigation
       cur = cur[cur.length-1]
       if (cur && cur.length)
         id = cur[0].id
+      else 
+        menuItems.map ->
+          $(this).removeClass('active')    
       if (lastId != id) 
         lastId = id
         menuItems.map ->

@@ -14,14 +14,14 @@ body {
 $black: #333;
 $grey: #ddd;
 $white: #f2f2f2;
-$alphawhite: rgba(242,242,242,.75);
+$alphawhite: rgba(242,242,242,.85);
 $yellow: #f39c12;
 $red: #e74c3c;
 $darkred: #C0392B;
 $green: #2ecc71;
 $darkgreen: #27AE60;
 $blue: #3498db;
-$darkblue: 2980b9;
+$darkblue: #2980b9;
 
 /** HEADER **/
 header {
@@ -117,12 +117,12 @@ header {
   width: 100%;
   min-height: 100%;
   margin: 0;
-  padding: 65px 20% 10px 20%;
+  padding: 65px 0 10px 0;
   font-weight: 300;
 
   .section-wrapper {
-    padding: 5px 40px 40px 40px;
-    background-color: rgba(242, 242, 242, 0.75);
+    padding: 5px 15% 40px 15%;
+    background-color: $alphawhite;
   }
 
   h2 small {
@@ -200,40 +200,44 @@ header {
     }
   }
 }
+#intro {
+  background: image-url("intro2.png") no-repeat center center;
+  background-size: cover;
+}
 #demographics {
-  background: image-url("dem.png") no-repeat center center;
+  background: image-url("dem2.png") no-repeat center center;
   background-size: cover;
 }
 #diet {
-  background: image-url("die.png") no-repeat center center;
+  background: image-url("die2.png") no-repeat center center;
   background-size: cover;
 }
 #households {
-  background: image-url("hou.png") no-repeat center center;
+  background: image-url("hou2.png") no-repeat center center;
   background-size: cover;
 }
 #services {
-  background: image-url("ser.png") no-repeat center center;
+  background: image-url("ser2.png") no-repeat center center;
   background-size: cover;
 }
 #density {
-  background: image-url("den.png") no-repeat center center;
+  background: image-url("den2.png") no-repeat center center;
   background-size: cover;
 }
 #land {
-  background: image-url("lan.png") no-repeat center center;
+  background: image-url("lan2.png") no-repeat center center;
   background-size: cover;
 }
 #bm {
-  background: image-url("bm.png") no-repeat center center;
+  background: image-url("bm2.png") no-repeat center center;
   background-size: cover;
 }
 #agriculture {
-  background: image-url("agr.png") no-repeat center center;
+  background: image-url("agr2.png") no-repeat center center;
   background-size: cover;
 }
 #energy {
-  background: image-url("ene.png") no-repeat center center;
+  background: image-url("ene2.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -269,6 +273,10 @@ header {
             font-style: italic;
             color: inherit;
           }
+        }
+
+        span {
+          font-weight: 500;
         }
       }
     } 
