@@ -5,13 +5,9 @@ class window.Navigation
     $('[title]').tooltip {placement: 'bottom'}
     # Automatic activation of active effect on scroll
     Navigation.initScrollSpy()
-    # Click event for section icons
-    $('nav .demand, nav .supply').click ->
+    # Click event for all navigation links
+    $('.nav-link').click ->
       Navigation.goToSection(this.hash.substr(1))
-      return false # prevent default anchor scroll
-    # Click event for check icon
-    $('nav .check').click ->
-      Navigation.smoothScrollTo('#check')
       return false # prevent default anchor scroll
 
   @getNextSectionSlug: (curSlug) ->
@@ -22,8 +18,8 @@ class window.Navigation
 
   @goToSection: (name, isSlug) ->
     if isSlug
-      name = $('.section[data-section-slug='+name+']').attr('id')
-    target = '.section[id='+name+']'
+      name = $('[data-section-slug='+name+']').attr('id')
+    target = '[id='+name+']'
     Navigation.smoothScrollTo(target)
 
   @smoothScrollTo: (target) ->
