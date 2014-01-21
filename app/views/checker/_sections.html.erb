@@ -1,187 +1,218 @@
-<div class='section' id='demographics' data-section-slug='d_dem'>
-  <h2>Demographics <small>Life Expectancy</small></h2>
-  <div class='description'>
-    <p><strong>What is the average life expectancy of your population?</strong></p>
-    <p>A country that has a high life expectancy will have to allocate more resources to healthcare services and infrastructures.</p>
+<div class='section' id='intro'>
+  <div class='section-wrapper'>
+    <h2>The Sustainability Checker <br><small>A didactic, interactive tool to understand and discuss sustainability issues</small></h2>
+    <div class='description'>
+      <p>How easy is it for a country to become self-sustained? 9 questions (and a little math) is all it takes to find out!</p>
+    </div>
+    <div class='text-center '>
+      <a href='#demographics' class='nav-link'>
+        <div class='btn btn-large btn-primary'>Start the experience!</div>
+      </a>
+    </div>
   </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='inf60' title='e.g. South Africa'>&lt;60y.</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='60-80' title='e.g. USA'>60-80y.</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='sup80' title='e.g. Japan'>&gt;80y.</div>
-      <div class='spacer'></div>
+</div>
+
+<div class='section' id='demographics' data-section-slug='d_dem'>
+  <div class='section-wrapper'>
+    <h2>Demographics <small>Life Expectancy</small></h2>
+    <div class='description'>
+      <p><strong>What is the average life expectancy of your population?</strong></p>
+      <p>A country that has a high life expectancy will have to allocate more resources to healthcare services and infrastructures.</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='inf60' title='e.g. South Africa'>&lt;60y.</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='60-80' title='e.g. USA'>60-80y.</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='sup80' title='e.g. Japan'>&gt;80y.</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='diet' data-section-slug='d_die'>
-  <h2>Diet <small>Meat Consumption</small></h2>
-  <div class='description'>
-    <p><strong>How much animal products (meat, eggs, milk...) doest your population consume?</strong></p>
-    <p>The more meat your people eat, the more food you will have to produce to feed your animals.</p>
-  </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='low' title='e.g. Parts of India'>Low</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='mid' title='e.g. Europe'>Medium</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='high' title='e.g. USA'>High</div>
-      <div class='spacer'></div>
+  <div class='section-wrapper'>
+    <h2>Diet <small>Meat Consumption</small></h2>
+    <div class='description'>
+      <p><strong>How much animal products (meat, eggs, milk...) doest your population consume?</strong></p>
+      <p>The more meat your people eat, the more food you will have to produce to feed your animals.</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='low' title='e.g. Parts of India'>Low</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='mid' title='e.g. Europe'>Medium</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='high' title='e.g. USA'>High</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='households' data-section-slug='d_hou'>
-  <h2>Households <small>Topology</small></h2>
-  <div class='description'>
-    <p><strong>Where is your population mostly concentrated?</strong></p>
-    <p>If all your people lived scattered across the land, ambulances would have a hard time reaching all of them in due time!</p>
-  </div>
-  <div class='choice'>
-    <p><strong>What is the proportion of urban areas in your country?</strong></p>
-    <div data-choice-type='slider'>
-      <div>Rural<div class='pull-right'>Urban</div></div>
-      <div class='slider' data-slider-name='d_hou_urb' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
-      <div class='slidervalue' data-slider-type='percent'>0%</div>      
+  <div class='section-wrapper'>
+    <h2>Households <small>Topology</small></h2>
+    <div class='description'>
+      <p><strong>Where is your population mostly concentrated?</strong></p>
+      <p>If all your people lived scattered across the land, ambulances would have a hard time reaching all of them in due time!</p>
     </div>
-  </div>
-  <p><strong>Within the urban areas, how are your cities laid out?</strong></p>
-  <div data-choice-type='slidergroup'>
-    <div>Rich, Suburbs
-      <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%'>
-        <div data-max-limit=25 class='max-limit l75'></div>
+    <div class='choice'>
+      <p><strong>What is the proportion of urban areas in your country?</strong></p>
+      <div data-choice-type='slider'>
+        <div>Rural<div class='pull-right'>Urban</div></div>
+        <div class='slider' data-slider-name='d_hou_urb' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
+        <div class='slidervalue' data-slider-type='percent'>0%</div>      
       </div>
-      <div class='slidervalue' data-slider-type='percent'>0%</div> 
     </div>
-    <div>Middle-class, Appartments
-      <div class='slider' data-slider-name='d_hou_apa' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}' title='Possible values: 25%, 50%, 75%'>
-        <div data-min-limit=25 class='min-limit l25'></div>
-        <div data-max-limit=75 class='max-limit l25'></div>
+    <p><strong>Within the urban areas, how are your cities laid out?</strong></p>
+    <div data-choice-type='slidergroup'>
+      <div>Rich, Suburbs
+        <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%'>
+          <div data-max-limit=25 class='max-limit l75'></div>
+        </div>
+        <div class='slidervalue' data-slider-type='percent'>0%</div> 
       </div>
-      <div class='slidervalue' data-slider-type='percent'>0%</div> 
-    </div>
-    <div>Poor, Slums
-      <div class='slider' data-slider-name='d_hou_slu' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%, 50%'>
-        <div data-max-limit=50 class='max-limit l50'></div>
+      <div>Middle-class, Appartments
+        <div class='slider' data-slider-name='d_hou_apa' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}' title='Possible values: 25%, 50%, 75%'>
+          <div data-min-limit=25 class='min-limit l25'></div>
+          <div data-max-limit=75 class='max-limit l25'></div>
+        </div>
+        <div class='slidervalue' data-slider-type='percent'>0%</div> 
       </div>
-      <div class='slidervalue' data-slider-type='percent'>0%</div> 
+      <div>Poor, Slums
+        <div class='slider' data-slider-name='d_hou_slu' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}' title='Possible values: 0%, 25%, 50%'>
+          <div data-max-limit=50 class='max-limit l50'></div>
+        </div>
+        <div class='slidervalue' data-slider-type='percent'>0%</div> 
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='services' data-section-slug='d_ser'>
-  <h2>Services &amp; Government <small>Budget repartition</small></h2>
-  <div class='description'>
-    <p><strong>How much money do you want to allocate to the different services?</strong></p>
-    <p>The higher resources you allocate, the smarter, the healthier, the happier your population becomes, but providing all these services has a cost.</p>
-  </div>
-  <div class='choice'>
-    <div data-choice-type='slider'>    
-      <p><strong>Education &amp; Healthcare</strong></p>
-      <div class='slider' data-slider-name='d_ser_edu' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
-      <div class='slidervalue' data-slider-type='lmh'>Low</div>
+  <div class='section-wrapper'>
+    <h2>Services &amp; Government <small>Budget repartition</small></h2>
+    <div class='description'>
+      <p><strong>How much money do you want to allocate to the different services?</strong></p>
+      <p>The higher resources you allocate, the smarter, the healthier, the happier your population becomes, but providing all these services has a cost.</p>
     </div>
-    <div data-choice-type='slider'>    
-      <p><strong>Media, Entertainment, Tourism</strong></p>
-      <div class='slider' data-slider-name='d_ser_med' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
-      <div class='slidervalue' data-slider-type='lmh'>Low</div>
-    </div>
-    <div data-choice-type='slider'>    
-      <p><strong>Public Institutions, Government, Military</strong></p>
-      <div class='slider' data-slider-name='d_ser_pub' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
-      <div class='slidervalue' data-slider-type='lmh'>Low</div>
-    </div>
-    <div data-choice-type='slider'>    
-      <p><strong>Transportation, Retailing</strong></p>
-      <div class='slider' data-slider-name='d_ser_tra' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
-      <div class='slidervalue' data-slider-type='lmh'>Low</div>
+    <div class='choice'>
+      <div data-choice-type='slider'>    
+        <p><strong>Education &amp; Healthcare</strong></p>
+        <div class='slider' data-slider-name='d_ser_edu' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
+        <div class='slidervalue' data-slider-type='lmh'>Low</div>
+      </div>
+      <div data-choice-type='slider'>    
+        <p><strong>Media, Entertainment, Tourism</strong></p>
+        <div class='slider' data-slider-name='d_ser_med' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
+        <div class='slidervalue' data-slider-type='lmh'>Low</div>
+      </div>
+      <div data-choice-type='slider'>    
+        <p><strong>Public Institutions, Government, Military</strong></p>
+        <div class='slider' data-slider-name='d_ser_pub' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
+        <div class='slidervalue' data-slider-type='lmh'>Low</div>
+      </div>
+      <div data-choice-type='slider'>    
+        <p><strong>Transportation, Retailing</strong></p>
+        <div class='slider' data-slider-name='d_ser_tra' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'></div>
+        <div class='slidervalue' data-slider-type='lmh'>Low</div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='density' data-section-slug='s_den'>
-  <h2>Population Density</h2>
-  <div class='description'>
-    <p><strong>How is your population density?</strong></p>
-    <p>Population density reflects how scattered or concentrated your population is. It would be easier to attend to the needs of everyone if they were all in the same place, but wouldn't they suffocate if it was too concentrated?</p>
-  </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='low' title='e.g. Canada, Russia'>Low</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='mid' title='e.g. USA'>Average</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='high' title='e.g. India, Japan, South Korea'>High</div>
-      <div class='spacer'></div>
+  <div class='section-wrapper'>
+    <h2>Population Density</h2>
+    <div class='description'>
+      <p><strong>How is your population density?</strong></p>
+      <p>Population density reflects how scattered or concentrated your population is. It would be easier to attend to the needs of everyone if they were all in the same place, but wouldn't they suffocate if it was too concentrated?</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='low' title='e.g. Canada, Russia'>Low</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='mid' title='e.g. USA'>Average</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='high' title='e.g. India, Japan, South Korea'>High</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='land' data-section-slug='s_lan'>
-  <h2>Land <small>Arable land</small></h2>
-  <div class='description'>
-    <p><strong>How many hectares of arable land per capita does your country possess?</strong></p>
-    <p>Arable land....</p>
-  </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='low' title='e.g. Bangladesh'>&lt;0.1</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='mid' title='e.g. France, Spain'>0.2-0.3</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='high' title='e.g. Canada, Australia'>&gt;1</div>
-      <div class='spacer'></div>
+  <div class='section-wrapper'>
+    <h2>Land <small>Arable land</small></h2>
+    <div class='description'>
+      <p><strong>How many hectares of arable land per capita does your country possess?</strong></p>
+      <p>Arable land....</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='low' title='e.g. Bangladesh'>&lt;0.1</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='mid' title='e.g. France, Spain'>0.2-0.3</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='high' title='e.g. Canada, Australia'>&gt;1</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='bm' data-section-slug='s_bm'>
-  <h2>Bulding &amp; Manufacturing <small>Industrialization</small></h2>
-  <div class='description'>
-    <p><strong>What is the level of industrialization and infrastructure in your society?</strong></p>
-    <p>..........................</p>
-  </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='low' title='e.g. Central Africa, China'>Low</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='mid' title='e.g. Russia, Argentina, Mexico'>Average</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='high' title='e.g. USA, Australia, France'>High</div>
-      <div class='spacer'></div>
+  <div class='section-wrapper'>
+    <h2>Bulding &amp; Manufacturing <small>Industrialization</small></h2>
+    <div class='description'>
+      <p><strong>What is the level of industrialization and infrastructure in your society?</strong></p>
+      <p>..........................</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='low' title='e.g. Central Africa, China'>Low</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='mid' title='e.g. Russia, Argentina, Mexico'>Average</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='high' title='e.g. USA, Australia, France'>High</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='agriculture' data-section-slug='s_agr'>
-  <h2>Agriculture <small>Typology</small></h2>
-  <div class='description'>
-    <p><strong>You are currently consuming <em>XX food</em>, how does your population produce it?</strong></p>
-    <p>......</p>
-  </div>
-  <div class='choice radio' data-choice-type='radio'>
-    <div class='radio-row'>
-      <div class='lg4' data-cv-value='low' title='e.g. Central Africa, India'>Traditional, Labor-intensive</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='mid' title='e.g. Brazil, Mexico'>Mixed</div>
-      <div class='spacer'></div>
-      <div class='lg4' data-cv-value='high' title='e.g. USA, Europe, Australia'>Industrialized, Mechanized</div>
-      <div class='spacer'></div>
+  <div class='section-wrapper'>
+    <h2>Agriculture <small>Typology</small></h2>
+    <div class='description'>
+      <p><strong>You are currently consuming <em>XX food</em>, how does your population produce it?</strong></p>
+      <p>......</p>
+    </div>
+    <div class='choice radio' data-choice-type='radio'>
+      <div class='radio-row'>
+        <div class='lg4' data-cv-value='low' title='e.g. Central Africa, India'>Traditional, Labor-intensive</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='mid' title='e.g. Brazil, Mexico'>Mixed</div>
+        <div class='spacer'></div>
+        <div class='lg4' data-cv-value='high' title='e.g. USA, Europe, Australia'>Industrialized, Mechanized</div>
+        <div class='spacer'></div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class='section' id='energy' data-section-slug='s_ene'>
-  <h2>Energy &amp; Fuels <small>Local production</small></h2>
-  <div class='description'>
-    <p><strong>You are currently consuming <em>XX energy</em>, how does your population produce it?</strong></p>
-    <p>......................</p>
-  </div>
-  <div class='choice'>
-    <p><strong>Energy</strong></p>
+  <div class='section-wrapper'>
+    <h2>Energy &amp; Fuels <small>Local production</small></h2>
+    <div class='description'>
+      <p><strong>You are currently consuming <em>XX energy</em>, how does your population produce it?</strong></p>
+      <p>......................</p>
+    </div>
+    <div class='choice'>
+      <p><strong>Energy</strong></p>
       <div data-choice-type='slidergroup'>
         <div>Nuclear
           <div class='slider' data-slider-name='s_ene_nuc' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
@@ -200,7 +231,7 @@
          <div class='slidervalue' data-slider-type='percent'>0%</div> 
        </div>
       </div>
-    <p><strong>Fuels</strong></p>
+      <p><strong>Fuels</strong></p>
       <div data-choice-type='slidergroup'>
         <div>Biofuels
           <div class='slider' data-slider-name='s_ene_bio' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
@@ -213,7 +244,8 @@
         <div>Non-conventional fossile resources
           <div class='slider' data-slider-name='s_ene_ncf' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'></div>
          <div class='slidervalue' data-slider-type='percent'>0%</div> 
-       </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
