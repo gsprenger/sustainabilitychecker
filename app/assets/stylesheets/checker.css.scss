@@ -12,16 +12,19 @@ body {
 
 /** COLORS **/
 $black: #333;
-$grey: #ddd;
-$white: #f2f2f2;
+$darkgrey: #666;
+$grey: #BBB;
+$lightgrey: #DDD;
+$white: #F2F2F2;
 $alphawhite: rgba(242,242,242,.75);
-$yellow: #f39c12;
-$red: #e74c3c;
+$yellow: #F39C12;
+$red: #E74C3C;
 $darkred: #C0392B;
-$green: #2ecc71;
+$green: #2ECC71;
 $darkgreen: #27AE60;
-$blue: #3498db;
-$darkblue: 2980b9;
+$blue: #3498DB
+$googleblue: #428BCA;
+$darkblue: #2980B9;
 
 /** HEADER **/
 header {
@@ -29,7 +32,7 @@ header {
   height: 65px;
   width: 100%;
   background-color: $alphawhite;
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid $lightgrey;
   z-index: 10;
 
   nav {
@@ -121,12 +124,10 @@ header {
   font-weight: 300;
 
   .section-wrapper {
-    padding: 5px 40px 40px 40px;
-    background-color: rgba(242, 242, 242, 0.75);
   }
 
   h2 small {
-    color: #666;
+    color: $darkgrey;
   }
 
   .choice.radio {
@@ -167,7 +168,7 @@ header {
   .slider {
     .ui-widget-header {
       background: none;
-      background-color: #428BCA;
+      background-color: $googleblue;
     }
 
     .min-limit, .max-limit {
@@ -187,7 +188,7 @@ header {
     }
     .max-limit {
       right: 0;
-      background-color: #bbb;
+      background-color: $grey;
     }
     .l25 {
       width: 25%;
@@ -199,42 +200,6 @@ header {
       width: 75%;
     }
   }
-}
-#demographics {
-  background: image-url("dem.png") no-repeat center center;
-  background-size: cover;
-}
-#diet {
-  background: image-url("die.png") no-repeat center center;
-  background-size: cover;
-}
-#households {
-  background: image-url("hou.png") no-repeat center center;
-  background-size: cover;
-}
-#services {
-  background: image-url("ser.png") no-repeat center center;
-  background-size: cover;
-}
-#density {
-  background: image-url("den.png") no-repeat center center;
-  background-size: cover;
-}
-#land {
-  background: image-url("lan.png") no-repeat center center;
-  background-size: cover;
-}
-#bm {
-  background: image-url("bm.png") no-repeat center center;
-  background-size: cover;
-}
-#agriculture {
-  background: image-url("agr.png") no-repeat center center;
-  background-size: cover;
-}
-#energy {
-  background: image-url("ene.png") no-repeat center center;
-  background-size: cover;
 }
 
 /** CHECK **/
