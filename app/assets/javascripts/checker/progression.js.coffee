@@ -1,6 +1,6 @@
 class window.Progression
   @id = 0 # user ID in database
-  @current = 'd_dem' # section to display on startup
+  @current = 'intro' # section to display on startup
   @values = [] # Values entered by the user
 
   # Loads the experiment from DB or create it if non existent
