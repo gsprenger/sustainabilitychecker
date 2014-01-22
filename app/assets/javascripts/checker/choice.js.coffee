@@ -20,7 +20,7 @@ class window.Choice
         if val.name == sectionSlug && val.value == value
           $(radio).addClass('active')
           # update check summary
-          $('span.'+sectionSlug).text($(radio).text())
+          $('span.'+sectionSlug).text($(radio).find('.text').text())
           break
       # attach a click event to the radio element
       $(radio).on 'click', ->
@@ -36,7 +36,7 @@ class window.Choice
           Navigation.goToSection(nextSlug, true)
         , 1000
         # update check summary
-        $('span.'+sectionSlug).text($(radio).text())
+        $('span.'+sectionSlug).text($(radio).find('.text').text())
 
   @initSlider: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')

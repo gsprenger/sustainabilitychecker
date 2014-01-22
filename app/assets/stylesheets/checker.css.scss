@@ -35,6 +35,8 @@ header {
   background-color: $alphawhite;
   border-bottom: 1px solid $lightgrey;
   z-index: 10;
+  // small devices
+  display: none;
 
   nav {
     position: relative;
@@ -122,13 +124,16 @@ header {
   }
 }
 
+
 /** SECTIONS **/
 .section {
   width: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 65px 20% 10px 20%;
   font-weight: 300;
+  clear: both;  
+  // small devices 
+  padding: 3%;
+  min-height: none;
+  margin-bottom: 30px;
 
   .section-wrapper {
   }
@@ -137,41 +142,40 @@ header {
     color: $darkgrey;
   }
 
+  // RADIO CHOICE
   .choice.radio {
-    display: table;
-    height: 70px;
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 5px;
     margin-bottom: 15px;
+
     .radio-row {
-      display: table-row;
-      .spacer {
-        width: 1px;
-      }
-      .lg4 {
-        display: table-cell; 
-        font-weight: bold;
+      width: 100%;
+
+      .cell {
+        margin-right: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        font-weight: 500;
         cursor: pointer;
-        vertical-align: middle;
         text-align: center;
-        border-bottom: 2px solid transparent;
-        &:hover { 
-          border-bottom: 2px solid $blue;
+        // small devices
+        width: 100%;
+        margin-bottom: 15px;
+        &.active img {
+          border: 2px solid $green;
         }
-      }
-      .lg4 {
-        width: 33.33%;
-      }
-      .active {
-        background-color: $white;
-        border-bottom: 2px solid $green;
-        &:hover { 
-          border-bottom: 2px solid $green;
+
+        small {
+          font-weight: 200;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
         }
       }
     }
   }
+
+  // SLIDER CHOICE
   .slider {
     position: relative; 
     margin-bottom: 25px;
@@ -191,7 +195,7 @@ header {
       border-left: 1px solid $grey;
       z-index: 3;
       line-height: 53px;
-      height: 18px;
+      height: 15px;
       &.s0 { left: -1px; top: 1px; }
       &.s25 { left: 25%; }
       &.s50 { left: 50%; }
@@ -200,7 +204,7 @@ header {
 
       .name {
         position: absolute;
-        top: -4px;
+        top: -7px;
         left: -14px;
         font-size: 9px;
         color: $textgrey;
@@ -369,6 +373,39 @@ header {
           } 
         }
       } 
+    }
+  }
+}
+
+/** RESPONSIVE DESIGN **/
+@media (min-width: 600px) {
+  header {
+    display: block;
+  }
+
+  .section {
+    min-height: 100%;
+    margin: 0;
+    padding: 65px 20% 10px 20%;
+
+    .choice.radio {
+      .radio-row {
+        .cell {
+          float: left;
+          margin-bottom: 0;
+          &:hover { 
+            transition: 0.2s all ease;
+            transform: scale(1.2);
+            -ms-transform: scale(1.2); /* IE 9 */
+            -moz-transform: scale(1.2); /* Firefox */
+            -webkit-transform: scale(1.2); /* Safari and Chrome */
+            -o-transform: scale(1.2); /* Opera */
+          }
+          &.lg-4 {
+            width: 33%;
+          }
+        }
+      }
     }
   }
 }
