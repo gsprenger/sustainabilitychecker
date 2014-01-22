@@ -80,6 +80,11 @@ header {
       list-style-type: none;
       padding-left: 0;
 
+      .intro {
+        position: absolute;
+        left: -100px;
+      }
+
       li {
         float: left; 
         line-height: 25px;
@@ -95,6 +100,7 @@ header {
           border: 2px solid $black;
           border-radius: 50%;
           color: $black;
+          font-size: 17px;
           transition: 
             background-color 1s ease, 
             color 1s ease;
