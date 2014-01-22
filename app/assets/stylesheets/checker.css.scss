@@ -13,6 +13,7 @@ body {
 /** COLORS **/
 $black: #333;
 $darkgrey: #666;
+$textgrey: #999;
 $grey: #BBB;
 $lightgrey: #DDD;
 $white: #F2F2F2;
@@ -166,9 +167,40 @@ header {
     }
   }
   .slider {
+    position: relative; 
+    margin-bottom: 25px;
+
+    .ui-slider-handle {
+      z-index: 4;
+    }
+
     .ui-widget-header {
       background: none;
       background-color: $googleblue;
+    }
+
+    .step {
+      position: absolute;
+      top: 0px;
+      border-left: 1px solid $grey;
+      z-index: 3;
+      line-height: 53px;
+      height: 18px;
+      &.s0 { left: -1px; top: 1px; }
+      &.s25 { left: 25%; }
+      &.s50 { left: 50%; }
+      &.s75 { left: 75%; }
+      &.s100 { left: 100%; top: 1px; }
+
+      .name {
+        position: absolute;
+        top: -4px;
+        left: -14px;
+        font-size: 9px;
+        color: $textgrey;
+        width: 30px;
+        text-align: center;
+      }
     }
 
     .min-limit, .max-limit {
