@@ -247,10 +247,11 @@ header {
 /** CHECK **/
 #check {
   width: 100%;
-  min-height: 100%;
-  margin: 0;
-  padding: 60px 20% 10px 20%;
   font-weight: 300;
+  // small devices 
+  padding: 3%;
+  min-height: none;
+  margin-bottom: 30px;
 
   .precheck {
     display: table; 
@@ -303,8 +304,9 @@ header {
 
       .row {
         .cell {
-          height: 150px;
           position: relative;
+          // small devices
+          height: 90px;
 
           .bar-food, .bar-energy {
             transition: 
@@ -384,9 +386,7 @@ header {
   }
 
   .section {
-    min-height: 100%;
-    margin: 0;
-    padding: 65px 20% 10px 20%;
+    padding: 65px 3% 3% 3%;
 
     .choice.radio {
       .radio-row {
@@ -408,4 +408,33 @@ header {
       }
     }
   }
+
+  #check {
+    padding: 65px 3% 3% 3%;
+
+    .checksection {
+      .check-graph {
+        .row {
+          .cell {
+            height: 150px;
+          }
+        }
+      }
+    }
+  }
 }
+
+@media (min-width: 980px) {
+  .section {
+    min-height: 100%;
+    margin: 0;
+    padding: 65px 15% 10px 15%;
+  }
+
+  #check {
+    min-height: 100%;
+    margin: 0;
+    padding: 65px 15% 10px 15%;
+  }
+}
+

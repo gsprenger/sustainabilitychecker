@@ -24,7 +24,7 @@ class window.Check
       $('.check-result').text('Passed!')
 
     # update percents
-    h = 150 # total height
+    h = $('.check-graph .cell').height() # total height
     t = 8 # height of text
     topPercentUpperFood = ((h * (heightUpperFood / 100)) / 2) - t
     topPercentUpperEnergy = ((h * (heightUpperEnergy / 100)) / 2) - t
