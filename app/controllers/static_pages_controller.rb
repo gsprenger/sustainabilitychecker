@@ -20,6 +20,6 @@ class StaticPagesController < ApplicationController
   end
 
   def legal
-  	@license = File.read('LICENSE').gsub(/\n/, '<br />');
+  	@license = File.read('LICENSE').gsub(/\n/, '<br>');
   end
 end
