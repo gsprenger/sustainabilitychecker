@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The Sustainability Sudoku</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "bootstrap", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag    params[:controller], "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>
-  <%= favicon_link_tag %>
-  <%= csrf_meta_tags %>
-  <%= render "layouts/common/shim" %>
-</head>
-<body>
-  <div class="wrap">
-    <%= render "static_pages/header" %>
+  <head>
+    <title>The Sustainability Sudoku</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "bootstrap", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    params[:controller], "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>
+    <%= favicon_link_tag %>
+    <%= csrf_meta_tags %>
+    <%= render "layouts/common/shim" %>
+  </head>
+  <body>
+    <div class="wrap">
+      <%= render "static_pages/header" %>
 
-    <div class="main container">
-      <%= yield %>
+      <div class="main container">
+        <%= yield %>
+      </div>
     </div>
-  </div>
-  <%= render "static_pages/footer" %>
-</body>
+    <%= render "static_pages/footer" %>
+  </body>
 </html>
