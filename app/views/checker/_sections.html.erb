@@ -14,24 +14,24 @@
 
 <div class='section' id='demographics' data-section-slug='d_dem'>
   <div class='section-wrapper'>
-    <h2>Demographics <small>Life Expectancy</small></h2>
+    <h2>Socio-demographics <small>Typology of society</small></h2>
     <div class='description'>
-      <p><strong>What is the average life expectancy of your population?</strong></p>
-      <p>A country that has a high life expectancy will have to allocate more resources to healthcare services and infrastructures.</p>
+      <p><strong>How would you define your population?</strong></p>
+      <p>A more developped country has more requirements.</p>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='inf60'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>&lt;60 years</span><br><small>(e.g. South Africa)</small>
+          <span class='text'>Post-industrial, rich</span><br><small>(e.g. Europe)</small>
         </div>
         <div class='cell lg-4' data-cv-value='60-80'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>60-80 years</span><br><small>(e.g. USA)</small>
+          <span class='text'>Emerging economy</span><br><small>(e.g. China)</small>
         </div>
         <div class='cell lg-4' data-cv-value='sup80'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>&gt;80 years</span><br><small>(e.g. Japan)</small>
+          <span class='text'>Less developped countries</span><br><small>(e.g. Cambodgia)</small>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
   <div class='section-wrapper'>
     <h2>Diet <small>Meat Consumption</small></h2>
     <div class='description'>
-      <p><strong>How much animal products (meat, eggs, milk...) doest your population consume?</strong></p>
+      <p><strong>How much animal products (meat, eggs, milk...) does your population consume?</strong></p>
       <p>The more meat your people eat, the more food you will have to produce to feed your animals.</p>
     </div>
     <div class='choice radio' data-choice-type='radio'>
@@ -66,15 +66,14 @@
 
 <div class='section' id='households' data-section-slug='d_hou'>
   <div class='section-wrapper'>
-    <h2>Households <small>Topology</small></h2>
-    <div class='description'>
-      <p><strong>Where is your population mostly concentrated?</strong></p>
-      <p>If all your people lived scattered across the land, ambulances would have a hard time reaching all of them in due time!</p>
-    </div>
+    <h2>Households <small>Typology</small></h2>
     <div class='choice'>
-      <p><strong>What is the proportion of urban areas in your country?</strong></p>
-      <div data-choice-type='slider'>
-        <div>Rural<div class='pull-right'>Urban</div></div>
+      <div class='description'>
+        <p><strong>What is the proportion of urban population in your country?</strong></p>
+        <p>If all your people lived scattered across the land, ambulances would have a hard time reaching all of them in due time!</p>
+      </div>
+      <div data-choice-type='slidergroup'>
+        <div>Urban</div>
         <div class='slider' data-slider-name='d_hou_urb' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
           <div class='step s0'><div class='name'>0%</div></div>
           <div class='step s25'><div class='name'>25%</div></div>
@@ -82,10 +81,22 @@
           <div class='step s75'><div class='name'>75%</div></div>
           <div class='step s100'><div class='name'>100%</div></div>
         </div>
-      </div>
         <div class='slidervalue hidden' data-slider-type='percent'>0%</div>   
+        <div>Rural</div>
+        <div class='slider' data-slider-name='d_hou_rur' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
+          <div class='step s0'><div class='name'>0%</div></div>
+          <div class='step s25'><div class='name'>25%</div></div>
+          <div class='step s50'><div class='name'>50%</div></div>
+          <div class='step s75'><div class='name'>75%</div></div>
+          <div class='step s100'><div class='name'>100%</div></div>
+        </div>
+        <div class='slidervalue hidden' data-slider-type='percent'>0%</div>   
+      </div>
     </div>
-    <p><strong>Within the urban areas, how are your cities laid out?</strong></p>
+      <div class='description'>
+        <p><strong>Within the urban population, how are your cities laid out?</strong></p>
+        <p>The richer your population, the more resources you have to allocate to cater to their needs!</p>
+      </div>
     <div data-choice-type='slidergroup'>
       <div>Rich, Suburbs
         <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
@@ -202,22 +213,22 @@
   <div class='section-wrapper'>
     <h2>Land <small>Arable land</small></h2>
     <div class='description'>
-      <p><strong>How many hectares of arable land per capita does your country possess?</strong></p>
+      <p><strong>What is the quantity of arable land in your country?</strong></p>
       <p>Arable land....</p>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>&lt;0.1 ha. per capita</span><br><small>(e.g. Bangladesh)</small>
+          <span class='text'>Low</span><br><small>(e.g. Bangladesh)</small>
         </div>
         <div class='cell lg-4' data-cv-value='mid'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>0.2-0.3 ha. per capita</span><br><small>(e.g. France, Spain)</small>
+          <span class='text'>Average</span><br><small>(e.g. France, Spain)</small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>&gt;1 ha. per capita</span><br><small>(e.g. Canada, Australia)</small>
+          <span class='text'>High</span><br><small>(e.g. Canada, Australia)</small>
         </div>
       </div>
     </div>
@@ -284,7 +295,7 @@
       <p>......................</p>
     </div>
     <div class='choice'>
-      <p><strong>Energy</strong></p>
+      <p><strong>Electricity</strong></p>
       <div data-choice-type='slidergroup'>
         <div>Nuclear
           <div class='slider' data-slider-name='s_ene_nuc' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
