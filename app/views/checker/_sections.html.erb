@@ -1,3 +1,4 @@
+<!-- BEGIN SECTION INTRO -->
 <div class='section' id='intro' data-section-slug='intro'>
   <div class='section-wrapper'>
     <h2>The Sustainability Checker <br><small>A didactic, interactive tool to understand and discuss sustainability issues</small></h2>
@@ -12,6 +13,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION DEMOGRAPHICS -->
 <div class='section' id='demographics' data-section-slug='d_dem'>
   <div class='section-wrapper'>
     <h2>Socio-demographics <small>Typology of society</small></h2>
@@ -21,23 +23,24 @@
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
-        <div class='cell lg-4' data-cv-value='inf60'>
+        <div class='cell lg-4' data-cv-value='low'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Post-industrial, rich</span><br><small>(e.g. Europe)</small>
+          <span class='text'>Less developped countries</span><br><small>(e.g. Cambodgia)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='60-80'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Emerging economy</span><br><small>(e.g. China)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='sup80'>
+        <div class='cell lg-4' data-cv-value='high'>
           <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Less developped countries</span><br><small>(e.g. Cambodgia)</small>
+          <span class='text'>Post-industrial, rich</span><br><small>(e.g. Europe)</small>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- BEGIN SECTION DIET -->
 <div class='section' id='diet' data-section-slug='d_die'>
   <div class='section-wrapper'>
     <h2>Diet <small>Meat Consumption</small></h2>
@@ -51,7 +54,7 @@
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Low</span><br><small>(e.g. Parts of India)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='mid'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Average</span><br><small>(e.g. Europe)</small>
         </div>
@@ -64,6 +67,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION HOUSEHOLDS -->
 <div class='section' id='households' data-section-slug='d_hou'>
   <div class='section-wrapper'>
     <h2>Households <small>Typology</small></h2>
@@ -74,23 +78,11 @@
       </div>
       <div data-choice-type='slidergroup'>
         <div>Urban</div>
-        <div class='slider' data-slider-name='d_hou_urb' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-          <div class='step s0'><div class='name'>0%</div></div>
-          <div class='step s25'><div class='name'>25%</div></div>
-          <div class='step s50'><div class='name'>50%</div></div>
-          <div class='step s75'><div class='name'>75%</div></div>
-          <div class='step s100'><div class='name'>100%</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='percent'>0%</div>   
+        <!-- SLIDER URBAN -->
+        <div class='slider' data-slider-name='d_hou_urb'></div>
         <div>Rural</div>
-        <div class='slider' data-slider-name='d_hou_rur' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-          <div class='step s0'><div class='name'>0%</div></div>
-          <div class='step s25'><div class='name'>25%</div></div>
-          <div class='step s50'><div class='name'>50%</div></div>
-          <div class='step s75'><div class='name'>75%</div></div>
-          <div class='step s100'><div class='name'>100%</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='percent'>0%</div>   
+        <!-- SLIDER RURAL -->
+        <div class='slider' data-slider-name='d_hou_rur'></div>
       </div>
     </div>
       <div class='description'>
@@ -99,31 +91,16 @@
       </div>
     <div data-choice-type='slidergroup'>
       <div>Rich, Suburbs
-        <div class='slider' data-slider-name='d_hou_sub' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-          <div data-max-limit=25 class='max-limit l75'></div>
-          <div class='step s0'><div class='name'>0%</div></div>
-          <div class='step s25'><div class='name'>25%</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+        <!-- SLIDER SUB -->
+        <div class='slider' data-slider-name='d_hou_sub'></div>
       </div>
       <div>Middle-class, Appartments
-        <div class='slider' data-slider-name='d_hou_apa' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}'>
-          <div data-min-limit=25 class='min-limit l25'></div>
-          <div data-max-limit=75 class='max-limit l25'></div>
-          <div class='step s25'><div class='name'>25%</div></div>
-          <div class='step s50'><div class='name'>50%</div></div>
-          <div class='step s75'><div class='name'>75%</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+        <!-- SLIDER APA -->
+        <div class='slider' data-slider-name='d_hou_apa'></div> 
       </div>
       <div>Poor, Slums
-        <div class='slider' data-slider-name='d_hou_slu' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-          <div data-max-limit=50 class='max-limit l50'></div>
-          <div class='step s0'><div class='name'>0%</div></div>
-          <div class='step s25'><div class='name'>25%</div></div>
-          <div class='step s50'><div class='name'>50%</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+        <!-- SLIDER SLU -->
+        <div class='slider' data-slider-name='d_hou_slu'></div> 
       </div>
     </div>
     <div class='text-center'>
@@ -132,6 +109,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION SERVICES -->
 <div class='section' id='services' data-section-slug='d_ser'>
   <div class='section-wrapper'>
     <h2>Services &amp; Government <small>Budget repartition</small></h2>
@@ -142,40 +120,16 @@
     <div class='choice'>
       <div data-choice-type='slider'>    
         <p><strong>Education &amp; Healthcare</strong></p>
-        <div class='slider' data-slider-name='d_ser_edu' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'>
-          <div class='step s0'><div class='name'>Low</div></div>
-          <div class='step s50'><div class='name'>Medium</div></div>
-          <div class='step s100'><div class='name'>High</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='lmh'>Low</div>
-      </div>
+        <div class='slider' data-slider-name='d_ser_edu'></div>
       <div data-choice-type='slider'>    
         <p><strong>Media, Entertainment, Tourism</strong></p>
-        <div class='slider' data-slider-name='d_ser_med' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'>
-          <div class='step s0'><div class='name'>Low</div></div>
-          <div class='step s50'><div class='name'>Medium</div></div>
-          <div class='step s100'><div class='name'>High</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='lmh'>Low</div>
-      </div>
+        <div class='slider' data-slider-name='d_ser_med'></div>
       <div data-choice-type='slider'>    
         <p><strong>Public Institutions, Government, Military</strong></p>
-        <div class='slider' data-slider-name='d_ser_pub' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'>
-          <div class='step s0'><div class='name'>Low</div></div>
-          <div class='step s50'><div class='name'>Medium</div></div>
-          <div class='step s100'><div class='name'>High</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='lmh'>Low</div>
-      </div>
+        <div class='slider' data-slider-name='d_ser_pub'></div>
       <div data-choice-type='slider'>    
         <p><strong>Transportation, Retailing</strong></p>
-        <div class='slider' data-slider-name='d_ser_tra' data-slider-options='{"range":"min","max":2,"value":1,"animate":"true"}'>
-          <div class='step s0'><div class='name'>Low</div></div>
-          <div class='step s50'><div class='name'>Medium</div></div>
-          <div class='step s100'><div class='name'>High</div></div>
-        </div>
-        <div class='slidervalue hidden' data-slider-type='lmh'>Low</div>
-      </div>
+        <div class='slider' data-slider-name='d_ser_tra'></div>
     </div>
     <div class='text-center'>
       <a href='#density' class='nav-link'><div class='btn btn-primary btn-lg'>Next</div></a>
@@ -183,6 +137,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION DENSITY -->
 <div class='section' id='density' data-section-slug='s_den'>
   <div class='section-wrapper'>
     <h2>Population Density</h2>
@@ -196,7 +151,7 @@
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Low</span><br><small>(e.g. Canada, Russia)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='mid'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Average</span><br><small>(e.g. USA)</small>
         </div>
@@ -209,6 +164,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION LAND -->
 <div class='section' id='land' data-section-slug='s_lan'>
   <div class='section-wrapper'>
     <h2>Land <small>Arable land</small></h2>
@@ -222,7 +178,7 @@
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Low</span><br><small>(e.g. Bangladesh)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='mid'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Average</span><br><small>(e.g. France, Spain)</small>
         </div>
@@ -235,6 +191,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION BM -->
 <div class='section' id='bm' data-section-slug='s_bm'>
   <div class='section-wrapper'>
     <h2>Bulding &amp; Manufacturing <small>Industrialization</small></h2>
@@ -248,7 +205,7 @@
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Low</span><br><small>(e.g. Central Africa, China)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='mid'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Average</span><br><small>(e.g. Russia, Argentina, Mexico)</small>
         </div>
@@ -261,6 +218,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION AGRICULTURE -->
 <div class='section' id='agriculture' data-section-slug='s_agr'>
   <div class='section-wrapper'>
     <h2>Agriculture <small>Typology</small></h2>
@@ -274,7 +232,7 @@
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Traditional, Labor-intensive</span><br><small>(e.g. Central Africa, India)</small>
         </div>
-        <div class='cell lg-4' data-cv-value='mid'>
+        <div class='cell lg-4' data-cv-value='med'>
           <img src='<%= image_path('placeholder.png') %>'>
           <span class='text'>Mixed</span><br><small>(e.g. Brazil, Mexico)</small>
         </div>
@@ -287,6 +245,7 @@
   </div>
 </div>
 
+<!-- BEGIN SECTION ENERGY -->
 <div class='section' id='energy' data-section-slug='s_ene'>
   <div class='section-wrapper'>
     <h2>Energy &amp; Fuels <small>Local production</small></h2>
@@ -298,77 +257,28 @@
       <p><strong>Electricity</strong></p>
       <div data-choice-type='slidergroup'>
         <div>Nuclear
-          <div class='slider' data-slider-name='s_ene_nuc' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-          <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_nuc'></div>
         </div>
         <div>Hydropower
-          <div class='slider' data-slider-name='s_ene_hyd' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-          <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_hyd'></div>
         </div>
         <div>Photovoltaics
-          <div class='slider' data-slider-name='s_ene_pho' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-         <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_pho'></div>
        </div>
         <div>Wind Power
-          <div class='slider' data-slider-name='s_ene_win' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-         <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_win'></div>
        </div>
       </div>
       <p><strong>Fuels</strong></p>
       <div data-choice-type='slidergroup'>
         <div>Biofuels
-          <div class='slider' data-slider-name='s_ene_bio' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-          <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_bio'></div>
         </div>
         <div>Hydrogen
-          <div class='slider' data-slider-name='s_ene_hyg' data-slider-options='{"range":"min","value":50,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-          <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_hyg'></div>
         </div>
         <div>Non-conventional fossile resources
-          <div class='slider' data-slider-name='s_ene_ncf' data-slider-options='{"range":"min","value":25,"step":25,"animate":"true"}'>
-            <div class='step s0'><div class='name'>0%</div></div>
-            <div class='step s25'><div class='name'>25%</div></div>
-            <div class='step s50'><div class='name'>50%</div></div>
-            <div class='step s75'><div class='name'>75%</div></div>
-            <div class='step s100'><div class='name'>100%</div></div>
-          </div>
-         <div class='slidervalue hidden' data-slider-type='percent'>0%</div> 
+          <div class='slider' data-slider-name='s_ene_ncf'></div>
         </div>
       </div>
     </div>

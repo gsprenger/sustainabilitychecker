@@ -7,6 +7,15 @@
 //= require checker/progression
 //= require checker/choice
 //= require checker/check
+//= require checker/models/demographics
+//= require checker/models/diet
+//= require checker/models/households
+//= require checker/models/services
+//= require checker/models/density
+//= require checker/models/land
+//= require checker/models/bm
+//= require checker/models/agriculture
+//= require checker/models/energy
 
 var ready = function() {
   App.launch();

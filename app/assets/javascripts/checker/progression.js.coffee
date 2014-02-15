@@ -10,19 +10,6 @@ class window.Progression
     Progression.current = exp.current || Progression.current
     Progression.values = exp.values || []
 
-
-  @addToValues: (name, value) ->
-    found = false
-    for val in @values
-      # if variable already exists: update it
-      if val.name == name
-        val.value = value
-        found = true
-        break
-    # if item not found add it
-    unless found 
-      Progression.values.push {'name': name, 'value': value}
-
   @load: (id) -> 
     # Load progression via API
     data = JSON.parse $.ajax({
@@ -43,3 +30,23 @@ class window.Progression
       "json": JSON.stringify json
     }
     $.post '/checker/save_experiment', data
+
+  @setVariable: (name, value) ->
+    found = false
+    for val in Progression.values
+      # if variable already exists: update it
+      if val.name == name
+        val.value = value
+        found = true
+        break
+    # if item not found add it
+    unless found 
+      Progression.values.push {'name': name, 'value': value}
+  
+  @getVariable: (name) ->
+    found = false
+    for val in Progression.values
+      if val.name == name
+        found = val.value
+        break
+    return found 

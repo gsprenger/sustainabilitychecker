@@ -180,6 +180,11 @@ header {
     position: relative; 
     margin-bottom: 25px;
 
+    .ui-slider-range {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
     .ui-slider-handle {
       z-index: 4;
     }
@@ -196,11 +201,6 @@ header {
       z-index: 3;
       line-height: 53px;
       height: 15px;
-      &.s0 { left: -1px; top: 1px; }
-      &.s25 { left: 25%; }
-      &.s50 { left: 50%; }
-      &.s75 { left: 75%; }
-      &.s100 { left: 100%; top: 1px; }
 
       .name {
         position: absolute;
@@ -224,22 +224,12 @@ header {
       background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
       background-size: 35px 35px;
     }
-
     .min-limit {
       left: 0;
     }
     .max-limit {
       right: 0;
       background-color: $grey;
-    }
-    .l25 {
-      width: 25%;
-    }
-    .l50 {
-      width: 50%;
-    }
-    .l75 {
-      width: 75%;
     }
   }
 }

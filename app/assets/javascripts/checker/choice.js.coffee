@@ -1,15 +1,4 @@
 class window.Choice 
-  # Init events for all sections choices  
-  @setup: ->
-    $('[data-choice-type]').each (i, el) ->
-      switch $(el).attr('data-choice-type')
-        when 'radio'
-          Choice.initRadio el
-        when 'slider'
-          Choice.initSlider el
-        when 'slidergroup'
-          Choice.initSliderGroup el
-
   @initRadio: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')
     $(el).find('[data-cv-value]').each (i, radio) ->
@@ -30,7 +19,7 @@ class window.Choice
         # get next section, save values and scroll to next
         nextSlug = Navigation.getNextSectionSlug(sectionSlug)
         Progression.current = nextSlug
-        Progression.addToValues sectionSlug, value
+        Progression.setVariable sectionSlug, value
         Progression.save()
         setTimeout ->
           Navigation.goToSection(nextSlug, true)
@@ -38,113 +27,159 @@ class window.Choice
         # update check summary
         $('span.'+sectionSlug).text($(radio).find('.text').text())
 
-  @initSlider: (el) ->
-    sectionSlug = $(el).closest('.section').attr('data-section-slug')
-    slider = $(el).find('.slider')
-    Choice.createSlider(slider)
-    # save on Change
-    slider.on 'slidechange', (e, ui) ->
-      sliderSlug = slider.attr('data-slider-name')
-      Progression.current = sectionSlug
-      Progression.addToValues sliderSlug, ui.value
-      Progression.save()
-      # update check summary
-      $('span.'+sliderSlug).text(slider.siblings('.slidervalue').text())
-
-  @initSliderGroup: (el) ->
-    sectionSlug = $(el).closest('.section').attr('data-section-slug')
-    sliders = []
-    $(el).find('.slider').each (i, slider) ->
-      name = $(slider).attr('data-slider-name')
-      Choice.createSlider($(slider))
-      min = $(slider).slider('option', 'min')
-      max = $(slider).slider('option', 'max')
-      step = $(slider).slider('option', 'step')
-      sMinLimit = $(slider).find('.min-limit').attr('data-min-limit') || false
-      sMaxLimit = $(slider).find('.max-limit').attr('data-max-limit') || false
-      sliders.push(slider)
+  @initSlider: (slider) ->
+    sectionSlug = $(slider).closest('.section').attr('data-section-slug')
+    name = $(slider).attr('data-slider-name')
+    values = $(slider).slider('option', 'vals')
+    defVal = $(slider).slider('option', 'default')
+    type = $(slider).slider('option', 'type')
+    # if slider value is present in Progression, set it
+    if ((val = Progression.getVariable(name)) != null && ((values.indexOf(val) > -1) || type == 'lmh'))
+      slider.slider('value', val)
+    else if defVal
+      slider.slider('value', defVal)
+    else if !isNaN(values[0])
+      slider.slider('value', values[0])
+    else
+      slider.slider('value', 0)
+    if (type == '%')
+      # on slide, prevent setting values that are out of possible values
       $(slider).on 'slide', (e, ui) ->
-        if (sMinLimit || sMaxLimit) && (ui.value < sMinLimit || ui.value > sMaxLimit)
-          return false
-        stepNb = (ui.value - $(slider).slider('value')) / step
-        goingUp = stepNb > 0
-        for [1..Math.abs(stepNb)] 
-          for s in sliders
-            sname = $(s).attr('data-slider-name')
-            unless sname == name
-              val = $(s).slider('value')
-              if (goingUp && (val != min)) || (!goingUp && (val != max))
-                minLimit = parseInt($(s).slider('option', 'minlimit'), 10)
-                maxLimit = parseInt($(s).slider('option', 'maxlimit'), 10)
-                if ((goingUp && (val != minLimit)) || (!goingUp && (val != maxLimit))) 
-                  oldVal = $(s).slider('value')
-                  sliderToChange = s
-          $(sliderToChange).slider('value', oldVal + (if goingUp then -1 * step else step))
-      $(slider).on 'slidechange', (e, ui) ->
-        if Choice.lastSlider == name
-          Progression.current = sectionSlug
-          for s in sliders
-            Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
-            $('span.'+$(s).attr('data-slider-name')).text($(s).siblings('.slidervalue').text())
-          Progression.save()
-    # Check if collective value is not overflowing/undervalued
-    total = 0
-    min = $(sliders[0]).slider('option', 'min')
-    max = $(sliders[0]).slider('option', 'max')
-    step = $(sliders[0]).slider('option', 'step')
-    for s in sliders
-      total += $(s).slider('value')
-    if total != max
-      overflow = total > max
-      add = if overflow then -1*step else step
-      while ((overflow && (total > max)) || (!overflow && (total < max)))
-        for s in sliders
-          if (overflow && ($(s).slider('value') != min)) || (!overflow && ($(s).slider('value') != max))
-            $(s).slider('value', $(s).slider('value') + add)
-            total += add
-            if total == max
-              break;
-      for s in sliders
-        Progression.addToValues $(s).attr('data-slider-name'), $(s).slider('value')
+        diff = null
+        for val in values
+          newDiff = Math.abs(ui.value - val)
+          if (diff == null || newDiff < diff)
+            diff = newDiff
+            nearest = val
+        $(slider).slider('value', nearest)
+        return false
+    # save on Change
+    $(slider).on 'slidechange', (e, ui) ->
+      Progression.current = sectionSlug
+      Progression.setVariable name, ui.value
       Progression.save()
 
-  @createSlider: (slider) ->   
-    name = slider.attr('data-slider-name')
-    valueField = slider.siblings('.slidervalue')
-    type = valueField.attr('data-slider-type')
-    updateValueField = (value) ->
-      # give visual feedback
-      switch type
-        when 'percent'
-          valueField.text(value+'%')
-        when 'lmh'
-          vals = ['Low', 'Medium', 'High']
-          valueField.text(vals[value])
-    # init slider and remove options from DOM 
-    slider.slider(JSON.parse(slider.attr('data-slider-options')))
-    slider.removeAttr('data-slider-options') # for clarity and protection
-    minLimit = slider.find('.min-limit').attr('data-min-limit') || false
-    maxLimit = slider.find('.max-limit').attr('data-max-limit') || false
-    slider.slider('option', 'minlimit', minLimit)
-    slider.slider('option', 'maxlimit', maxLimit)
-    # if slider value is present, set it, otherwise set its default (=0)
-    found = false
-    for val in Progression.values
-      if val.name == name
-        slider.slider('value', val.value)
-        found = true
-        break
-    unless found
-      Progression.addToValues name, slider.slider('value') 
-    updateValueField(slider.slider('value'))
-    # update check summary
-    $('span.'+name).text(valueField.text())
-    # set slide and change events
-    slider.on 'mouseover', (e, ui) ->
-      Choice.lastSlider = name
-    slider.on 'slide', (e, ui) ->
-      if (minLimit || maxLimit) && (ui.value < minLimit || ui.value > maxLimit)
+  @initSliderGroup: (sliders) ->
+    sectionSlug = $(sliders[0]).closest('.section').attr('data-section-slug')
+    $(sliders).each (i, slider) ->
+      name = $(slider).attr('data-slider-name')
+      values = $(slider).slider('option', 'vals')
+      defVal = $(slider).slider('option', 'default')
+      # if slider value is present in Progression, set it
+      if ((val = Progression.getVariable(name)) != null && values.indexOf(val) > -1)
+        slider.slider('value', val)
+      else if defVal
+        slider.slider('value', defVal)
+      else if !isNaN(values[0])
+        slider.slider('value', values[0])
+      else
+        slider.slider('value', 0)
+      prevVal = 0
+      $(slider).on 'slidestart', (e, ui) ->
+        prevVal = ui.value
+      $(slider).on 'slide', (e, ui) ->
+        # Get nearest value
+        diff = null
+        for val in values
+          newDiff = Math.abs(ui.value - val)
+          if (diff == null || newDiff < diff)
+            diff = newDiff
+            nearest = val
+        if (nearest != prevVal)
+          prevVal = nearest
+          $(slider).slider('value', nearest)
+          # Check constraints 
+          total = 0
+          for s in sliders
+            # get total value
+            if $(s).attr('data-slider-name') == name
+              total += nearest
+            else 
+              total += $(s).slider('value')
+          # get difference to compensate on other sliders
+          overflow = total > 100
+          diff = Math.abs(100 - total)
+          for s in sliders by -1
+            if ($(s).attr('data-slider-name') != name)
+              # for each slider except current, starting from last
+              sValue = $(s).slider('value')
+              sValues = $(s).slider('option', 'vals')
+              valToReach = sValue + ((if overflow then -1 else 1) * diff)
+              # if diff can be contained in last slider and is possible
+              if (sValues.indexOf(valToReach) > -1)
+                $(s).slider('value', valToReach)
+                diff -= diff
+              else
+                # we break diff into segments of 25 and try to shove it (dirty hack...)
+                if (diff % 25 == 0)
+                  times = diff / 25
+                  for [1..times]
+                    for ts in sliders by -1
+                      if ($(ts).attr('data-slider-name') != name)
+                        # for each slider except current, starting from last
+                        sValue = $(ts).slider('value')
+                        sValues = $(ts).slider('option', 'vals')
+                        valToReach = sValue + ((if overflow then -1 else 1) * 25)
+                        # if diff can be contained in last slider and is possible
+                        if (sValues.indexOf(valToReach) > -1)
+                          $(ts).slider('value', valToReach)
+                          diff -= 25
+                else
+                  console.error("This setup of linked sliders is noy supported. Something must have gone wrong somewhere.")
+            if (diff == 0)
+              break
         return false
-      updateValueField(ui.value)
-    slider.on 'slidechange', (e, ui) ->
-      updateValueField(ui.value)
+      # save on Change
+      $(slider).on 'slidechange', (e, ui) -> 
+        $(sliders).each (i, s) ->
+          Progression.setVariable $(s).attr('data-slider-name'), $(s).slider('value')
+        Progression.current = sectionSlug
+        Progression.setVariable name, ui.value
+        Progression.save()
+
+  @createSlider: (slider, type, values, defVal) ->
+    # init slider
+    name = slider.attr('data-slider-name')
+    options = {
+      "range":   "min",
+      "animate": true,
+      "type":    type,
+      "vals":    values,
+      "default": defVal
+    }
+    options.max = 2 if type == 'lmh'
+    slider.slider(options)  
+    # set up graphical marks: limits & steps
+    html = ""
+    if (type == '%')
+      # set limits
+      firstW = values[0]
+      lastW = 100 - values[values.length-1]
+      html += 
+        """
+        <div class='min-limit' style='width:#{firstW}%'></div>
+        <div class='max-limit' style='width:#{lastW }%'></div>
+        """
+      # set steps
+      for val in values
+        html += 
+          """
+          <div class='step' style='left:#{val}%'>
+            <div class='name'>#{val}%</div>
+          </div>
+          """
+      # if there's only one possible value, hide the slider handle
+      if values.length == 1
+        $(slider).find('.ui-slider-handle').hide()
+    else
+      # set steps
+      for val in [0..2]
+        position = [0, 50, 100]
+        html += 
+          """
+          <div class='step' style='left:#{position[val]}%'>
+            <div class='name'>#{values[val]}</div>
+          </div>
+          """
+    $(slider).append(html)
+    return slider
