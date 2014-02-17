@@ -1,11 +1,12 @@
 class window.Choice 
   @initRadio: (el) ->
     sectionSlug = $(el).closest('.section').attr('data-section-slug')
+    progVal = Progression.getVariable(sectionSlug)
     $(el).find('[data-cv-value]').each (i, radio) ->
       # get the section they belong to and the value of the cv-value field
       value = $(radio).attr('data-cv-value')
       # check if item is selected in Progression and activate it
-      if (val = Progression.getVariable(sectionSlug))
+      if (progVal && progVal == value)
         $(radio).addClass('active')
         # update check summary
         $('span.'+sectionSlug).text($(radio).find('.text').text())
