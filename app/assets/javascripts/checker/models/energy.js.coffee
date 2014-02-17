@@ -64,11 +64,17 @@ class window.Energy
   @get_s_ene_typ: ->
     (if Agriculture.value == 'low' then 'low' else 'high')
 
-  @get_GSECs_ELEC: ->
+  @get_NSECs_ELEC: ->
     (Households.get_ET_ELEC() * Energy.get_s_ene_con() / Energy.data.GER_EC_ELEC)
     
-  @get_GSECs_FUELS: ->
+  @get_NSECs_FUELS: ->
     (Households.get_ET_FUELS() * Energy.get_s_ene_con() / Energy.data.GER_EC_FUELS)
+
+  @get_GSECs_ELEC: ->
+    (Energy.get_NSECs_ELEC() / (1 - (Energy.data.LOSSES_ELEC / 100)))
+    
+  @get_GSECs_FUELS: ->
+    (Energy.get_NSECs_FUELS() / (1 - (Energy.data.LOSSES_FUELS / 100)))
 
   @get_LU_ELEC: ->
     Energy.loopAllWithValue(Energy.data.LU_ELEC)
@@ -88,11 +94,17 @@ class window.Energy
   @get_HA_FUELS: ->
     Energy.loopAllWithValue(Energy.data.HA_FUELS)
 
-  @get_GSEC_ELEC: -> # TODO VERIFY WITH TEAM
-    (Energy.get_GSECs_ELEC() * (1 + Energy.get_ET_ELEC_EM()))
+  @get_NSEC_ELEC: -> 
+    (Energy.get_NSECs_ELEC() * (1 + Energy.get_ET_ELEC_EM()))
+
+  @get_NSEC_FUELS: ->
+    (Energy.get_NSECs_FUELS() * (1 + Energy.get_ET_FUELS_EM()))
+
+  @get_GSEC_ELEC: -> 
+    (Energy.get_NSEC_ELEC() * (1 + (Energy.data.LOSSES_ELEC / 100)))
 
   @get_GSEC_FUELS: ->
-    (Energy.get_GSECs_FUELS() * (1 + Energy.get_ET_FUELS_EM()))
+    (Energy.get_NSEC_FUELS() * (1 + (Energy.data.LOSSES_FUELS)))
 
   @get_LU_EM: ->
     ((Energy.get_GSEC_ELEC() * Energy.get_LU_ELEC()) +
