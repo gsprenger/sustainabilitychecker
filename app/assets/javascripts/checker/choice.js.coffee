@@ -5,12 +5,10 @@ class window.Choice
       # get the section they belong to and the value of the cv-value field
       value = $(radio).attr('data-cv-value')
       # check if item is selected in Progression and activate it
-      for val in Progression.values
-        if val.name == sectionSlug && val.value == value
-          $(radio).addClass('active')
-          # update check summary
-          $('span.'+sectionSlug).text($(radio).find('.text').text())
-          break
+      if (val = Progression.getVariable(sectionSlug))
+        $(radio).addClass('active')
+        # update check summary
+        $('span.'+sectionSlug).text($(radio).find('.text').text())
       # attach a click event to the radio element
       $(radio).on 'click', ->
         # activate element
@@ -58,6 +56,11 @@ class window.Choice
       Progression.current = sectionSlug
       Progression.setVariable name, ui.value
       Progression.save()
+      # update check summary
+      $('span.'+name).text(if type == "%" then ui.value + '%' else (['Low', 'Medium', 'High'])[ui.value])
+    # update check summary+
+    value = $(slider).slider('value')
+    $('span.'+name).text(if type == "%" then value + '%' else (['Low', 'Medium', 'High'])[value])
 
   @initSliderGroup: (sliders) ->
     sectionSlug = $(sliders[0]).closest('.section').attr('data-section-slug')
@@ -65,6 +68,7 @@ class window.Choice
       name = $(slider).attr('data-slider-name')
       values = $(slider).slider('option', 'vals')
       defVal = $(slider).slider('option', 'default')
+      type = $(slider).slider('option', 'type')
       # if slider value is present in Progression, set it
       if ((val = Progression.getVariable(name)) != null && values.indexOf(val) > -1)
         slider.slider('value', val)
@@ -104,7 +108,7 @@ class window.Choice
               # for each slider except current, starting from last
               sValue = $(s).slider('value')
               sValues = $(s).slider('option', 'vals')
-              valToReach = sValue + ((if overflow then -1 else 1) * diff)
+              valToReach = sValue + (if overflow then -diff else diff)
               # if diff can be contained in last slider and is possible
               if (sValues.indexOf(valToReach) > -1)
                 $(s).slider('value', valToReach)
@@ -113,29 +117,37 @@ class window.Choice
                 # we break diff into segments of 25 and try to shove it (dirty hack...)
                 if (diff % 25 == 0)
                   times = diff / 25
-                  for [1..times]
+                  console.log('iterating '+times+' tmes')
+                  for i in [1..times]
                     for ts in sliders by -1
                       if ($(ts).attr('data-slider-name') != name)
                         # for each slider except current, starting from last
-                        sValue = $(ts).slider('value')
-                        sValues = $(ts).slider('option', 'vals')
-                        valToReach = sValue + ((if overflow then -1 else 1) * 25)
+                        tsValue = $(ts).slider('value')
+                        tsValues = $(ts).slider('option', 'vals')
+                        tvalToReach = tsValue + (if overflow then -25 else 25)
                         # if diff can be contained in last slider and is possible
-                        if (sValues.indexOf(valToReach) > -1)
-                          $(ts).slider('value', valToReach)
+                        if (tsValues.indexOf(tvalToReach) > -1)
+                          $(ts).slider('value', tvalToReach)
                           diff -= 25
-                else
-                  console.error("This setup of linked sliders is noy supported. Something must have gone wrong somewhere.")
+                          break
             if (diff == 0)
               break
+          if (diff != 0)
+            console.error("This setup of linked sliders is probably not supported. Something must have gone wrong somewhere and the total is not 100 anymore.")
         return false
       # save on Change
       $(slider).on 'slidechange', (e, ui) -> 
         $(sliders).each (i, s) ->
-          Progression.setVariable $(s).attr('data-slider-name'), $(s).slider('value')
+          sname = $(s).attr('data-slider-name')
+          svalue = $(s).slider('value')
+          Progression.setVariable(sname, svalue)
+          # update check summary
+          $('span.'+sname).text(svalue + (if type == "%" then '%' else ''))
         Progression.current = sectionSlug
         Progression.setVariable name, ui.value
         Progression.save()
+      # update check summary
+      $('span.'+name).text($(slider).slider('value') + (if type == "%" then '%' else ''))
 
   @createSlider: (slider, type, values, defVal) ->
     # init slider

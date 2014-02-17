@@ -1,33 +1,30 @@
 class window.Services
-  # Data from team datasheet in JSON format
-  # http://www.json.org/ for info about the format
+  # Data from team datasheet in CoffeeScript Object format
   @data = 
-    {
-      "HA_SG_IN_PW": { # %age
-        "4":  0.47,
-        "5":  0.51,
-        "6":  0.55,
-        "7":  0.59,
-        "8":  0.62,
-        "9":  0.65,
-        "10": 0.68,
-        "11": 0.71,
-        "12": 0.73
-      },
-      "EMR_SG": { # MJ-GER/hr
-        "4":  1,
-        "5":  5,
-        "6":  10,
-        "7":  15,
-        "8":  20,
-        "9":  30,
-        "10": 60,
-        "11": 90,
-        "12": 120
-      }
-    }
+    "HA_SG_IN_PW": # %age
+      "4":  0.47
+      "5":  0.51
+      "6":  0.55
+      "7":  0.59
+      "8":  0.62
+      "9":  0.65
+      "10": 0.68
+      "11": 0.71
+      "12": 0.73
+    "EMR_SG": # MJ-GER/hr
+      "4":  1
+      "5":  5
+      "6":  10
+      "7":  15
+      "8":  20
+      "9":  30
+      "10": 60
+      "11": 90
+      "12": 120
 
-  # Getters used by other models
+  ###
+  GETTERS
+  ###
   @get_HA_SG_IN_PW: ->
     Services.data.HA_SG_IN_PW[Services.value]
 
@@ -40,7 +37,9 @@ class window.Services
   @get_ET_SG: ->
     (Services.get_HA_SG() * Services.get_EMR_SG())
 
-  # Functional code
+  ###
+  FUNCTIONAL CODE
+  ###
   @setup: ->
     # Get sliders
     edu = $('[data-slider-name="d_ser_edu"]')

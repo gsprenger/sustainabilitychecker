@@ -1,13 +1,14 @@
 class window.Density
-  # Data from team datasheet in JSON format
-  # http://www.json.org/ for info about the format
-  @data = 
-    {
-    }
+  # Data from team datasheet in CoffeeScript Object format
+  @data = {}
 
-  # Getters used by other models
+  ###
+  GETTERS
+  ###
 
-  # Functional code
+  ###
+  FUNCTIONAL CODE
+  ###
   @trigger: (value) ->
     switch (value)
       when 'low' then Density.value = 'low'
@@ -18,9 +19,12 @@ class window.Density
 
   @setup: ->
     el = $('#density').find('[data-choice-type]')
+    slug = $(el).closest('.section').attr('data-section-slug')
     Choice.initRadio(el)
     $(el).find('[data-cv-value]').each (i, radio) ->
       value = $(radio).attr('data-cv-value')
       $(radio).on 'click', ->
         Density.trigger(value)
+    if (val = Progression.getVariable(slug))
+      Density.trigger(val)
       

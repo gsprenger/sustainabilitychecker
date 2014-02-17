@@ -1,27 +1,24 @@
 class window.Households
-  # Data from team datasheet in JSON format
-  # http://www.json.org/ for info about the format
+  # Data from team datasheet in CoffeeScript Object format
   @data = 
-    {
-      "EMR_HH": { # MJ-GER/hr
-        "30-70-0":  8.4,
-        "60-40-0":  10,
-        "0-80-20":  4,
-        "0-70-30l": 2,
-        "0-70-30h": 0.8,
-        "0-50-50":  0.15
-      },
-      "ET_ELEC": { # % of PES
-        "30-70-0":  30,
-        "60-40-0":  30,
-        "0-80-20":  15,
-        "0-70-30l": 20,
-        "0-70-30h": 20,
-        "0-50-50":  10
-      }
-    }
+    "EMR_HH": # MJ-GER/hr
+      "30-70-0":  8.4
+      "60-40-0":  10
+      "0-80-20":  4
+      "0-70-30l": 2
+      "0-70-30h": 0.8
+      "0-50-50":  0.15
+    "ET_ELEC": # % of PES
+      "30-70-0":  30
+      "60-40-0":  30
+      "0-80-20":  15
+      "0-70-30l": 20
+      "0-70-30h": 20
+      "0-50-50":  10
 
-  # Getters used by other models
+  ###
+  GETTERS
+  ###
   @get_EMR_HH: ->
     Households.data.EMR_HH[Households.value]
 
@@ -34,7 +31,9 @@ class window.Households
   @get_ET_HH: ->
     (Households.get_EMR_HH() * Demographics.get_HA_HH())
 
-  # Functional code
+  ###
+  FUNCTIONAL CODE
+  ###
   @setup: ->
     # Get sliders
     urban = $('[data-slider-name="d_hou_urb"]')
