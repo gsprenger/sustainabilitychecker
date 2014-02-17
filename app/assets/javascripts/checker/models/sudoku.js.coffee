@@ -102,3 +102,5 @@ class window.Sudoku
           Math.div(
             Math.round(Math.mul(val, 100)), 
             100))
+    $('#debug').show()
+    Navigation.smoothScrollTo('#debug')
