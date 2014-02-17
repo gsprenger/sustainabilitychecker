@@ -118,7 +118,6 @@ class window.Choice
                 # we break diff into segments of 25 and try to shove it (dirty hack...)
                 if (diff % 25 == 0)
                   times = diff / 25
-                  console.log('iterating '+times+' tmes')
                   for i in [1..times]
                     for ts in sliders by -1
                       if ($(ts).attr('data-slider-name') != name)
