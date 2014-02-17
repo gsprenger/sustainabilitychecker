@@ -139,8 +139,9 @@ class window.Energy
     # Get sliders
     nuc = $('[data-slider-name="s_ene_nuc"]')
     hyd = $('[data-slider-name="s_ene_hyd"]')
-    pho = $('[data-slider-name="s_ene_pho"]')
     win = $('[data-slider-name="s_ene_win"]')
+    pho = $('[data-slider-name="s_ene_pho"]')
+    csp = $('[data-slider-name="s_ene_csp"]')
     bio = $('[data-slider-name="s_ene_bio"]')
     hyg = $('[data-slider-name="s_ene_hyg"]')
     ncf = $('[data-slider-name="s_ene_ncf"]')
@@ -148,8 +149,9 @@ class window.Energy
     Choice.initSliderGroup([
       Choice.createSlider(nuc, '%', [0, 25, 50, 75, 100], 25),
       Choice.createSlider(hyd, '%', [0, 25, 50, 75, 100], 25),
+      Choice.createSlider(win, '%', [0, 25, 50, 75, 100], 25),
       Choice.createSlider(pho, '%', [0, 25, 50, 75, 100], 25),
-      Choice.createSlider(win, '%', [0, 25, 50, 75, 100], 25)
+      Choice.createSlider(csp, '%', [0, 25, 50, 75, 100], 0)
     ])
     Choice.initSliderGroup([
       Choice.createSlider(bio, '%', [0, 25, 50, 75, 100], 50),
@@ -161,12 +163,12 @@ class window.Energy
       values = 
         "nuc": $(nuc).slider('value') / 100
         "hyd": $(hyd).slider('value') / 100
-        "pho": $(pho).slider('value') / 100
         "win": $(win).slider('value') / 100
+        "pho": $(pho).slider('value') / 100
+        "csp": $(csp).slider('value') / 100
         "bio": $(bio).slider('value') / 100
         "hyg": $(hyg).slider('value') / 100
         "ncf": $(ncf).slider('value') / 100
-        "csp": 0
       Energy.trigger(values)
     # apply to all sliders
     $(nuc).on 'slidechange', trigger
