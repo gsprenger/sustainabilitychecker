@@ -12,6 +12,9 @@ class window.Sudoku
   @debug: ->
     html =
       """
+      <div class='text-center'>
+        <em>(Numbers may not add up due to rounding)</em>
+      </div>
       <table>
         <tr>
           <td colspan="2" rowspan="2"></td>
@@ -67,7 +70,6 @@ class window.Sudoku
           <td>#{Energy.get_HA_EM()}</td>
           <td>#{Energy.get_LU_EM()}</td>
         </tr>
-        <br>
         <tr>
           <td rowspan="3">Supply</td>
           <td>Domestic Supply</td>
@@ -93,3 +95,7 @@ class window.Sudoku
       </table>
       """
     $('#debug').html(html)
+    $('#debug td').each (i, td) ->
+      val = $(td).text()
+      if (!isNaN(val) && val != "")
+        $(td).text(Math.round(val * 100) / 100)
