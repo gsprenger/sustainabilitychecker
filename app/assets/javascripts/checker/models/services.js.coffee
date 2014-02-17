@@ -1,7 +1,7 @@
 class window.Services
   # Data from team datasheet in CoffeeScript Object format
   @data = 
-    "HA_SG_IN_PW": # %age
+    "HA_SG_IN_PW": # fraction
       "4":  0.47
       "5":  0.51
       "6":  0.55

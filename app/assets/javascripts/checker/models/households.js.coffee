@@ -8,7 +8,7 @@ class window.Households
       "0-70-30l": 2
       "0-70-30h": 0.8
       "0-50-50":  0.15
-    "ET_ELEC": # % of PES
+    "FRACTION_ET_ELEC": # % of PES
       "30-70-0":  30
       "60-40-0":  30
       "0-80-20":  15
@@ -22,11 +22,11 @@ class window.Households
   @get_EMR_HH: ->
     Households.data.EMR_HH[Households.value]
 
-  @get_ET_ELEC: ->
-    Households.data.ET_ELEC[Households.value]
+  @get_FRACTION_T_ELEC: ->
+    Households.data.FRACTION_ET_ELEC[Households.value]
 
   @get_ET_FUELS: ->
-    100 - Households.get_ET_ELEC()
+    100 - Households.get_FRACTION_ET_ELEC()
 
   @get_ET_HH: ->
     (Households.get_EMR_HH() * Demographics.get_HA_HH())

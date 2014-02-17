@@ -16,6 +16,7 @@
 //= require checker/models/bm
 //= require checker/models/agriculture
 //= require checker/models/energy
+//= require checker/models/sudoku
 
 var ready = function() {
   App.launch();
