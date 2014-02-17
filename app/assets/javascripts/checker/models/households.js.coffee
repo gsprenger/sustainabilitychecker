@@ -26,10 +26,10 @@ class window.Households
     Households.data.ET_ELEC[Households.value]
 
   @get_ET_FUELS: ->
-    100 - Households.get_ET_ELEC()
+    Math.sub(100, Households.get_ET_ELEC())
 
   @get_ET_HH: ->
-    (Households.get_EMR_HH() * Demographics.get_HA_HH())
+    Math.mul(Households.get_EMR_HH(), Demographics.get_HA_HH())
 
   ###
   FUNCTIONAL CODE

@@ -32,10 +32,10 @@ class window.Services
     Services.data.EMR_SG[Services.value]
 
   @get_HA_SG: ->
-    (Demographics.get_HA_PW() * Services.get_HA_SG_IN_PW())
+    Math.mul(Demographics.get_HA_PW(), Services.get_HA_SG_IN_PW())
 
   @get_ET_SG: ->
-    (Services.get_HA_SG() * Services.get_EMR_SG())
+    Math.mul(Services.get_HA_SG(), Services.get_EMR_SG())
 
   ###
   FUNCTIONAL CODE

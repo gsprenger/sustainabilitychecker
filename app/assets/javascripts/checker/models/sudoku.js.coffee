@@ -98,4 +98,7 @@ class window.Sudoku
     $('#debug td').each (i, td) ->
       val = $(td).text()
       if (!isNaN(val) && val != "")
-        $(td).text(Math.round(val * 100) / 100)
+        $(td).text(
+          Math.div(
+            Math.round(Math.mul(val, 100)), 
+            100))
