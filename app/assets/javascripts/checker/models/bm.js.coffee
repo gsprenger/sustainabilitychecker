@@ -47,4 +47,6 @@ class window.Bm
         Bm.trigger(value)
     if (val = Progression.getVariable(slug))
       Bm.trigger(val)
+    else
+      Bm.trigger(Bm.default)
       

@@ -40,4 +40,6 @@ class window.Demographics
         Demographics.trigger(value)
     if (val = Progression.getVariable(slug))
       Demographics.trigger(val)
+    else
+      Demographics.trigger(Demographics.default)
       

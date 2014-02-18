@@ -27,4 +27,6 @@ class window.Density
         Density.trigger(value)
     if (val = Progression.getVariable(slug))
       Density.trigger(val)
+    else
+      Density.trigger(Density.default)
       

@@ -36,4 +36,6 @@ class window.Land
         Land.trigger(value)
     if (val = Progression.getVariable(slug))
       Land.trigger(val)
+    else
+      Land.trigger(Land.default)
       

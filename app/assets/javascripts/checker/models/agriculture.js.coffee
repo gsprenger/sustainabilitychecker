@@ -1,5 +1,6 @@
 class window.Agriculture
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = 
     "labor_density": # hrs/ha
       "low":  720
@@ -69,4 +70,6 @@ class window.Agriculture
         Agriculture.trigger(value)
     if (val = Progression.getVariable(slug))
       Agriculture.trigger(val)
+    else
+      Agriculture.trigger(Agriculture.default)
       

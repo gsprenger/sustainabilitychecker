@@ -33,4 +33,6 @@ class window.Diet
         Diet.trigger(value)
     if (val = Progression.getVariable(slug))
       Diet.trigger(val)
+    else
+      Diet.trigger(Diet.default)
       
