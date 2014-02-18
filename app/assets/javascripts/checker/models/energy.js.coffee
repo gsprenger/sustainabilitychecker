@@ -56,38 +56,29 @@ class window.Energy
   GETTERS
   ###
   @get_s_ene_con: ->
-    Math.add(
-      Households.get_ET_HH(),
-      Services.get_ET_SG(),
-      Bm.get_ET_BM(),
-      Agriculture.get_ET_AG())
+    (Households.get_ET_HH() +
+    Services.get_ET_SG() +
+    Bm.get_ET_BM() +
+    Agriculture.get_ET_AG())
 
   @get_s_ene_typ: ->
     (if Agriculture.value == 'low' then 'low' else 'high')
 
   @get_NSECs_ELEC: ->
-    Math.div(
-      Math.mul(Households.get_ET_ELEC(), Energy.get_s_ene_con()), 
+    ((Households.get_ET_ELEC() * Energy.get_s_ene_con()) / 
       Energy.data.GER_EC_ELEC)
     
   @get_NSECs_FUELS: ->
-    Math.div(
-      Math.mul(Households.get_ET_FUELS(), Energy.get_s_ene_con()),
+    ((Households.get_ET_FUELS() * Energy.get_s_ene_con()) /
       Energy.data.GER_EC_FUELS)
 
   @get_GSECs_ELEC: ->
-    Math.div(
-      Energy.get_NSECs_ELEC(),
-      Math.sub(
-        1,
-        Math.div(Energy.data.LOSSES_ELEC, 100)))
+    (Energy.get_NSECs_ELEC() /
+    (1 - (Energy.data.LOSSES_ELEC / 100)))
     
   @get_GSECs_FUELS: ->
-    Math.div(
-      Energy.get_NSECs_FUELS(),
-      Math.sub(
-        1,
-        Math.div(Energy.data.LOSSES_FUELS, 100)))
+    (Energy.get_NSECs_FUELS() /
+    (1 - (Energy.data.LOSSES_FUELS / 100)))
 
   @get_LU_ELEC: ->
     Energy.loopAllWithValue(Energy.data.LU_ELEC)
@@ -108,48 +99,36 @@ class window.Energy
     Energy.loopAllWithValue(Energy.data.HA_FUELS)
 
   @get_NSEC_ELEC: -> 
-    Math.mul(
-      Energy.get_NSECs_ELEC(),
-      Math.add(1, Energy.get_ET_ELEC_EM()))
+    (Energy.get_NSECs_ELEC() *
+    (1 + Energy.get_ET_ELEC_EM()))
 
   @get_NSEC_FUELS: ->
-    Math.mul(
-      Energy.get_NSECs_FUELS() ,
-      Math.add(1, Energy.get_ET_FUELS_EM()))
+    (Energy.get_NSECs_FUELS() *
+    (1 + Energy.get_ET_FUELS_EM()))
 
   @get_GSEC_ELEC: -> 
-    Math.mul(
-      Energy.get_NSEC_ELEC(),
-      Math.add(
-        1, 
-        Math.div(Energy.data.LOSSES_ELEC, 100)))
+    (Energy.get_NSEC_ELEC() *
+    (1 + (Energy.data.LOSSES_ELEC / 100)))
 
   @get_GSEC_FUELS: ->
-    Math.mul(
-      Energy.get_NSEC_FUELS(),
-      Math.add(
-        1, 
-        Math.div(Energy.data.LOSSES_FUELS, 100)))
+    (Energy.get_NSEC_FUELS() *
+    (1 + (Energy.data.LOSSES_FUELS / 100)))
 
   @get_LU_EM: ->
-    Math.add(
-      Math.mul(Energy.get_GSEC_ELEC(), Energy.get_LU_ELEC()),
-      Math.mul(Energy.get_GSEC_FUELS(), Energy.get_LU_FUELS()))
+    ((Energy.get_GSEC_ELEC() * Energy.get_LU_ELEC()) +
+     (Energy.get_GSEC_FUELS() * Energy.get_LU_FUELS()))
 
   @get_ET_EM: ->
-    Math.add(
-      Math.mul(Energy.get_ET_ELEC_EM(), Energy.data.GER_EC_ELEC),
-      Math.mul(Energy.get_ET_FUELS_EM(), Energy.data.GER_EC_FUELS))
+    ((Energy.get_ET_ELEC_EM() * Energy.data.GER_EC_ELEC) +
+     (Energy.get_ET_FUELS_EM() * Energy.data.GER_EC_FUELS))
 
   @get_HA_EM: ->
-    Math.add(
-      Math.mul(Energy.get_GSEC_ELEC(), Energy.get_HA_ELEC()),
-      Math.mul(Energy.get_GSEC_FUELS(), Energy.get_HA_FUELS()))
+    ((Energy.get_GSEC_ELEC() * Energy.get_HA_ELEC()) +
+     (Energy.get_GSEC_FUELS() * Energy.get_HA_FUELS()))
 
   @get_TET: ->
-    Math.add(
-      Math.mul(Energy.get_GSEC_ELEC(), Energy.data.GER_EC_ELEC),
-      Math.mul(Energy.get_GSEC_FUELS(), Energy.data.GER_EC_FUELS))
+    ((Energy.get_GSEC_ELEC() * Energy.data.GER_EC_ELEC) +
+     (Energy.get_GSEC_FUELS() * Energy.data.GER_EC_FUELS))
 
   ###
   FUNCTIONAL CODE
@@ -158,11 +137,8 @@ class window.Energy
     typ = Energy.get_s_ene_typ()
     value = 0
     $.each data, (name, val) ->
-      value = Math.add(
-        value, 
-        Math.mul(
-          Energy.value[name], 
-          (if name == 'bio' then val[typ] else val)))
+      value = (value + 
+        (Energy.value[name] * (if name == 'bio' then val[typ] else val)))
     return value
 
   @setup: ->

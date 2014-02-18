@@ -34,13 +34,13 @@ class window.Agriculture
     Agriculture.data.EMR_AG[Agriculture.value]
     
   @get_HA_AG: ->
-    Math.mul(Demographics.get_HA_PW(), Agriculture.get_HA_AG_IN_PW())
+    (Demographics.get_HA_PW() * Agriculture.get_HA_AG_IN_PW())
     
   @get_ET_AG: ->
-    Math.mul(Agriculture.get_HA_AG(), Agriculture.get_EMR_AG())
+    (Agriculture.get_HA_AG() * Agriculture.get_EMR_AG())
     
   @get_LU_AG: ->
-    Math.mul(Diet.get_grains_equiv(), Land.get_land_prod())
+    (Diet.get_grains_equiv() * Land.get_land_prod())
     
   @get_post_harv: ->
     1 # MISSING DATA
