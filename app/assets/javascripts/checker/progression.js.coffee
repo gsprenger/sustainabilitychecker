@@ -42,6 +42,9 @@ class window.Progression
     # if item not found add it
     unless found 
       Progression.values.push {'name': name, 'value': value}
+    # If check is displayed, reset it
+    if (!$('#checksection').hasClass('hidden'))
+      Navigation.removeAndDisplay('.checksection', '.precheck')
   
   @getVariable: (name) ->
     found = false

@@ -9,6 +9,9 @@ class window.Check
     # Click on 'Next level'
     $('.checksection .btn-primary').click ->
       alert('Not so fast! This is not ready yet!')
+    # DEBUG
+    $('.checksection .btn-info').click ->
+      Sudoku.debug()
 
   @startCheck: ->
     Navigation.removeAndDisplay('.precheck', '.checksection')
