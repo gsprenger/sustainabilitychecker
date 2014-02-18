@@ -94,7 +94,7 @@ class window.Sudoku
         </tr>
       </table>
       <div class='text-center'>
-        <a href='javascript:Sudoku.debug()'>
+        <a href='#' onclick='Sudoku.debug();return false;'>
           <div class='btn btn-success btn-lg'>
             Update
           </div>

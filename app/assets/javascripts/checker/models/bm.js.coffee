@@ -1,5 +1,6 @@
 class window.Bm
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = 
     "ET_BM": # GJ-GER p.c.
       "low":  25

@@ -1,5 +1,6 @@
 class window.Diet
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = 
     "grains_equiv":
       "low":  200

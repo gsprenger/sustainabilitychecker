@@ -1,5 +1,6 @@
 class window.Density
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = {}
 
   ###

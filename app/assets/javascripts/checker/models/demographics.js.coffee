@@ -1,5 +1,6 @@
 class window.Demographics
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = 
     "HA_PW": # hours p.c.
       "low":  1314

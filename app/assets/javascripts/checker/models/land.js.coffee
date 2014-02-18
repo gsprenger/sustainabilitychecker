@@ -1,5 +1,6 @@
 class window.Land
   # Data from team datasheet in CoffeeScript Object format
+  @default = 'low'
   @data = 
     "s_lan": # ha p.c.
       "low":  0.08
