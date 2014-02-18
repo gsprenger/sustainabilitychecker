@@ -93,6 +93,13 @@ class window.Sudoku
           <td>TLU - #{Land.get_s_lan()}</td>
         </tr>
       </table>
+      <div class='text-center'>
+        <a href='javascript:Sudoku.debug()'>
+          <div class='btn btn-success btn-lg'>
+            Update
+          </div>
+        </a>
+      </div>
       """
     $('#debug').html(html)
     $('#debug td').each (i, td) ->

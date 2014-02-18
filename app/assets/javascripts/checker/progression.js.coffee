@@ -44,7 +44,7 @@ class window.Progression
       Progression.values.push {'name': name, 'value': value}
     # If check is displayed, reset it
     if (!$('#checksection').hasClass('hidden'))
-      Navigation.removeAndDisplay('.checksection', '.precheck')
+      Check.tryAgain(false)
   
   @getVariable: (name) ->
     found = false

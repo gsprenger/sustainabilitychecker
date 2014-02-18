@@ -1,7 +1,7 @@
 class window.Check
   @setup: ->
     # Click on 'Check' button
-    $('.precheck .btn').click ->
+    $('.precheck .btn-primary').click ->
       Check.startCheck()
     # Click on 'Try again'
     $('.checksection .btn-default').click ->
@@ -10,7 +10,7 @@ class window.Check
     $('.checksection .btn-primary').click ->
       alert('Not so fast! This is not ready yet!')
     # DEBUG
-    $('.checksection .btn-info').click ->
+    $('.precheck .btn-info').click ->
       Sudoku.debug()
 
   @startCheck: ->
@@ -58,10 +58,11 @@ class window.Check
       , 1000
     , 1600
   
-  @tryAgain: ->
+  @tryAgain: (noscroll) ->
     Navigation.removeAndDisplay('.checksection', '.precheck')
     setTimeout ->
-      Navigation.smoothScrollTo('#demographics')
+      unless (scroll)
+        Navigation.smoothScrollTo('#demographics')
       # reinit check section
       $('.bar-upper, .bar-lower').css('height', '0%')
       $('.bar-percent').css('opacity', 0)
