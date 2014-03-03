@@ -1,4 +1,5 @@
 Sustainabilitychecker::Application.routes.draw do
+  mount Mercury::Engine => '/'
   root "static_pages#home"
 
   # Experiments
