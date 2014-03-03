@@ -5,7 +5,7 @@ ruby "2.0.0"
 gem 'rails', '4.0.3'
 gem 'pg', '0.17.1'
 
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '0.12.1', platforms: :ruby
 gem 'sass-rails', '4.0.1'
 gem 'uglifier', '2.4.0'
 gem 'coffee-rails', '4.0.1'
