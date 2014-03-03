@@ -1,5 +1,5 @@
 <%= link_to(root_path, class: "banner") do %>
   <header class="container">
-    <h1><%= Content.text('static_title') %></h1>
+    <h1><%= Content.text('static_title', 'simple') %><small><%= Content.text('static_subtitle', 'simple') %></small></h1>
   </header>
 <% end %>

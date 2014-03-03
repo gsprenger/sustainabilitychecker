@@ -27,6 +27,8 @@
  * require mercury_overrides
  */
 window.Mercury = {
+  // ## CUSTOM ##
+  saveUrl: "/content/save",
 
   // # Mercury Configuration
   config: {
@@ -103,12 +105,7 @@ window.Mercury = {
         insertLink:            ['Link', 'Insert Link', { modal: '/mercury/modals/link.html', regions: ['full', 'markdown'] }],
         insertMedia:           ['Media', 'Insert Media (images and videos)', { modal: '/mercury/modals/media.html', regions: ['full', 'markdown'] }],
         insertTable:           ['Table', 'Insert Table', { modal: '/mercury/modals/table.html', regions: ['full', 'markdown'] }],
-        insertCharacter:       ['Character', 'Special Characters', { modal: '/mercury/modals/character.html', regions: ['full', 'markdown'] }],
-        snippetPanel:          ['Snippet', 'Snippet Panel', { panel: '/mercury/panels/snippets.html' }],
-        sep2:                  ' ',
-        historyPanel:          ['History', 'Page Version History', { panel: '/mercury/panels/history.html' }],
-        sep3:                  ' ',
-        notesPanel:            ['Notes', 'Page Notes', { panel: '/mercury/panels/notes.html' }]
+        insertCharacter:       ['Character', 'Special Characters', { modal: '/mercury/modals/character.html', regions: ['full', 'markdown'] }]
         },
 
       editable: {
@@ -450,3 +447,32 @@ window.Mercury = {
   debug: false
 
 };
+
+// CUSTOM CODE
+// hide links so they can be edited
+window.onload = function() {
+  $('iframe#mercury_iframe').load(function() {
+    $('iframe#mercury_iframe').contents().find('a').each(function() {
+      $(this).removeAttr('href')
+    });
+  });
+};
+
+// intercept save to provide visual feedback
+$(window).bind('mercury:saved', function(e, data) {
+  var alert = 
+    '<div class="alert alert-'+(data.success?'success':'danger')+' alert-dismissable" style="display:none;margin-bottom:0;">\
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
+      '+(data.success?
+        '<strong>Saved!</strong> Check the modified page <a target="_parent" href="'+document.URL.replace(/editor\/?/, '')+'" class="alert-link">here</a>':
+        '<strong>Error!</strong> Please try again... (save your modifications somewhere in case the application loses them!)</a>')+
+    '</div>';
+  // dismiss previous alert
+  $('iframe#mercury_iframe').contents().find('.alert').slideUp('slow', function() {
+    $(this).remove();
+  });    
+  setTimeout(function() {
+    $('iframe#mercury_iframe').contents().find('body').prepend(alert);
+    $('iframe#mercury_iframe').contents().find('.alert').slideDown('slow');
+  }, 1000);
+});

@@ -1,6 +1,12 @@
 Sustainabilitychecker::Application.routes.draw do
+    namespace :mercury do
+      resources :images
+    end
   mount Mercury::Engine => '/'
   root "static_pages#home"
+
+  # Content
+  put "content/save" => "content#save"
 
   # Experiments
   get "begin" => "checker#app"
