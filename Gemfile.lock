@@ -57,6 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    crypt (1.1.4)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -179,6 +180,7 @@ DEPENDENCIES
   animate-rails (= 1.0.4)
   capybara (= 2.2.1)
   coffee-rails (= 4.0.1)
+  crypt
   jbuilder (= 2.0.3)
   jquery-rails (= 3.1.0)
   jquery-ui-rails (= 4.2.0)

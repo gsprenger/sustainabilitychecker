@@ -1,8 +1,12 @@
 Sustainabilitychecker::Application.routes.draw do
-    namespace :mercury do
-      resources :images
-    end
+  # Mercury
+  namespace :mercury do
+    resources :images
+  end
+  get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
   mount Mercury::Engine => '/'
+
+  # Root
   root "static_pages#home"
 
   # Content

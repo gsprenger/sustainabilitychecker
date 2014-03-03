@@ -18,6 +18,7 @@
 # Security: no db.yml and hide .secret
 /config/database.yml
 /.secret
+/app/controllers/my_mercury_controller.rb
 
 # Rubymine crap
 /.idea
