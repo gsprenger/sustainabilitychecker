@@ -5,6 +5,7 @@ Sustainabilitychecker::Application.routes.draw do
   end
   get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
   mount Mercury::Engine => '/'
+  get '/admin' => "admin#admin"
 
   # Root
   root "static_pages#home"
