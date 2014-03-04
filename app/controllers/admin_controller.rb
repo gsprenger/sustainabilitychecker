@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   layout 'static_pages'
-  http_basic_authenticate_with :name => "iaste", :password => IO.read(Rails.root+'.password').chomp
+  http_basic_authenticate_with :name => "iaste", :password => (ENV['ADMIN_PWD'] || 'dev')
   def admin
     array = [
       ['static', 'static_title', 'The Sustainability Checker'],
