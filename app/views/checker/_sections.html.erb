@@ -1,13 +1,13 @@
 <!-- BEGIN SECTION INTRO -->
 <div class='section' id='intro' data-section-slug='intro'>
   <div class='section-wrapper'>
-    <h2>The Sustainability Checker <br><small>A didactic, interactive tool to understand and discuss sustainability issues</small></h2>
+    <h2><%= Content.text('chkr_start_title', 'simple') %><small><%= Content.text('chkr_start_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p>How easy is it for a country to become self-sustained? 9 questions (and a <em>little</em> math) is all it takes to find out!</p>
+      <p><%= Content.text('chkr_start_desc') %></p>
     </div><br>
     <div class='text-center'>
       <a href='#demographics' class='nav-link'>
-        <div class='btn btn-lg btn-primary'>Start the experience!</div>
+        <div class='btn btn-lg btn-primary'><%= Content.text('chkr_start_btn', 'simple') %></div>
       </a>
     </div>
   </div>
@@ -16,10 +16,9 @@
 <!-- BEGIN SECTION DEMOGRAPHICS -->
 <div class='section' id='demographics' data-section-slug='d_dem'>
   <div class='section-wrapper'>
-    <h2>Socio-demographics <small>Typology of society</small></h2>
+    <h2><%= Content.text('chkr_dem_title', 'simple') %><small><%= Content.text('chkr_dem_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>How would you define your population?</strong></p>
-      <p>A more developped country has more requirements.</p>
+      <%= Content.text('chkr_dem_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -43,10 +42,9 @@
 <!-- BEGIN SECTION DIET -->
 <div class='section' id='diet' data-section-slug='d_die'>
   <div class='section-wrapper'>
-    <h2>Diet <small>Meat Consumption</small></h2>
+    <h2><%= Content.text('chkr_die_title', 'simple') %><small><%= Content.text('chkr_die_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>How much animal products (meat, eggs, milk...) does your population consume?</strong></p>
-      <p>The more meat your people eat, the more food you will have to produce to feed your animals.</p>
+      <%= Content.text('chkr_die_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -70,11 +68,10 @@
 <!-- BEGIN SECTION HOUSEHOLDS -->
 <div class='section' id='households' data-section-slug='d_hou'>
   <div class='section-wrapper'>
-    <h2>Households <small>Typology</small></h2>
+    <h2><%= Content.text('chkr_hou_title', 'simple') %><small><%= Content.text('chkr_hou_subtitle', 'simple') %></small></h2>
     <div class='choice'>
       <div class='description'>
-        <p><strong>What is the proportion of urban population in your country?</strong></p>
-        <p>If all your people lived scattered across the land, ambulances would have a hard time reaching all of them in due time!</p>
+        <%= Content.text('chkr_hou_desc') %>
       </div>
       <div data-choice-type='slidergroup'>
         <div>Urban</div>
@@ -86,8 +83,7 @@
       </div>
     </div>
       <div class='description'>
-        <p><strong>Within the urban population, how are your cities laid out?</strong></p>
-        <p>The richer your population, the more resources you have to allocate to cater to their needs!</p>
+       <%= Content.text('chkr_hou_desc2') %>
       </div>
     <div data-choice-type='slidergroup'>
       <div>Rich, Suburbs
@@ -112,10 +108,9 @@
 <!-- BEGIN SECTION SERVICES -->
 <div class='section' id='services' data-section-slug='d_ser'>
   <div class='section-wrapper'>
-    <h2>Services &amp; Government <small>Budget repartition</small></h2>
+    <h2><%= Content.text('chkr_ser_title', 'simple') %><small><%= Content.text('chkr_ser_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>How much money do you want to allocate to the different services?</strong></p>
-      <p>The higher resources you allocate, the smarter, the healthier, the happier your population becomes, but providing all these services has a cost.</p>
+      <%= Content.text('chkr_ser_desc') %>
     </div>
     <div class='choice'>
       <div data-choice-type='slider'>    
@@ -144,10 +139,9 @@
 <!-- BEGIN SECTION DENSITY -->
 <div class='section' id='density' data-section-slug='s_den'>
   <div class='section-wrapper'>
-    <h2>Population Density</h2>
+    <h2><%= Content.text('chkr_den_title', 'simple') %><small><%= Content.text('chkr_den_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>How is your population density?</strong></p>
-      <p>Population density reflects how scattered or concentrated your population is. It would be easier to attend to the needs of everyone if they were all in the same place, but wouldn't they suffocate if it was too concentrated?</p>
+      <%= Content.text('chkr_den_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -171,10 +165,9 @@
 <!-- BEGIN SECTION LAND -->
 <div class='section' id='land' data-section-slug='s_lan'>
   <div class='section-wrapper'>
-    <h2>Land <small>Arable land</small></h2>
+    <h2><%= Content.text('chkr_lan_title', 'simple') %><small><%= Content.text('chkr_lan_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>What is the quantity of arable land in your country?</strong></p>
-      <p>Arable land....</p>
+      <%= Content.text('chkr_lan_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -198,10 +191,9 @@
 <!-- BEGIN SECTION BM -->
 <div class='section' id='bm' data-section-slug='s_bm'>
   <div class='section-wrapper'>
-    <h2>Bulding &amp; Manufacturing <small>Industrialization</small></h2>
+    <h2><%= Content.text('chkr_ind_title', 'simple') %><small><%= Content.text('chkr_ind_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>What is the level of industrialization and infrastructure in your society?</strong></p>
-      <p>..........................</p>
+      <%= Content.text('chkr_ind_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -225,10 +217,9 @@
 <!-- BEGIN SECTION AGRICULTURE -->
 <div class='section' id='agriculture' data-section-slug='s_agr'>
   <div class='section-wrapper'>
-    <h2>Agriculture <small>Typology</small></h2>
+    <h2><%= Content.text('chkr_agr_title', 'simple') %><small><%= Content.text('chkr_agr_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>You are currently consuming <em>XX food</em>, how does your population produce it?</strong></p>
-      <p>......</p>
+      <%= Content.text('chkr_agr_desc') %>
     </div>
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
@@ -252,10 +243,9 @@
 <!-- BEGIN SECTION ENERGY -->
 <div class='section' id='energy' data-section-slug='s_ene'>
   <div class='section-wrapper'>
-    <h2>Energy &amp; Fuels <small>Local production</small></h2>
+    <h2><%= Content.text('chkr_ene_title', 'simple') %><small><%= Content.text('chkr_ene_subtitle', 'simple') %></small></h2>
     <div class='description'>
-      <p><strong>You are currently consuming <em>XX energy</em>, how does your population produce it?</strong></p>
-      <p>......................</p>
+      <%= Content.text('chkr_ene_desc') %>
     </div>
     <div class='choice'>
       <p><strong>Electricity</strong></p>

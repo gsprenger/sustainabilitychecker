@@ -1,5 +1,5 @@
 class Content < ActiveRecord::Base
-  validates :slug, :content, presence: true
+  validates :slug, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
 
   def self.text (slug, editType='full')

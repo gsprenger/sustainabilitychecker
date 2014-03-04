@@ -449,9 +449,9 @@ window.Mercury = {
 };
 
 // CUSTOM CODE
-// hide links so they can be edited
 window.onload = function() {
   $('iframe#mercury_iframe').load(function() {
+    // hide links so they can be edited
     $('iframe#mercury_iframe').contents().find('a').each(function() {
       $(this).removeAttr('href')
     });

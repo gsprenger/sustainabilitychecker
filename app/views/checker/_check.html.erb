@@ -1,10 +1,10 @@
 <div id='check'>
-  <h2>Sustainability Check</h2>
+  <h2><%= Content.text('chkr_check_title', 'simple') %></h2>
   <!-- PRECHECK SECTION -->
   <div class='precheck animated'>
     <div class='wrapper'>
       <div class="alert alert-info">
-        <h3>Summary of selected data:</h3> 
+        <h3><%= Content.text('chkr_summary_title', 'simple') %></h3> 
         <ul>
           <li>
             <a href='#demographics' class='alert-link nav-link'>Socio-demographics typology:</a>
@@ -58,7 +58,7 @@
           </li>
         </ul>
       </div>
-      <div class='btn btn-primary btn-lg'>Check now!</div>
+      <div class='btn btn-primary btn-lg'><%= Content.text('chkr_summary_btn', 'simple') %></div>
       <div class='btn btn-info btn-lg'>Debug: show Sudoku</div>
     </div>
   </div>

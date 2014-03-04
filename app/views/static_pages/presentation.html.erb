@@ -1,7 +1,7 @@
-<h2>What is it?</h2>
+<h2><%= Content.text('pres_title', 'simple') %></h2>
 <p>
-  All natural and technological processes proceed in such a way that the availability of the remaining energy decreases. In all energy exchanges, if no energy enters or leaves an isolated system, the entropy of that system increases. Energy continuously flows from being concentrated, to becoming dispersed, spread out, wasted and useless. New energy cannot be created and high grade energy is being destroyed. An economy based on endless growth is unsustainable. The fundamental laws of thermodynamics will place fixed limits on technological innovation and human advancement. In an isolated system the entropy can only increase. A species set on endless growth is unsustainable. All natural and technological processes proceed in such a way that the availability of the remaining energy decreases. In all energy exchanges, if no energy enters or leaves an isolated system, the entropy of that system increases.
+  <%= Content.text('pres_desc') %>
 </p>  
 <div class="text-center">
-  <%= link_to "I got it, let's start!", begin_path, class: "btn btn-primary btn-lg" %>
+  <a href='/begin' class='btn btn-primary btn-lg'><%= Content.text('pres_btn', 'simple') %></a>
 </div>

@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-6">
     <p>
-      All natural and technological processes proceed in such a way that the availability of the remaining energy decreases. In all energy exchanges, if no energy enters or leaves an isolated system, the entropy of that system increases. Energy continuously flows from being concentrated, to becoming dispersed, spread out, wasted and useless. New energy cannot be created and high grade energy is being destroyed. An economy based on endless growth is unsustainable. The fundamental laws of thermodynamics will place fixed limits on technological innovation and human advancement. In an isolated system the entropy can only increase. A species set on endless growth is unsustainable. All natural and technological processes proceed in such a way that the availability of the remaining energy decreases. In all energy exchanges, if no energy enters or leaves an isolated system, the entropy of that system increases.
+      <%= Content.text('home_desc') %>
     </p>    
   </div>
   <div class="col-md-6">
@@ -14,21 +14,12 @@
   </div>
 </div>
 
-<hr />
+<hr>
 <div class="row">
   <div class="col-xs-6 col-btn-start">
-    <%= link_to "Let's Start!", checker_path, class: "btn btn-primary btn-lg" %>
+    <a href="/checker" class="btn btn-primary btn-lg"><%= Content.text('home_btn_start', 'simple') %></a>
   </div>
   <div class="col-xs-6">
-    <a href="/presentation" class="btn btn-info btn-lg">Wait, what does it mean?</a>
+    <a href="/presentation" class="btn btn-info btn-lg"><%= Content.text('home_btn_info', 'simple') %></a>
   </div>
 </div>
-
-<hr />
-<p>
-  <strong>Let's hear your voice!</strong> <br/>
-  <a href="#"><i class="fa fa-globe fa-3x"></i></a>
-  <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
-  <a href="#"><i class="fa fa-twitter-square fa-3x"></i></a>
-  <a href="#"><i class="fa fa-google-plus-square fa-3x"></i></a>
-</p>  

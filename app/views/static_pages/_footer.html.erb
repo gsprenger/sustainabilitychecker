@@ -1,7 +1,6 @@
 <footer class="footer text-center">
   <small>
-    A didactic, interactive tool to understand and discuss sustainability issues proposed by the IASTE research group of the Universitat Autònoma de Barcelona.<br/>
-    
+    <%= Content.text('static_footer') %>
     <nav>
       <ul>
         <li><%= link_to "Home", root_path %> |</li>
@@ -9,6 +8,6 @@
         <li><%= link_to "Legal Terms", legal_path %></li>
       </ul>
     </nav>
-    <em>&copy; 2013 <abbr title="Integrated Assessment: Sociology, Technology and the Environment">IASTE</abbr></em>
+    <%= Content.text('static_copyright') %>
     </small>
 </footer>

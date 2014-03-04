@@ -1,16 +1,14 @@
-<h1>How to contact us?</h1>
+<h1><%= Content.text('contact_title', 'simple') %></h1>
 <hr/>
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-default">		
 			<div class="panel-heading">
-				<h3 class="panel-header">Visit us!</h3>
+				<h3 class="panel-header"><%= Content.text('contact_visit_title', 'simple') %></h3>
 			</div>
 			<div class="panel-body">
 				<p>
-					Our research group is located on the Bellaterra Campus of the Universitat Autònoma de Barcelona, in the Facultat de Ciències (Building C). <br/><br/>
-					The Bellaterra Campus is located about 20 km outside of Barcelona and can be conveniently reached from Barcelona's city centre by Ferrocarril (FGC, line Barcelona-Vallès, destination: Universitat Autònoma). At Plaça Catalunya, take line S-2 (green, towards Sabadell) or S-55 (blue, towards Universitat Autònoma) and get off at the stop "Universitat Autònoma". The trip takes about 30 minutes and trains leave about every 10 minutes. <br/><br/>
-					We look forward to welcome you!
+					<%= Content.text('contact_visit_desc') %>
 				</p>	
 			</div>
 		</div>
@@ -19,7 +17,7 @@
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-header">Via email</h3>
+				<h3 class="panel-header"><%= Content.text('contact_email_title', 'simple') %></h3>
 			</div>
 			<div class="panel-body">
 				<%= form_tag(contact_send_path, method: 'post', remote: 'true', id: "formcontact", class: "form-horizontal", role: "form") do %>
@@ -47,17 +45,11 @@
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-header">Via postal address</h3>
+				<h3 class="panel-header"><%= Content.text('contact_address_title', 'simple') %></h3>
 			</div>
 			<div class="panel-body">
 				<p>
-					You can write to us at the following address: <br/>
-					<em>Integrated Assessment group - Pr. Mario Giampietro <br/>
-					Institute for Environmental Science and Technology (ICTA) <br/>
-					Universitat Autònoma de Barcelona (UAB) <br/>
-					Edifici C, Campus de la UAB <br/>
-					08193 Bellaterra (Cerdanyola del Vallès) – Barcelona <br/>
-					Spain </em>
+					<%= Content.text('contact_address_desc') %>
 				</p>		
 			</div>
 		</div>
