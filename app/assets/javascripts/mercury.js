@@ -461,7 +461,7 @@ window.onload = function() {
 // intercept save to provide visual feedback
 $(window).bind('mercury:saved', function(e, data) {
   var alert = 
-    '<div class="alert alert-'+(data.success?'success':'danger')+' alert-dismissable" style="display:none;margin-bottom:0;">\
+    '<div class="alert alert-'+(data.success?'success':'danger')+' alert-dismissable" style="display:none;margin-bottom:0;position:fixed;width:100%;">\
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>\
       '+(data.success?
         '<strong>Saved!</strong> Check the modified page <a target="_parent" href="'+document.URL.replace(/editor\/?/, '')+'" class="alert-link">here</a>':
