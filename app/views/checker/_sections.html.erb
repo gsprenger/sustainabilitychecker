@@ -7,7 +7,7 @@
     </div><br>
     <div class='text-center'>
       <a href='#demographics' class='nav-link'>
-        <div class='btn btn-lg btn-primary'><%= Content.text('chkr_start_btn', 'simple') %></div>
+        <div class='btn btn-lg btn-primary'><%= Content.text('chkr_start_btn') %></div>
       </a>
     </div>
   </div>
@@ -23,16 +23,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('d_dem_low.png') %>'>
-          <span class='text'>Less developped countries</span><br><small>(e.g. Cambodgia)</small>
+          <%= Content.text('chkr_dem_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_dem_low_t') %></span>
+          <small><%= Content.text('chkr_dem_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('d_dem_med.png') %>'>
-          <span class='text'>Emerging economy</span><br><small>(e.g. China)</small>
+          <%= Content.text('chkr_dem_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_dem_med_t') %></span>
+          <small><%= Content.text('chkr_dem_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('d_dem_high.png') %>'>
-          <span class='text'>Post-industrial, rich</span><br><small>(e.g. Europe)</small>
+          <%= Content.text('chkr_dem_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_dem_high_t') %></span>
+          <small><%= Content.text('chkr_dem_high_c') %></small>
         </div>
       </div>
     </div>
@@ -49,16 +52,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Low</span><br><small>(e.g. Parts of India)</small>
+          <%= Content.text('chkr_die_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_die_low_t') %></span>
+          <small><%= Content.text('chkr_die_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Average</span><br><small>(e.g. Europe)</small>
+          <%= Content.text('chkr_die_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_die_med_t') %></span>
+          <small><%= Content.text('chkr_die_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>High</span><br><small>(e.g. USA)</small>
+          <%= Content.text('chkr_die_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_die_high_t') %></span>
+          <small><%= Content.text('chkr_die_high_c') %></small>
         </div>
       </div>
     </div>
@@ -74,11 +80,11 @@
         <%= Content.text('chkr_hou_desc') %>
       </div>
       <div data-choice-type='slidergroup'>
-        <div>Urban</div>
         <!-- SLIDER URBAN -->
+        <%= Content.text('chkr_hou_urb') %>
         <div class='slider' data-slider-name='d_hou_urb'></div>
-        <div>Rural</div>
         <!-- SLIDER RURAL -->
+        <%= Content.text('chkr_hou_rur') %>
         <div class='slider' data-slider-name='d_hou_rur'></div>
       </div>
     </div>
@@ -86,16 +92,16 @@
        <%= Content.text('chkr_hou_desc2') %>
       </div>
     <div data-choice-type='slidergroup'>
-      <div>Rich, Suburbs
-        <!-- SLIDER SUB -->
+      <div><!-- SLIDER SUB -->
+        <%= Content.text('chkr_hou_sub') %>
         <div class='slider' data-slider-name='d_hou_sub'></div>
       </div>
-      <div>Middle-class, Appartments
-        <!-- SLIDER APA -->
+      <div><!-- SLIDER APA -->
+        <%= Content.text('chkr_hou_apa') %>
         <div class='slider' data-slider-name='d_hou_apa'></div> 
       </div>
-      <div>Poor, Slums
-        <!-- SLIDER SLU -->
+      <div><!-- SLIDER SLU -->
+        <%= Content.text('chkr_hou_slu') %>
         <div class='slider' data-slider-name='d_hou_slu'></div> 
       </div>
     </div>
@@ -114,19 +120,19 @@
     </div>
     <div class='choice'>
       <div data-choice-type='slider'>    
-        <p><strong>Education &amp; Healthcare</strong></p>
+        <%= Content.text('chkr_ser_edu') %>
         <div class='slider' data-slider-name='d_ser_edu'></div>
       </div>
       <div data-choice-type='slider'>    
-        <p><strong>Media, Entertainment, Tourism</strong></p>
+        <%= Content.text('chkr_ser_med') %>
         <div class='slider' data-slider-name='d_ser_med'></div>
       </div>
       <div data-choice-type='slider'>    
-        <p><strong>Public Institutions, Government, Military</strong></p>
+        <%= Content.text('chkr_ser_pub') %>
         <div class='slider' data-slider-name='d_ser_pub'></div>
       </div>
       <div data-choice-type='slider'>    
-        <p><strong>Transportation, Retailing</strong></p>
+        <%= Content.text('chkr_ser_tra') %>
         <div class='slider' data-slider-name='d_ser_tra'></div>
       </div>
     </div>
@@ -146,16 +152,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Low</span><br><small>(e.g. Canada, Russia)</small>
+          <%= Content.text('chkr_den_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_den_low_t') %></span>
+          <small><%= Content.text('chkr_den_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Average</span><br><small>(e.g. USA)</small>
+          <%= Content.text('chkr_den_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_den_med_t') %></span>
+          <small><%= Content.text('chkr_den_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>High</span><br><small>(e.g. India, Japan, South Korea)</small>
+          <%= Content.text('chkr_den_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_den_high_t') %></span>
+          <small><%= Content.text('chkr_den_high_c') %></small>
         </div>
       </div>
     </div>
@@ -172,16 +181,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Low</span><br><small>(e.g. Bangladesh)</small>
+          <%= Content.text('chkr_lan_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_lan_low_t') %></span>
+          <small><%= Content.text('chkr_lan_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Average</span><br><small>(e.g. France, Spain)</small>
+          <%= Content.text('chkr_lan_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_lan_med_t') %></span>
+          <small><%= Content.text('chkr_lan_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>High</span><br><small>(e.g. Canada, Australia)</small>
+          <%= Content.text('chkr_lan_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_lan_high_t') %></span>
+          <small><%= Content.text('chkr_lan_high_c') %></small>
         </div>
       </div>
     </div>
@@ -198,16 +210,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Low</span><br><small>(e.g. Central Africa, China)</small>
+          <%= Content.text('chkr_ind_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_ind_low_t') %></span>
+          <small><%= Content.text('chkr_ind_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Average</span><br><small>(e.g. Russia, Argentina, Mexico)</small>
+          <%= Content.text('chkr_ind_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_ind_med_t') %></span>
+          <small><%= Content.text('chkr_ind_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>High</span><br><small>(e.g. USA, Australia, France)</small>
+          <%= Content.text('chkr_ind_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_ind_high_t') %></span>
+          <small><%= Content.text('chkr_ind_high_c') %></small>
         </div>
       </div>
     </div>
@@ -224,16 +239,19 @@
     <div class='choice radio' data-choice-type='radio'>
       <div class='radio-row'>
         <div class='cell lg-4' data-cv-value='low'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Traditional, Labor-intensive</span><br><small>(e.g. Central Africa, India)</small>
+          <%= Content.text('chkr_agr_low_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_agr_low_t') %></span>
+          <small><%= Content.text('chkr_agr_low_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='med'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Mixed</span><br><small>(e.g. Brazil, Mexico)</small>
+          <%= Content.text('chkr_agr_med_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_agr_med_t') %></span>
+          <small><%= Content.text('chkr_agr_med_c') %></small>
         </div>
         <div class='cell lg-4' data-cv-value='high'>
-          <img src='<%= image_path('placeholder.png') %>'>
-          <span class='text'>Industrialized, Mechanized</span><br><small>(e.g. USA, Europe, Australia)</small>
+          <%= Content.text('chkr_agr_high_i', 'image') %>
+          <span class='text'><%= Content.text('chkr_agr_high_t') %></span>
+          <small><%= Content.text('chkr_agr_high_c') %></small>
         </div>
       </div>
     </div>
@@ -248,33 +266,33 @@
       <%= Content.text('chkr_ene_desc') %>
     </div>
     <div class='choice'>
-      <p><strong>Electricity</strong></p>
+      <strong><%= Content.text('chkr_ene_ele') %></strong>
       <div data-choice-type='slidergroup'>
-        <div>Nuclear
+        <div><%= Content.text('chkr_ene_nuc') %>
           <div class='slider' data-slider-name='s_ene_nuc'></div>
         </div>
-        <div>Hydropower
+        <div><%= Content.text('chkr_ene_hyd') %>
           <div class='slider' data-slider-name='s_ene_hyd'></div>
         </div>
-        <div>Wind Power
+        <div><%= Content.text('chkr_ene_win') %>
           <div class='slider' data-slider-name='s_ene_win'></div>
        </div>
-        <div>Photovoltaics
+        <div><%= Content.text('chkr_ene_pho') %>
           <div class='slider' data-slider-name='s_ene_pho'></div>
        </div>
-        <div>Concentrated Solar Power
+        <div><%= Content.text('chkr_ene_csp') %>
           <div class='slider' data-slider-name='s_ene_csp'></div>
        </div>
       </div>
-      <p><strong>Fuels</strong></p>
+      <strong><%= Content.text('chkr_ene_fue') %></strong>
       <div data-choice-type='slidergroup'>
-        <div>Biofuels
+        <div><%= Content.text('chkr_ene_bio') %>
           <div class='slider' data-slider-name='s_ene_bio'></div>
         </div>
-        <div>Hydrogen
+        <div><%= Content.text('chkr_ene_hyg') %>
           <div class='slider' data-slider-name='s_ene_hyg'></div>
         </div>
-        <div>Non-conventional fossile resources
+        <div><%= Content.text('chkr_ene_ncf') %>
           <div class='slider' data-slider-name='s_ene_ncf'></div>
         </div>
       </div>

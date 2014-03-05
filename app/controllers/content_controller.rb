@@ -3,7 +3,11 @@ class ContentController < ApplicationController
     success = true
     for index, data in params[:content]
       if (c = Content.find_by id: index)
-        c.content = data['value']
+        if (data['type'] == 'image')
+          c.content = data['attributes']['src']
+        else
+          c.content = data['value']
+        end
         if (!c.save)
           success = false
         end

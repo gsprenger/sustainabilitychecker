@@ -1,10 +1,10 @@
 <div id='check'>
-  <h2><%= Content.text('chkr_check_title', 'simple') %></h2>
+  <h2><%= Content.text('chkr_check_title') %></h2>
   <!-- PRECHECK SECTION -->
   <div class='precheck animated'>
     <div class='wrapper'>
       <div class="alert alert-info">
-        <h3><%= Content.text('chkr_summary_title', 'simple') %></h3> 
+        <h3><%= Content.text('chkr_summary_title') %></h3> 
         <ul>
           <li>
             <a href='#demographics' class='alert-link nav-link'>Socio-demographics typology:</a>
@@ -58,19 +58,19 @@
           </li>
         </ul>
       </div>
-      <div class='btn btn-primary btn-lg'><%= Content.text('chkr_summary_btn', 'simple') %></div>
+      <div class='btn btn-primary btn-lg'><%= Content.text('chkr_summary_btn') %></div>
       <div class='btn btn-info btn-lg'>Debug: show Sudoku</div>
     </div>
   </div>
   <!-- CHECK SECTION -->
   <div class='checksection animated hidden'>
-    <h3 class='check-result'>Failed!</h3>
+    <h3 class='check-result'><%= Content.text('chkr_res_title') %></h3>
     <div class='check-graph'>
       <!-- Upper row -->
       <div class='row'>
         <!-- Upper graph title -->
         <div class='cell col-xs-3'>
-          <div class='graph-title upper'>Local supply</div>
+          <div class='graph-title upper'><%= Content.text('chkr_res_local') %></div>
         </div>
         <!-- Upper food bar -->
         <div class='cell col-xs-2'>
@@ -92,13 +92,13 @@
       <div class='row'>
         <!-- Lower graph title -->
         <div class='cell col-xs-3'>
-          <div class='graph-title lower'>Imported</div>
+          <div class='graph-title lower'><%= Content.text('chkr_res_imported') %></div>
         </div>
         <!-- Lower food bar -->
         <div class='cell col-xs-2'>
           <div class='bar-lower bar-food'>
             <div class='bar-percent'>0%</div>
-            <div class='bar-title'>Food</div>
+            <div class='bar-title'><%= Content.text('chkr_res_food') %></div>
           </div>
         </div>
         <!-- Lower energy bar -->
@@ -106,22 +106,22 @@
         <div class='cell col-xs-2 col-sm-offset-2'>
           <div class='bar-lower bar-energy'>
             <div class='bar-percent'>0%</div>
-            <div class='bar-title'>Energy</div>
+            <div class='bar-title'><%= Content.text('chkr_res_energy') %></div>
           </div>
         </div>
       </div>
     </div>
 
     <div class='check-why'>
-      <blockquote>"A society that relies on imports to function is not sustainable... You failed the check because of..."</blockquote>
+      <blockquote><%= Content.text('chkr_res_quote') %></blockquote>
     </div>
 
     <div class='check-next text-center  row'>
       <div class='col-xs-6'>
-        <div class='btn btn-default btn-lg'>Try again</div>
+        <div class='btn btn-default btn-lg'><%= Content.text('chkr_res_again') %></div>
       </div>
       <div class='col-xs-6'>
-        <div class='btn btn-primary btn-lg'>Next level</div>
+        <div class='btn btn-primary btn-lg'><%= Content.text('chkr_res_next') %></div>
       </div>
     </div>    
   </div>
