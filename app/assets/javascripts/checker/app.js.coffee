@@ -24,7 +24,6 @@ class window.App
       Navigation.smoothScrollTo('#check')
     # If mercury is running, disable links, show all content and disable save
     if App.isMercury
-      console.log('coucou')
       $('.btn, .nav-link, .cell').off('click')
       $('.checksection').removeClass('hidden')
       Progression.save = Progression.setVariable = ->

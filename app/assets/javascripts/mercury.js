@@ -449,19 +449,12 @@ window.Mercury = {
 };
 
 // CUSTOM CODE
-window.onload = function() {
-  var removeLinks = function() {
-    // hide links so they can be edited
-    if ($('iframe#mercury_iframe').contents().find('a').length == 0) {
-      setTimeout(removeLinks, 100);
-      return;
-    }
+// hide links so they can be edited
+$(window).bind('mercury:ready', function() {
     $('iframe#mercury_iframe').contents().find('a').each(function() {
       $(this).removeAttr('href')
     });
-  }
-  removeLinks();
-};
+});
 
 // intercept save to provide visual feedback
 $(window).bind('mercury:saved', function(e, data) {
