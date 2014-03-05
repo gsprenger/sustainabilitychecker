@@ -450,12 +450,17 @@ window.Mercury = {
 
 // CUSTOM CODE
 window.onload = function() {
-  $('iframe#mercury_iframe').load(function() {
+  var removeLinks = function() {
     // hide links so they can be edited
+    if ($('iframe#mercury_iframe').contents().find('a').length == 0) {
+      setTimeout(removeLinks, 100);
+      return;
+    }
     $('iframe#mercury_iframe').contents().find('a').each(function() {
       $(this).removeAttr('href')
     });
-  });
+  }
+  removeLinks();
 };
 
 // intercept save to provide visual feedback
