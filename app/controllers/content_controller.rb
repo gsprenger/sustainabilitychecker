@@ -1,4 +1,5 @@
 class ContentController < ApplicationController
+  respond_to :json
   def save
     success = true
     for index, data in params[:content]
