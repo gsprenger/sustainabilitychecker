@@ -1,28 +1,25 @@
 Sustainabilitychecker::Application.routes.draw do
+  # Root
+  root "static_pages#home"
+
   # Mercury
   namespace :mercury do
     resources :images
   end
   get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
   mount Mercury::Engine => '/'
+  # Admin panel for mercury
   get '/admin' => "admin#admin"
 
-  # Root
-  root "static_pages#home"
-
-  # Content
+  # AJAX paths and other db comms
   put "content/save" => "content#save"
 
-  # Experiments
-  get "begin" => "checker#app"
-  #1: Checker
-    get "checker" => "checker#app"
-    get "checker/get_experiment" => "checker#get_experiment"
-    post "checker/save_experiment" => "checker#save_experiment"
-  #2: Sudoku
-  #3: Rekcehc
+  # Checker Levels
+  get "level1" => "level1#app"
+  get "level2" => "level2#app"
+  get "level3" => "level3#app"
 
-  # StaticPages
+  # Static website
   get "home" => "static_pages#home"
   get "presentation" => "static_pages#presentation"
   get "contact" => "static_pages#contact"
