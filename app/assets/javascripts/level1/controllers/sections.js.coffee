@@ -1,2 +1,2 @@
-class window.SectionsController extends Controller
+class window.SectionsController
   constructor: ->

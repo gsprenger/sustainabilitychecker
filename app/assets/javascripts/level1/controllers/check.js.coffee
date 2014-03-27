@@ -1,2 +1,2 @@
-class window.CheckController extends Controller
+class window.CheckController
   constructor: ->

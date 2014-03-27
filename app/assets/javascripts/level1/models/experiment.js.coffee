@@ -1,2 +1,2 @@
-class window.ExperimentModel extends Model
+class window.ExperimentModel
   constructor: ->

@@ -1,2 +1,2 @@
-class window.HeaderView extends View
+class window.HeaderView
   constructor: ->

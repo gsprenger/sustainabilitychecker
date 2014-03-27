@@ -1,4 +1,4 @@
-class window.AppController extends Controller
+class window.AppController
   constructor: ->
     #render header.html()
     #for each section

@@ -1,2 +1,2 @@
-class window.SectionView extends View
+class window.SectionView
   constructor: ->
