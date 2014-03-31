@@ -21,5 +21,12 @@ class ContentController < ApplicationController
       format.html { redirect_to root_path }
     end
   end
+
+  def get_all
+    respond_to do |format|
+      format.json { render json: Content.all}
+      format.html { redirect_to root_path }
+    end
+  end
 end
 
