@@ -5,6 +5,7 @@
 //= require_tree ./level1
 
 var ready = function() {
+  app = new AppController('level1')
 };
 
 $(document).ready(ready);
