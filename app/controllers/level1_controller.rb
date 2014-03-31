@@ -1,4 +1,4 @@
-class CheckerController < ApplicationController
+class Level1Controller < ApplicationController
   require 'json'
 
   ###

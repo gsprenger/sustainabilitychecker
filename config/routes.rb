@@ -14,13 +14,14 @@ Sustainabilitychecker::Application.routes.draw do
   put "content/save" => "content#save"
 
   # Experiments
-  get "begin" => "checker#app"
-  #1: Checker
-    get "checker" => "checker#app"
-    get "checker/get_experiment" => "checker#get_experiment"
-    post "checker/save_experiment" => "checker#save_experiment"
-  #2: Sudoku
-  #3: Rekcehc
+    get "level1/get_experiment" => "level1#get_experiment"
+    post "level1/save_experiment" => "level1#save_experiment"
+  #1: 
+    get "level1" => "level1#app"
+  #2: 
+    get "level2" => "level2#app"
+  #3: 
+    get "level3" => "level3#app"
 
   # StaticPages
   get "home" => "static_pages#home"

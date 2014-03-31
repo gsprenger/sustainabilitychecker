@@ -15,7 +15,7 @@ class window.Progression
     data = JSON.parse $.ajax({
       type:     'GET',
       dataType: 'json',
-      url:      '/checker/get_experiment?id='+id,
+      url:      '/level1/get_experiment?id='+id,
       async:    false
     }).responseText
     exp = JSON.parse data.json
@@ -29,7 +29,7 @@ class window.Progression
       "id": Progression.id
       "json": JSON.stringify json
     }
-    $.post '/checker/save_experiment', data
+    $.post '/level1/save_experiment', data
 
   @setVariable: (name, value) ->
     found = false
