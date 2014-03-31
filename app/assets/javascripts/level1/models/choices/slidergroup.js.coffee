@@ -1,0 +1,1 @@
+class window.SliderGroupModel extends ChoiceModel
