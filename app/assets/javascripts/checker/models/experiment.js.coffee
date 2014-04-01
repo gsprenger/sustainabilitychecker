@@ -1,7 +1,7 @@
 class window.ExperimentModel
   constructor:(@current) ->
     exp = localStorage.getItem('experiment')
-    if (exp != null)
+    if (exp?)
       exp = JSON.parse(exp)
       @current = exp.current
       @values = exp.values
@@ -16,3 +16,4 @@ class window.ExperimentModel
 
   setValue:(name, value) ->
     @values[name] = value
+    @save()
