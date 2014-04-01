@@ -1,5 +1,6 @@
 class window.RadioModel extends ChoiceModel
   constructor:(@slug, @values) ->
+    @type = @constructor.name # classname
     @experiment = App.get().experiment
     val = @experiment.getValue(@slug)
     if (val? && val in @values)
@@ -17,4 +18,4 @@ class window.RadioModel extends ChoiceModel
       @experiment.setValue(@slug, value)
       $(window).trigger('choicecomplete', this)
     else
-      console.error('RadioModel Error: trying to select unknown value '+ value)
+      console.error(@type+' Error: trying to select unknown value '+ value)
