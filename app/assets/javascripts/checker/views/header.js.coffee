@@ -1,5 +1,9 @@
 class window.HeaderView
-  @html:(sections) ->
+  constructor:(@el, @sections) ->
+
+  render: ->
+    #build things append to el return el
+
     html = """
       <header role='banner'>
         <nav>

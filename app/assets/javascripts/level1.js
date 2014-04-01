@@ -2,10 +2,11 @@
 // listed below.
 //
 //= require jquery.ui.slider
-//= require_tree ./level1
+//= require_tree ./checker
 
 var ready = function() {
-  app = new AppController('level1')
+  app = new AppController()
+  app.launchLevel1()
 };
 
 $(document).ready(ready);
