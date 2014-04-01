@@ -1,4 +1,4 @@
-class window.SliderModel extends ChoiceModel
+class window.SliderModel
   constructor:(@slug, @values, @default) ->
     @type = @constructor.name # classname
     @experiment = App.get().experiment

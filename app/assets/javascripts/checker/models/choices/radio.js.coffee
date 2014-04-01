@@ -1,4 +1,4 @@
-class window.RadioModel extends ChoiceModel
+class window.RadioModel
   constructor:(@slug, @values) ->
     @type = @constructor.name # classname
     @experiment = App.get().experiment

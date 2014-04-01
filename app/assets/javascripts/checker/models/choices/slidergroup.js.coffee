@@ -1,3 +1,3 @@
-class window.SliderGroupModel extends ChoiceModel
+class window.SliderGroupModel
   constructor:(@sliders) ->
     @type = @constructor.name # classname
