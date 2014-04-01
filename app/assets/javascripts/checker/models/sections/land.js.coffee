@@ -3,7 +3,7 @@ class window.LandModel extends SectionModel
     @name = 'land'
     @slug = 's_lan'
     @type = 'supply'
-    @headerIcon = 'fa-picture'
+    @headerIcon = 'fa-picture-o'
     @i18nPrefix = 'chkr_lan'
     @choices = []
     @choices.push(
