@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Level 2 - The Sustainability Checker</title>
+  <!-- Stylesheets -->
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag     params[:controller], "data-turbolinks-track" => true %>
+  <!-- Javascripts -->
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>
+  <%= favicon_link_tag %>
+  <%= csrf_meta_tags %>
+  <%= render "layouts/common/shim" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <%= render "level2/header" %>
+  <%= yield %>
+</body>
+</html>

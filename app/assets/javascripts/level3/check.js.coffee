@@ -5,7 +5,7 @@ class window.Check
       Check.startCheck()
     # Click on 'Try again'
     $('.checksection .btn-default').click ->
-      Check.tryAgain()  
+      Check.tryAgain()
     # DEBUG
     $('.precheck .btn-info').click ->
       Sudoku.debug()
