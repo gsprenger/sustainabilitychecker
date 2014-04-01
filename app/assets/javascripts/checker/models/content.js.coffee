@@ -9,10 +9,10 @@ class window.ContentModel
       async:    false
     }).responseText
     for c in all
-      @contents[c.slug] = c.content
+      ContentModel.contents[c.slug] = c.content
 
   @text:(slug, type) ->
-    content = @contents[slug]
+    content = ContentModel.contents[slug]
     switch type
       when 'simple'
         html = "<span data-mercury='simple' id='"+slug+"'>"+content+"</span>"
