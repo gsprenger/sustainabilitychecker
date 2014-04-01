@@ -14,7 +14,16 @@ class window.IntroView
               <div class='btn btn-lg btn-primary'>#{@content.text('chkr_start_btn_level'+@level)}</div>
             </a>
           </div>
+          <hr>
+          <div class='intro-header'></div>
         </div>
       </div>
+      <div><br><br>weqwe<br><br>weqwe<br><br>
+      <br><br>weqwe<br><br>weqwe<br><br>
+      <br><br>weqwe<br><br>weqwe<br><br>
+      <br><br>weqwe<br><br>weqwe<br><br>
+      <br><br>weqwe<br><br>weqwe<br><br>
+      <br><br>weqwe<br><br>weqwe<br><br>
+      </div>
       """
-    return $(html)
+    $(@el).append($(html))

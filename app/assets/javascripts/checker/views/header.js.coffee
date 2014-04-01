@@ -9,7 +9,7 @@ class window.HeaderView
   render: ->
     #build things append to el return el
     html = """
-      <header role='banner'>
+      <header role='banner' data-spy='affix' id='header'>
         <nav>
           <div class='titles'>
             <div class='title demand'>#{@content.text('chkr_demand', 'simple')}</div>
@@ -40,7 +40,8 @@ class window.HeaderView
     domEl = $(html)
     for e in @events
       $(domEl).find(e[0]).on e[1], e[2]
-    return $(domEl)
+    $(@el).append($(domEl))
+    $('#header').attr('data-offset-top', $('#header').offset().top)
 
 
   smoothScrollTo: (target) ->
