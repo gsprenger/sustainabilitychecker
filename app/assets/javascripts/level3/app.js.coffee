@@ -19,7 +19,7 @@ class window.App
     Check.setup()
     # Launch according to progression
     if (Progression.current != 'check')
-      Navigation.goToSection(Progression.current, true)
+      Navigation.goToSection('intro', true)
     else
       Navigation.smoothScrollTo('#check')
     # If mercury is running, disable links, show all content and disable save

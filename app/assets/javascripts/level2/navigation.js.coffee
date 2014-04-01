@@ -12,7 +12,7 @@ class window.Navigation
     $('.level2-toggle-cont').on 'click', ->
       if ($('.level2-toggle').hasClass('up'))
         $('.level2-overlay').animate {
-          height: "60%",
+          height: "50%",
         }, 500, ->
           $('.level2-toggle').removeClass('up')
           $('.level2-toggle').addClass('down')
