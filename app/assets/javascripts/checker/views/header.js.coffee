@@ -2,7 +2,7 @@ class window.HeaderView
   constructor:(@el, @level, @content, @sections) ->
     @events = [
       ['.nav-link', 'click', (e) =>
-        @smoothScrollTo(e.currentTarget.hash.substr(1))
+        @smoothScrollTo(e.currentTarget.hash)
       ]
     ]
 

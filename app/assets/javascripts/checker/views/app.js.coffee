@@ -5,7 +5,7 @@ class window.AppView
     @headerView = new HeaderView('.intro-header', @level, @content, @sections)
     @sectionViews = []
     for s in @sections
-      @sectionViews.push(new SectionView(@el, @content, @section))
+      @sectionViews.push(new SectionView(@el, @content, s))
     @checkView = new CheckView(@el, @content)
 
   render: ->

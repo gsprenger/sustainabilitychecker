@@ -18,12 +18,5 @@ class window.IntroView
           <div class='intro-header'></div>
         </div>
       </div>
-      <div><br><br>weqwe<br><br>weqwe<br><br>
-      <br><br>weqwe<br><br>weqwe<br><br>
-      <br><br>weqwe<br><br>weqwe<br><br>
-      <br><br>weqwe<br><br>weqwe<br><br>
-      <br><br>weqwe<br><br>weqwe<br><br>
-      <br><br>weqwe<br><br>weqwe<br><br>
-      </div>
       """
     $(@el).append($(html))
