@@ -6,17 +6,27 @@ class window.EnergyModel extends SectionModel
     @headerIcon = 'fa-bolt'
     @i18nPrefix = 'chkr_ene'
     @choices = []
+    @sliders = {
+      'nuc': new SliderModel('s_ene_nuc', [0, 25,50, 75, 100], 0),
+      'hyd': new SliderModel('s_ene_hyd', [0, 25,50, 75, 100], 25),
+      'win': new SliderModel('s_ene_win', [0, 25,50, 75, 100], 25),
+      'pho': new SliderModel('s_ene_pho', [0, 25,50, 75, 100], 25),
+      'csp': new SliderModel('s_ene_csp', [0, 25,50, 75, 100], 25),
+      'bio': new SliderModel('s_ene_bio', [0, 25,50, 75, 100], 25),
+      'hyg': new SliderModel('s_ene_hyg', [0, 25,50, 75, 100], 50),
+      'ncf': new SliderModel('s_ene_ncf', [0, 25,50, 75, 100], 25)
+    }
     @choices.push(new SliderGroupModel([
-        new SliderModel('s_ene_nuc', [0, 25,50, 75, 100], 0),
-        new SliderModel('s_ene_hyd', [0, 25,50, 75, 100], 25),
-        new SliderModel('s_ene_win', [0, 25,50, 75, 100], 25),
-        new SliderModel('s_ene_pho', [0, 25,50, 75, 100], 25),
-        new SliderModel('s_ene_csp', [0, 25,50, 75, 100], 25)
+        @sliders['nuc'], 
+        @sliders['hyd'], 
+        @sliders['win'], 
+        @sliders['pho'], 
+        @sliders['csp']
       ]))
     @choices.push(new SliderGroupModel([
-        new SliderModel('s_ene_bio', [0, 25,50, 75, 100], 25),
-        new SliderModel('s_ene_hyg', [0, 25,50, 75, 100], 50),
-        new SliderModel('s_ene_ncf', [0, 25,50, 75, 100], 25)
+        @sliders['bio'], 
+        @sliders['hyg'], 
+        @sliders['ncf']
       ]))
     @app = App.get()
 
@@ -29,7 +39,7 @@ class window.EnergyModel extends SectionModel
     "LU_ELEC":
       "nuc": 0 # negl.
       "hyd": 0 # negl.
-      "pv":  2.4
+      "pho":  2.4
       "csp": 5.1
       "win": 9.1
     "LU_FUELS":
@@ -41,7 +51,7 @@ class window.EnergyModel extends SectionModel
     "ET_ELEC":
       "nuc": 0.03
       "hyd": 0.09
-      "pv":  0.15
+      "pho":  0.15
       "csp": 0.07
       "win": 0.05
       "bio":
@@ -52,7 +62,7 @@ class window.EnergyModel extends SectionModel
     "ET_FUELS":
       "nuc": 0.1
       "hyd": 0 # negl.
-      "pv":  0 # negl.
+      "pho":  0 # negl.
       "csp": 0.01
       "win": 0 # negl.
       "bio":
@@ -63,7 +73,7 @@ class window.EnergyModel extends SectionModel
     "HA_ELEC":
       "nuc": 133
       "hyd": 133
-      "pv":  139
+      "pho":  139
       "csp": 161
       "win": 56
     "HA_FUELS":
@@ -73,7 +83,12 @@ class window.EnergyModel extends SectionModel
       "hyg": 139
       "ncf": 1187
 
-  getValue: ->
+  loopAllWithValue: (data) ->    
+    typ = @get_s_ene_typ()
+    value = 0
+    $.each data, (name, val) ->
+      value += (@sliders[name].getValue() * (if name == 'bio' then val[typ] else val))
+    return value
 
   get_s_ene_con: ->
     (@app.households.get_ET_HH() +

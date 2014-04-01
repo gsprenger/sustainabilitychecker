@@ -35,6 +35,16 @@ class window.ServicesModel extends SectionModel
       "12": 120
 
   getValue: ->
+    value = 0
+    for slider in @choices
+      switch(slider.getValue())
+        when 'low'
+          value += 1
+        when 'med'
+          value += 2
+        when 'high'
+          value += 3
+    return value
 
   get_HA_SG_IN_PW: ->
     @data.HA_SG_IN_PW[@getValue()]

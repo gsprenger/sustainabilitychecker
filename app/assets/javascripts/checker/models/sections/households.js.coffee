@@ -5,15 +5,19 @@ class window.HouseholdsModel extends SectionModel
     @type = 'demand'
     @headerIcon = 'fa-home'
     @i18nPrefix = 'chkr_hou'
+    @sliders = {
+      'urb': new SliderModel('d_hou_urb', [20, 30, 50, 70, 85], 85),
+      'rur': new SliderModel('d_hou_rur', [15, 30, 50, 70, 80], 15),
+      'sub': new SliderModel('d_hou_sub', [30, 60], 30),
+      'apa': new SliderModel('d_hou_apa', [40, 70], 70),
+      'slu': new SliderModel('d_hou_slu', [0], 0)
+    }
     @choices = []
     @choices.push(new SliderGroupModel([
-        new SliderModel('d_hou_urb', [20, 30, 50, 70, 85], 85),
-        new SliderModel('d_hou_rur', [15, 30, 50, 70, 80], 15)
+        @sliders['urb'], @sliders['rur']
       ]))
     @choices.push(new SliderGroupModel([
-        new SliderModel('d_hou_sub', [30, 60], 30),
-        new SliderModel('d_hou_apa', [40, 70], 70),
-        new SliderModel('d_hou_slu', [0], 0)
+        @sliders['sub'], @sliders['apa'], @sliders['slu']
       ]))
 
   # SUDOKU DATA #  
@@ -34,6 +38,13 @@ class window.HouseholdsModel extends SectionModel
       "0-50-50":  10
 
   getValue: ->
+    prop = @sliders['urb'].getValue() + '-' + @sliders['rur'].getValue()
+    value = @sliders['sub'].getValue() + '-' +
+      @sliders['apa'].getValue() + '-' + 
+      @sliders['slu'].getValue()
+    value += 'l' if prop == '50-50'
+    value += 'h' if prop == '30-70'
+    return value
 
   get_EMR_HH: ->
      @data.EMR_HH[@getValue()]
