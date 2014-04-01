@@ -10,6 +10,7 @@ class window.ContentModel
     }).responseText
     for c in all
       ContentModel.contents[c.slug] = c.content
+    return ContentModel
 
   @text:(slug, type) ->
     content = ContentModel.contents[slug]
