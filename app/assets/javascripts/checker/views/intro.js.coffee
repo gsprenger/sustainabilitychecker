@@ -1,4 +1,4 @@
-class window.HeaderView
+class window.IntroView
   constructor:(@el) ->
 
   render: ->

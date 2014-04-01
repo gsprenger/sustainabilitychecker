@@ -1,2 +1,4 @@
 class window.SectionView
-  constructor: ->
+  constructor:(@el, @content, @section) ->
+
+  render: ->
