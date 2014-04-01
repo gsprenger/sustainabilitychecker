@@ -7,7 +7,7 @@ class window.AgricultureModel extends SectionModel
     @i18nPrefix = 'chkr_agr'
     @choices = []
     @choices.push(
-      new RadioChoiceModel(@slug, ['low', 'med', 'high'], @experiment))
+      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #  
   data:

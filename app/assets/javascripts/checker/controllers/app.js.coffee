@@ -1,13 +1,36 @@
 class window.App
-  @instance: null
+  instance = null
 
-  constructor: ->
-    @experiment = new ExperimentModel('intro')
-    @content = ContentModel.setup()
-    @sections = []
-    @instance = this
+  class PrivateApp
+    constructor: ->
+    setup: ->
+      # Instanciate models
+      @experiment = new ExperimentModel('intro')
+      @content = ContentModel.setup()
+      # section models
+      @demographics = new DemographicsModel()
+      @diet         = new DietModel()
+      @households   = new HouseholdsModel()
+      @services     = new ServicesModel()
+      @density      = new DensityModel()
+      @land         = new LandModel()
+      @bm           = new BmModel()
+      @agriculture  = new AgricultureModel()
+      @energy       = new EnergyModel()
+      @sections = [
+        @demographics,
+        @diet,
+        @households,
+        @services,
+        @density,
+        @land,
+        @bm,
+        @agriculture,
+        @energy
+      ]
 
-  launchLevel1: ->
+    launchLevel1: ->
 
   @get: ->
-    @instance ?= new App()
+    # singleton model
+    instance ?= new PrivateApp()

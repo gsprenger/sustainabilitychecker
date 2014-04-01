@@ -97,7 +97,7 @@ class window.EnergyModel extends SectionModel
     @app.agriculture.get_ET_AG())
 
   get_s_ene_typ: ->
-    (if @app.agriculture.choices[0].value == 'low' then 'low' else 'high')
+    (if @app.agriculture.choices[0].getValue() == 'low' then 'low' else 'high')
 
   get_NSECs_ELEC: ->
     ((@app.households.get_ET_ELEC() * @get_s_ene_con()) / 

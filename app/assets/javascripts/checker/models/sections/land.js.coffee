@@ -7,7 +7,7 @@ class window.LandModel extends SectionModel
     @i18nPrefix = 'chkr_lan'
     @choices = []
     @choices.push(
-      new RadioChoiceModel(@slug, ['low', 'med', 'high'], @experiment))
+      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #
   data:

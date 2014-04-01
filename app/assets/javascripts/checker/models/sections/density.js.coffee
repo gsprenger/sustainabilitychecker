@@ -7,6 +7,6 @@ class window.DensityModel extends SectionModel
     @i18nPrefix = 'chkr_den'
     @choices = []
     @choices.push(
-      new RadioChoiceModel(@slug, ['low', 'med', 'high'], @experiment))
+      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #

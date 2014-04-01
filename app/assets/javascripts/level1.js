@@ -5,7 +5,8 @@
 //= require_tree ./checker
 
 var ready = function() {
-  app = new App()
+  app = App.get()
+  app.setup()
   app.launchLevel1()
 };
 
