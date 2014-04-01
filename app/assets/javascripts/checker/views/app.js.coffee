@@ -8,8 +8,7 @@ class window.AppView
     @checkView = new CheckView(@el, @content)
 
   render: ->
-    html = @headerView.render()
-    @$el.append(html)
+    @$el.append(@headerView.render())
     for sv in @sectionViews
       @$el.append(sv.render())
     @$el.append(@checkView.render())

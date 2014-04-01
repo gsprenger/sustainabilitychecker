@@ -1,5 +1,10 @@
 class window.HeaderView
   constructor:(@el, @level, @content, @sections) ->
+    @events = [
+      ['.nav-link', 'click', (e) =>
+        @smoothScrollTo(e.currentTarget.hash.substr(1))
+      ]
+    ]
 
   render: ->
     #build things append to el return el
@@ -32,4 +37,12 @@ class window.HeaderView
         </nav>
       </header>
     """
-    return html
+    domEl = $(html)
+    for e in @events
+      $(domEl).find(e[0]).on e[1], e[2]
+    return $(domEl)
+
+
+  smoothScrollTo: (target) ->
+    $('html,body').animate({scrollTop: $(target).offset().top}, 1000)  
+    return false
