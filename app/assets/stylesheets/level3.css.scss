@@ -438,7 +438,7 @@ header {
   }
 }
 
-#debug {
+#debug, .level3-info {
   font-weight: 400;
   table {
     margin: 15px auto;
@@ -450,5 +450,57 @@ header {
         border-right: 1px solid $black;
       }
     }
+  }
+}
+
+// CUSTOM OVERLAY LEVEL 2
+.level3-overlay {
+  opacity: .8;
+  width: 50px;
+  height: 100%;
+  margin-top: 65px;
+  position: fixed;
+  left: 0px;
+  background-color: $white;
+  border-right: 1px solid $lightgrey;
+  z-index: 10;
+}
+
+.level3-toggle-cont {
+  position: absolute;
+  top: 50%;
+  right: -10px; 
+  height: 20px;
+  width: 20px;
+  margin-top: -5px;
+  border: 1px solid $grey;
+  border-radius: 5px;
+  background-color: $white;
+  cursor: pointer;
+  box-shadow: 1px 1px 4px -1px #000;
+  &:hover {
+    box-shadow: 1px 1px 4px 0px #000;
+  }
+}
+
+.level3-toggle {
+  position: absolute;
+  top: 3px;
+  height: 0;
+  width: 0;
+  border: 6px solid transparent;
+  &.left {
+    border-right-color: #000;
+  }
+  &.right {
+    border-left-color: #000;
+    right: 0px;
+  }
+}
+
+.level3-info {
+  overflow: hidden;
+  &.shown {
+    overflow: auto;
   }
 }

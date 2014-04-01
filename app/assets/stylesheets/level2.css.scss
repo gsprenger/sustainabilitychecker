@@ -502,6 +502,6 @@ header {
   padding: 35px;
   overflow-y: hidden;
   &.shown {
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }

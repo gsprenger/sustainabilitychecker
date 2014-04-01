@@ -104,7 +104,7 @@ class window.Sudoku
     $('#debug').html(html)
     $('#debug td').each (i, td) ->
       val = $(td).text()
-      if (!isNaN(val) && val != "")
-        $(td).text(Math.round(val * 100) / 100)
+      if (val != "" && !isNaN(val))
+        $(td).text(+(+val).toPrecision(2))
     $('#debug').show()
     Navigation.smoothScrollTo('#debug')

@@ -9,6 +9,29 @@ class window.Navigation
     $('.nav-link').click ->
       Navigation.goToSection(this.hash.substr(1))
       return false # prevent default anchor scroll
+    #$('.level3-info').css('width', window.innerWidth*0.60)
+    $('.level3-toggle-cont').on 'click', ->
+      if ($('.level3-toggle').hasClass('right'))
+        $('.level3-overlay').animate {
+          width: "60%",
+        }, 500, ->
+          $('.level3-toggle').removeClass('right')
+          $('.level3-toggle').addClass('left')
+          $('.level3-info').addClass('shown')
+      else
+        $('.level3-overlay').animate {
+          width: "50px",
+        }, 500, ->
+          $('.level3-toggle').removeClass('left')
+          $('.level3-toggle').addClass('right')  
+          $('.level3-info').removeClass('shown')
+    setInterval ->
+      $('.level3-info').html(Sudoku.getTable())
+      $('.level3-info td').each (i, td) ->
+        val = $(td).text()
+        if (val != "" && !isNaN(val))
+          $(td).text(+(+val).toPrecision(2))
+    , 500
 
   @getNextSectionSlug: (curSlug) ->
     $('[data-section-slug='+curSlug+']').next().attr('data-section-slug') || curSlug
