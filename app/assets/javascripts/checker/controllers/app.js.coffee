@@ -29,7 +29,9 @@ class window.App
         @energy
       ]
 
-    launchLevel1: ->
+    launchLevel:(num) ->
+      @appView = new AppView('body', num, @content, @sections)
+      @appView.render()
 
   @get: ->
     # singleton model

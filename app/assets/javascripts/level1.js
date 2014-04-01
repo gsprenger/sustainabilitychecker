@@ -7,7 +7,7 @@
 var ready = function() {
   app = App.get()
   app.setup()
-  app.launchLevel1()
+  app.launchLevel(1)
 };
 
 $(document).ready(ready);
