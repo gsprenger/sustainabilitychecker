@@ -14,11 +14,14 @@ class window.ContentModel
 
   @text:(slug, type) ->
     content = ContentModel.contents[slug]
-    switch type
-      when 'simple'
-        html = "<span data-mercury='simple' id='"+slug+"'>"+content+"</span>"
-      when 'image'
-        html = "<img data-mercury='image' id='"+slug+"' src='"+content+"'>"
-      else
-        html = "<div data-mercury='full' id='"+slug+"'>"+content+"</div>"
-    return html
+    if (content?)
+      switch type
+        when 'simple'
+          html = "<span data-mercury='simple' id='"+slug+"'>"+content+"</span>"
+        when 'image'
+          html = "<img data-mercury='image' id='"+slug+"' src='"+content+"'>"
+        else
+         html = "<div data-mercury='full' id='"+slug+"'>"+content+"</div>"
+      return html
+    else
+      return slug
