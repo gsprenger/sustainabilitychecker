@@ -2,14 +2,12 @@ class window.ExperimentModel
   constructor:(@current) ->
     exp = localStorage.getItem('experiment')
     if (exp?)
-      exp = JSON.parse(exp)
-      @current = exp.current
-      @values = exp.values
+      @values = JSON.parse(exp)
     else
       @values = {}
   
   save: ->
-    localStorage.setItem('experiment', JSON.stringify(@json))
+    localStorage.setItem('experiment', JSON.stringify(@values))
 
   getValue:(name) ->
     @values[name]
