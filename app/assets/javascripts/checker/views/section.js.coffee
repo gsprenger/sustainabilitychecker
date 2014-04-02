@@ -27,9 +27,6 @@ class window.SectionView
       </div>
       """
     @$el.append($(html))
-    console.log("rendering #{@section.slug} with choice:")
-    console.log(@choiceViews)
     for cv in @choiceViews
-      # console.log("Appending #{cv.choice.slug} to #choice-#{@section.slug}")
       @$el.find("#choice-#{@section.slug}").append(cv.render().$el)
     return this
