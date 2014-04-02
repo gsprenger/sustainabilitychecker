@@ -3,16 +3,16 @@ class ContentController < ApplicationController
   def save
     success = true
     for index, data in params[:content]
-      if (c = Content.find_by id: index)
-        if (data['type'] == 'image')
-          c.content = data['attributes']['src']
-        else
-          c.content = data['value']
-        end
-        if (!c.save)
-          success = false
-        end
+      c = Content.find_by slug: index
+      if (!c)
+        c = Content.new(slug: index)
+      end      
+      if (data['type'] == 'image')
+        c.content = data['attributes']['src']
       else
+        c.content = data['value']
+      end
+      if (!c.save)
         success = false
       end
     end
