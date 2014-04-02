@@ -19,7 +19,7 @@ class window.App
       @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
 
     launchLevel:(num) ->
-      @appView = new AppView('body', num, @sections)
+      @appView = new AppView(num, @sections)
       @appView.render()
 
   @get: ->

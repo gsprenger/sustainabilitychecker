@@ -4,7 +4,7 @@ class window.BmModel extends SectionModel
     @slug = 's_bm'
     @type = 'supply'
     @headerIcon = 'fa-wrench'
-    @i18nPrefix = 'chkr_bm'
+    @i18nPrefix = 'chkr_ind'
     @choices = []
     @choices.push(
       new RadioModel(@slug, ['low', 'med', 'high'], @experiment))

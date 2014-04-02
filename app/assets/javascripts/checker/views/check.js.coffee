@@ -1,4 +1,9 @@
 class window.CheckView
-  constructor:(@el, @sections) ->
+  constructor:(@choice) ->
+    @$el = $("<div>")
 
   render: ->
+    html = """
+      """
+    @$el.append($(html))
+    return this

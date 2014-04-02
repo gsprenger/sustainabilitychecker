@@ -147,10 +147,9 @@ header {
   }
 
   // RADIO CHOICE
-  .choice.radio {
-    margin-bottom: 15px;
-
+  .choice {
     .radio-row {
+      margin-top: 15px;
       width: 100%;
 
       .cell {
@@ -392,7 +391,7 @@ header {
   .section {
     padding: 65px 3% 3% 3%;
 
-    .choice.radio {
+    .choice {
       .radio-row {
         .cell {
           float: left;

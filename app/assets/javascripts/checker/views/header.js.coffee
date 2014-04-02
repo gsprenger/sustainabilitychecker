@@ -1,35 +1,38 @@
 class window.HeaderView
-  constructor:(@el, @level, @sections) ->
-    @c = ContentModel
+  constructor:(@level, @sections) ->
+    @$el = $("<header role='banner' data-spy='affix' id='header'>")
+    $(window).on 'allcontentinserted', ->
+      # HeaderView: set offset to header position for affix to trigger
+      $('#header').attr('data-offset-top', $('#header').offset().top)
 
   render: ->
+    c = ContentModel
     html = """
-      <header role='banner' data-spy='affix' id='header'>
-        <nav>
-          <div class='titles'>
-            <div class='title demand'>#{@c.text('chkr_demand', 'simple')}</div>
-            <div class='title supply'>#{@c.text('chkr_supply', 'simple')}</div>
-            <div class='title check'>#{@c.text('chkr_check', 'simple')}</div>
-          </div>
-          <hr>
-          <ul role='navigation'>
+      <nav>
+      <div class='titles'>
+          <div class='title demand'>#{c.text('chkr_demand', 'simple')}</div>
+          <div class='title supply'>#{c.text('chkr_supply', 'simple')}</div>
+          <div class='title check'>#{c.text('chkr_check', 'simple')}</div>
+        </div>
+        <hr>
+        <ul role='navigation'>
       """
-    for section in @sections
+    for s in @sections
       html += """
-              <li>
-                <a href='##{section.name}' class='#{section.type} nav-link' title='#{section.title}'>
-                  <i class="fa #{section.headerIcon}"></i>
-                </a>
-              </li>
-        """
-    html += """
             <li>
-              <a href='#check' class='check nav-link' title='Check'>
-                <i class="fa fa-check"></i>
+              <a href='##{s.name}' class='#{s.type} nav-link' title='#{s.title}'>
+                <i class="fa #{s.headerIcon}"></i>
               </a>
             </li>
-          </ul>
-        </nav>
-      </header>
+        """
+    html += """
+          <li>
+            <a href='#check' class='check nav-link' title='Check'>
+              <i class="fa fa-check"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
       """
-    $(@el).append($(html))
+    @$el.append($(html))
+    return this

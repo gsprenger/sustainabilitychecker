@@ -1,26 +1,20 @@
 class window.AppView
-  constructor:(@el, @level, @sections) ->
-    @introView = new IntroView(@el, @level)
-    @headerView = new HeaderView('#intro-header', @level, @sections)
-    @sectionViews = []
+  constructor:(@level, @sections) ->
+    @$el = $('body')
+    @views = []
+    @views.push(new IntroView(@level, @sections))
     for s in @sections
-      @sectionViews.push(new SectionView(@el, s))
-    @checkView = new CheckView(@el, @sections)
+      @views.push(new SectionView(s))
+    @views.push(new CheckView(@sections))
 
   render: ->
-    @introView.render()
-    @headerView.render()
-    for sv in @sectionViews
-      sv.render()
-    @checkView.render()
-    @postRender()
+    for v in @views
+      @$el.append(v.render().$el)
+    # Notify other views
+    $(window).trigger('allcontentinserted')
     @events()
 
   events: ->
-    $(@el).find('.nav-link').on 'click', (e) ->
+    @$el.find('.nav-link').on 'click', (e) ->
       $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
-
-  postRender: ->
-    # HeaderView: set offset to header position for affix to trigger
-    $(@el).find('#header').attr('data-offset-top', $('#header').offset().top)
