@@ -1,7 +1,7 @@
 class window.AppView
   constructor:(@el, @level, @sections) ->
     @introView = new IntroView(@el, @level)
-    @headerView = new HeaderView('.intro-header', @level, @sections)
+    @headerView = new HeaderView('#intro-header', @level, @sections)
     @sectionViews = []
     for s in @sections
       @sectionViews.push(new SectionView(@el, s))

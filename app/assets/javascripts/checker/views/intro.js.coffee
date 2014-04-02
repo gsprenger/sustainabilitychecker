@@ -16,7 +16,7 @@ class window.IntroView
             </a>
           </div>
           <br><br>
-          <div class='intro-header'></div>
+          <div id='intro-header'></div>
         </div>
       </div>
       """
