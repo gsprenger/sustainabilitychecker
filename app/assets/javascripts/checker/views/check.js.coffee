@@ -1,5 +1,4 @@
 class window.CheckView
-  constructor:(@el, @content) ->
+  constructor:(@el, @sections) ->
 
   render: ->
-    

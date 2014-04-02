@@ -4,9 +4,8 @@ class window.App
   class PrivateApp
     constructor: ->
     setup: ->
-      # Instanciate models
+      ContentModel.setup()
       @experiment = new ExperimentModel('intro')
-      @content = ContentModel.setup()
       # section models
       @demographics = new DemographicsModel()
       @diet         = new DietModel()
@@ -17,22 +16,12 @@ class window.App
       @bm           = new BmModel()
       @agriculture  = new AgricultureModel()
       @energy       = new EnergyModel()
-      @sections = [
-        @demographics,
-        @diet,
-        @households,
-        @services,
-        @density,
-        @land,
-        @bm,
-        @agriculture,
-        @energy
-      ]
+      @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
 
     launchLevel:(num) ->
-      @appView = new AppView('body', num, @content, @sections)
+      @appView = new AppView('body', num, @sections)
       @appView.render()
 
   @get: ->
-    # singleton model
+    # singleton pattern
     instance ?= new PrivateApp()

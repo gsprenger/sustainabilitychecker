@@ -1,12 +1,11 @@
 class window.AppView
-  constructor:(@el, @level, @content, @sections) ->
-    @$el = $(@el)
-    @introView = new IntroView(@el, @level, @content, )
-    @headerView = new HeaderView('.intro-header', @level, @content, @sections)
+  constructor:(@el, @level, @sections) ->
+    @introView = new IntroView(@el, @level)
+    @headerView = new HeaderView('.intro-header', @level, @sections)
     @sectionViews = []
     for s in @sections
-      @sectionViews.push(new SectionView(@el, @content, s))
-    @checkView = new CheckView(@el, @content)
+      @sectionViews.push(new SectionView(@el, s))
+    @checkView = new CheckView(@el, @sections)
 
   render: ->
     @introView.render()
@@ -14,3 +13,8 @@ class window.AppView
     for sv in @sectionViews
       sv.render()
     @checkView.render()
+    @postRenderOps()
+
+  postRenderOps: ->
+    # HeaderView: set offset to header position for affix to trigger
+    $('#header').attr('', $('#header').offset().top)
