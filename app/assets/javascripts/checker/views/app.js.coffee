@@ -13,8 +13,14 @@ class window.AppView
     for sv in @sectionViews
       sv.render()
     @checkView.render()
-    @postRenderOps()
+    @postRender()
+    @events()
 
-  postRenderOps: ->
+  events: ->
+    $(@el).find('.nav-link').on 'click', (e) ->
+      $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
+      return false
+
+  postRender: ->
     # HeaderView: set offset to header position for affix to trigger
-    $('#header').attr('', $('#header').offset().top)
+    $(@el).find('#header').attr('data-offset-top', $('#header').offset().top)

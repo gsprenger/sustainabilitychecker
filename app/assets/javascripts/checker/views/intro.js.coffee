@@ -15,7 +15,7 @@ class window.IntroView
               <div class='btn btn-lg btn-primary'>#{@c.text('chkr_start_btn_level'+@level)}</div>
             </a>
           </div>
-          <hr>
+          <br><br>
           <div class='intro-header'></div>
         </div>
       </div>

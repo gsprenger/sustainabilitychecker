@@ -2,12 +2,6 @@ class window.HeaderView
   constructor:(@el, @level, @sections) ->
     @c = ContentModel
 
-  events:(context) ->
-    $('.nav-link', 'click', (e) =>
-      $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
-      return false
-    ]
-
   render: ->
     html = """
       <header role='banner' data-spy='affix' id='header'>
@@ -39,4 +33,3 @@ class window.HeaderView
       </header>
       """
     $(@el).append($(html))
-    @events(@el)
