@@ -1,9 +1,6 @@
 class window.HeaderView
   constructor:(@level, @sections) ->
     @$el = $("<header role='banner' data-spy='affix' id='header'>")
-    $(window).on 'allcontentinserted', ->
-      # HeaderView: set offset to header position for affix to trigger
-      $('#header').attr('data-offset-top', $('#header').offset().top)
 
   render: ->
     c = App.get().content
@@ -35,4 +32,10 @@ class window.HeaderView
       </nav>
       """
     @$el.append($(html))
+    @events()
     return this
+
+  events: ->
+    $(window).on 'appready', ->
+      # HeaderView: set offset to header position for affix to trigger
+      $('#header').attr('data-offset-top', $('#header').offset().top)
