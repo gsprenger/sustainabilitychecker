@@ -4,11 +4,11 @@ class window.SectionView
     @choiceViews = []
     for c in @section.choices
       switch (c.type)
-        when ('RadioModel')
+        when ('Radioº')
           @choiceViews.push(new RadioView(@section, c))
-        when ('SliderModel')
+        when ('Slider')
           @choiceViews.push(new SliderView(@section, c))
-        when ('SliderGroupModel')
+        when ('SliderGroup')
           @choiceViews.push(new SliderGroupView(@section, c))
         else
           console.error('Unknown ChoiceView type: '+c.type)

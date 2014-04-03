@@ -11,7 +11,7 @@ class window.AppView
     for v in @views
       @$el.append(v.render().$el)
     # Notify other views
-    $(window).trigger('allcontentinserted')
+    $(window).trigger('appready')
     @events()
 
   events: ->
