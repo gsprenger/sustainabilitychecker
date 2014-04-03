@@ -4,7 +4,7 @@ class window.SectionView
     @choiceViews = []
     for c in @section.choices
       switch (c.type)
-        when ('Radioº')
+        when ('Radio')
           @choiceViews.push(new RadioView(@section, c))
         when ('Slider')
           @choiceViews.push(new SliderView(@section, c))
