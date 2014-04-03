@@ -1,11 +1,13 @@
 class window.AppView
-  constructor:(@level, @sections) ->
+  constructor:(@level) ->
     @$el = $('body')
+    @sections = App.get().sections
     @views = []
     @views.push(new IntroView(@level, @sections))
     for s in @sections
       @views.push(new SectionView(s))
     @views.push(new CheckView(@sections))
+    @views.push(new SudokuView())
 
   render: ->
     for v in @views

@@ -16,14 +16,13 @@ class window.RadioView
           <small>#{c.text(p+'_'+vals[i]+'_c')}</small>
         </div>
       """
-    @$el.append($(html))
+    @$el.html(html)
     @events()
     return this
 
   events: ->
     @$el.find('.cell').on 'click', (e) =>
       $(window).one 'choicecomplete', =>
-        console.log($(e.currentTarget).attr('data-value'))
         @$el.find('.cell').removeClass('active')
         $(e.currentTarget).addClass('active')
       @choice.setValue($(e.currentTarget).attr('data-value'))

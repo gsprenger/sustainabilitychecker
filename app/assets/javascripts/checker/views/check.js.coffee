@@ -6,5 +6,5 @@ class window.CheckView
     c = App.get().content
     html = """
       """
-    @$el.append($(html))
+    @$el.html(html)
     return this

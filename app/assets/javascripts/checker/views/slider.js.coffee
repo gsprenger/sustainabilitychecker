@@ -5,5 +5,5 @@ class window.SliderView
   render: ->
     html = """
       """
-    @$el.append($(html))
+    @$el.html(html)
     return this

@@ -20,6 +20,6 @@ class window.IntroView
         <div id='intro-header'></div>
       </div>
       """
-    @$el.append($(html))
+    @$el.html(html)
     @$el.find('#intro-header').append(@header.render().$el)
     return this

@@ -31,7 +31,7 @@ class window.HeaderView
         </ul>
       </nav>
       """
-    @$el.append($(html))
+    @$el.html(html)
     @events()
     return this
 

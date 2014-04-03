@@ -26,7 +26,7 @@ class window.SectionView
         </div>
       </div>
       """
-    @$el.append($(html))
+    @$el.html(html)
     for cv in @choiceViews
       @$el.find("#choice-#{@section.slug}").append(cv.render().$el)
     return this

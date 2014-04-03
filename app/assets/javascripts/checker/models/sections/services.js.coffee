@@ -56,4 +56,4 @@ class window.Services
     (App.get().demographics.get_HA_PW() * @get_HA_SG_IN_PW())
 
   get_ET_SG: ->
-    (@get_HA_SG() * @get_EMR_SG())
+    (@get_HA_SG() * @get_EMR_SG())/1000

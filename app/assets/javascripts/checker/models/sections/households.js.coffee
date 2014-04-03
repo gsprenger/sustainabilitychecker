@@ -29,13 +29,20 @@ class window.Households
       "0-70-30l": 2
       "0-70-30h": 0.8
       "0-50-50":  0.15
-    "ET_ELEC": # % of PES
+    "perc_ET_ELEC": # % of PES
       "30-70-0":  30
       "60-40-0":  30
       "0-80-20":  15
       "0-70-30l": 20
       "0-70-30h": 20
       "0-50-50":  10
+    "perc_ET_FUELS": # % of PES
+      "30-70-0":  70
+      "60-40-0":  70
+      "0-80-20":  85
+      "0-70-30l": 80
+      "0-70-30h": 80
+      "0-50-50":  90
 
   getValue: ->
     prop = @sliders['urb'].getValue() + '-' + @sliders['rur'].getValue()
@@ -49,11 +56,11 @@ class window.Households
   get_EMR_HH: ->
      @data.EMR_HH[@getValue()]
 
-  get_ET_ELEC: ->
-     @data.ET_ELEC[@getValue()]
+  get_perc_ET_ELEC: ->
+     @data.perc_ET_ELEC[@getValue()]
 
-  get_ET_FUELS: ->
-    (100 -  @get_ET_ELEC())
+  get_perc_ET_FUELS: ->
+    (100 -  @get_perc_ET_ELEC())
 
   get_ET_HH: ->
-    (@get_EMR_HH() * App.get().demographics.get_HA_HH())
+    (@get_EMR_HH() * App.get().demographics.get_HA_HH())/1000

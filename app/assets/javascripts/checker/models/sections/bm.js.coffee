@@ -24,11 +24,14 @@ class window.Bm
       "med":  257
       "high": 218
 
+  getValue: ->
+    @choices[0].getValue()
+
   get_ET_BM: ->
-    @data.ET_BM[@choices[0].getValue()]
+    @data.ET_BM[@getValue()]
 
   get_EMR_BM: ->
-    @data.EMR_BM[@choices[0].getValue()]
+    @data.EMR_BM[@getValue()]
 
   get_HA_BM: ->
-    @data.HA_BM[@choices[0].getValue()]
+    @data.HA_BM[@getValue()]

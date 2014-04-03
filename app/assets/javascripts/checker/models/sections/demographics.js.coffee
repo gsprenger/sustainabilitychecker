@@ -19,9 +19,13 @@ class window.Demographics
       "low":  7446
       "med":  7884
       "high": 8129
+    "THA": 8760
+
+  getValue: ->
+    @choices[0].getValue()
 
   get_HA_PW: ->
-    @data.HA_PW[@choices[0].getValue()]
+    @data.HA_PW[@getValue()]
 
   get_HA_HH: ->
-    @data.HA_HH[@choices[0].getValue()]
+    @data.HA_HH[@getValue()]

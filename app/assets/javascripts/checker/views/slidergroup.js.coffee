@@ -5,5 +5,5 @@ class window.SliderGroupView
   render: ->
     html = """
       """
-    @$el.append($(html))
+    @$el.html(html)
     return this

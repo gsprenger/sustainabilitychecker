@@ -16,8 +16,8 @@ class window.Land
       "med":  0.3
       "high": 0.5
 
-  get_s_lan: ->
-    @data.s_lan[@choices[0].getValue()]
+  getValue: ->
+    @choices[0].getValue()
 
-  get_land_prod: ->
-    1 # MISSING DATA
+  get_s_lan: ->
+    @data.s_lan[@getValue()]

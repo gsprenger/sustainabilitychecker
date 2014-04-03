@@ -17,10 +17,10 @@ class window.App
       @agriculture  = new Agriculture()
       @energy       = new Energy()
       @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
-      @sudoku = new Sudoku(@sections)
+      @sudoku = new Sudoku(@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy)
 
     launchLevel:(num) ->
-      @appView = new AppView(num, @sections)
+      @appView = new AppView(num)
       @appView.render()
 
   @get: ->
