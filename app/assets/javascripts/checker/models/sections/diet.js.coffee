@@ -1,4 +1,4 @@
-class window.DietModel extends SectionModel
+class window.Diet
   constructor: ->
     @name = 'diet'
     @slug = 'd_die'
@@ -7,7 +7,7 @@ class window.DietModel extends SectionModel
     @i18nPrefix = 'chkr_die'
     @choices = []
     @choices.push(
-      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
+      new Radio(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #
   data:

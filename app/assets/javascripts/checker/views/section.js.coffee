@@ -14,7 +14,7 @@ class window.SectionView
           console.error('Unknown ChoiceView type: '+c.type)
 
   render: ->
-    c = ContentModel
+    c = App.get().content
     p = @section.i18nPrefix
     html = """
       <div class='section-wrapper'>

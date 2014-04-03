@@ -1,4 +1,4 @@
-class window.AgricultureModel extends SectionModel
+class window.Agriculture
   constructor: ->
     @name = 'agriculture'
     @slug = 's_agr'
@@ -7,7 +7,7 @@ class window.AgricultureModel extends SectionModel
     @i18nPrefix = 'chkr_agr'
     @choices = []
     @choices.push(
-      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
+      new Radio(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #  
   data:

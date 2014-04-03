@@ -1,4 +1,4 @@
-class window.DemographicsModel extends SectionModel
+class window.Demographics
   constructor: ->
     @name = 'demographics'
     @slug = 'd_dem'
@@ -7,7 +7,7 @@ class window.DemographicsModel extends SectionModel
     @i18nPrefix = 'chkr_dem'
     @choices = []
     @choices.push(
-      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
+      new Radio(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #
   data:

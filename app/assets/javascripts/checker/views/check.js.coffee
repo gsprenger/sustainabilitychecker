@@ -3,6 +3,7 @@ class window.CheckView
     @$el = $("<div>")
 
   render: ->
+    c = App.get().content
     html = """
       """
     @$el.append($(html))

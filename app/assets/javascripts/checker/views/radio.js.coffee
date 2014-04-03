@@ -3,7 +3,7 @@ class window.RadioView
     @$el = $("<div class='radio-row'>")
 
   render: ->
-    c = ContentModel
+    c = App.get().content
     p = @section.i18nPrefix
     vals = @choice.values
     html = ''

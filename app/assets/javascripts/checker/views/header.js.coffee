@@ -6,7 +6,7 @@ class window.HeaderView
       $('#header').attr('data-offset-top', $('#header').offset().top)
 
   render: ->
-    c = ContentModel
+    c = App.get().content
     html = """
       <nav>
       <div class='titles'>

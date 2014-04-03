@@ -4,7 +4,7 @@ class window.IntroView
     @header = new HeaderView(@level, @sections)
 
   render: ->
-    c = ContentModel
+    c = App.get().content
     html = """
       <div class='section-wrapper'>
         <h2>#{c.text('chkr_start_title_level'+@level, 'simple')}<small>#{c.text('chkr_start_subtitle_level'+@level, 'simple')}</small></h2>

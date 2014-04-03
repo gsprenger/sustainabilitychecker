@@ -1,1 +1,2 @@
-class window.SudokuModel
+class window.Sudoku
+  constructor:(@sections) ->

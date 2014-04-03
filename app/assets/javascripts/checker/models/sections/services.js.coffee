@@ -1,4 +1,4 @@
-class window.ServicesModel extends SectionModel
+class window.Services
   constructor: ->
     @name = 'services'
     @slug = 'd_ser'
@@ -6,10 +6,10 @@ class window.ServicesModel extends SectionModel
     @headerIcon = 'fa-medkit'
     @i18nPrefix = 'chkr_ser'
     @choices = []
-    @choices.push(new SliderModel('d_ser_edu', ['low', 'med', 'high'], 'low'))
-    @choices.push(new SliderModel('d_ser_med', ['low', 'med', 'high'], 'low'))
-    @choices.push(new SliderModel('d_ser_pub', ['low', 'med', 'high'], 'low'))
-    @choices.push(new SliderModel('d_ser_tra', ['low', 'med', 'high'], 'low'))
+    @choices.push(new Slider('d_ser_edu', ['low', 'med', 'high'], 'low'))
+    @choices.push(new Slider('d_ser_med', ['low', 'med', 'high'], 'low'))
+    @choices.push(new Slider('d_ser_pub', ['low', 'med', 'high'], 'low'))
+    @choices.push(new Slider('d_ser_tra', ['low', 'med', 'high'], 'low'))
 
   # SUDOKU DATA #  
   data:

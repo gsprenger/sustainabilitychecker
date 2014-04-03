@@ -1,4 +1,4 @@
-class window.BmModel extends SectionModel
+class window.Bm
   constructor: ->
     @name = 'bm'
     @slug = 's_bm'
@@ -7,7 +7,7 @@ class window.BmModel extends SectionModel
     @i18nPrefix = 'chkr_ind'
     @choices = []
     @choices.push(
-      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
+      new Radio(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #  
   data:

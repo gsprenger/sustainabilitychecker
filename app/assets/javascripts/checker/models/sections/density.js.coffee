@@ -1,4 +1,4 @@
-class window.DensityModel extends SectionModel
+class window.Density
   constructor: ->
     @name = 'density'
     @slug = 's_den'
@@ -7,6 +7,6 @@ class window.DensityModel extends SectionModel
     @i18nPrefix = 'chkr_den'
     @choices = []
     @choices.push(
-      new RadioModel(@slug, ['low', 'med', 'high'], @experiment))
+      new Radio(@slug, ['low', 'med', 'high'], @experiment))
 
   # SUDOKU DATA #

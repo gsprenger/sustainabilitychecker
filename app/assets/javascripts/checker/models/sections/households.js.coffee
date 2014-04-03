@@ -1,4 +1,4 @@
-class window.HouseholdsModel extends SectionModel
+class window.Households
   constructor: ->
     @name = 'households'
     @slug = 'd_hou'
@@ -6,17 +6,17 @@ class window.HouseholdsModel extends SectionModel
     @headerIcon = 'fa-home'
     @i18nPrefix = 'chkr_hou'
     @sliders = {
-      'urb': new SliderModel('d_hou_urb', [20, 30, 50, 70, 85], 85),
-      'rur': new SliderModel('d_hou_rur', [15, 30, 50, 70, 80], 15),
-      'sub': new SliderModel('d_hou_sub', [30, 60], 30),
-      'apa': new SliderModel('d_hou_apa', [40, 70], 70),
-      'slu': new SliderModel('d_hou_slu', [0], 0)
+      'urb': new Slider('d_hou_urb', [20, 30, 50, 70, 85], 85),
+      'rur': new Slider('d_hou_rur', [15, 30, 50, 70, 80], 15),
+      'sub': new Slider('d_hou_sub', [30, 60], 30),
+      'apa': new Slider('d_hou_apa', [40, 70], 70),
+      'slu': new Slider('d_hou_slu', [0], 0)
     }
     @choices = []
-    @choices.push(new SliderGroupModel([
+    @choices.push(new SliderGroup([
         @sliders['urb'], @sliders['rur']
       ]))
-    @choices.push(new SliderGroupModel([
+    @choices.push(new SliderGroup([
         @sliders['sub'], @sliders['apa'], @sliders['slu']
       ]))
 

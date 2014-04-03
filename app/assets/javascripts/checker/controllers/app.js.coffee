@@ -4,19 +4,20 @@ class window.App
   class PrivateApp
     constructor: ->
     setup: ->
-      ContentModel.setup()
-      @experiment = new ExperimentModel('intro')
-      # section models
-      @demographics = new DemographicsModel()
-      @diet         = new DietModel()
-      @households   = new HouseholdsModel()
-      @services     = new ServicesModel()
-      @density      = new DensityModel()
-      @land         = new LandModel()
-      @bm           = new BmModel()
-      @agriculture  = new AgricultureModel()
-      @energy       = new EnergyModel()
+      # Models
+      @content = Content.setup()
+      @experiment = new Experiment('intro')
+      @demographics = new Demographics()
+      @diet         = new Diet()
+      @households   = new Households()
+      @services     = new Services()
+      @density      = new Density()
+      @land         = new Land()
+      @bm           = new Bm()
+      @agriculture  = new Agriculture()
+      @energy       = new Energy()
       @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
+      @sudoku = new Sudoku(@sections)
 
     launchLevel:(num) ->
       @appView = new AppView(num, @sections)

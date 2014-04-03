@@ -1,4 +1,4 @@
-class window.ExperimentModel
+class window.Experiment
   constructor:(@current) ->
     exp = localStorage.getItem('experiment')
     if (exp?)

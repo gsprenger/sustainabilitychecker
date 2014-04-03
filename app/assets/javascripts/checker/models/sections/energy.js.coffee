@@ -1,4 +1,4 @@
-class window.EnergyModel extends SectionModel
+class window.Energy
   constructor: ->
     @name = 'energy'
     @slug = 's_ene'
@@ -7,23 +7,23 @@ class window.EnergyModel extends SectionModel
     @i18nPrefix = 'chkr_ene'
     @choices = []
     @sliders = {
-      'nuc': new SliderModel('s_ene_nuc', [0, 25,50, 75, 100], 0),
-      'hyd': new SliderModel('s_ene_hyd', [0, 25,50, 75, 100], 25),
-      'win': new SliderModel('s_ene_win', [0, 25,50, 75, 100], 25),
-      'pho': new SliderModel('s_ene_pho', [0, 25,50, 75, 100], 25),
-      'csp': new SliderModel('s_ene_csp', [0, 25,50, 75, 100], 25),
-      'bio': new SliderModel('s_ene_bio', [0, 25,50, 75, 100], 25),
-      'hyg': new SliderModel('s_ene_hyg', [0, 25,50, 75, 100], 50),
-      'ncf': new SliderModel('s_ene_ncf', [0, 25,50, 75, 100], 25)
+      'nuc': new Slider('s_ene_nuc', [0, 25,50, 75, 100], 0),
+      'hyd': new Slider('s_ene_hyd', [0, 25,50, 75, 100], 25),
+      'win': new Slider('s_ene_win', [0, 25,50, 75, 100], 25),
+      'pho': new Slider('s_ene_pho', [0, 25,50, 75, 100], 25),
+      'csp': new Slider('s_ene_csp', [0, 25,50, 75, 100], 25),
+      'bio': new Slider('s_ene_bio', [0, 25,50, 75, 100], 25),
+      'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
+      'ncf': new Slider('s_ene_ncf', [0, 25,50, 75, 100], 25)
     }
-    @choices.push(new SliderGroupModel([
+    @choices.push(new SliderGroup([
         @sliders['nuc'], 
         @sliders['hyd'], 
         @sliders['win'], 
         @sliders['pho'], 
         @sliders['csp']
       ]))
-    @choices.push(new SliderGroupModel([
+    @choices.push(new SliderGroup([
         @sliders['bio'], 
         @sliders['hyg'], 
         @sliders['ncf']

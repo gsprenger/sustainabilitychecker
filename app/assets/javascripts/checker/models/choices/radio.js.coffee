@@ -1,4 +1,4 @@
-class window.RadioModel
+class window.Radio
   constructor:(@slug, @values) ->
     @type = @constructor.name # classname
     @experiment = App.get().experiment
