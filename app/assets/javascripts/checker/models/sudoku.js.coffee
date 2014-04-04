@@ -52,3 +52,21 @@ class window.Sudoku
 
   get_vimports_LU: ->
     (@get_TLU() - @land.get_s_lan())
+
+  get_EMR_WS: ->
+    (@get_TET() / @get_THA())*1000
+
+  get_EMR_HH: ->
+    (@households.get_ET_HH() / @demographics.get_HA_HH())*1000
+
+  get_EMR_SG: ->
+    (@services.get_ET_SG() / @services.get_HA_SG())*1000
+
+  get_EMR_BM: ->
+    (@bm.get_ET_BM() / @bm.get_HA_BM())*1000
+
+  get_EMR_AG: ->
+    (@agriculture.get_ET_AG() / @agriculture.get_HA_AG())*1000
+
+  get_EMR_EM: ->
+    (@energy.get_ET_EM() / @energy.get_HA_EM())*1000

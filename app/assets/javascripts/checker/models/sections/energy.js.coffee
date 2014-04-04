@@ -82,7 +82,7 @@ class window.Energy
     "HA_FUELS":
       "bio":
         "low":  6667
-        "high": 5569
+        "med":  5569.5
         "high": 4472
       "hyg": 139
       "ncf": 1187
@@ -92,7 +92,7 @@ class window.Energy
     value = 0
     $.each data, (name, val) =>
       value += (@sliders[name].getValue() * (if name == 'bio' then val[typ] else val))
-    return value
+    return (value/100)
 
   get_s_ene_con: ->
     (@app.households.get_ET_HH() +
@@ -122,11 +122,11 @@ class window.Energy
     @loopAllWithValue(@data.HA_FUELS)
 
   get_NSECs_ELEC: ->
-    ((@app.households.get_perc_ET_ELEC() * @get_s_ene_con()) / 
+    ((@app.households.get_perc_ET_ELEC() * (@get_s_ene_con() / 100)) / 
       @data.GER_EC_ELEC)
     
   get_NSECs_FUELS: ->
-    ((@app.households.get_perc_ET_FUELS() * @get_s_ene_con()) /
+    ((@app.households.get_perc_ET_FUELS() * (@get_s_ene_con() / 100)) /
       @data.GER_EC_FUELS)
 
   get_GSECs_ELEC: ->
@@ -174,20 +174,11 @@ class window.Energy
 
   get_HA_EM: ->
     ((@get_GSEC_ELEC() * @get_HA_ELEC()) +
-     (@get_GSEC_FUELS() * @get_HA_FUELS()))
+     (@get_GSEC_FUELS() * @get_HA_FUELS()))/1000
 
   get_GSEC_EM_no_land: ->
-    # SUM(IF(LU_[i,j] = 0) LU_[i,j] * GSEC_[i,j] * GER-EC_[i,j] : 0)
-    typ = @get_s_ene_typ()
-    value = 0
-    for name in ['nuc', 'hyd', 'pho', 'csp', 'win']
-      if (@sliders[name].getValue() == 0)
-        value += @data.LU_ELEC[name] * @get_GSEC_ELEC() * @data.GER_EC_ELEC
-    for name in ['hyg', 'bio', 'ncf']
-      if (@sliders[name].getValue() == 0)
-        val = (if name != 'bio' then @data.LU_FUELS[name] else @data.LU_FUELS[name][typ])
-        value += val * @get_GSEC_FUELS() * @data.GER_EC_FUELS
-    return value
+    ((((@sliders['nuc'].getValue() + @sliders['hyd'].getValue())/100) * @get_GSEC_ELEC() * @data.GER_EC_ELEC) +
+      ((@sliders['ncf'].getValue()/100) * @get_GSEC_FUELS() * @data.GER_EC_FUELS))
 
   get_LU_average: ->
     ((@get_LU_ELEC() / @data.GER_EC_ELEC * 

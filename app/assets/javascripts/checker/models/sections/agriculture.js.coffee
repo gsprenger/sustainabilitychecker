@@ -43,7 +43,7 @@ class window.Agriculture
     @data.EMR_AG[@getValue()]
     
   get_LU_AG: ->
-    (App.get().diet.get_grains_equiv() * @get_LAN_prod())
+    (App.get().diet.get_grains_equiv() / @get_LAN_prod())
     
   get_HA_AG: ->
     (@get_LU_AG() * @get_labor_density_AG())
