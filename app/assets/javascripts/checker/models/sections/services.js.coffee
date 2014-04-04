@@ -38,11 +38,11 @@ class window.Services
     value = 0
     for slider in @choices
       switch(slider.getValue())
-        when 0
+        when 'low'
           value += 1
-        when 1
+        when 'med'
           value += 2
-        when 2
+        when 'high'
           value += 3
     return value
 
