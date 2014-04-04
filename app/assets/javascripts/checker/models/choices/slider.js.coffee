@@ -1,6 +1,6 @@
 class window.Slider
   constructor:(@slug, @values, @default) ->
-    @type = @constructor.name # classname
+    @type = 'Slider'
     @experiment = App.get().experiment
     val = @experiment.getValue(@slug)
     if (val? && val in @values)

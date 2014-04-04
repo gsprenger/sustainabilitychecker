@@ -1,6 +1,6 @@
 class window.Radio
   constructor:(@slug, @values) ->
-    @type = @constructor.name # classname
+    @type = 'Radio'
     @experiment = App.get().experiment
     val = @experiment.getValue(@slug)
     if (val? && val in @values)
