@@ -6,8 +6,7 @@ class window.Land
     @headerIcon = 'fa-picture-o'
     @i18nPrefix = 'chkr_lan'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #
   data:

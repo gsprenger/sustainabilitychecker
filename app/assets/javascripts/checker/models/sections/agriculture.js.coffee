@@ -6,8 +6,7 @@ class window.Agriculture
     @headerIcon = 'fa-leaf'
     @i18nPrefix = 'chkr_agr'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #  
   data:

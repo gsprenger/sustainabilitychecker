@@ -6,7 +6,6 @@ class window.Density
     @headerIcon = 'fa-group'
     @i18nPrefix = 'chkr_den'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #

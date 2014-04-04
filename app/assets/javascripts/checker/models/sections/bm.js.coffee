@@ -6,8 +6,7 @@ class window.Bm
     @headerIcon = 'fa-wrench'
     @i18nPrefix = 'chkr_ind'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #  
   data:

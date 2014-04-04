@@ -191,12 +191,10 @@ header {
   }
 
   // SLIDER CHOICE
-  [data-choice-type='slider'], [data-choice-type='slidergroup'] {
-    font-weight: 400;
-  }
   .slider {
     position: relative; 
     margin-bottom: 25px;
+    font-weight: 400;
 
     .ui-slider-range {
       border-top-right-radius: 0;

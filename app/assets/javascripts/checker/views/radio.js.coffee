@@ -1,14 +1,14 @@
 class window.RadioView
-  constructor:(@section, @choice) ->
+  constructor:(@section, @radio) ->
     @$el = $("<div class='radio-row'>")
 
   render: ->
     c = App.get().content
     p = @section.i18nPrefix
-    vals = @choice.values
+    vals = @radio.values
     html = ''
     for i in [0..vals.length-1]
-      active = if @choice.getValue() == vals[i] then ' active' else ''
+      active = if @radio.getValue() == vals[i] then ' active' else ''
       html += """
         <div class='cell lg-4#{active}' data-value='#{vals[i]}'>
           #{c.text('http://dummyimage.com/400x400/d1d9ff/5e5e5e.png&text=placeholder', 'image')}
@@ -25,4 +25,4 @@ class window.RadioView
       $(window).one 'choicecomplete', =>
         @$el.find('.cell').removeClass('active')
         $(e.currentTarget).addClass('active')
-      @choice.setValue($(e.currentTarget).attr('data-value'))
+      @radio.setValue($(e.currentTarget).attr('data-value'))

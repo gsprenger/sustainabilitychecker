@@ -6,8 +6,7 @@ class window.Diet
     @headerIcon = 'fa-cutlery'
     @i18nPrefix = 'chkr_die'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #
   data:

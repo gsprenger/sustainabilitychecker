@@ -6,8 +6,7 @@ class window.Demographics
     @headerIcon = 'fa-globe'
     @i18nPrefix = 'chkr_dem'
     @choices = []
-    @choices.push(
-      new Radio(@slug, ['low', 'med', 'high'], @experiment))
+    @choices.push(new Radio(@slug, ['low', 'med', 'high']))
 
   # SUDOKU DATA #
   data:
