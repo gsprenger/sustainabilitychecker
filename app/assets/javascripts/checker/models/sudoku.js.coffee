@@ -36,7 +36,10 @@ class window.Sudoku
     ((@get_TFOOD() / @agriculture.get_LU_AG()) * @land.get_s_lan())
 
   get_DS_energy: ->
-    (@get_TET() * (@land.get_s_lan() - @agriculture.get_LU_AG()))
+    if (@agriculture.get_LU_AG() > @land.get_s_lan())
+      return @energy.get_GSEC_EM_no_land()
+    else
+      return @energy.get_GSEC_EM_no_land() + ((@land.get_s_lan() - @agriculture.get_LU_AG())/@energy.get_LU_average()) * 1000
 
   get_imports_food: ->
     (@get_TFOOD() - @get_DS_food())
