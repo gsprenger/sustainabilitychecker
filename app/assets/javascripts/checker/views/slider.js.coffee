@@ -30,18 +30,19 @@ class window.SliderView
     sliderEl.on 'slidechange', (e, ui) =>
       @slider.setValue(ui.value)
 
+  # This is contained in the View and not the Model because slider manipulation in JQuery is made with DOM elements
   initSlider: ->
     sliderEl = @$el.find('.slider')
+    stepPos = []
     options = {
       "range":   "min",
       "animate": true,
-      "default": @slider.default
+      "value": @slider.getValue()
     }
     if (@slider.sliderType == 'text')
       # Slider is of lowmedhigh type
       options.max = @slider.values.length-1
       sliderEl.slider(options)
-      stepPos = []
       for i in [0..@slider.values.length-1]
         stepNb = @slider.values.length-1
         stepNb = 1 if stepNb == 0 # avoid divide by 0 error
@@ -51,19 +52,21 @@ class window.SliderView
       sliderEl.slider(options)
       limits = """
         <div class='min-limit' style='width:#{@slider.values[0]}%'></div>
-        <div class='max-limit' style='width:#{@slider.values[@slider.values.length-1]}%'></div>
+        <div class='max-limit' style='width:#{100-@slider.values[@slider.values.length-1]}%'></div>
         """
       sliderEl.append($(limits))
-      for val in @slider.values
-        stepPos.push(val)
+      stepPos = @slider.values
     for i in [0..@slider.values.length-1]
       steps = """
         <div class='step' style='left:#{stepPos[i]}%'>
-        <div class='name'>#{@capitaliseFirstLetter(@slider.values[i])}</div>
+        <div class='name'>#{@formatStep(@slider.values[i])}</div>
         """
       sliderEl.append($(steps))
     if @slider.values.length == 1
       sliderEl.find('.ui-slider-handle').hide()
 
-  capitaliseFirstLetter:(string) ->
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  formatStep:(string) ->
+    if (!isNaN(string))
+      return string += '%'
+    else
+      return string.charAt(0).toUpperCase() + string.slice(1);

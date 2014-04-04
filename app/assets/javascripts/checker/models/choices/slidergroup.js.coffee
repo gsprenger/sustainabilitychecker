@@ -1,3 +1,3 @@
 class window.SliderGroup
-  constructor:(@sliders) ->
+  constructor:(@slug, @sliders) ->
     @type = @constructor.name # classname

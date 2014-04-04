@@ -16,14 +16,14 @@ class window.Energy
       'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
       'ncf': new Slider('s_ene_ncf', [0, 25,50, 75, 100], 25)
     }
-    @choices.push(new SliderGroup([
+    @choices.push(new SliderGroup('ele', [
         @sliders['nuc'], 
         @sliders['hyd'], 
         @sliders['win'], 
         @sliders['pho'], 
         @sliders['csp']
       ]))
-    @choices.push(new SliderGroup([
+    @choices.push(new SliderGroup('fue', [
         @sliders['bio'], 
         @sliders['hyg'], 
         @sliders['ncf']

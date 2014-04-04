@@ -9,7 +9,10 @@ class window.Slider
 
   getValue: ->
     if @value?
-      @value
+      if (@sliderType == 'text')
+        @values.indexOf(@value)
+      else
+        @value
     else
       @default
 
@@ -19,7 +22,7 @@ class window.Slider
     if (value in @values)
       @value = value
       @experiment.setValue(@slug, value)
-      $(window).trigger('choicecomplete', this)
+      $(window).trigger('choicecomplete')
     else
       console.error(@type+' Error: trying to select unknown value '+ value)
 

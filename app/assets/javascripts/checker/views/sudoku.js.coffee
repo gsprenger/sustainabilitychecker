@@ -2,6 +2,8 @@ class window.SudokuView
   constructor:(@sudoku) ->
     @$el = $("<div class='sudoku'>")
     @sudoku = App.get().sudoku
+    $(window).on 'choicecomplete', =>
+      @render()
 
   render: ->
     html =
@@ -92,7 +94,7 @@ class window.SudokuView
       </table>
       <hr>
       <p>
-        Data used: #{localStorage.experiment} (and defaults for other values)
+        Data used: <pre>#{localStorage.experiment}</pre>
       </p>
       """
     @$el.html(html)
@@ -104,6 +106,4 @@ class window.SudokuView
     @events()
     return this
 
-  events: ->    
-    $(window).on 'choicecomplete', =>
-      @render()
+  events: ->
