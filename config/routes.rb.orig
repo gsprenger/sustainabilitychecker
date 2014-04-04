@@ -1,0 +1,41 @@
+Sustainabilitychecker::Application.routes.draw do
+  # Root
+  root "static_pages#home"
+
+  # Mercury
+  namespace :mercury do
+    resources :images
+  end
+  get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
+  mount Mercury::Engine => '/'
+  # Admin panel for mercury
+  get '/admin' => "admin#admin"
+
+  # AJAX paths and other db comms
+  put "content/save" => "content#save"
+  get "content/all" => "content#get_all"
+
+<<<<<<< HEAD
+  # Checker Levels
+  get "level1" => "level1#app"
+  get "level2" => "level2#app"
+  get "level3" => "level3#app"
+=======
+  # Experiments
+    get "level1/get_experiment" => "level1#get_experiment"
+    post "level1/save_experiment" => "level1#save_experiment"
+  #1: 
+    get "level1" => "level1#app"
+  #2: 
+    get "level2" => "level2#app"
+  #3: 
+    get "level3" => "level3#app"
+>>>>>>> bf95733c0f11ba08b3f8ae25a163f4e1a8f07a82
+
+  # Static website
+  get "home" => "static_pages#home"
+  get "presentation" => "static_pages#presentation"
+  get "contact" => "static_pages#contact"
+  post "contact/send" => "static_pages#contact_send"
+  get "legal" => "static_pages#legal"
+end
