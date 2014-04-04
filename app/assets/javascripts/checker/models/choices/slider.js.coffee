@@ -9,10 +9,7 @@ class window.Slider
 
   getValue: ->
     if @value?
-      if (@sliderType == 'text')
-        @values.indexOf(@value)
-      else
-        @value
+      @value
     else
       @default
 
@@ -27,4 +24,4 @@ class window.Slider
       console.error(@type+' Error: trying to select unknown value '+ value)
 
   getShortName: ->
-    @slug.substr(@slug.lastIndexOf('_'))
+    @slug.substr(@slug.lastIndexOf('_')+1)

@@ -33,15 +33,17 @@ class window.SliderView
   # This is contained in the View and not the Model because slider manipulation in JQuery is made with DOM elements
   initSlider: ->
     sliderEl = @$el.find('.slider')
+    type = @slider.sliderType
+    value = @slider.getValue()
     stepPos = []
     options = {
       "range":   "min",
       "animate": true,
-      "value": @slider.getValue()
+      "value": (if type == 'text' then @slider.values.indexOf(value) else value)
     }
-    if (@slider.sliderType == 'text')
+    if (type == 'text')
       # Slider is of lowmedhigh type
-      options.max = @slider.values.length-1
+      options.max = ''+@slider.values.length-1
       sliderEl.slider(options)
       for i in [0..@slider.values.length-1]
         stepNb = @slider.values.length-1
