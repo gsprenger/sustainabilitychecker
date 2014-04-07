@@ -1,0 +1,132 @@
+<!-- HEADER -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><%= Content.text('st_header_title') %></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="header">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#home"><%= Content.text('st_header_home') %></a></li>
+        <li><a href="#more"><%= Content.text('st_header_more') %></a></li>
+        <li><a href="#contact"><%= Content.text('st_header_contact') %></a></li>
+        <li><a href="#about"><%= Content.text('st_header_about') %></a></li>
+        <li><a href="#credits"><%= Content.text('st_header_credits') %></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div id="home" class='container'>
+  <h1><%= Content.text('st_title') %></h1>
+  <div id='intro-text'>
+    <img src="http://dummyimage.com/200x200/d1d9ff/5e5e5e.png&text=logo">
+    <p>
+      <%= Content.text('st_intro') %>
+    </p>
+  </div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <%= Content.text('st_aside') %>
+    </div>
+    <div class='col-md-6'>
+      <div style="background-color:#000000;width:520px;">
+        <div style="padding:4px;">
+          <iframe src="http://media.mtvnservices.com/embed/mgid:cms:video:thedailyshow.com:312470" width="512" height="288" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='btn-row'>
+    <a href='/level1'>
+      <div class='btn btn-lg btn-primary'><%= Content.text('st_btn_start') %></div>
+    </a>
+    <a href='#more'>
+      <div class='btn btn-lg btn-default'><%= Content.text('st_btn_more') %></div>
+    </a>
+  </div>
+</div>
+
+<!-- MORE -->
+<div id="more" class='container'>
+  <h1><%= Content.text('st_more_title') %></h1>
+  <hr>  
+  <p>
+    <%= Content.text('st_more') %>
+  </p>
+  <div class='btn-row'>
+    <a href='/level1'>
+      <div class='btn btn-lg btn-primary'><%= Content.text('st_btn_morestart') %></div>
+    </a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class='container'>
+  <h1><%= Content.text('st_contact_title') %></h1>
+  <hr/>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-default">   
+        <div class="panel-heading">
+          <h3 class="panel-header"><%= Content.text('contact_visit_title', 'simple') %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%= Content.text('contact_visit_desc') %>
+          </p>  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-header"><%= Content.text('contact_email_title', 'simple') %></h3>
+        </div>
+        <div class="panel-body">
+          TODO Contact Form
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-header"><%= Content.text('contact_address_title', 'simple') %></h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            <%= Content.text('contact_address_desc') %>
+          </p>    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about" class='container'>
+  <h1><%= Content.text('st_about_title') %></h1>
+  <hr>  
+  <p>
+    <%= Content.text('st_about') %>
+  </p>
+</div>
+<!-- CREDITS -->
+<div id="credits" class='container'>
+  <h1><%= Content.text('st_credits_title') %></h1>
+  <hr>  
+  <p>
+    <%= Content.text('st_credits') %>
+  </p>
+</div>
+<!-- FOOTER -->
+<div id="footer">
+  <p><%= Content.text('st_footer') %></p>
+  <p><%= Content.text('st_copyright') %> | <a href='/legal'><%= Content.text('st_legal') %></a></p>
+</div>

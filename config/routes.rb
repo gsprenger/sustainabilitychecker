@@ -22,8 +22,5 @@ Sustainabilitychecker::Application.routes.draw do
 
   # Static website
   get "home" => "static_pages#home"
-  get "presentation" => "static_pages#presentation"
-  get "contact" => "static_pages#contact"
-  post "contact/send" => "static_pages#contact_send"
   get "legal" => "static_pages#legal"
 end

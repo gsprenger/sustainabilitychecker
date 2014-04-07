@@ -1,112 +1,32 @@
-/*****************************************************
-* GENERAL LAYOUT
-*****************************************************/
-$footerH: 60px;
-
-html,
-body {
-  height: 99.9%;
-}
-
 body{
   font-family: 'Open Sans', sans-serif;
+  padding-top: 50px;
 }
 
-.wrap {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto (-$footerH);
-  padding: 0 0 $footerH;
+hr {
+  margin-top: 0;
 }
 
-// HEADER
-.banner, .banner:visited {
-	display: block;
-	background-color: #5cb85c;
-
-	text-decoration: none;
-	color: #FFF;
-
-	border-bottom: 1px solid #dddddd;
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-
-	&:hover {
-		text-decoration: none;
-	}
-
-	h1 {
-		text-shadow: 1px 1px 1px #366B36;
-
-		small {
-			text-shadow: none;
-			padding-left: 10px;
-			color: #fff;
-			font-style: italic;
-			font-size: 20px;
-		}
-	}
+.btn-row {
+  margin-top: 25px;
+  text-align: center;
 }
 
-// FOOTER
-.footer {
-  height: $footerH;
-  background-color: #eee;
-	border-top: 1px solid #dddddd;
-	padding-top: 10px;
-	color: #555;
-
-  nav, ul, li {
-    display: inline;
-  }
-
-  ul {
-    list-style: none;
-  }
+#home h1 {
+  text-align: center;
 }
 
-// MAIN CONTAINER
-.main {
-	p {
-		// Makes paragraphs more readable by spacing and coloring 
-		line-height: 22px;
-		color: #555;
-	}
+#home #intro-text {
+  margin: 25px 0;
 }
 
-/*****************************************************
-* HOME
-*****************************************************/
-// Compensates lack of title by applying margin top
-.home-push {
-	margin-bottom: 20px;
+#home #intro-text img {
+  float: left;
+  margin: 0 15px 10px 0;
 }
 
-.col-btn-start {
-  text-align: right;
+#footer {
+  padding: 10px 25px;
+  background-color: #efefef;
+  text-align: center;
 }
-
-// Colors for social icons
-a {
-	.fa-twitter-square, .fa-facebook-square, .fa-google-plus-square, .fa-globe {
-  	text-decoration: none;
-  }
-
-  .fa-twitter-square {
-	  color: #4099FF;
-	}
-
-	.fa-facebook-square {
-	  color: #3B5998;
-	}
-
-	.fa-google-plus-square {
-	  color: #D34836;
-	}
-
-	.fa-globe {
-	  color: #444;
-	}
-}
-

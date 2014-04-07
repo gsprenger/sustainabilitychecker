@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>The Sustainability Checker</title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
@@ -12,15 +12,9 @@
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= render "layouts/common/shim" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
-    <div class="wrap">
-      <%= render "static_pages/header" %>
-
-      <div class="main container">
-        <%= yield %>
-      </div>
-    </div>
-    <%= render "static_pages/footer" %>
+  <body data-spy="scroll" data-target="#header">
+    <%= yield %>
   </body>
 </html>
