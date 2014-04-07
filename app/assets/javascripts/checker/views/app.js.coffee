@@ -17,7 +17,15 @@ class window.AppView
     @events()
 
   events: ->
+    # Init smooth scrolling
     @$el.find('.nav-link').on 'click', (e) ->
       $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
+    # Init tooltips
     @$el.find('[title]').tooltip()
+    # Scroll to current
+    cur = App.get().experiment.getValue('current')
+    for s in @sections
+      if (s.slug == cur)
+        $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)  
+        break;

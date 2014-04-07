@@ -40,9 +40,8 @@ class window.HeaderView
     $(window).on 'appready', ->
       # HeaderView: set offset to header position for affix to trigger
       $('#header').attr('data-offset-top', $('#header').offset().top)
-      topMenu = $('#header')
-      topMenuHeight = topMenu.outerHeight()+15
-      menuItems = topMenu.find("a")
+      topMenuHeight = $('#header').outerHeight()+15
+      menuItems = $('#header').find("a")
       scrollItems = menuItems.map ->
         item = $($(this).attr("href"))
         if (item.length) 
