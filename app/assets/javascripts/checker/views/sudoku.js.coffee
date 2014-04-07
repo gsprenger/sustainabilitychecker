@@ -16,15 +16,33 @@ class window.SudokuView
           <td colspan="2" rowspan="2"></td>
           <td colspan="2"><strong>Flows</strong></td>
           <td colspan="2"><strong>Funds</strong></td>
-          <td colspan="2"><strong>Fund/Flow</strong></td>
+          <td colspan="2"><strong>Flow/Fund</strong> (Benchmarks)</td>
         </tr>
         <tr>
-          <td><strong>Food (kg grain-equiv p.c.)</strong></td>
-          <td><strong>Energy (GJ-GER p.c.)</strong></td>
-          <td><strong>HA (hrs p.c.)</strong></td>
-          <td><strong>LU (ha p.c.)</strong></td>
-          <td><strong>EMR (MJ/hrs)</strong></td>
-          <td><strong>FMD (kg grains-equiv/ha)</strong></td>
+          <td>
+            <strong>Food</strong><br>
+            (kg grain-equiv p.c.)
+          </td>
+          <td>
+            <strong>Energy</strong><br>
+            (GJ-GER p.c.)
+          </td>
+          <td>
+            <strong>Human Activity</strong><br>
+            (hrs p.c.)
+          </td>
+          <td>
+            <strong>Land Use</strong><br>
+            (ha p.c.)
+          </td>
+          <td>
+            <strong>Energy Metabolic Rate</strong><br>
+            (MJ/hrs)
+          </td>
+          <td>
+            <strong>Food Metabolic Density</strong><br>
+            (kg grains-equiv/ha)
+          </td>
         </tr>
         <tr>
           <td rowspan="6">Consumption</td>
@@ -91,12 +109,15 @@ class window.SudokuView
           <td>#{@sudoku.get_DS_energy()}</td>
           <td>8760</td>
           <td>#{@sudoku.land.get_s_lan()}</td>
-          <td colspan="2" rowspan="3"></td>
+          <td>N/A</td>
+          <td>N/A</td>
         </tr>
         <tr>
           <td>Imports</td>
           <td>#{@sudoku.get_imports_food()}</td>
           <td>#{@sudoku.get_imports_energy()}</td>
+          <td>N/A</td>
+          <td>N/A</td>
           <td>N/A</td>
           <td>N/A</td>
         </tr>
@@ -106,12 +127,10 @@ class window.SudokuView
           <td>N/A</td>
           <td>#{@sudoku.get_vimports_HA()}</td>
           <td>#{@sudoku.get_vimports_LU()}</td>
+          <td>N/A</td>
+          <td>N/A</td>
         </tr>
       </table>
-      <hr>
-      <p>
-        Data used: <pre>#{localStorage.experiment}</pre>
-      </p>
       """
     @$el.html(html)
     # precision -> 2
@@ -119,6 +138,8 @@ class window.SudokuView
       val = $(td).text()
       if (val != "" && !isNaN(val))
         $(td).text(+(+val).toPrecision(2))
+        if ($(td).text() == '0')
+          $(td).text('negl.')
     @events()
     return this
 
