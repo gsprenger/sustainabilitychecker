@@ -19,6 +19,8 @@ class window.Content
         html = "<span data-mercury='simple' id='"+slug+"'>"+content+"</span>"
       when 'image'
         html = "<img data-mercury='image' id='"+slug+"' src='"+content+"'>"
+      when 'none'
+        html = content
       else
        html = "<div data-mercury='full' id='"+slug+"'>"+content+"</div>"
     return html

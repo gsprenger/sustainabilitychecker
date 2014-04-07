@@ -15,9 +15,10 @@ class window.HeaderView
         <ul role='navigation'>
       """
     for s in @sections
+      p = s.i18nPrefix
       html += """
             <li>
-              <a href='##{s.name}' class='#{s.type} nav-link' title='#{s.title}'>
+              <a href='##{s.name}' class='#{s.type} nav-link' title='#{c.text(p+'_title', 'none')}'>
                 <i class="fa #{s.headerIcon}"></i>
               </a>
             </li>

@@ -20,3 +20,4 @@ class window.AppView
     @$el.find('.nav-link').on 'click', (e) ->
       $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
+    @$el.find('[title]').tooltip()
