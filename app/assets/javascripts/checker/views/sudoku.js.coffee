@@ -122,7 +122,7 @@ class window.SudokuView
           <td>N/A</td>
         </tr>
         <tr>
-          <td>Virtuel Imports</td>
+          <td>Virtual Imports</td>
           <td>N/A</td>
           <td>N/A</td>
           <td>#{@sudoku.get_vimports_HA()}</td>
