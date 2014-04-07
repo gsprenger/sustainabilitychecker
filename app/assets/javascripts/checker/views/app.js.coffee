@@ -24,8 +24,11 @@ class window.AppView
     # Init tooltips
     @$el.find('[title]').tooltip()
     # Scroll to current
-    cur = App.get().experiment.getValue('current')
-    for s in @sections
-      if (s.slug == cur)
-        $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)  
-        break;
+    lvl = App.get().experiment.getValue('level')
+    if (@level == lvl)
+      cur = App.get().experiment.getValue('current')
+      for s in @sections
+        if (s.slug == cur)
+          $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)  
+          break;
+
