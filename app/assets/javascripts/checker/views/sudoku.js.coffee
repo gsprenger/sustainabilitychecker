@@ -108,7 +108,7 @@ class window.SudokuView
           <td>#{@sudoku.get_DS_food()}</td>
           <td>#{@sudoku.get_DS_energy()}</td>
           <td>8760</td>
-          <td>#{@sudoku.land.get_s_lan()}</td>
+          <td>#{@sudoku.get_DS_LU()}</td>
           <td>N/A</td>
           <td>N/A</td>
         </tr>

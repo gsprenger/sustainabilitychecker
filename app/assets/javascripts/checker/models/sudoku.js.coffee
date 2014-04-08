@@ -24,13 +24,7 @@ class window.Sudoku
 
   get_TLU: ->
     (@agriculture.get_LU_AG() + 
-      @get_LU_EM())
-
-  get_LU_EM: ->
-    if (@agriculture.get_LU_AG() > @land.get_s_lan())
-      return 0
-    else
-      return (@land.get_s_lan() - @agriculture.get_LU_AG())
+      @energy.get_LU_EM())
 
   get_DS_food: ->
     ((@get_TFOOD() / @agriculture.get_LU_AG()) * @land.get_s_lan())
@@ -38,8 +32,13 @@ class window.Sudoku
   get_DS_energy: ->
     if (@agriculture.get_LU_AG() > @land.get_s_lan())
       return @energy.get_GSEC_EM_no_land()
-    else
+    else if (@energy.get_LU_EM() > (@land.get_s_lan() - @agriculture.get_LU_AG()))
       return @energy.get_GSEC_EM_no_land() + ((@land.get_s_lan() - @agriculture.get_LU_AG())/@energy.get_LU_average()) * 1000
+    else
+      return @energy.get_GSEC_EM_no_land() + (@energy.get_LU_EM()/@energy.get_LU_average()) * 1000
+
+  get_DS_LU: ->
+    return Math.min(@land.get_s_lan(), (@energy.get_LU_EM() + @agriculture.get_LU_AG()))
 
   get_imports_food: ->
     (@get_TFOOD() - @get_DS_food())
@@ -51,7 +50,7 @@ class window.Sudoku
     (@get_THA() - 8760)
 
   get_vimports_LU: ->
-    (@get_TLU() - @land.get_s_lan())
+    (@get_TLU() - @get_DS_LU())
 
   get_EMR_WS: ->
     (@get_TET() / @get_THA())*1000
