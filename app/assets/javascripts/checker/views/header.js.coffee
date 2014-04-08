@@ -6,7 +6,7 @@ class window.HeaderView
     c = App.get().content
     html = """
       <nav>
-      <div class='titles'>
+        <div class='titles'>
           <div class='title demand'>#{c.text('chkr_demand', 'simple')}</div>
           <div class='title supply'>#{c.text('chkr_supply', 'simple')}</div>
           <div class='title check'>#{c.text('chkr_check', 'simple')}</div>
