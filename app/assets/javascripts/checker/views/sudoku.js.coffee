@@ -95,7 +95,7 @@ class window.SudokuView
           <td>N/A</td>
           <td>#{@sudoku.energy.get_ET_EM()}</td>
           <td>#{@sudoku.energy.get_HA_EM()}</td>
-          <td>#{@sudoku.get_LU_EM()}</td>
+          <td>#{@sudoku.energy.get_LU_EM()}</td>
           <td>#{@sudoku.get_EMR_EM()}</td>
           <td></td>
         </tr>
