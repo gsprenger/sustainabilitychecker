@@ -3,13 +3,12 @@ class window.AppView
     @$el = $('body')
     @sections = App.get().sections
     @views = []
-    @views.push(new IntroView(@sections))
+    @views.push(new IntroView())
     for s in @sections
       @views.push(new SectionView(s))
       if (App.get().level == 2)
         @views.push(new Level2View(s))
-    @views.push(new CheckView(@sections))
-    @views.push(new SudokuView())
+    @views.push(new CheckView())
 
   render: ->
     for v in @views

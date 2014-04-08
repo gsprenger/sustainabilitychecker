@@ -390,6 +390,14 @@ header {
   background-color: #ddd;
 }
 
+.btn-row {
+  text-align: center;
+}
+
+.btn-row .btn {
+  margin-left: 15px;
+}
+
 /** RESPONSIVE DESIGN **/
 @media (min-width: 600px) {
   header {

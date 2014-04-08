@@ -1,5 +1,5 @@
 class window.HeaderView
-  constructor:(@sections) ->
+  constructor: ->
     @$el = $("<header role='banner' data-spy='affix' id='header'>")
 
   render: ->
@@ -14,7 +14,7 @@ class window.HeaderView
         <hr>
         <ul role='navigation'>
       """
-    for s in @sections
+    for s in App.get().sections
       p = s.i18nPrefix
       html += """
             <li>

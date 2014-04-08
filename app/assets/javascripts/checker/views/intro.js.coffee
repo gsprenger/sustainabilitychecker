@@ -1,7 +1,7 @@
 class window.IntroView
-  constructor:(@sections) ->
+  constructor: ->
     @$el = $("<div class='section' id='intro'>")
-    @header = new HeaderView(@sections)
+    @header = new HeaderView()
 
   render: ->
     l = App.get().level
