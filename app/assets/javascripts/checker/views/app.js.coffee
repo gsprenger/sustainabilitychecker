@@ -1,14 +1,16 @@
 class window.AppView
   constructor: ->
     @$el = $('body')
-    @sections = App.get().sections
     @views = []
+    lvl = App.get().level
     @views.push(new IntroView())
-    for s in @sections
+    for s in App.get().sections
       @views.push(new SectionView(s))
-      if (App.get().level == 2)
+      if (lvl == 2)
         @views.push(new Level2View(s))
     @views.push(new CheckView())
+    if (lvl == 3)
+      @views.push(new Level3View())
 
   render: ->
     for v in @views
@@ -28,7 +30,7 @@ class window.AppView
     lvl = App.get().experiment.getValue('level')
     if (@level == lvl)
       cur = App.get().experiment.getValue('current')
-      for s in @sections
+      for s in App.get().sections
         if (s.slug == cur)
           $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)  
           break;
