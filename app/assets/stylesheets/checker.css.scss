@@ -130,7 +130,7 @@ header {
 
 
 /** SECTIONS **/
-.section {
+.section, .section-lvl2 {
   width: 100%;
   font-weight: 300;
   clear: both;  
@@ -383,6 +383,11 @@ header {
       } 
     }
   }
+}
+
+/** Level 2 sections **/
+.section-lvl2 {
+  background-color: #ddd;
 }
 
 /** RESPONSIVE DESIGN **/

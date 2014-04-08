@@ -14,6 +14,7 @@ class window.SectionView
           console.error('Unknown ChoiceView type: '+c.type)
 
   render: ->
+    l = App.get().level
     c = App.get().content
     p = @section.i18nPrefix
     html = """

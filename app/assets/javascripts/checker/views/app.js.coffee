@@ -1,11 +1,13 @@
 class window.AppView
-  constructor:(@level) ->
+  constructor: ->
     @$el = $('body')
     @sections = App.get().sections
     @views = []
-    @views.push(new IntroView(@level, @sections))
+    @views.push(new IntroView(@sections))
     for s in @sections
       @views.push(new SectionView(s))
+      if (App.get().level == 2)
+        @views.push(new Level2View(s))
     @views.push(new CheckView(@sections))
     @views.push(new SudokuView())
 

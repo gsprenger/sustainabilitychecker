@@ -20,7 +20,8 @@ class window.App
       @sudoku = new Sudoku(@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy)
 
     launchLevel:(num) ->
-      @appView = new AppView(num)
+      @level = num
+      @appView = new AppView()
       @appView.render()
 
   @get: ->

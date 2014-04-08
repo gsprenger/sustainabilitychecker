@@ -1,5 +1,5 @@
 class window.HeaderView
-  constructor:(@level, @sections) ->
+  constructor:(@sections) ->
     @$el = $("<header role='banner' data-spy='affix' id='header'>")
 
   render: ->
