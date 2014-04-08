@@ -1,6 +1,6 @@
 class window.SudokuView
   constructor: ->
-    @$el = $("<div class='sudoku'>")
+    @$el = $("<div id='sudoku'>")
     $(window).on 'choicecomplete', =>
       @render()
 
