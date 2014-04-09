@@ -8,7 +8,7 @@ class window.IntroView
     c = App.get().content
     html = """
       <div class='section-wrapper'>
-        <h2>#{c.text('chkr_start_title_level'+l, 'simple')}<small>#{c.text('chkr_start_subtitle_level'+l, 'simple')}</small></h2>
+        <h2>#{c.text('chkr_start_title_level'+l)}<small>#{c.text('chkr_start_subtitle_level'+l)}</small></h2>
         <div class='description'>
           <p>#{c.text('chkr_start_desc_level'+l)}</p>
         </div><br>
