@@ -10,7 +10,6 @@ class window.SudokuView
 
   render: ->
     sudoku = App.get().sudoku
-    console.log('render!')
     html =
       """
       <div class='text-center'>
