@@ -29,9 +29,10 @@ class window.AppView
     # Scroll to current
     lvl = App.get().experiment.getValue('level')
     if (@level == lvl)
-      cur = App.get().experiment.getValue('current')
+      cur = App.get().experiment.getCurrent()
       for s in App.get().sections
         if (s.slug == cur)
-          $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)  
+          $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)
           break;
-
+        else 
+          $('html,body').animate({scrollTop: $("#check").offset().top}, 1000)

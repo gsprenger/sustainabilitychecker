@@ -3,10 +3,11 @@ class window.App
 
   class PrivateApp
     constructor: ->
-    setup: ->
+
+    launchLevel:(num) ->
       # Models
       @content = Content.setup()
-      @experiment = new Experiment('intro')
+      @experiment = new Experiment(num)
       @demographics = new Demographics()
       @diet         = new Diet()
       @households   = new Households()
@@ -18,8 +19,7 @@ class window.App
       @energy       = new Energy()
       @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
       @sudoku = new Sudoku(@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy)
-
-    launchLevel:(num) ->
+      # launch main view
       @level = num
       @appView = new AppView()
       @appView.render()

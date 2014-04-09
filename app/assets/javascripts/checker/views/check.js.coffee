@@ -23,4 +23,6 @@ class window.CheckView
       </div>
       """
     @$el.html(html)
+    if (App.get().experiment.getCurrent() != 'check')
+      @$el.hide()
     return this

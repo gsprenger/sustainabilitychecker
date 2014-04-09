@@ -4,6 +4,7 @@ class window.Level2View
 
   render: ->
     c = App.get().content
+    e = App.get().experiment
     p = @section.i18nPrefix
     html = """
       <div id='#{@section.name}-lvl2' class='section-lvl2'>
@@ -11,4 +12,6 @@ class window.Level2View
       </div>
       """
     @$el.html(html)
+    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent())
+      @$el.hide()
     return this

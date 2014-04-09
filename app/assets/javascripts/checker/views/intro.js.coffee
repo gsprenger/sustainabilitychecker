@@ -14,7 +14,7 @@ class window.IntroView
         </div><br>
         <div class='text-center'>
           <a href='#demographics' class='nav-link'>
-            <div class='btn btn-lg btn-primary'>#{c.text('chkr_start_btn_level'+l)}</div>
+            <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
           </a>
         </div>
         <br><br>
@@ -23,4 +23,10 @@ class window.IntroView
       """
     @$el.html(html)
     @$el.find('#intro-header').append(@header.render().$el)
+    @events()
     return this
+
+  events: ->
+    @$el.find('.btnnext').on 'click', ->
+      $(window).trigger('sectioncomplete', 'intro')
+

@@ -26,6 +26,8 @@ $darkgreen: #27AE60;
 $blue: #3498DB;
 $googleblue: #428BCA;
 $darkblue: #2980B9;
+$lyellow: #FFFF91;
+$lblue: #B3FFFF;
 
 /** HEADER **/
 header {
@@ -114,13 +116,19 @@ header {
             color: $black;
           }
           &.active.demand {
-            background-color: $yellow;
+            background-color: $lyellow;
           }
           &.active.supply {
-            background-color: $blue;
+            background-color: $lblue;
           }
           &.active.check {
             background-color: $green;
+          }
+          &.complete.demand {
+            background-color: $yellow;
+          }
+          &.complete.supply {
+            background-color: $blue;
           }
         }
       }
@@ -396,6 +404,10 @@ header {
 
 .btn-row .btn {
   margin-left: 15px;
+}
+
+.btn-row .btn:nth-of-type(1) {
+  margin-left: 0;
 }
 
 #lvl3-main {

@@ -1,6 +1,6 @@
 class window.SectionView
   constructor:(@section) ->
-    @$el = $("<div class='section' id='#{@section.name}'>")
+    @$el = $("<div class='section' id='#{@section.name}' data-slug=#{@section.slug}>")
     @choiceViews = []
     for c in @section.choices
       switch (c.type)
@@ -25,9 +25,20 @@ class window.SectionView
         </div>
         <div class='choice' id='choice-#{@section.slug}'>
         </div>
+        <div class='btn-row'>
+          <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_next')}</div>
+        </div>
       </div>
       """
     @$el.html(html)
     for cv in @choiceViews
       @$el.find("#choice-#{@section.slug}").append(cv.render().$el)
+    @events()
     return this
+
+  events: ->
+    @$el.find('.nextbtn').on 'click', =>
+      $(window).trigger('sectioncomplete', @section.name)
+    e = App.get().experiment
+    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent())
+      @$el.hide()

@@ -6,7 +6,6 @@
 
 var ready = function() {
   app = App.get()
-  app.setup()
   app.launchLevel(1)
 };
 

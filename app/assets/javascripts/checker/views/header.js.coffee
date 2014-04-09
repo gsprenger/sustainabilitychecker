@@ -3,7 +3,8 @@ class window.HeaderView
     @$el = $("<header role='banner' data-spy='affix' id='header'>")
 
   render: ->
-    c = App.get().content
+    app = App.get()
+    c = app.content
     html = """
       <nav>
         <div class='titles'>
@@ -14,18 +15,21 @@ class window.HeaderView
         <hr>
         <ul role='navigation'>
       """
-    for s in App.get().sections
+    for s in app.sections
+      com = (if (app.experiment.isCompleted(s.slug)) then ' complete' else '')
+      act = (if (app.experiment.getCurrent() == s.slug) then ' active' else '')
       p = s.i18nPrefix
       html += """
             <li>
-              <a href='##{s.name}' class='#{s.type} nav-link' title='#{c.text(p+'_title', 'none')}'>
+              <a href='##{s.name}' class='nav-link #{s.type}#{com}#{act}' title='#{c.text(p+'_title', 'none')}'>
                 <i class="fa #{s.headerIcon}"></i>
               </a>
             </li>
         """
+    act = (if (app.experiment.getCurrent() == 'check') then ' active' else '')
     html += """
           <li>
-            <a href='#check' class='check nav-link' title='Check'>
+            <a href='#check' class='check nav-link#{act}' title='Check'>
               <i class="fa fa-check"></i>
             </a>
           </li>
@@ -40,25 +44,20 @@ class window.HeaderView
     $(window).on 'appready', ->
       # HeaderView: set offset to header position for affix to trigger
       $('#header').attr('data-offset-top', $('#header').offset().top)
-      topMenuHeight = $('#header').outerHeight()+15
-      menuItems = $('#header').find("a")
-      scrollItems = menuItems.map ->
-        item = $($(this).attr("href"))
-        if (item.length) 
-          return item  
-      $(window).scroll ->
-        fromTop = $(this).scrollTop()+topMenuHeight;
-        cur = scrollItems.map ->
-          if ($(this).offset().top < fromTop)
-            return this
-        cur = cur[cur.length-1]
-        if (cur && cur.length)
-          id = cur[0].id
-        else
-          menuItems.map ->
-            $(this).removeClass('active')
-        if (lastId != id) 
-          lastId = id
-          menuItems.map ->
-            $(this).removeClass('active')
-          $('[href=#'+id+']').addClass('active')
+    $(window).on 'sectioncomplete', (e, data) ->
+      # mark header item as completed
+      $('[href=#'+data+']').addClass('complete')
+      nextSec = $('#'+data).next('.section')
+      if (nextSec.length)
+        secID = nextSec.attr('id')
+        App.get().experiment.setCurrent(nextSec.data('slug'))
+        $('[href=#'+secID+']').addClass('active')
+        nextSec.show()
+        if ($('#'+secID+'-lvl2').length)
+          $('#'+secID+'-lvl2').show()
+        $('html,body').animate({scrollTop: nextSec.offset().top}, 1000)
+      else
+        $('[href=#check]').addClass('active')
+        $('#check').show()
+        $('html,body').animate({scrollTop: $('#check').offset().top}, 1000)
+      
