@@ -49,10 +49,14 @@ class window.Sudoku
     (@get_TET() - @get_DS_energy())
 
   get_vimports_HA: ->
-    (@get_THA() - 8760)
+    val = (@get_THA() - 8760)
+    if (val < 0)
+      return 0
 
   get_vimports_LU: ->
-    (@get_TLU() - @get_DS_LU())
+    val = (@get_TLU() - @get_DS_LU())
+    if (val < 0)
+      return 0
 
   get_EMR_WS: ->
     (@get_TET() / @get_THA())*1000
@@ -71,6 +75,9 @@ class window.Sudoku
 
   get_EMR_EM: ->
     (@energy.get_ET_EM() / @energy.get_HA_EM())*1000
+
+  get_EMR_DS: ->
+    (@get_DS_energy() / 8760)*1000
 
   get_FMD_DS: ->
     (@get_DS_food() / @agriculture.get_LU_AG())

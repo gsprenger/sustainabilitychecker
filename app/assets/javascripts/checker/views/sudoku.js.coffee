@@ -114,7 +114,7 @@ class window.SudokuView
           <td>#{sudoku.get_DS_energy()}</td>
           <td>8760</td>
           <td>#{sudoku.get_DS_LU()}</td>
-          <td>N/A</td>
+          <td>#{sudoku.get_EMR_DS()}</td>
           <td>#{sudoku.get_FMD_DS()}</td>
         </tr>
         <tr>
