@@ -16,10 +16,19 @@ class window.Level3View
     @$el.on 'click', =>
       @$el.toggleClass('out')
       if @$el.hasClass('out')
-        # dirty hack to be able to set height to auto
+        # dirty hack to be able to get the auto height value
         el = @$el.clone().css('height', 'auto').hide().appendTo('body')
-        height = el.height()
+        auto = el.height()
+        percent = $(window).height()*0.6
+        @$el.height(Math.min(percent, auto))
         el.remove()
-        @$el.height(height)
+        @$el.css('overflow-y', 'scroll')
+        # update sudoku after animation ends
+        if (!@sudokuV.isRendered)
+          setTimeout =>
+            @$el.find('#sudoku').remove()
+            @$el.append(@sudokuV.render().$el)
+          , 1000
       else
         @$el.height(100)
+        @$el.css('overflow-y', 'none')

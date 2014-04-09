@@ -447,11 +447,11 @@ header {
           margin-bottom: 0;
           transition: 0.4s all ease;
           &:hover { 
-            transform: scale(1.2);
-            -ms-transform: scale(1.2); /* IE 9 */
-            -moz-transform: scale(1.2); /* Firefox */
-            -webkit-transform: scale(1.2); /* Safari and Chrome */
-            -o-transform: scale(1.2); /* Opera */
+            transform: scale(1.1);
+            -ms-transform: scale(1.1); /* IE 9 */
+            -moz-transform: scale(1.1); /* Firefox */
+            -webkit-transform: scale(1.1); /* Safari and Chrome */
+            -o-transform: scale(1.1); /* Opera */
           }
           &.lg-4 {
             width: 33%;

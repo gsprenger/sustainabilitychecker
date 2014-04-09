@@ -71,3 +71,6 @@ class window.Sudoku
 
   get_EMR_EM: ->
     (@energy.get_ET_EM() / @energy.get_HA_EM())*1000
+
+  get_FMD_DS: ->
+    (@get_DS_food() / @agriculture.get_LU_AG())

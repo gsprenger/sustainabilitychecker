@@ -1,11 +1,16 @@
 class window.SudokuView
   constructor: ->
     @$el = $("<div id='sudoku'>")
+    @isRendered = false
     $(window).on 'choicecomplete', =>
-      @render()
+      if (@$el.parent().hasClass('out'))
+        @render()
+      else
+        @isRendered = false
 
   render: ->
     sudoku = App.get().sudoku
+    console.log('render!')
     html =
       """
       <div class='text-center'>
@@ -46,58 +51,58 @@ class window.SudokuView
         </tr>
         <tr>
           <td rowspan="6">Consumption</td>
-          <td>WS</td>
+          <td>Whole society</td>
           <td>#{sudoku.get_TFOOD()}</td>
           <td>#{sudoku.get_TET()}</td>
           <td>#{sudoku.get_THA()}</td>
           <td>#{sudoku.get_TLU()}</td>
           <td>#{sudoku.get_EMR_WS()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
-          <td>HH</td>
+          <td>Households</td>
           <td>#{sudoku.diet.get_HH_food()}</td>
           <td>#{sudoku.households.get_ET_HH()}</td>
           <td>#{sudoku.demographics.get_HA_HH()}</td>
           <td>negl.</td>
           <td>#{sudoku.get_EMR_HH()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
-          <td>SG</td>
+          <td>Services and government</td>
           <td>#{sudoku.diet.get_SG_food()}</td>
           <td>#{sudoku.services.get_ET_SG()}</td>
           <td>#{sudoku.services.get_HA_SG()}</td>
           <td>negl.</td>
           <td>#{sudoku.get_EMR_SG()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
-          <td>BM</td>
+          <td>Building and manufacturing</td>
           <td>#{sudoku.diet.get_BM_food()}</td>
           <td>#{sudoku.bm.get_ET_BM()}</td>
           <td>#{sudoku.bm.get_HA_BM()}</td>
           <td>negl.</td>
           <td>#{sudoku.get_EMR_BM()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
-          <td>AG</td>
+          <td>Agriculture</td>
           <td>#{sudoku.diet.get_AG_food()}</td>
           <td>#{sudoku.agriculture.get_ET_AG()}</td>
           <td>#{sudoku.agriculture.get_HA_AG()}</td>
           <td>#{sudoku.agriculture.get_LU_AG()}</td>
           <td>#{sudoku.get_EMR_AG()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
-          <td>EM</td>
+          <td>Energy and mining</td>
           <td>N/A</td>
           <td>#{sudoku.energy.get_ET_EM()}</td>
           <td>#{sudoku.energy.get_HA_EM()}</td>
           <td>#{sudoku.energy.get_LU_EM()}</td>
           <td>#{sudoku.get_EMR_EM()}</td>
-          <td></td>
+          <td>N/A</td>
         </tr>
         <tr>
           <td colspan="8"></td>
@@ -110,7 +115,7 @@ class window.SudokuView
           <td>8760</td>
           <td>#{sudoku.get_DS_LU()}</td>
           <td>N/A</td>
-          <td>N/A</td>
+          <td>#{sudoku.get_FMD_DS()}</td>
         </tr>
         <tr>
           <td>Imports</td>
@@ -141,6 +146,7 @@ class window.SudokuView
         if ($(td).text() == '0')
           $(td).text('negl.')
     @events()
+    @isRendered = true
     return this
 
   events: ->
