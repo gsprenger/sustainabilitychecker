@@ -21,7 +21,7 @@ class window.AppView
     $(window).trigger('appready')
     @events()
     # Init tooltips
-    @$el.find('[title]').tooltip()
+    @$el.find('[title]').tooltip({placement: 'bottom'})
     # Scroll to current section
     cur = e.getCurrent()
     if (cur != 'intro')

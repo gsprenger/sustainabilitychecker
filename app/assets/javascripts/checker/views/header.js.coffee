@@ -8,12 +8,28 @@ class window.HeaderView
     html = """
       <nav>
         <div class='titles'>
+          <div class='title levels'>#{c.text('chkr_levels', 'simple')}</div>
           <div class='title demand'>#{c.text('chkr_demand', 'simple')}</div>
           <div class='title supply'>#{c.text('chkr_supply', 'simple')}</div>
           <div class='title check'>#{c.text('chkr_check', 'simple')}</div>
         </div>
         <hr>
-        <ul role='navigation'>
+        <ul class='ul-levels'>
+      """
+    for i in [1..3]
+      e = new Experiment(i)
+      com = (if (e.getCurrent() == 'check') then ' complete' else '')
+      act = (if (i == App.get().level) then ' active' else '')
+      html += """
+              <li>
+                <a href='#{if(com) then '/level'+i else '#'}' class='nav-link #{com}#{act}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}'>
+                  #{i}
+                </a>
+              </li>
+        """
+    html += """
+        </ul>
+        <ul class='ul-navigation' role='navigation'>
       """
     for s in app.sections
       com = (if (app.experiment.isCompleted(s.slug)) then ' complete' else '')
