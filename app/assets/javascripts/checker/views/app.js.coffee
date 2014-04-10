@@ -13,21 +13,16 @@ class window.AppView
       @views.push(new Level3View())
 
   render: ->
+    e = App.get().experiment
+    # render all attached views
     for v in @views
       @$el.append(v.render().$el)
     # Notify other views
     $(window).trigger('appready')
     @events()
-
-  events: ->
-    e = App.get().experiment
-    # Init smooth scrolling
-    @$el.find('.nav-link').on 'click', (e) ->
-      $('body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
-      return false
     # Init tooltips
     @$el.find('[title]').tooltip()
-    # Scroll to current
+    # Scroll to current section
     cur = e.getCurrent()
     if (cur != 'intro')
       lvl = e.getValue('level')
@@ -38,3 +33,19 @@ class window.AppView
             break
         name ?= 'check'
         $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)
+    # check if mercury is running and if yes run special method
+    if (document.URL.indexOf('mercury') > 0)
+      @setupForMercury()
+
+  events: ->
+    # Init smooth scrolling
+    @$el.find('.nav-link').on 'click', (e) ->
+      $('body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
+      return false
+
+  setupForMercury: ->
+    e = App.get().experiment
+    $('.btn, .nav-link, .cell, .btnnext').off('click')
+    $('.section, #check').show()
+    e.save = e.setValue = ->
+      true
