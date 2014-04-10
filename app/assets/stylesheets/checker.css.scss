@@ -138,7 +138,7 @@ header {
 
 
 /** SECTIONS **/
-.section, .section-lvl2 {
+.section {
   width: 100%;
   font-weight: 300;
   clear: both;  
@@ -395,7 +395,12 @@ header {
 
 /** Level 2 sections **/
 .section-lvl2 {
-  background-color: #ddd;
+  width: 100%;
+  background-color: #efefef;
+  font-weight: 300;
+  clear: both;
+  margin: 0;
+  padding: 25px 15%;
 }
 
 .btn-row {
