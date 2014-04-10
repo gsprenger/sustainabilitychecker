@@ -20,19 +20,21 @@ class window.AppView
     @events()
 
   events: ->
+    e = App.get().experiment
     # Init smooth scrolling
     @$el.find('.nav-link').on 'click', (e) ->
-      $('html,body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
+      $('body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
     # Init tooltips
     @$el.find('[title]').tooltip()
     # Scroll to current
-    lvl = App.get().experiment.getValue('level')
-    if (@level == lvl)
-      cur = App.get().experiment.getCurrent()
-      for s in App.get().sections
-        if (s.slug == cur)
-          $('html,body').animate({scrollTop: $("##{s.name}").offset().top}, 1000)
-          break;
-        else 
-          $('html,body').animate({scrollTop: $("#check").offset().top}, 1000)
+    cur = e.getCurrent()
+    if (cur != 'intro')
+      lvl = e.getValue('level')
+      if (@level == lvl)
+        for s in App.get().sections
+          if (s.slug == cur)
+            name = s.name
+            break
+        name ?= 'check'
+        $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)

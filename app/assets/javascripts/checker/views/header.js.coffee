@@ -47,17 +47,17 @@ class window.HeaderView
     $(window).on 'sectioncomplete', (e, data) ->
       # mark header item as completed
       $('[href=#'+data+']').addClass('complete')
-      nextSec = $('#'+data).next('.section')
+      nextSec = $('#'+data).nextAll('.section').first()
       if (nextSec.length)
         secID = nextSec.attr('id')
-        App.get().experiment.setCurrent(nextSec.data('slug'))
-        $('[href=#'+secID+']').addClass('active')
         nextSec.show()
         if ($('#'+secID+'-lvl2').length)
           $('#'+secID+'-lvl2').show()
-        $('html,body').animate({scrollTop: nextSec.offset().top}, 1000)
+        App.get().experiment.setCurrent(nextSec.data('slug'))
+        $('[href=#'+secID+']').addClass('active')
+        $('body').animate({scrollTop: nextSec.offset().top}, 500)
       else
         $('[href=#check]').addClass('active')
         $('#check').show()
-        $('html,body').animate({scrollTop: $('#check').offset().top}, 1000)
+        $('body').animate({scrollTop: $('#check').offset().top}, 500)
       

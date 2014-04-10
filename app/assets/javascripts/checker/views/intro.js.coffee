@@ -12,10 +12,18 @@ class window.IntroView
         <div class='description'>
           <p>#{c.text('chkr_start_desc_level'+l)}</p>
         </div><br>
-        <div class='text-center'>
+        <div class='btn-row'>
           <a href='#demographics' class='nav-link'>
             <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
           </a>
+      """
+    if (l>1)
+      html += """
+            <a href='/level#{l-1}' class='nav-link'>
+              <div class='btn btn-lg btn-default btnnext'>#{c.text('chkr_goback_btn_level'+l)}</div>
+            </a>
+      """
+    html += """
         </div>
         <br><br>
         <div id='intro-header'></div>
