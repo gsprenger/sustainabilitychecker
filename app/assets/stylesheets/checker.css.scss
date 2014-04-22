@@ -28,6 +28,12 @@ $googleblue: #428BCA;
 $darkblue: #2980B9;
 $lyellow: #FFFF91;
 $lblue: #B3FFFF;
+$level1: #F6F592;
+$level2: #FDE377;
+$level3: #F8CD5A;
+$darklevel1: #C3C25F;
+$darklevel2: #CAB044;
+$darklevel3: #C59A27;
 
 /** HEADER **/
 header {
@@ -80,11 +86,22 @@ header {
       }
     }
 
-    hr {
-      margin: auto;
-      width: 680px;
+    hr.hr-sec {
+      position: absolute;
+      top: 21px;
+      right: 25px;
+      width: 515px;
+      border: 0;
       border-bottom: 2px solid $black;
-      height: 40px;
+    }
+
+    hr.hr-lvls {
+      position: absolute;
+      top: 21px;
+      left: 25px;
+      width: 125px;
+      border: 0;
+      border-bottom: 2px solid $black;
     }
 
     .ul-levels {
@@ -104,23 +121,33 @@ header {
           height: 30px;
           margin: 0 12px;
           padding-left: 1px;
-          background-color: $grey;
+          background-color: $lightgrey;
           border: 2px solid $black;
           border-radius: 50%;
-          color: $black;
+          color: $textgrey;
           font-size: 17px;
+          cursor: default;
           transition: 
             background-color 1s ease, 
             color 1s ease;
-          &:hover, &:focus, &:visited { 
+          &:hover, &:focus, &:visited {
+            text-decoration: none;
+          }
+          &.current {
+            font-weight: 600;
+          }
+          &.available {
             color: $black;
+            cursor: pointer;
           }
-          &.active {
-          background-color: $white;
+          &.level1.available {
+            background-color: $level1;
           }
-          &.complete {
-            background-color: $black;
-            color: $white
+          &.level2.available  {
+            background-color: $level2;
+          }
+          &.level3.available  {
+            background-color: $level3;
           }
         }
       }
@@ -251,11 +278,6 @@ header {
 
     .ui-slider-handle {
       z-index: 4;
-    }
-
-    .ui-widget-header {
-      background: none;
-      background-color: $googleblue;
     }
 
     .step {
@@ -458,7 +480,7 @@ header {
 #lvl3-main {
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 50px;
   bottom: 0;
   opacity: 0.7;
   background-color: white;
@@ -486,6 +508,68 @@ header {
       }
     }
   }
+}
+
+.in-level1 {
+  .btn-primary {
+    border-color: $darklevel1;
+    background-color: $level1;
+    color: $black;
+  }
+  .ui-widget-header {
+    background: none;
+    background-color: $level1;
+  }
+}
+
+.in-level2 {
+  .btn-primary {
+    border-color: $darklevel2;
+    background-color: $level2;
+    color: $black;
+  }
+  .ui-widget-header {
+    background: none;
+    background-color: $level2;
+  }
+}
+
+.in-level3 {
+  .btn-primary {
+    border-color: $darklevel1;
+    background-color: $level3;
+    color: $black;
+  }
+  .ui-widget-header {
+    background: none;
+    background-color: $level3;
+  }
+}
+
+.affix .header-home, .affix .header-contact {
+  display: block;
+}
+
+.header-home, .header-contact {
+  display: none;
+  position: absolute;
+  top: 17px;
+  a {
+    color: $textgrey;
+    font-size: 20px;
+    &:hover {
+      color: $darkgrey;
+      text-decoration: none;
+    }
+  }
+}
+
+.header-home {
+  left: -100px;
+}
+
+.header-contact {
+  right: -140px;
 }
 
 /** RESPONSIVE DESIGN **/

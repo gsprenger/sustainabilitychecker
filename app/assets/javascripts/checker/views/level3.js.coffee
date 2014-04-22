@@ -30,5 +30,5 @@ class window.Level3View
             @$el.append(@sudokuV.render().$el)
           , 1000
       else
-        @$el.height(100)
+        @$el.innerHeight('50px')
         @$el.css('overflow-y', 'none')

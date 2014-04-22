@@ -1,6 +1,6 @@
 class window.SectionView
   constructor:(@section) ->
-    @$el = $("<div class='section' id='#{@section.name}' data-slug=#{@section.slug}>")
+    @$el = $("<div class='section in-level#{App.get().level}' id='#{@section.name}' data-slug=#{@section.slug}>")
     @choiceViews = []
     for c in @section.choices
       switch (c.type)

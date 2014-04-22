@@ -7,22 +7,25 @@ class window.HeaderView
     c = app.content
     html = """
       <nav>
+        <div class='header-home'>
+          <a href='/'>Home</a>
+        </div>
         <div class='titles'>
           <div class='title levels'>#{c.text('chkr_levels', 'simple')}</div>
           <div class='title demand'>#{c.text('chkr_demand', 'simple')}</div>
           <div class='title supply'>#{c.text('chkr_supply', 'simple')}</div>
           <div class='title check'>#{c.text('chkr_check', 'simple')}</div>
         </div>
-        <hr>
+        <hr class='hr-sec'>
+        <hr class='hr-lvls'>
         <ul class='ul-levels'>
       """
     for i in [1..3]
-      e = new Experiment(i)
-      com = (if (e.getCurrent() == 'check') then ' complete' else '')
-      act = (if (i == App.get().level) then ' active' else '')
+      curr = (if (i == App.get().level) then ' current' else '')
+      avlb = (if (i <= App.get().level) then ' available' else '')
       html += """
               <li>
-                <a href='#{if(com) then '/level'+i else '#'}' class='nav-link #{com}#{act}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}'>
+                <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link#{curr}#{avlb}#{' level'+i}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}'>
                   #{i}
                 </a>
               </li>
@@ -50,6 +53,9 @@ class window.HeaderView
             </a>
           </li>
         </ul>
+        <div class='header-contact'>
+          <a href='/#contact'>Contact Us</a>
+        </div>
       </nav>
       """
     @$el.html(html)

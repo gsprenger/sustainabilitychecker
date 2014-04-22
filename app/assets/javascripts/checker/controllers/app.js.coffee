@@ -6,8 +6,8 @@ class window.App
 
     launchLevel:(num) ->
       # Models
-      @content = Content.setup()
       @experiment = new Experiment(num)
+      @content = Content.setup()
       @demographics = new Demographics()
       @diet         = new Diet()
       @households   = new Households()
@@ -23,6 +23,7 @@ class window.App
       @level = num
       @appView = new AppView()
       @appView.render()
+
 
   @get: ->
     # singleton pattern
