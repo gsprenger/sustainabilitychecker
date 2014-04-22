@@ -8,7 +8,7 @@ class Content < ActiveRecord::Base
       html = ''
       case editType
       when 'full'
-        html += "<span data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</span>"
+        html += "<div data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</div>"
       when 'simple'
         html += "<span data-mercury='simple' id='#{c.slug.to_s}'>#{c.content}</span>"
       when 'image'
