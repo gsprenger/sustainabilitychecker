@@ -17,7 +17,7 @@ $textgrey: #999;
 $grey: #BBB;
 $lightgrey: #DDD;
 $white: #F2F2F2;
-$alphawhite: rgba(242,242,242,.75);
+$alphawhite: rgba(252,252,255,0.90);
 $yellow: #F39C12;
 $red: #E74C3C;
 $darkred: #C0392B;
@@ -27,13 +27,13 @@ $blue: #3498DB;
 $googleblue: #428BCA;
 $darkblue: #2980B9;
 $lyellow: #FFFF91;
-$lblue: #B3FFFF;
-$level1: #F6F592;
-$level2: #FDE377;
-$level3: #F8CD5A;
-$darklevel1: #C3C25F;
-$darklevel2: #CAB044;
-$darklevel3: #C59A27;
+$lblue: #B3FFFF ;
+$level1: #99FF99;
+$level2: #FFFF99;
+$level3: #FF9966;
+$darklevel1: #66CC66;
+$darklevel2: #CCCC66;
+$darklevel3: #CC6633;
 
 /** HEADER **/
 header {
@@ -183,19 +183,19 @@ header {
             color: $black;
           }
           &.active.demand {
-            background-color: $lyellow;
+            background-color: $yellow;
           }
           &.active.supply {
-            background-color: $lblue;
+            background-color: $blue;
           }
           &.active.check {
             background-color: $green;
           }
           &.complete.demand {
-            background-color: $yellow;
+            background-color: $lyellow;
           }
           &.complete.supply {
-            background-color: $blue;
+            background-color: $lblue;
           }
         }
       }
@@ -536,7 +536,7 @@ header {
 
 .in-level3 {
   .btn-primary {
-    border-color: $darklevel1;
+    border-color: $darklevel3;
     background-color: $level3;
     color: $black;
   }

@@ -54,7 +54,7 @@ class window.HeaderView
           </li>
         </ul>
         <div class='header-contact'>
-          <a href='/#contact'>Contact Us</a>
+          <a href='/#contact'>Contact us</a>
         </div>
       </nav>
       """
