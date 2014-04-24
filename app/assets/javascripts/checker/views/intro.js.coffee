@@ -1,7 +1,7 @@
 class window.IntroView
   constructor: ->
     @$el = $("<div class='section' id='intro'>")
-    @header = new HeaderView()
+    @headernav = new HeaderNavView()
 
   render: ->
     l = App.get().level
@@ -30,7 +30,7 @@ class window.IntroView
       </div>
       """
     @$el.html(html)
-    @$el.find('#intro-header').append(@header.render().$el)
+    @$el.find('#intro-header').append(@headernav.render().$el)
     @events()
     return this
 

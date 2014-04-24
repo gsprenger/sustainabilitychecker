@@ -3,6 +3,7 @@ class window.AppView
     @$el = $('body')
     @views = []
     lvl = App.get().level
+    @views.push(new HeaderView())
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))

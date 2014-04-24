@@ -18,16 +18,16 @@ $grey: #BBB;
 $lightgrey: #DDD;
 $white: #F2F2F2;
 $alphawhite: rgba(252,252,255,0.90);
+$lyellow: #FFFF91;
 $yellow: #F39C12;
 $red: #E74C3C;
 $darkred: #C0392B;
 $green: #2ECC71;
 $darkgreen: #27AE60;
+$lblue: #B3FFFF ;
 $blue: #3498DB;
 $googleblue: #428BCA;
 $darkblue: #2980B9;
-$lyellow: #FFFF91;
-$lblue: #B3FFFF ;
 $level1: #99FF99;
 $level2: #FFFF99;
 $level3: #FF9966;
@@ -37,20 +37,55 @@ $darklevel3: #CC6633;
 
 /** HEADER **/
 header {
-  &.affix {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background-color: $alphawhite;
-    border-bottom: 1px solid $lightgrey;
-    z-index: 10;
-  }
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: $alphawhite;
+  border-bottom: 1px solid $lightgrey;
+  z-index: 10;
   height: 65px;
   width: 100%;
   // small devices
   display: none;
 
   nav {
+    position: relative;
+    margin: auto;
+    width: 730px;
+
+    .header-home, .header-contact {
+      position: absolute;
+      top: 17px;
+      a {
+        color: $textgrey;
+        font-size: 20px;
+        &:hover {
+          color: $darkgrey;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .header-home {
+      left: -100px;
+    }
+
+    .header-contact {
+      right: -140px;
+    }
+  }
+}
+
+#headernav {
+  &.affix {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    height: 65px;
+    width: 100%;
+  }
+  #headernav-cont {
     position: relative;
     margin: auto;
     width: 730px;
@@ -202,7 +237,6 @@ header {
     }
   }
 }
-
 
 /** SECTIONS **/
 .section {
@@ -477,6 +511,7 @@ header {
   margin-left: 0;
 }
 
+// Lvel 3 section
 #lvl3-main {
   position: fixed;
   width: 100%;
@@ -510,6 +545,7 @@ header {
   }
 }
 
+// Different colors for each level
 .in-level1 {
   .btn-primary {
     border-color: $darklevel1;
@@ -544,32 +580,6 @@ header {
     background: none;
     background-color: $level3;
   }
-}
-
-.affix .header-home, .affix .header-contact {
-  display: block;
-}
-
-.header-home, .header-contact {
-  display: none;
-  position: absolute;
-  top: 17px;
-  a {
-    color: $textgrey;
-    font-size: 20px;
-    &:hover {
-      color: $darkgrey;
-      text-decoration: none;
-    }
-  }
-}
-
-.header-home {
-  left: -100px;
-}
-
-.header-contact {
-  right: -140px;
 }
 
 /** RESPONSIVE DESIGN **/
