@@ -1,5 +1,5 @@
 class window.Experiment  
-  progression: ['intro', 'd_dem', 'd_die', 'd_hou', 'd_ser', 's_den', 's_lan', 's_bm', 's_agr', 's_ene', 'check']
+  progression: ['intro', 'd_dem', 'd_die', 'd_hou', 'd_ser', 's_lan', 's_bm', 's_agr', 's_ene', 'check']
 
   constructor:(@level) ->
     exp = localStorage.getItem('experiment-level'+@level)

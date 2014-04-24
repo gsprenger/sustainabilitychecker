@@ -12,13 +12,12 @@ class window.App
       @diet         = new Diet()
       @households   = new Households()
       @services     = new Services()
-      @density      = new Density()
       @land         = new Land()
       @bm           = new Bm()
       @agriculture  = new Agriculture()
       @energy       = new Energy()
-      @sections = [@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy]
-      @sudoku = new Sudoku(@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy)
+      @sections = [@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy]
+      @sudoku = new Sudoku(@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy)
       # launch main view
       @level = num
       @appView = new AppView()

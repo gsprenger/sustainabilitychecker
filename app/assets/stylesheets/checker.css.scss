@@ -70,11 +70,11 @@ nav {
   }
 
   .header-home {
-    left: -465px;
+    left: -440px;
   }
 
   .header-contact {
-    right: -505px;
+    right: -455px;
   }
 }
 
@@ -92,7 +92,7 @@ nav {
   #headernav-cont {
     position: relative;
     margin: auto;
-    width: 730px;
+    width: 680px;
 
     .titles {
       position: absolute;
@@ -116,20 +116,20 @@ nav {
 
       .supply {
         border-top: 2px solid $blue;
-        width: 270px;
+        width: 220px;
       }
 
       .check {
         border-top: 2px solid $green;
-        width: 70px;
+        width: 55px;
       }
     }
 
     hr.hr-sec {
       position: absolute;
       top: 21px;
-      right: 25px;
-      width: 515px;
+      right: 30px;
+      width: 465px;
       border: 0;
       border-bottom: 2px solid $black;
     }

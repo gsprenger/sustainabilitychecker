@@ -1,5 +1,5 @@
 class window.Sudoku
-  constructor:(@demographics, @diet, @households, @services, @density, @land, @bm, @agriculture, @energy) ->
+  constructor:(@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy) ->
 
   # SUDOKU DATA #
   get_TFOOD: ->
