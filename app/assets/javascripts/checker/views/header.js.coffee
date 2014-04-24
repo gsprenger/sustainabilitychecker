@@ -1,11 +1,13 @@
 class window.HeaderView
   constructor: ->
-    @$el = $("<header role='banner' id='header'>")
+    @$el = $("<div id='header-cont'>")
 
   render: ->
     app = App.get()
     c = app.content
     html = """
+      <header role='banner' id='header'>
+      </header>
       <nav>
         <div class='header-home'>
           <a href='/'>Home</a>
