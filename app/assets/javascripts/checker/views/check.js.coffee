@@ -1,28 +1,19 @@
 class window.CheckView
   constructor: ->
-    @$el = $("<div id='check'>")
+    @$el = $("<div id='check' class='in-level#{App.get().level}'>")
+    @sum = new CheckSummaryView()
+    @res = new CheckResultView()
 
   render: ->
-    c = App.get().content
-    html = """
-      <h2>#{c.text('chkr_check_title')}</h2>
-      <div>
-        TODO Summary of collected data
-      </div>
-      <div>
-        TODO Check results
-      </div>
-      <div class='btn-row'>
-      """
-    if (App.get().level != 3)
-      html += """
-          <a href='/level#{App.get().level+1}'><div class='btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div></a>
-        """
-    html += """
-        <a href='#'><div class='btn btn-lg btn-default'>#{c.text('chkr_res_again')}</div></a>
-      </div>
-      """
-    @$el.html(html)
+    @$el.append(@sum.render().$el)
+    @$el.append(@res.render().$el)
+    @res.$el.hide()
     if (App.get().experiment.getCurrent() != 'check')
       @$el.hide()
+    @events()
     return this
+
+  events: ->
+    $(window).on 'clickshowresult', =>
+      @res.$el.show()
+      $('body').animate({scrollTop: $('#checkresult').offset().top}, 500)
