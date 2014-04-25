@@ -1,6 +1,8 @@
 class window.CheckResultView
   constructor: ->
     @$el = $("<div id='checkresult' class='checksection'>")
+    @graph = new CheckGraphView()
+    @radar = new CheckRadarView()
 
   render: ->
     level = App.get().level
@@ -8,6 +10,8 @@ class window.CheckResultView
     html = """
       <h3 class='check-result'>#{c.text('chkr_res_title')}</h3>
       <p>#{c.text('chkr_res_explanation')}</p>
+      <div id='checkgraphcont'></div>
+      <div id='checkradarcont'></div>
       <div class='btn-row'>
       """
     if (level != 3)
@@ -19,6 +23,8 @@ class window.CheckResultView
       </div>
       """
     @$el.html(html)
+    @$el.find('#checkgraphcont').append(@graph.render().$el)
+    @$el.find('#checkradarcont').append(@radar.render().$el)
     @events()
     return this
 
