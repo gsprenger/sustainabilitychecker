@@ -378,37 +378,10 @@ nav {
   min-height: none;
   margin-bottom: 30px;
 
-  .precheck {
-    display: table; 
-    height: 100%;
-    display: table-cell;  
-    vertical-align: middle;
-    text-align: center;
-
-    .wrapper {
-      height: 100%;
-      display: table-cell;  
-      vertical-align: middle;
-      text-align: center;
-
-      .alert {
-        text-align: left;  
-        margin-top: 20px;
-
-        h3 {
-          margin: 0 0 10px 0;
-
-          small {
-            font-style: italic;
-            color: inherit;
-          }
-        }
-
-        span {
-          font-weight: 500;
-        }
-      }
-    } 
+  #checksummary {
+    .result {
+      font-weight: 500;
+    }
   }
 
   #checkresult {
@@ -526,7 +499,7 @@ nav {
   margin-left: 0;
 }
 
-// Lvel 3 section
+// Level 3 section
 #lvl3-main {
   position: fixed;
   width: 100%;

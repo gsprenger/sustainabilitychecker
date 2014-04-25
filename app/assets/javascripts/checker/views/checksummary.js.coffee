@@ -19,10 +19,10 @@ class window.CheckSummaryView
         html += "<li>"
         switch (ch.type)
           when ('Radio')
-            html += "#{c.text(p+'_subtitle', 'simple')}: #{c.text(p+'_'+ch.getValue()+'_t', 'simple')}"
+            html += "<span class='result'>#{c.text(p+'_'+ch.getValue()+'_t', 'simple')}</span>"
           when ('Slider')
             suf = (if ch.sliderType == 'number' then '%' else '')
-            html += "#{c.text(p+'_'+ch.getShortName(), 'simple')}: #{ch.getValue()+suf}"
+            html += "#{c.text(p+'_'+ch.getShortName(), 'simple')}: <span class='result'>#{ch.getValue()+suf}</span>"
           when ('SliderGroup')
             html += """
                 #{c.text(p+'_'+ch.slug, 'simple')}:
@@ -30,7 +30,7 @@ class window.CheckSummaryView
               """
             suf = (if ch.sliders[0].sliderType == 'number' then '%' else '')
             for slider in ch.sliders
-              html += "<li>#{c.text(p+'_'+slider.getShortName(), 'simple')}: #{slider.getValue()+suf}</li>"
+              html += "<li>#{c.text(p+'_'+slider.getShortName(), 'simple')}: <span class='result'>#{slider.getValue()+suf}</span></li>"
             html += "</ul>"
         html += "</li>"
       html += """
