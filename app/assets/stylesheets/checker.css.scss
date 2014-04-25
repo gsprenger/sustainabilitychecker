@@ -11,6 +11,7 @@ body {
 }
 
 /** COLORS **/
+// shades of grey
 $black: #333;
 $darkgrey: #666;
 $textgrey: #999;
@@ -18,22 +19,28 @@ $grey: #BBB;
 $lightgrey: #DDD;
 $white: #F2F2F2;
 $alphawhite: rgba(252,252,255,0.90);
-$lyellow: #FFFF91;
-$yellow: #F39C12;
-$red: #E74C3C;
-$darkred: #C0392B;
+// colors
+$red: #CC3333;
 $green: #2ECC71;
 $darkgreen: #27AE60;
-$lblue: #B3FFFF ;
 $blue: #3498DB;
-$googleblue: #428BCA;
 $darkblue: #2980B9;
-$level1: #99FF99;
-$level2: #FFFF99;
-$level3: #FF9966;
-$darklevel1: #66CC66;
-$darklevel2: #CCCC66;
-$darklevel3: #CC6633;
+// colors in header
+$demand: #009933;
+$demandactive: #33CC66;
+$demandcomplete: #009933;
+$supply: #CC3333;
+$supplyactive: #FF6666;
+$supplycomplete: #CC3333;
+$check: #2ECC71;
+$checkactive: #2ECC71;
+// colors in sections
+$level1: #bce8f1;
+$level2: #d9edf7;
+$level3: #3a87ad;
+$darklevel1: #709CA5;
+$darklevel2: #8DA1AB;
+$darklevel3: #003B61;
 
 /** HEADER **/
 header {
@@ -110,17 +117,17 @@ nav {
       }
 
       .demand {
-        border-top: 2px solid $yellow;
+        border-top: 2px solid $demand;
         width: 220px;
       }
 
       .supply {
-        border-top: 2px solid $blue;
+        border-top: 2px solid $supply;
         width: 220px;
       }
 
       .check {
-        border-top: 2px solid $green;
+        border-top: 2px solid $check;
         width: 55px;
       }
     }
@@ -222,19 +229,19 @@ nav {
             color: $black;
           }
           &.active.demand {
-            background-color: $yellow;
+            background-color: $demandactive;
           }
           &.active.supply {
-            background-color: $blue;
+            background-color: $supplyactive;
           }
           &.active.check {
-            background-color: $green;
+            background-color: $checkactive;
           }
           &.complete.demand {
-            background-color: $lyellow;
+            background-color: $demandcomplete;
           }
           &.complete.supply {
-            background-color: $lblue;
+            background-color: $supplycomplete;
           }
         }
       }
