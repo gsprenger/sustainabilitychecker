@@ -6,8 +6,8 @@ class window.CheckResultView
     level = App.get().level
     c = App.get().content
     html = """
-    TODO
       <h3 class='check-result'>#{c.text('chkr_res_title')}</h3>
+      <p>#{c.text('chkr_res_explanation')}</p>
       <div class='btn-row'>
       """
     if (level != 3)
