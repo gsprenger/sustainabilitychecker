@@ -1,6 +1,6 @@
 class window.IntroView
   constructor: ->
-    @$el = $("<div class='section' id='intro'>")
+    @$el = $("<div class='section in-level#{App.get().level}' id='intro'>")
     @headernav = new HeaderNavView()
 
   render: ->
