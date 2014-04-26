@@ -1,6 +1,6 @@
 class window.CheckResultView
   constructor: ->
-    @$el = $("<div id='checkresult' class='checksection'>")
+    @$el = $("<div id='checkresult' class='in-level#{App.get().level}'>")
     @graph = new CheckGraphView()
     @radar = new CheckRadarView()
 
@@ -8,8 +8,8 @@ class window.CheckResultView
     level = App.get().level
     c = App.get().content
     html = """
-      <h3 class='check-result'>#{c.text('chkr_res_title')}</h3>
-      <p>#{c.text('chkr_res_explanation')}</p>
+      <h2 class='check-result-title'>#{c.text('chkr_res_title')}</h2>
+      <p class='check-result-expl'>#{c.text('chkr_res_explanation')}</p>
       <div id='checkgraphcont'></div>
       <div id='checkradarcont'></div>
       <div class='btn-row'>
@@ -25,6 +25,7 @@ class window.CheckResultView
     @$el.html(html)
     @$el.find('#checkgraphcont').append(@graph.render().$el)
     @$el.find('#checkradarcont').append(@radar.render().$el)
+    @$el.hide()
     @events()
     return this
 
@@ -32,3 +33,6 @@ class window.CheckResultView
     @$el.find('.btn-again').on 'click', =>
       @$el.hide()
       $('body').animate({scrollTop: $('.section').first().offset().top}, 1000)
+    $(window).on 'clickshowresult', =>
+      @$el.show()
+      $('body').animate({scrollTop: $('#checkresult').offset().top}, 500)

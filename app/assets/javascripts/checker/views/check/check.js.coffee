@@ -1,6 +1,6 @@
 class window.CheckView
   constructor: ->
-    @$el = $("<div id='check' class='in-level#{App.get().level}'>")
+    @$el = $(body)
     @sum = new CheckSummaryView()
     @res = new CheckResultView()
 
@@ -14,6 +14,3 @@ class window.CheckView
     return this
 
   events: ->
-    $(window).on 'clickshowresult', =>
-      @res.$el.show()
-      $('body').animate({scrollTop: $('#checkresult').offset().top}, 500)

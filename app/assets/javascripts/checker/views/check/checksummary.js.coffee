@@ -1,12 +1,12 @@
 class window.CheckSummaryView
   constructor: ->
-    @$el = $("<div id='checksummary'>")
+    @$el = $("<div id='check' class='in-level#{App.get().level}'>")
 
   render: ->
     app = App.get()
     c = app.content
     html = """
-      <h3>#{c.text('chkr_summ_title')}</h3>
+      <h2>#{c.text('chkr_summ_title')}</h2>
       <div class="alert alert-info">
       """
     for s in app.sections
@@ -43,6 +43,8 @@ class window.CheckSummaryView
       </div>
       """
     @$el.html(html)
+    if (App.get().experiment.getCurrent() != 'check')
+      @$el.hide()
     @events()
     return this
 

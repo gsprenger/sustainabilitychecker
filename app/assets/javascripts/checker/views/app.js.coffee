@@ -9,7 +9,8 @@ class window.AppView
       @views.push(new SectionView(s))
       if (lvl == 2)
         @views.push(new Level2View(s))
-    @views.push(new CheckView())
+    @views.push(new CheckSummaryView())
+    @views.push(new CheckResultView())
     if (lvl == 3)
       @views.push(new Level3View())
 

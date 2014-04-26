@@ -378,102 +378,112 @@ nav {
   min-height: none;
   margin-bottom: 30px;
 
-  #checksummary {
-    .result {
-      font-weight: 500;
+  .result {
+    font-weight: 500;
+  }
+}
+
+#checkresult {
+  width: 100%;
+  font-weight: 300;
+  // small devices 
+  padding: 3%;
+  min-height: none;
+  margin-bottom: 30px;
+
+  .check-result-title {
+    text-align: center;
+    color: $red;
+    &.passed {
+      color: $green;
     }
   }
 
-  #checkresult {
-    .check-result {
-      margin-top: 0;
-      text-align: center;
-      color: $red;
-      &.passed {
-        color: $green;
-      }
+  .check-result-expl {
+    text-align: center;
+  }
+
+  #checkgraph {
+    hr.graph-axis {
+      margin: 0;
+      border-color: $black;
     }
 
-    .check-graph {
-      .graph-axis {
-        margin: 0;
-        border-color: $black;
-      }
+    .row {
+      .cell {
+        position: relative;
+        // small devices
+        height: 90px;
 
-      .row {
-        .cell {
-          position: relative;
-          // small devices
-          height: 90px;
+        .bar-food, .bar-energy {
+          transition: 
+            height 1s ease,
+            background-color 1s ease;
+          height: 0;
+          width: 100%;
+          position: absolute;
+        }
 
-          .bar-food, .bar-energy {
-            transition: 
-              height 1s ease,
-              background-color 1s ease;
-            height: 0;
-            width: 100%;
-            position: absolute;
-          }
+        .bar-food {
+          border: 1px solid $darkgreen;
+          background-color: $green;
 
-          .bar-food {
-            border: 1px solid $darkgreen;
-            background-color: $green;
+        }
 
-          }
+        .bar-energy { 
+          border: 1px solid $darkblue;
+          background-color: $blue;
+        }
 
-          .bar-energy { 
-            border: 1px solid $darkblue;
-            background-color: $blue;
-          }
-
-          .bar-upper {
-            bottom: 0;
-            border-bottom: none;
-          }
-
-          .bar-lower {
-            top: 0;
-            border-top: none;
-
-            .bar-percent {
-              color: $red;
-              text-shadow: 1px 1px 3px #888;
-            }
-          }
+        .bar-upper {
+          bottom: 0;
+          border-bottom: none;
 
           .bar-percent {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            bottom: 45%;
-            opacity: 0;
-            transition: opacity 1s ease;
-            color: $white;
-            font-weight: 400;
-            text-shadow: 1px 1px 3px $black;
+            top: -18px;
           }
-
-          .bar-title {
-            position: absolute;
-            bottom: -25px;
-            text-align: center;
-            width: 100%;
-            font-weight: 400;
-          }
-
-          .graph-title {
-            font-weight: 400;
-            &.upper {
-              position: absolute;
-              bottom: 0;
-            }
-            &.lower {
-              color: $red;
-            }
-          } 
         }
-      } 
-    }
+
+        .bar-lower {
+          top: 0;
+          border-top: none;
+
+          .bar-percent {
+            display: none;
+            bottom: -18px;
+            color: $red;
+            text-shadow: 1px 1px 3px #888;
+          }
+        }
+
+        .bar-percent {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          color: $black;
+        }
+
+        .bar-title {
+          position: absolute;
+          bottom: -25px;
+          text-align: center;
+          width: 100%;
+          font-weight: 500;
+        }
+
+        .graph-title {
+          font-weight: 400;
+          &.upper {
+            position: absolute;
+            bottom: 0;
+          }
+          &.lower {
+            color: $red;
+            font-weight: 500;
+          }
+        } 
+      }
+    } 
   }
 }
 
@@ -574,7 +584,6 @@ nav {
 @media (min-width: 600px) {
   .section {
     padding: 65px 3% 3% 3%;
-
     .choice {
       .radio-row {
         .cell {
@@ -598,13 +607,16 @@ nav {
 
   #check {
     padding: 65px 3% 3% 3%;
-
-    .checksection {
-      .check-graph {
-        .row {
-          .cell {
-            height: 150px;
-          }
+    .result {
+      font-weight: 500;
+    }
+  }
+  #checkresult {
+    padding: 65px 3% 3% 3%;
+    #checkgraph {
+      .row {
+        .cell {
+          height: 150px;
         }
       }
     }
@@ -621,7 +633,7 @@ nav {
     padding: 65px 15% 10px 15%;
   }
 
-  #check {
+  #check, #checkresult {
     min-height: 100%;
     margin: 0;
     padding: 65px 15% 10px 15%;

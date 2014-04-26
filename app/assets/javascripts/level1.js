@@ -2,6 +2,7 @@
 // listed below.
 //
 //= require jquery.ui.slider
+//= require polar
 //= require_tree ./checker
 
 var ready = function() {
