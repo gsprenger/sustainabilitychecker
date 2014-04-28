@@ -16,6 +16,7 @@ class window.SectionView
   render: ->
     l = App.get().level
     c = App.get().content
+    e = App.get().experiment
     p = @section.i18nPrefix
     html = """
       <div class='section-wrapper'>
@@ -33,12 +34,11 @@ class window.SectionView
     @$el.html(html)
     for cv in @choiceViews
       @$el.find("#choice-#{@section.slug}").append(cv.render().$el)
+    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent())
+      @$el.hide()
     @events()
     return this
 
   events: ->
     @$el.find('.nextbtn').on 'click', =>
       $(window).trigger('sectioncomplete', @section.name)
-    e = App.get().experiment
-    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent())
-      @$el.hide()

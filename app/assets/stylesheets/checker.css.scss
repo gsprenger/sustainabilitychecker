@@ -27,11 +27,11 @@ $blue: #3498DB;
 $darkblue: #2980B9;
 // colors in header
 $demand: #009933;
-$demandactive: #33CC66;
-$demandcomplete: #009933;
+$demandactive: #009933;
+$demandcomplete: #33CC66;
 $supply: #CC3333;
-$supplyactive: #FF6666;
-$supplycomplete: #CC3333;
+$supplyactive: #CC3333;
+$supplycomplete: #FF6666;
 $check: #2ECC71;
 $checkactive: #2ECC71;
 // colors in sections
@@ -499,13 +499,14 @@ nav {
 
 .btn-row {
   text-align: center;
+  clear: both;
 }
 
-.btn-row .btn {
+.btn-row > .btn, .btn-row > a {
   margin-left: 15px;
 }
 
-.btn-row .btn:nth-of-type(1) {
+.btn-row > .btn:first-child, .btn-row > a::first-child {
   margin-left: 0;
 }
 

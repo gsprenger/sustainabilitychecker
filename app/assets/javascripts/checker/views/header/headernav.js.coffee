@@ -62,7 +62,8 @@ class window.HeaderNavView
       $('#headernav').attr('data-offset-top', $('#headernav').offset().top)
     $(window).on 'sectioncomplete', (e, data) ->
       # mark header item as completed
-      $('[href=#'+data+']').addClass('complete')
+      if ($('[href=#'+data+']').length > 0)
+        $('[href=#'+data+']').addClass('complete')
       nextSec = $('#'+data).nextAll('.section').first()
       if (nextSec.length)
         secID = nextSec.attr('id')
@@ -71,8 +72,8 @@ class window.HeaderNavView
           $('#'+secID+'-lvl2').show()
         App.get().experiment.setCurrent(nextSec.data('slug'))
         $('[href=#'+secID+']').addClass('active')
-        $('body').animate({scrollTop: nextSec.offset().top}, 500)
+        $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
       else
         $('[href=#check]').addClass('active')
         $('#check').show()
-        $('body').animate({scrollTop: $('#check').offset().top}, 500)
+        $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
