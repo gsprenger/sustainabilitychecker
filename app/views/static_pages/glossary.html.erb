@@ -1,22 +1,13 @@
 <%= render 'header' %>
 <div class='container'>
-  <h1 id='legalglossary'><%= Content.text('gloss_title') %></h1>
-  <hr>
-  <h3><%= Content.text('gloss_index') %></h3>
-  <div id='glosindex well'>
-    <ul>
-    <% @glossary.each do |g| %>
-      <li>
-        <a href='#<%=g.name%>'><%=g.name%></a>
-      </li>
-    <% end %>
-    </ul>
-  </div>
+  <h1 id='glossarytitle'><%= Content.text('gloss_title') %></h1>
   <hr>
   <% @glossary.each do |g| %>
   <div class='glos-entry' id='<%=g.name%>'>
-    <h3><%=g.name%></h3>
-    <p><%=g.definition%></p>
+    <h3>&#10165; <%=g.name%></h3>
+    <blockquote>
+      <p><%=g.definition%></p>
+    </blockquote>
   </div>
   <% end %>
 </div>
