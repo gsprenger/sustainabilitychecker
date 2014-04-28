@@ -9,7 +9,7 @@ Sustainabilitychecker::Application.routes.draw do
   get '/editor(/*requested_uri)' => "my_mercury#edit", :as => :mercury_editor
   mount Mercury::Engine => '/'
   # Admin panel for mercury
-  get '/admin' => "admin#admin"
+  get 'admin' => "admin#admin"
 
   # AJAX paths and other db comms
   put "content/save" => "content#save"
@@ -26,5 +26,6 @@ Sustainabilitychecker::Application.routes.draw do
 
   # Static website
   get "home" => "static_pages#home"
+  get "glossary" => "static_pages#glossary"
   get "legal" => "static_pages#legal"
 end
