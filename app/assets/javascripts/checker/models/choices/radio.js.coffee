@@ -19,3 +19,6 @@ class window.Radio
       $(window).trigger('choicecomplete', this)
     else
       console.error(@type+' Error: trying to select unknown value '+ value)
+
+  isValueSet: ->
+    return @value?

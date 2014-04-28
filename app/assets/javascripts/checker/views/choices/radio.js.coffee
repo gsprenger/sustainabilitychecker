@@ -8,7 +8,7 @@ class window.RadioView
     vals = @radio.values
     html = ''
     for i in [0..vals.length-1]
-      active = if @radio.getValue() == vals[i] then ' active' else ''
+      active = if @radio.isValueSet() && @radio.getValue() == vals[i] then ' active' else ''
       html += """
         <div class='cell lg-4#{active}' data-value='#{vals[i]}'>
           #{c.text('http://dummyimage.com/400x400/d1d9ff/5e5e5e.png&text=placeholder', 'image')}
