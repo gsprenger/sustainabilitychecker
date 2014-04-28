@@ -23,7 +23,10 @@ class window.AppView
     $(window).trigger('appready')
     @events()
     # Init tooltips
-    @$el.find('[title]').tooltip({placement: 'bottom'})
+    $('body').tooltip {
+      selector: '[title]',
+      placement: 'bottom'
+    }
     # Scroll to current section
     cur = e.getCurrent()
     if (cur != 'intro')
@@ -38,6 +41,7 @@ class window.AppView
     # check if mercury is running and if yes run special method
     if (document.URL.indexOf('mercury') > 0)
       @setupForMercury()
+    Glossary.parsePage()
 
   events: ->
     # Init smooth scrolling

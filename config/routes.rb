@@ -14,6 +14,8 @@ Sustainabilitychecker::Application.routes.draw do
   # AJAX paths and other db comms
   put "content/save" => "content#save"
   get "content/all" => "content#get_all"
+  put "glossary/save" => "glossary#save"
+  get "glossary/all" => "glossary#get_all"
 
   # Checker Levels
   get "level1" => "level1#app"

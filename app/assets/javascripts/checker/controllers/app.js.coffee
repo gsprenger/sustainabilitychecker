@@ -8,6 +8,7 @@ class window.App
       # Models
       @experiment = new Experiment(num)
       @content = Content.setup()
+      @Glossary = Glossary.setup()
       @demographics = new Demographics()
       @diet         = new Diet()
       @households   = new Households()
