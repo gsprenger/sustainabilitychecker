@@ -2,7 +2,6 @@ class ContentController < ApplicationController
   respond_to :json
   def save
     success = true
-    p params[:content]
     for index, data in params[:content]
       c = Content.find_by slug: index
       if (!c)

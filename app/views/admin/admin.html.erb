@@ -1,7 +1,7 @@
 <h1>Administration panel</h1>
 <hr>
-<h3>Edit Content</h3>
-<p>Follow the links to edit the text on each page. Editable areas are marked with a blue outline. The text is saved on the database once you push the "Save" button, and you cannot undo that action, so make sure that everything is fine on your end before saving.</p>
+<h3>Edit Texts</h3>
+<p>Follow the links to edit the text on each page. Editable areas are marked with a blue outline. The text is saved on the database once you push the "Save" button. You cannot undo that action and it will erase the previous text for this section, so make sure that everything is fine on your end before saving.</p>
 <div class='row'>
   <div class='col-sm-6'>
     <div class='panel panel-primary'>
@@ -21,12 +21,74 @@
       <div class="panel-heading">
         <h3 class='panel-title'>Sustainability Checker</h3>
       </div>
-    <div class="panel-body">
-    <ul>
-      <li><a href='/editor/level1'>Beginner level</a></li>
-      <li><a href='/editor/level2'>Intermediate level</a></li>
-      <li><a href='/editor/level3'>Advanced level</a></li>
-    </ul>
+      <div class="panel-body">
+        <ul>
+          <li><a href='/editor/level1'>Beginner level</a></li>
+          <li><a href='/editor/level2'>Intermediate level</a></li>
+          <li><a href='/editor/level3'>Advanced level</a></li>
+        </ul>
+      </div>
     </div>
+  </div>
+</div>
+
+<h3>Glossary</h3>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#add" data-toggle="tab"><i class="fa fa-plus"></i> Add new entries</a></li>
+  <li><a href="#edit" data-toggle="tab"><i class="fa fa-edit"></i> Edit/Remove entries</a></li>
+</ul>
+<div class="tab-content">
+  <!-- ADD NEW -->
+  <div class="tab-pane fade in active" id="add">
+    <div id='addsuccessalert' class="alert alert-success alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Success!</strong> New glossary items have been saved. Reload the page to see then in the Edit tab!
+    </div>
+    <div id='addfailurealert' class="alert alert-danger alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Oops!</strong> Glossary couldn't be saved! Make sure to back your data somewhere before trying again!
+    </div>
+    <div class='btn-group' id='morelessbtn'>
+      <div class='btn btn-default disabled' id='less'><i class="fa fa-minus"></i></div>
+      <div class='btn btn-default' id='more'><i class="fa fa-plus"></i></div>
+    </div>
+    <div id='btnadd' class='btn btn-success'><i class="fa fa-save"></i> Save</div>
+  </div>
+  <!-- EDIT/REMOVE -->
+  <div class="tab-pane fade" id="edit">
+    <div id='editsuccessalert' class="alert alert-success alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Success!</strong> Glossary item has been updated!
+    </div>
+    <div id='editfailurealert' class="alert alert-danger alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Oops!</strong> Glossary item couldn't be updated! Make sure to back your data somewhere before trying again!
+    </div>
+    <div id='removesuccessalert' class="alert alert-success alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Success!</strong> Glossary item has been deleted. Say goodbye!
+    </div>
+    <div id='removefailurealert' class="alert alert-danger alert-dismissable hidden">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>Oops!</strong> Glossary item couldn't be deleted! Please try again!
+    </div>
+  <% count = 0 %>
+  <% @glossaries.each do |g| %>
+    <div class='well well-sm editgloss' id='editgloss-<%=count%>'>
+      <div class='form-group'>
+        <label for='editgloss-name-<%=count%>'>Name</label>
+        <input type='text' class='form-control' disabled='disabled' id='editgloss-name-<%=count%>' value='<%=g.name%>'>
+      </div>
+      <div class='form-group'>
+        <label for='editgloss-def-<%=count%>'>Definition</label>
+        <textarea class='form-control' id='editgloss-def-<%=count%>' rows=3><%= g.definition %></textarea>
+      </div>
+      <div class='btn-group' id='editremovebtn'>
+        <div class='btn btn-warning btnedit' id='btnedit-<%=count%>'><i class="fa fa-edit"></i> Update</div>
+        <div class='btn btn-danger btnremove' id='btnremove-<%=count%>'><i class="fa fa-ban"></i> Remove</div>
+      </div>
+    </div>
+    <% count += 1 %>
+  <% end %>
   </div>
 </div>
