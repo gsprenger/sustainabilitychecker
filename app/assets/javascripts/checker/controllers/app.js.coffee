@@ -18,7 +18,8 @@ class window.App
       @agriculture  = new Agriculture()
       @energy       = new Energy()
       @sections = [@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy]
-      @sudoku = new Sudoku(@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy)
+      @sudoku = new Sudoku()
+      @radar = new Radar()
       # launch main view
       @level = num
       @appView = new AppView()

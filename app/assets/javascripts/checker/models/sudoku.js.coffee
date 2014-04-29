@@ -1,5 +1,14 @@
 class window.Sudoku
-  constructor:(@demographics, @diet, @households, @services, @land, @bm, @agriculture, @energy) ->
+  constructor: ->
+    app = App.get()
+    @demographics = app.demographics
+    @diet = app.diet
+    @households = app.households
+    @services = app.services
+    @land = app.land
+    @bm = app.bm
+    @agriculture = app.agriculture
+    @energy = app.energy
 
   # SUDOKU DATA #
   get_TFOOD: ->
