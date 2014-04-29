@@ -49,18 +49,10 @@ class window.CheckGraphView
     $(window).on 'clickshowresult', =>
       # Perform calculations
       sudoku = App.get().sudoku
-      local_f = sudoku.get_DS_food()
-      local_e = sudoku.get_DS_energy()
-      imprt_f = sudoku.get_imports_food()
-      imprt_e = sudoku.get_imports_energy()
-      heightUpperFood = Math.round(local_f / (local_f + imprt_f) * 100)
-      heightUpperEnergy = Math.round(local_e / (local_e + imprt_e) * 100)
+      heightUpperFood = sudoku.get_percent_local_food()
+      heightUpperEnergy = sudoku.get_percent_local_energy()
       heightLowerFood = 100 - heightUpperFood
       heightLowerEnergy = 100 - heightUpperEnergy
-      # update title
-      if (heightUpperFood == 100 && heightUpperEnergy == 100)
-        $('.check-result-title').addClass('passed')
-        $('.check-result-title').text('Passed!')
       # update percents
       $('.bar-upper.bar-food .bar-percent').text(if heightUpperFood <= 10 then '' else heightUpperFood+'%')
       $('.bar-upper.bar-energy .bar-percent').text(if heightUpperEnergy <= 10 then '' else heightUpperEnergy+'%')

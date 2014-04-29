@@ -81,3 +81,13 @@ class window.Sudoku
 
   get_FMD_DS: ->
     (@get_DS_food() / @agriculture.get_LU_AG())
+
+  get_percent_local_food: ->
+    Math.round(@get_DS_food() / (@get_DS_food() + @get_imports_food()) * 100)
+
+  get_percent_local_energy: ->
+    Math.round(@get_DS_energy() / (@get_DS_energy() + @get_imports_energy()) * 100)
+
+  getSuccess: ->
+    threshold = 80
+    (@get_percent_local_food >= threshold && @get_percent_local_energy >= threshold)

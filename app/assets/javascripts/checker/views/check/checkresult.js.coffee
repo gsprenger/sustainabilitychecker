@@ -7,9 +7,10 @@ class window.CheckResultView
   render: ->
     level = App.get().level
     c = App.get().content
+    success = (if App.get().sudoku.getSuccess() then 'passed' else 'failed')
     html = """
-      <h2 class='check-result-title'>#{c.text('chkr_res_title')}</h2>
-      <p class='check-result-expl'>#{c.text('chkr_res_explanation')}</p>
+      <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
+      <p class='check-result-expl'>#{c.text('chkr_res_explanation_'+success)}</p>
       <div id='checkgraphcont'></div>
       <div id='checkradarcont'></div>
       <div class='btn-row'>
