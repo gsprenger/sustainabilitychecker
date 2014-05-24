@@ -41,7 +41,6 @@ class window.AppView
     # check if mercury is running and if yes run special method
     if (document.URL.indexOf('mercury') > 0)
       @setupForMercury()
-    Glossary.parsePage()
 
   events: ->
     # Init smooth scrolling

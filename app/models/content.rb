@@ -13,22 +13,25 @@ class Content < ActiveRecord::Base
         html += "<span data-mercury='simple' id='#{c.slug.to_s}'>#{c.content}</span>"
       when 'image'
         html += "<img data-mercury='image' id='#{c.slug.to_s}' src='#{c.content}'>"
-      end      
-      # Check for Glossary elements:
-      html = html.gsub(/\[\[(\p{Alnum}+)\|(\p{Alnum}+)\]\]/) do |match|
-        text = $1
-        slug = $2
-        g = Glossary.find_by slug: slug
-        if (g)
-          definition = g.definition.gsub(/\'/, "&#39;").gsub(/\"/, "&#34;")
-          p "<span class='glossary-entry' title='#{g.name}: #{definition}'>#{text}</span>"
-        else
-          text
-        end
       end
+      html = Content.checkForGlossaryEntries(html)
       return html.html_safe
     else
       return "<span data-mercury='full' id='#{slug}'>#{slug}</span>".html_safe
+    end
+  end
+  
+  def self.checkForGlossaryEntries (html)
+    html = html.gsub(/\[\[([\p{Alnum}\s]+)\|(\p{Alnum}+)\]\]/) do |match|
+      text = $1
+      slug = $2
+      g = Glossary.find_by slug: slug
+      if (g)
+        definition = g.definition.gsub(/\'/, "&#39;").gsub(/\"/, "&#34;")
+        p "<span class='glossary-entry' title='#{g.name}: #{definition}'>#{text}</span>"
+      else
+        text
+      end
     end
   end
 end

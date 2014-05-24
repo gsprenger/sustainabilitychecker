@@ -63,12 +63,5 @@ class GlossaryController < ApplicationController
       format.html { redirect_to root_path }
     end
   end
-
-  def get_all
-    respond_to do |format|
-      format.json { render json: Glossary.order('name')}
-      format.html { redirect_to root_path }
-    end
-  end
 end
 

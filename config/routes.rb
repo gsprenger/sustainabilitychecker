@@ -17,7 +17,6 @@ Sustainabilitychecker::Application.routes.draw do
   post "glossary/new" => "glossary#new"
   post "glossary/edit" => "glossary#edit"
   post "glossary/remove" => "glossary#remove"
-  get "glossary/all" => "glossary#get_all"
 
   # Checker Levels
   get "level1" => "level1#app"
