@@ -34,41 +34,55 @@
 
 <h3>Glossary</h3>
 <ul class="nav nav-tabs">
-  <li class="active"><a href="#add" data-toggle="tab"><i class="fa fa-plus"></i> Add new entries</a></li>
-  <li><a href="#edit" data-toggle="tab"><i class="fa fa-edit"></i> Edit/Remove entries</a></li>
+  <li class="active"><a href="#edit" data-toggle="tab"><i class="fa fa-edit"></i> Edit/Remove entries</a></li>
+  <li><a href="#add" data-toggle="tab"><i class="fa fa-plus"></i> Add new entries</a></li>
 </ul>
 <div class="tab-content">
   <!-- ADD NEW -->
-  <div class="tab-pane fade in active" id="add">
-    <div id='addsuccessalert' class="alert alert-success alert-dismissable hidden">
+  <div class="tab-pane fade" id="add">
+    <div class="alert alert-success alert-dismissable hidden addsuccessalert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Success!</strong> New glossary items have been saved. Reload the page to see then in the Edit tab!
     </div>
-    <div id='addfailurealert' class="alert alert-danger alert-dismissable hidden">
+    <div class="alert alert-danger alert-dismissable hidden addfailurealert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Oops!</strong> Glossary couldn't be saved! Make sure to back your data somewhere before trying again!
     </div>
     <div class='btn-group' id='morelessbtn'>
       <div class='btn btn-default disabled' id='less'><i class="fa fa-minus"></i></div>
       <div class='btn btn-default' id='more'><i class="fa fa-plus"></i></div>
+    </div>    
+    <div class='well well-sm addgloss' id='addgloss-0'>
+      <div class='form-group'>
+        <label for='addgloss-name-0'>Name</label>
+        <input type='text' class='form-control addgloss-name' id='addgloss-name-0' placeholder='Name'>
+      </div>
+      <div class='form-group'>
+        <label for='addgloss-slug-0'>Slug (short name)</label>
+        <input type='text' class='form-control addgloss-slug' id='addgloss-slug-0' placeholder='slug'>
+      </div>
+      <div class='form-group'>
+        <label for='addgloss-def-0'>Definition</label>
+        <textarea class='form-control addgloss-def' id='addgloss-def-0' rows=3></textarea>
+      </div>
     </div>
     <div id='btnadd' class='btn btn-success'><i class="fa fa-save"></i> Save</div>
   </div>
   <!-- EDIT/REMOVE -->
-  <div class="tab-pane fade" id="edit">
-    <div id='editsuccessalert' class="alert alert-success alert-dismissable hidden">
+  <div class="tab-pane fade in active" id="edit">
+    <div class="alert alert-success alert-dismissable hidden editsuccessalert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Success!</strong> Glossary item has been updated!
     </div>
-    <div id='editfailurealert' class="alert alert-danger alert-dismissable hidden">
+    <div class="alert alert-danger alert-dismissable hidden editfailurealert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Oops!</strong> Glossary item couldn't be updated! Make sure to back your data somewhere before trying again!
     </div>
-    <div id='removesuccessalert' class="alert alert-success alert-dismissable hidden">
+    <div class="alert alert-success alert-dismissable hidden removesuccessalert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Success!</strong> Glossary item has been deleted. Say goodbye!
     </div>
-    <div id='removefailurealert' class="alert alert-danger alert-dismissable hidden">
+    <div class="alert alert-danger alert-dismissable hidden removefailurealert">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
       <strong>Oops!</strong> Glossary item couldn't be deleted! Please try again!
     </div>
@@ -77,18 +91,26 @@
     <div class='well well-sm editgloss' id='editgloss-<%=count%>'>
       <div class='form-group'>
         <label for='editgloss-name-<%=count%>'>Name</label>
-        <input type='text' class='form-control' disabled='disabled' id='editgloss-name-<%=count%>' value='<%=g.name%>'>
+        <input type='text' class='form-control editgloss-name' id='editgloss-name-<%=count%>' value='<%=g.name%>'>
+      </div>
+      <div class='form-group'>
+        <label for='editgloss-slug-<%=count%>'>Slug (short name)</label>
+        <input type='text' class='form-control editgloss-slug' id='editgloss-slug-<%=count%>' value='<%=g.slug%>'>
       </div>
       <div class='form-group'>
         <label for='editgloss-def-<%=count%>'>Definition</label>
-        <textarea class='form-control' id='editgloss-def-<%=count%>' rows=3><%= g.definition %></textarea>
+        <textarea class='form-control editgloss-def' id='editgloss-def-<%=count%>' rows=3><%= g.definition %></textarea>
       </div>
       <div class='btn-group' id='editremovebtn'>
         <div class='btn btn-warning btnedit' id='btnedit-<%=count%>'><i class="fa fa-edit"></i> Update</div>
         <div class='btn btn-danger btnremove' id='btnremove-<%=count%>'><i class="fa fa-ban"></i> Remove</div>
       </div>
+      <input type='hidden' class='editgloss-pname' id='editgloss-pname-<%=count%>' value='<%=g.name%>'>
     </div>
     <% count += 1 %>
+  <% end %>
+  <% if count == 0 %>
+    <p class='text-center'><i>There doesn't seem to be anything here...</i></p>
   <% end %>
   </div>
 </div>

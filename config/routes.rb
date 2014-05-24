@@ -14,7 +14,7 @@ Sustainabilitychecker::Application.routes.draw do
   # AJAX paths and other db comms
   put "content/save" => "content#save"
   get "content/all" => "content#get_all"
-  post "glossary/save" => "glossary#save"
+  post "glossary/new" => "glossary#new"
   post "glossary/edit" => "glossary#edit"
   post "glossary/remove" => "glossary#remove"
   get "glossary/all" => "glossary#get_all"
