@@ -63,6 +63,7 @@ class window.Admin
         success: (returnVal) ->
           if (returnVal.success)
             $('.editsuccessalert').first().clone().removeClass('hidden').prependTo(section)
+            section.find(Admin.EDITPNAMEINPUT).val(name)
           else
             $('.editfailurealert').first().clone().removeClass('hidden').prependTo(section).append(returnVal.message)
         error: ->
