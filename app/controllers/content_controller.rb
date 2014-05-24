@@ -23,8 +23,22 @@ class ContentController < ApplicationController
   end
 
   def get_all
+    allContent = Content.all.each do |c|
+      # Check for Glossary elements:
+      c.content = c.content.gsub(/\[\[(\p{Alnum}+)\|(\p{Alnum}+)\]\]/) do |match|
+        text = $1
+        slug = $2
+        g = Glossary.find_by slug: slug
+        if (g)
+          definition = g.definition.gsub(/\'/, "&#39;").gsub(/\"/, "&#34;")
+          p "<span class='glossary-entry' title='#{g.name}: #{definition}'>#{text}</span>"
+        else
+          text
+        end
+      end
+    end
     respond_to do |format|
-      format.json { render json: Content.all}
+      format.json { render json: allContent}
       format.html { redirect_to root_path }
     end
   end

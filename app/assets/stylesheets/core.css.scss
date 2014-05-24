@@ -5,6 +5,11 @@ html {
   overflow-y: scroll;
 }
 
+.glossary-entry {
+  border-bottom: 1px dotted #333;
+  cursor: pointer;
+}
+
 /***** Font Definition for Open Sans. This stylesheet comes from qrohlf.com/posts/better-opensans *****/
 /* Regular */
 @font-face {
