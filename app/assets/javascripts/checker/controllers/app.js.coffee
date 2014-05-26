@@ -5,6 +5,7 @@ class window.App
     constructor: ->
 
     launchLevel:(num) ->
+      @isMercury = (document.URL.indexOf('mercury') > 0)
       # Models
       @experiment = new Experiment(num)
       @content = Content.setup()

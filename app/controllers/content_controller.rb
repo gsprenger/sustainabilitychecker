@@ -23,7 +23,7 @@ class ContentController < ApplicationController
   end
 
   def get_all
-    if !request.original_url.include? "/editor/"
+    if params[:mercury] == 'false'
       allContent = Content.all.each do |c|
         c.content = Content.checkForGlossaryEntries(c.content)
         c

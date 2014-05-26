@@ -2,10 +2,11 @@ class window.Content
   @contents = {}
 
   @setup: ->
+    param = 'mercury='+(if App.get().isMercury then 'true' else 'false')
     all = JSON.parse $.ajax({
       type:     'GET',
       dataType: 'json',
-      url:      '/content/all',
+      url:      "/content/all?#{param}",
       async:    false
     }).responseText
     for c in all

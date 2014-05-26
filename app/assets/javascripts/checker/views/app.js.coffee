@@ -39,7 +39,7 @@ class window.AppView
         name ?= 'check'
         $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)
     # check if mercury is running and if yes run special method
-    if (document.URL.indexOf('mercury') > 0)
+    if (App.get().isMercury)
       @setupForMercury()
 
   events: ->
