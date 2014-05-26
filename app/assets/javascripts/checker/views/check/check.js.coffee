@@ -7,7 +7,6 @@ class window.CheckView
   render: ->
     @$el.append(@sum.render().$el)
     @$el.append(@res.render().$el)
-    @res.$el.hide()
     if (App.get().experiment.getCurrent() != 'check')
       @$el.hide()
     @events()
