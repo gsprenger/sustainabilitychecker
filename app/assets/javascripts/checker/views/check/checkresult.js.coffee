@@ -5,19 +5,22 @@ class window.CheckResultView
     @radar = new CheckRadarView()
 
   render: ->
-    level = App.get().level
+    l = App.get().level
     c = App.get().content
     success = (if App.get().sudoku.getSuccess() then 'passed' else 'failed')
     html = """
       <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
-      <p class='check-result-expl'>#{c.text('chkr_res_explanation_'+success)}</p>
-      <div id='checkgraphcont'></div>
-      <div id='checkradarcont'></div>
+      <p class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</p>
+      <div class='row'>
+        <div id='checkgraphcont' class='col-md-6'></div>
+        <div id='checkradarcont' class='col-md-6'></div>
+      </div>
+      <p class='check-result-expl'>#{c.text('chkr_res_explanation2_'+success+l)}</p>
       <div class='btn-row'>
       """
-    if (level != 3)
+    if (l != 3)
       html += """
-          <a href='/level#{level+1}'><div class='btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div></a>
+          <a href='/level#{l+1}'><div class='btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div></a>
         """
     html += """
         <div class='btn-again btn btn-lg btn-default'>#{c.text('chkr_res_again')}</div>
