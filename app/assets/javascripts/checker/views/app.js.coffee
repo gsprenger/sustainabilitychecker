@@ -27,6 +27,12 @@ class window.AppView
       selector: '[title]',
       placement: 'bottom'
     }
+    # init popovers
+    $('body').popover {
+      selector: '[data-toggle=popover]'
+      placement: 'bottom',
+      trigger: 'hover'
+    }
     # Scroll to current section
     cur = e.getCurrent()
     if (cur != 'intro')
