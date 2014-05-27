@@ -489,6 +489,80 @@ nav {
   #checkradar {
     text-align: center;
     margin-bottom: 15px;
+    position: relative;
+
+    .radar-info {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+
+      .popover {
+        top: 20px;
+        right: 0px;
+        left: auto;
+      }
+    }
+
+    #radarinfoS1 {
+      top: 6%;
+      left: 93%;
+    }
+
+    #radarinfoS2 {
+      top: 30%;
+      left: 126%;
+    }
+
+    #radarinfoS3 {
+      top: 66%;
+      left: 124%;
+    }
+
+    #radarinfoS4 {
+      top: 90%;
+      left: 92%;
+    }
+
+    #radarinfoS5 {
+      top: 90%;
+      left: 49%;
+    }
+
+    #radarinfoS6 {
+      top: 66%;
+      left: 19%;
+    }
+
+    #radarinfoS7 {
+      top: 30%;
+      left: 19%;
+    }
+
+    #radarinfoS8 {
+      top: 6%;
+      left: 48%;
+    }
+
+    #radarinfoG1 {
+      top: 13%;
+      left: 127%;
+    }
+
+    #radarinfoG2 {
+      top: 83%;
+      left: 121%;
+    }
+
+    #radarinfoG3 {
+      top: 83%;
+      left: 22%;
+    }
+
+    #radarinfoG4 {
+      top: 13%;
+      left: 22%;
+    }
   }
 }
 

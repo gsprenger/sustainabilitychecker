@@ -31,7 +31,8 @@ class window.AppView
     $('body').popover {
       selector: '[data-toggle=popover]'
       placement: 'bottom',
-      trigger: 'hover'
+      trigger: 'hover',
+      container: 'body'
     }
     # Scroll to current section
     cur = e.getCurrent()

@@ -16,21 +16,21 @@ class window.CheckResultView
         """
     else
       html += """
-        <h3>(Editor only) chkr_res_title_passed</h3>
+        <h3>(Editor only) chkr_res_title_passed:</h3>
         <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_passed')}</h2>
-        <h3>(Editor only) chkr_res_title_failed</h3>
+        <h3>(Editor only) chkr_res_title_failed:</h3>
         <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_failed')}</h2>
-        <h3>(Editor only) chkr_res_explanation_passed1</h3>
+        <h3>(Editor only) chkr_res_explanation_passed1:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed1')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed1</h3>
+        <h3>(Editor only) chkr_res_explanation_failed1:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed1')}</p>
-        <h3>(Editor only) chkr_res_explanation_passed2</h3>
+        <h3>(Editor only) chkr_res_explanation_passed2:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed2')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed2</h3>
+        <h3>(Editor only) chkr_res_explanation_failed2:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed2')}</p>
-        <h3>(Editor only) chkr_res_explanation_passed3</h3>
+        <h3>(Editor only) chkr_res_explanation_passed3:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed3')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed3</h3>
+        <h3>(Editor only) chkr_res_explanation_failed3:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed3')}</p>
         """
     # Graph and radar
@@ -46,17 +46,17 @@ class window.CheckResultView
         """
     else
       html += """
-        <h3>(Editor only) chkr_res_explanation2_passed1</h3>
+        <h3>(Editor only) chkr_res_explanation2_passed1:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed1')}</p>
-        <h3>(Editor only) chkr_res_explanation2_failed1</h3>
+        <h3>(Editor only) chkr_res_explanation2_failed1:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed1')}</p>
-        <h3>(Editor only) chkr_res_explanation2_passed2</h3>
+        <h3>(Editor only) chkr_res_explanation2_passed2:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed2')}</p>
-        <h3>(Editor only) chkr_res_explanation2_failed2</h3>
+        <h3>(Editor only) chkr_res_explanation2_failed2:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed2')}</p>
-        <h3>(Editor only) chkr_res_explanation2_passed3</h3>
+        <h3>(Editor only) chkr_res_explanation2_passed3:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed3')}</p>
-        <h3>(Editor only) chkr_res_explanation2_failed3</h3>
+        <h3>(Editor only) chkr_res_explanation2_failed3:</h3>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed3')}</p>
         """
     html += """

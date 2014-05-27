@@ -59,11 +59,11 @@ class window.CheckGraphView
       #$('.bar-lower.bar-food .bar-percent').text(if heightLowerFood <= 10 then '' else heightLowerFood+'%')
       #$('.bar-lower.bar-energy .bar-percent').text(if heightLowerEnergy <= 10 then '' else heightLowerEnergy+'%')
       # Update bars: first top bars, then lower bars in red, then switch to original color.
-      setTimeout ->
-        $('.bar-upper.bar-food').css('height', heightUpperFood+'%')
-        $('.bar-upper.bar-energy').css('height', heightUpperEnergy+'%')
-        setTimeout ->
-          $('.bar-lower.bar-food').css('height', heightLowerFood+'%')
-          $('.bar-lower.bar-energy').css('height', heightLowerEnergy+'%')
-        ,1000
-      ,1000
+      # setTimeout ->
+      $('.bar-upper.bar-food').css('height', heightUpperFood+'%')
+      $('.bar-upper.bar-energy').css('height', heightUpperEnergy+'%')
+        # setTimeout ->
+      $('.bar-lower.bar-food').css('height', heightLowerFood+'%')
+      $('.bar-lower.bar-energy').css('height', heightLowerEnergy+'%')
+        # ,1000
+      # ,1000
