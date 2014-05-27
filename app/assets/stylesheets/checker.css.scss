@@ -383,12 +383,11 @@ nav {
   }
 }
 
-#checkresult {
+.checkresult {
   width: 100%;
   font-weight: 300;
   // small devices 
-  padding: 3%;
-  min-height: none;
+  padding: 3% 3% 0 3%;
   margin-bottom: 30px;
 
   .check-result-title {
@@ -402,167 +401,170 @@ nav {
   .check-result-expl {
     text-align: center;
   }
+}
 
-  #checkgraph {
-    hr.graph-axis {
-      margin: 0;
-      border-color: $black;
-    }
+.checkcharts {
+  margin: 0 3% 0 3%;
+}
 
-    .row {
-      .cell {
-        position: relative;
-        // small devices
-        height: 90px;
-
-        .bar-food, .bar-energy {
-          transition: 
-            height 1s ease,
-            background-color 1s ease;
-          height: 0;
-          width: 100%;
-          position: absolute;
-        }
-
-        .bar-food {
-          border: 1px solid $darkgreen;
-          background-color: $green;
-
-        }
-
-        .bar-energy { 
-          border: 1px solid $darkblue;
-          background-color: $blue;
-        }
-
-        .bar-upper {
-          bottom: 0;
-          border-bottom: none;
-
-          .bar-percent {
-            top: -18px;
-          }
-        }
-
-        .bar-lower {
-          top: 0;
-          border-top: none;
-
-          .bar-percent {
-            display: none;
-            bottom: -18px;
-            color: $red;
-            text-shadow: 1px 1px 3px #888;
-          }
-        }
-
-        .bar-percent {
-          position: absolute;
-          width: 100%;
-          text-align: center;
-          color: $black;
-        }
-
-        .bar-title {
-          position: absolute;
-          bottom: -25px;
-          text-align: center;
-          width: 100%;
-          font-weight: 500;
-        }
-
-        .graph-title {
-          font-weight: 400;
-          &.upper {
-            position: absolute;
-            bottom: 0;
-          }
-          &.lower {
-            color: $red;
-            font-weight: 500;
-          }
-        } 
-      }
-    } 
+#checkgraph {
+  hr.graph-axis {
+    margin: 0;
+    border-color: $black;
   }
 
-  #checkradar {
-    text-align: center;
-    margin-bottom: 15px;
-    position: relative;
+  .row {
+    .cell {
+      position: relative;
+      // small devices
+      height: 90px;
 
-    .radar-info {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      cursor: pointer;
-
-      .popover {
-        top: 20px;
-        right: 0px;
-        left: auto;
+      .bar-food, .bar-energy {
+        transition: 
+          height 1s ease,
+          background-color 1s ease;
+        height: 0;
+        width: 100%;
+        position: absolute;
       }
-    }
 
-    #radarinfoS1 {
-      top: 6%;
-      left: 93%;
-    }
+      .bar-food {
+        border: 1px solid $darkgreen;
+        background-color: $green;
 
-    #radarinfoS2 {
-      top: 30%;
-      left: 126%;
-    }
+      }
 
-    #radarinfoS3 {
-      top: 66%;
-      left: 124%;
-    }
+      .bar-energy { 
+        border: 1px solid $darkblue;
+        background-color: $blue;
+      }
 
-    #radarinfoS4 {
-      top: 90%;
-      left: 92%;
-    }
+      .bar-upper {
+        bottom: 0;
+        border-bottom: none;
 
-    #radarinfoS5 {
-      top: 90%;
-      left: 49%;
-    }
+        .bar-percent {
+          top: -18px;
+        }
+      }
 
-    #radarinfoS6 {
-      top: 66%;
-      left: 19%;
-    }
+      .bar-lower {
+        top: 0;
+        border-top: none;
 
-    #radarinfoS7 {
-      top: 30%;
-      left: 19%;
-    }
+        .bar-percent {
+          display: none;
+          bottom: -18px;
+          color: $red;
+          text-shadow: 1px 1px 3px #888;
+        }
+      }
 
-    #radarinfoS8 {
-      top: 6%;
-      left: 48%;
-    }
+      .bar-percent {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        color: $black;
+      }
 
-    #radarinfoG1 {
-      top: 13%;
-      left: 127%;
-    }
+      .bar-title {
+        position: absolute;
+        bottom: -25px;
+        text-align: center;
+        width: 100%;
+        font-weight: 500;
+      }
 
-    #radarinfoG2 {
-      top: 83%;
-      left: 121%;
+      .graph-title {
+        font-weight: 400;
+        &.upper {
+          position: absolute;
+          bottom: 0;
+        }
+        &.lower {
+          color: $red;
+          font-weight: 500;
+        }
+      } 
     }
+  } 
+}
 
-    #radarinfoG3 {
-      top: 83%;
-      left: 22%;
-    }
+#checkradar {
+  text-align: center;
+  position: relative;
 
-    #radarinfoG4 {
-      top: 13%;
-      left: 22%;
+  .radar-info {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+
+    .popover {
+      top: 20px;
+      right: 0px;
+      left: auto;
     }
+  }
+
+  #radarinfoS1 {
+    top: 6%;
+    left: 93%;
+  }
+
+  #radarinfoS2 {
+    top: 30%;
+    left: 126%;
+  }
+
+  #radarinfoS3 {
+    top: 66%;
+    left: 124%;
+  }
+
+  #radarinfoS4 {
+    top: 90%;
+    left: 92%;
+  }
+
+  #radarinfoS5 {
+    top: 90%;
+    left: 49%;
+  }
+
+  #radarinfoS6 {
+    top: 66%;
+    left: 19%;
+  }
+
+  #radarinfoS7 {
+    top: 30%;
+    left: 19%;
+  }
+
+  #radarinfoS8 {
+    top: 6%;
+    left: 48%;
+  }
+
+  #radarinfoG1 {
+    top: 13%;
+    left: 127%;
+  }
+
+  #radarinfoG2 {
+    top: 83%;
+    left: 121%;
+  }
+
+  #radarinfoG3 {
+    top: 83%;
+    left: 22%;
+  }
+
+  #radarinfoG4 {
+    top: 13%;
+    left: 22%;
   }
 }
 
@@ -691,13 +693,15 @@ nav {
       font-weight: 500;
     }
   }
-  #checkresult {
-    padding: 65px 3% 3% 3%;
-    #checkgraph {
-      .row {
-        .cell {
-          height: 150px;
-        }
+
+  .checkresult {
+    padding: 65px 3% 0 3%;
+  }
+
+  #checkgraph {
+    .row {
+      .cell {
+        height: 150px;
       }
     }
   }
@@ -713,9 +717,13 @@ nav {
     padding: 65px 15% 10px 15%;
   }
 
-  #check, #checkresult {
+  #check {
     min-height: 100%;
     margin: 0;
     padding: 65px 15% 10px 15%;
+  }
+
+  .checkresult {
+    padding: 3% 15% 0 15%;
   }
 }
