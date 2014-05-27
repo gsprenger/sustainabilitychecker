@@ -158,56 +158,48 @@ class window.Radar
         section: 'Sovereignty',
         name: 'Quality',
         value: @get_sov_qual(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Sovereignty',
         name: 'Quantity',
         value: @get_sov_quan(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Society',
         name: 'Wage',
         value: @get_soc_wage(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Society',
         name: 'Jobs',
         value: @get_soc_jobs(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Environment',
         name: 'Land use',
         value: @get_env_lan(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Environment',
         name: 'Soil pollution',
         value: @get_env_pol(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Economic',
         name: 'Value added',
         value: @get_eco_val(),
-        unit: '',
         color: '#2980B9'
       },
       {
         section: 'Economic',
         name: 'Devise',
         value: @get_eco_dev(),
-        unit: '',
         color: '#2980B9'
       }
     ]
@@ -218,7 +210,6 @@ class window.Radar
         value: data[i].value,
         max:   100,
         angle: 45,
-        unit:  data[i].unit,
         color: data[i].color,
         name: data[i].name,
         section: data[i].section

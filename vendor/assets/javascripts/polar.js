@@ -577,14 +577,12 @@ window.Chart = function(context, paramMargin){
         if (config.showLabels) {
           if (area.radius != 0) {
             var labelAngle = startAngle + (area.endAngle-startAngle)/2,
-                txt1 = data[i].name+' ['+data[i].min+','+data[i].max+']',
-                txt2 = data[i].value+' '+data[i].unit;
+                txt1 = data[i].name;
             var labelX = (width/2+20)*Math.cos(labelAngle) + area.centerPoint.x,
                 labelY = (height/2+20)*Math.sin(labelAngle) + area.centerPoint.y;
             var overXC = (labelX > centerX),
                 overYC = (labelY > centerY);
             var w = ctx.measureText(txt1).width,
-                w2 = ctx.measureText(txt2).width,
                 h = config.scaleFontSize,
                 paddingY = 4;
             labelX -= (w/2);
@@ -593,14 +591,6 @@ window.Chart = function(context, paramMargin){
             }
             ctx.fillStyle = '#000000';
             ctx.fillText(txt1, labelX, labelY);
-            ctx.fillText(txt2, labelX+((w-w2)/2), labelY+h+paddingY);
-            // underline txt1
-            ctx.beginPath();
-            ctx.moveTo(labelX, labelY+paddingY);
-            ctx.lineTo(labelX+w, labelY+paddingY);
-            ctx.strokeStyle = '#333333';
-            ctx.lineWidth = 1;
-            ctx.stroke();
           }
         }
         // draw section
