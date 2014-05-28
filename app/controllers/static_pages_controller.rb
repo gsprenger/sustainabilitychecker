@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
   end
 
   def glossary
-    @glossary = Glossary.all
+    @glossary = Glossary.order('name')
   end
 
   def legal
