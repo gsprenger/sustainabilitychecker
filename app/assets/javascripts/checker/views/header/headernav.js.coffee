@@ -22,7 +22,7 @@ class window.HeaderNavView
       avlb = (if (i <= app.level) then ' available' else '')
       html += """
                 <li>
-                  <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link#{curr}#{avlb}#{' level'+i}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}'>
+                  <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link#{curr}#{avlb}#{' level'+i}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}' data-toggle='tooltip'>
                     #{i}
                   </a>
                 </li>
@@ -37,7 +37,7 @@ class window.HeaderNavView
       p = s.i18nPrefix
       html += """
               <li>
-                <a href='##{s.name}' class='nav-link #{s.type}#{com}#{act}' title='#{c.text(p+'_title', 'none')}'>
+                <a href='##{s.name}' class='nav-link #{s.type}#{com}#{act}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
                   <i class="fa #{s.headerIcon}"></i>
                 </a>
               </li>
@@ -45,7 +45,7 @@ class window.HeaderNavView
     act = (if (app.experiment.getCurrent() == 'check') then ' active' else '')
     html += """
             <li>
-              <a href='#check' class='check nav-link#{act}' title='Check'>
+              <a href='#check' class='check nav-link#{act}' title='Check' data-toggle='tooltip'>
                 <i class="fa fa-check"></i>
               </a>
             </li>

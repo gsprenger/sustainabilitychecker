@@ -24,7 +24,7 @@ class window.AppView
     @events()
     # Init tooltips
     $('body').tooltip {
-      selector: '[title]',
+      selector: '[data-toggle=tooltip]',
       placement: 'bottom'
     }
     # init popovers
