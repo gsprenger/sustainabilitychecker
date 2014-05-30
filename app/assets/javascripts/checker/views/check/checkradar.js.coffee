@@ -266,7 +266,9 @@ class window.CheckRadarView
         scaleOverride: true,
         scaleSteps: 10,
         scaleStepWidth: 10,
-        scaleStartValue: 0
+        scaleStartValue: 0,
+        segmentShowStroke: false,
+        scaleFontSize: 10
       };
       new Chart(canvas, margin).PolarArea({}, config);
       # setTimeout =>

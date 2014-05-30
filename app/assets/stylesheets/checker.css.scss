@@ -490,8 +490,10 @@ nav {
 }
 
 #checkradar {
-  text-align: center;
   position: relative;
+  width: 600px;
+  height: 600px;
+  margin: auto;
 
   .radar-info {
     position: absolute;
@@ -507,63 +509,63 @@ nav {
   }
 
   #radarinfoS1 {
-    top: 6%;
-    left: 93%;
+    top: 37px;
+    left: 423px;
   }
 
   #radarinfoS2 {
-    top: 30%;
-    left: 126%;
+    top: 182px;
+    left: 572px;
   }
 
   #radarinfoS3 {
-    top: 66%;
-    left: 124%;
+    top: 399px;
+    left: 566px;
   }
 
   #radarinfoS4 {
-    top: 90%;
-    left: 92%;
+    top: 545px;
+    left: 418px;
   }
 
   #radarinfoS5 {
-    top: 90%;
-    left: 49%;
+    top: 545px;
+    left: 221px;
   }
 
   #radarinfoS6 {
-    top: 66%;
-    left: 19%;
+    top: 399px;
+    left: 82px;
   }
 
   #radarinfoS7 {
-    top: 30%;
-    left: 19%;
+    top: 182px;
+    left: 83px;
   }
 
   #radarinfoS8 {
-    top: 6%;
-    left: 48%;
+    top: 37px;
+    left: 215px;
   }
 
   #radarinfoG1 {
-    top: 13%;
-    left: 127%;
+    top: 81px;
+    left: 572px;
   }
 
   #radarinfoG2 {
-    top: 83%;
-    left: 121%;
+    top: 501px;
+    left: 551px;
   }
 
   #radarinfoG3 {
-    top: 83%;
-    left: 22%;
+    top: 501px;
+    left: 103px;
   }
 
   #radarinfoG4 {
-    top: 13%;
-    left: 22%;
+    top: 81px;
+    left: 103px;
   }
 }
 
@@ -724,5 +726,9 @@ nav {
 
   .checkresult {
     padding: 3% 15% 0 15%;
+  }
+
+  #checkgraph {
+    margin-top: 150px;
   }
 }

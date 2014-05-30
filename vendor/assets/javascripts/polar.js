@@ -490,15 +490,15 @@ window.Chart = function(context, paramMargin){
         ctx.beginPath();
         ctx.moveTo(margin, centerY);
         ctx.lineTo(originalWidth-margin, centerY);
-        ctx.strokeStyle = '#999999';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 1;
         ctx.stroke();
         // Y Axis
         ctx.beginPath();
         ctx.moveTo(centerX, margin);
         ctx.lineTo(centerX, originalHeight-margin);
-        ctx.strokeStyle = '#999999';
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000000';
+        ctx.lineWidth = 1;
         ctx.stroke();
       } else if (config.scaleShowQuintAxis) {
         var angleScale = function (i) {
@@ -576,6 +576,7 @@ window.Chart = function(context, paramMargin){
         // draw label
         if (config.showLabels) {
           if (area.radius != 0) {
+            ctx.font =config.scaleFontSize+'px Arial';
             var labelAngle = startAngle + (area.endAngle-startAngle)/2,
                 txt1 = data[i].name;
             var labelX = (width/2+20)*Math.cos(labelAngle) + area.centerPoint.x,
@@ -595,7 +596,7 @@ window.Chart = function(context, paramMargin){
         }
         // draw section
         if (data[i].section && data[i].section !== '') {
-          ctx.font ='bold 12px Arial';
+          ctx.font ='bold '+config.scaleFontSize+'px Arial';
           var angleTab = [];
           if (config.scaleShowXYAxis) {
             index = (data.length == 8? [0, 2, 4, 6] : [1, 7, 13, 19])
@@ -636,7 +637,7 @@ window.Chart = function(context, paramMargin){
           ctx.lineWidth = 1;
           ctx.strokeStyle = '#000000';
           ctx.stroke();
-          ctx.font ='12px Arial';
+          ctx.font =config.scaleFontSize+'px Arial';
         }
         startAngle = area.endAngle;
       }
