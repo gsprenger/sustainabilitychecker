@@ -262,7 +262,11 @@ class window.CheckRadarView
         scaleShowLabels: false,
         scaleShowLine: true,
         scaleShowXYAxis: true,
-        showLabels: true
+        showLabels: true,
+        scaleOverride: true,
+        scaleSteps: 10,
+        scaleStepWidth: 10,
+        scaleStartValue: 0
       };
       new Chart(canvas, margin).PolarArea({}, config);
       # setTimeout =>
