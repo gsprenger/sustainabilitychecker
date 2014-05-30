@@ -599,7 +599,7 @@ window.Chart = function(context, paramMargin){
           ctx.font ='bold '+config.scaleFontSize+'px Arial';
           var angleTab = [];
           if (config.scaleShowXYAxis) {
-            index = (data.length == 8? [0, 2, 4, 6] : [1, 7, 13, 19])
+            index = [0, 2, 4, 6]
             angleTab[index[0]] = -Math.PI/4;
             angleTab[index[1]] = Math.PI/4;
             angleTab[index[2]] = (3*Math.PI)/4;

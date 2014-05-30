@@ -157,61 +157,68 @@ class window.Radar
       {
         section: 'Sovereignty',
         name: 'Quality',
-        value: @get_sov_qual(),
-        color: '#2980B9'
+        value: @get_sov_qual()
       },
       {
         section: 'Sovereignty',
         name: 'Quantity',
-        value: @get_sov_quan(),
-        color: '#2980B9'
+        value: @get_sov_quan()
       },
       {
         section: 'Society',
         name: 'Wage',
-        value: @get_soc_wage(),
-        color: '#2980B9'
+        value: @get_soc_wage()
       },
       {
         section: 'Society',
         name: 'Jobs',
-        value: @get_soc_jobs(),
-        color: '#2980B9'
+        value: @get_soc_jobs()
       },
       {
         section: 'Environment',
         name: 'Land use',
-        value: @get_env_lan(),
-        color: '#2980B9'
+        value: @get_env_lan()
       },
       {
         section: 'Environment',
         name: 'Soil pollution',
-        value: @get_env_pol(),
-        color: '#2980B9'
+        value: @get_env_pol()
       },
       {
         section: 'Economic',
         name: 'Value added',
-        value: @get_eco_val(),
-        color: '#2980B9'
+        value: @get_eco_val()
       },
       {
         section: 'Economic',
         name: 'Devise',
-        value: @get_eco_dev(),
-        color: '#2980B9'
+        value: @get_eco_dev()
       }
     ]
     chartData = []
-    for i in [0..7]
-      chartData.push({
-        min:   0,
-        value: data[i].value,
-        max:   100,
-        angle: 45,
-        color: data[i].color,
-        name: data[i].name,
-        section: data[i].section
-      });     
+    colors = ["#5CB85C", "#ED9C28", "#D2322D"]
+    thresholds = [100, 70, 30, 0]
+    for i in [1..3]
+      for j in [0..7]
+        # Set proper value
+        value = data[j].value
+        if value >= thresholds[i-1]
+          drawVal = thresholds[i-1]
+        else if value < thresholds[i]
+          drawVal = 0
+        else 
+          drawVal = value
+        # Colors, reverse Env. colors
+        color = colors[i-1]
+        if data[j].section == 'Environment'
+          color = colors[3-i]
+        chartData.push({
+          min:   0,
+          value: drawVal,
+          max:   100,
+          angle: 45,
+          color: color,
+          name: if i == 3 then data[j].name else '',
+          section: if i == 1 then data[j].section else '',
+        });     
     return chartData
