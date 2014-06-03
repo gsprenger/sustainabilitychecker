@@ -7,8 +7,6 @@ class window.AppView
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))
-      if (lvl == 2)
-        @views.push(new Level2View(s))
     @views.push(new CheckSummaryView())
     @views.push(new CheckResultView())
     if (lvl == 3)
