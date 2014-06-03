@@ -428,14 +428,14 @@ nav {
       }
 
       .bar-food {
-        border: 1px solid $darkgreen;
-        background-color: $green;
+        border: 1px solid #D58512;
+        background-color: #ED9C28;
 
       }
 
       .bar-energy { 
-        border: 1px solid $darkblue;
-        background-color: $blue;
+        border: 1px solid #AC2925;
+        background-color: #D2322D;
       }
 
       .bar-upper {
@@ -591,14 +591,6 @@ nav {
 .btn-row {
   text-align: center;
   clear: both;
-}
-
-.btn-row > .btn, .btn-row > a {
-  margin-left: 15px;
-}
-
-.btn-row > .btn:first-child, .btn-row > a::first-child {
-  margin-left: 0;
 }
 
 // Level 3 section
