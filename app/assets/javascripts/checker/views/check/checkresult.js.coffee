@@ -1,6 +1,6 @@
 class window.CheckResultView
   constructor: ->
-    @$el = $("<div id='checkres-container'>")
+    @$el = $("<div id='checkres-container' class='in-level#{App.get().level}'>")
     @graph = new CheckGraphView()
     @radar = new CheckRadarView()
     if App.get().level == 1

@@ -256,7 +256,7 @@ nav {
 }
 
 /** SECTIONS **/
-.section.in-level3, #check.in-level3, #checkresult.in-level3 {
+.section.in-level2, #check.in-level2, #checkres-container.in-level2, .section.in-level3, #check.in-level3, #checkres-container.in-level3  {
   padding-bottom: 55px;
 }
 
@@ -394,7 +394,6 @@ nav {
   font-weight: 300;
   // small devices 
   padding: 3% 3% 0 3%;
-  margin-bottom: 30px;
 
   .check-result-title {
     color: $red;
