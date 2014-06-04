@@ -3,7 +3,7 @@ class window.CheckResultView
     @$el = $("<div id='checkres-container'>")
     @graph = new CheckGraphView()
     @radar = new CheckRadarView()
-    if App.get().level < 3
+    if App.get().level == 1
       @sudoku = new SudokuView()
 
   render: ->
