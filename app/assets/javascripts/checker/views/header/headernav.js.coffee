@@ -4,6 +4,7 @@ class window.HeaderNavView
 
   render: ->
     app = App.get()
+    l = app.level
     c = app.content
     html = """
         <div id='headernav-cont'>
@@ -42,7 +43,7 @@ class window.HeaderNavView
                 </a>
               </li>
         """
-    act = (if (app.experiment.getCurrent() == 'check') then ' active' else '')
+    act = (if (app.experiment.getCurrent() == 'check') then ' activelevel'+l else '')
     html += """
             <li>
               <a href='#check' class='check nav-link#{act}' title='Check' data-toggle='tooltip'>
@@ -74,6 +75,6 @@ class window.HeaderNavView
         $('[href=#'+secID+']').addClass('active')
         $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
       else
-        $('[href=#check]').addClass('active')
+        $('[href=#check]').addClass('activelevel'+App.get().level)
         $('#check').show()
         $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)

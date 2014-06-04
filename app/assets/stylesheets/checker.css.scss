@@ -234,8 +234,14 @@ nav {
           &.active.supply {
             background-color: $supplyactive;
           }
-          &.active.check {
-            background-color: $checkactive;
+          &.activelevel1 {
+            background-color: $level1;
+          }
+          &.activelevel2 {
+            background-color: $level2;
+          }
+          &.activelevel3 {
+            background-color: $level3;
           }
           &.complete.demand {
             background-color: $demandcomplete;
