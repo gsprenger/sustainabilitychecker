@@ -53,12 +53,17 @@ class window.CheckGraphView
       heightUpperEnergy = sudoku.get_percent_local_energy()
       heightLowerFood = 100 - heightUpperFood
       heightLowerEnergy = 100 - heightUpperEnergy
+      colorFood = if heightUpperFood >= 70 then 70 else if heightUpperFood >= 30 then 30 else 0
+      colorEnergy = if heightUpperEnergy >= 70 then 70 else if heightUpperEnergy >= 30 then 30 else 0
       # update percents
       $('.bar-upper.bar-food .bar-percent').text(if heightUpperFood <= 10 then '' else heightUpperFood+'%')
       $('.bar-upper.bar-energy .bar-percent').text(if heightUpperEnergy <= 10 then '' else heightUpperEnergy+'%')
-      #$('.bar-lower.bar-food .bar-percent').text(if heightLowerFood <= 10 then '' else heightLowerFood+'%')
-      #$('.bar-lower.bar-energy .bar-percent').text(if heightLowerEnergy <= 10 then '' else heightLowerEnergy+'%')
-      # Update bars: first top bars, then lower bars in red, then switch to original color.
+      $('.bar-lower.bar-food .bar-percent').text(if heightLowerFood <= 10 then '' else heightLowerFood+'%')
+      $('.bar-lower.bar-energy .bar-percent').text(if heightLowerEnergy <= 10 then '' else heightLowerEnergy+'%')
+      # update color
+      $('.bar-food').addClass('bar-'+colorFood)
+      $('.bar-energy').addClass('bar-'+colorEnergy)
+      # Update bars: first top bars, then lower bars.
       # setTimeout ->
       $('.bar-upper.bar-food').css('height', heightUpperFood+'%')
       $('.bar-upper.bar-energy').css('height', heightUpperEnergy+'%')
