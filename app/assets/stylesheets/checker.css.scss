@@ -620,15 +620,16 @@ nav {
 
 #sudoku {
   font-weight: 400;
+  color: #666;
   table {
     width: 945px;
     height: 433px;
     margin: auto;
     tr {
-      border: 1px solid $black;
+      border: 1px solid #666;
       td {
         padding: 5px;
-        border-right: 1px solid $black;
+        border-right: 1px solid #666;
       }
       #topcell {
         text-align: center;
@@ -646,6 +647,11 @@ nav {
       }
       .cell-flowfund {
         vertical-align: top;
+      }
+      .cell-header {
+        strong {
+          font-weight: 600;
+        }
       }
     }
   }

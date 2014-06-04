@@ -8,6 +8,7 @@ class window.SudokuView
   render: ->
     sudoku = App.get().sudoku
     c = App.get().content
+    l = App.get().level
     success = sudoku.getSuccess()
     html =
       """
@@ -16,7 +17,7 @@ class window.SudokuView
           <td colspan="2" rowspan="2" id='topcell' class='#{if success then 'success' else 'failure'}'>
             #{if success then 'Sustainable' else 'Unsustainable'}
           </td>
-          <td colspan="2">
+          <td colspan="2" class='cell-header'>
             <strong>Flows</strong>
             <i class='fa fa-info-circle'></i>
             <div class='popover'>
@@ -28,7 +29,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td colspan="2">
+          <td colspan="2" class='cell-header'>
             <strong>Funds</strong>
             <i class='fa fa-info-circle'></i>
             <div class='popover'>
@@ -40,7 +41,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td colspan="2">
+          <td colspan="2" class='cell-header'>
             <strong>Flow/Fund</strong>
             <i class='fa fa-info-circle'></i>
             <div class='popover'>
@@ -54,7 +55,7 @@ class window.SudokuView
           </td>
         </tr>
         <tr>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Food</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grain-equiv p.c.)
@@ -67,7 +68,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Energy</strong>
             <i class='fa fa-info-circle'></i><br>
             (GJ-GER p.c.)
@@ -80,7 +81,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Human Activity</strong>
             <i class='fa fa-info-circle'></i><br>
             (hrs p.c.)
@@ -93,7 +94,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Land Use</strong>
             <i class='fa fa-info-circle'></i><br>
             (ha p.c.)
@@ -106,7 +107,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Energy Metabolic Rate</strong>
             <i class='fa fa-info-circle'></i><br>
             (MJ/hrs)
@@ -119,7 +120,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-flowfund'>
+          <td class='cell-header cell-flowfund'>
             <strong>Food Metabolic Density</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grains-equiv/ha)
@@ -134,8 +135,8 @@ class window.SudokuView
           </td>
         </tr>
         <tr>
-          <td rowspan="6">
-            Consumption
+          <td rowspan="6" class='cell-header'>
+            <strong>Consumption</strong>
             <i class='fa fa-info-circle'></i>
             <div class='popover'>
               <div class='popover-title'>
@@ -146,9 +147,9 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Whole society
+            <strong>Whole society</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_ws_t')}
@@ -166,9 +167,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Households
+            <strong>Households</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_hh_t')}
@@ -186,9 +187,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Services and government
+            <strong>Services and government</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_sg_t')}
@@ -206,9 +207,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Building and manufacturing
+            <strong>Building and manufacturing</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_bm_t')}
@@ -226,9 +227,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Agriculture
+            <strong>Agriculture</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_ag_t')}
@@ -246,9 +247,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Energy and mining
+            <strong>Energy and mining</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_em_t')}
@@ -269,8 +270,8 @@ class window.SudokuView
           <td colspan="8"></td>
         </tr>
         <tr>
-          <td rowspan="3">
-            Supply
+          <td rowspan="3" class='cell-header'>
+            <strong>Supply</strong>
             <i class='fa fa-info-circle'></i>
             <div class='popover'>
               <div class='popover-title'>
@@ -281,9 +282,9 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Domestic Supply
+            <strong>Domestic Supply</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_domsup_t')}
@@ -301,9 +302,9 @@ class window.SudokuView
           <td class='cell-number'>#{sudoku.get_FMD_DS()}</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Imports
+            <strong>Imports</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_imports_t')}
@@ -321,9 +322,9 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-header'>
             <i class='fa fa-info-circle'></i>
-            Virtual Imports
+            <strong>Virtual Imports</strong>
             <div class='popover'>
               <div class='popover-title'>
                 #{c.text('chkr_sud_vimports_t')}

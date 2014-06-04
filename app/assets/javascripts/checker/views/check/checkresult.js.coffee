@@ -12,7 +12,6 @@ class window.CheckResultView
     success = (if App.get().sudoku.getSuccess() then 'passed' else 'failed')
     html = "<div class='checkresult in-level#{App.get().level}'>"
     if !App.get().isMercury
-      console.log(success)
       html += """
         <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</p>
@@ -162,6 +161,76 @@ class window.CheckResultView
           <h3>(Editor only) chkr_res_explanation2_failed3:</h3>
           <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed3')}</p>
         """
+    if l == 3
+      sud = App.get().sudoku
+      foodSuccess = sud.getFoodSuccess()
+      energySuccess = sud.getEnergySuccess()
+      HASuccess = sud.getHASuccess()
+      LUSuccess = sud.getLUSuccess()
+      EMRSuccess = sud.getEMRSuccess()
+      html += """
+        <br>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <div class='panel panel-#{if foodSuccess then 'success' else 'danger'}'>
+              <div class='panel-heading'>
+                <i class='fa fa-#{if foodSuccess then 'check' else 'times'}'></i> #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_t', 'simple')}
+              </div>
+              <div class='panel-body'>
+                #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_c')}
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-6'>
+            <div class='panel panel-#{if energySuccess then 'success' else 'danger'}'>
+              <div class='panel-heading'>
+                <i class='fa fa-#{if energySuccess then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_t', 'simple')}
+              </div>
+              <div class='panel-body'>
+                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_c')}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-6'>
+            <div class='panel panel-#{if HASuccess then 'success' else 'danger'}'>
+              <div class='panel-heading'>
+                <i class='fa fa-#{if HASuccess then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_t', 'simple')}
+              </div>
+              <div class='panel-body'>
+                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_c')}
+              </div>
+            </div>
+          </div>
+          <div class='col-sm-6'>
+            <div class='panel panel-#{if LUSuccess then 'success' else 'danger'}'>
+              <div class='panel-heading'>
+                <i class='fa fa-#{if LUSuccess then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_t', 'simple')}
+              </div>
+              <div class='panel-body'>
+                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_c')}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-sm-12'>
+            <div class='panel panel-#{if EMRSuccess then 'success' else 'danger'}'>
+              <div class='panel-heading'>
+                <i class='fa fa-#{if EMRSuccess then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_t', 'simple')}
+              </div>
+              <div class='panel-body'>
+                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_c')}
+              </div>
+            </div>
+          </div>
+        </div>
+      """
     html += """
         <div id='checksudokucont'></div>
         <div class='btn-row'>
