@@ -50,6 +50,104 @@ class window.CheckResultView
         """
     else
       html += """
+          <h3>(Editor only) Radar info pop-up:</h3>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i1_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i1_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i2_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i2_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i3_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i3_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i4_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i4_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i5_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i5_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i6_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i6_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i7_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i7_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_i8_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_i8_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_iG1_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_iG1_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_iG2_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_iG2_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_iG3_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_iG3_c')}
+            </div>
+          </div>
+          <div class='panel panel-default'>
+            <div class='panel-heading'>
+              #{c.text('chkr_rdr_iG4_t')}
+            </div>
+            <div class='panel-body'>
+              #{c.text('chkr_rdr_iG4_c')}
+            </div>
+          </div>
+        
           <h3>(Editor only) chkr_res_explanation2_passed1:</h3>
           <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed1')}</p>
           <h3>(Editor only) chkr_res_explanation2_failed1:</h3>

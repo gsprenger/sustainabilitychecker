@@ -8,242 +8,139 @@ class window.CheckRadarView
     c = App.get().content
     html = """
       <canvas id='radarcanvas' width='600' height='600'></canvas>
-      """
-    if !App.get().isMercury
-      html += """
-        <div id='radarinfoS1' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i1_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i1_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS2' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i2_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i2_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS3' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i3_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i3_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS4' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i4_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i4_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS5' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i5_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i5_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS6' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i6_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i6_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS7' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i7_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i7_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoS8' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_i8_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_i8_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoG1' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_iG1_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_iG1_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoG2' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_iG2_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_iG2_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoG3' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_iG3_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_iG3_c')}
-            </div>
-          </div>
-        </div>
-        <div id='radarinfoG4' class='radar-info'>
-          <i class='fa fa-info-circle'></i>
-          <div class='popover'>
-            <div class='popover-title'>
-              #{c.text('chkr_rdr_iG4_t')}
-            </div>
-            <div class='popover-content'>
-              #{c.text('chkr_rdr_iG4_c')}
-            </div>
-          </div>
-        </div>
-        """
-    else
-      html += """
-        <h3>(Editor only) Radar info pop-up:</h3>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      <div id='radarinfoS1' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i1_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i1_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS2' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i2_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i2_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS3' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i3_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i3_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS4' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i4_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i4_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS5' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i5_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i5_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS6' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i6_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i6_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS7' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i7_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i7_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoS8' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_i8_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_i8_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoG1' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_iG1_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_iG1_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoG2' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_iG2_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_iG2_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoG3' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_iG3_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_iG3_c')}
           </div>
         </div>
-        <div class='panel panel-default'>
-          <div class='panel-heading'>
+      </div>
+      <div id='radarinfoG4' class='radar-info'>
+        <i class='fa fa-info-circle'></i>
+        <div class='popover'>
+          <div class='popover-title'>
             #{c.text('chkr_rdr_iG4_t')}
           </div>
-          <div class='panel-body'>
+          <div class='popover-content'>
             #{c.text('chkr_rdr_iG4_c')}
           </div>
         </div>
-        """
+      </div>
+      """
     @$el.html(html)
     @events()
     return this
