@@ -1,5 +1,5 @@
 class window.SudokuView
-  constructor: ->
+  constructor: (@isOverlay) ->
     @$el = $("<div id='sudoku'>")
     @isRendered = false
     $(window).on 'choicecomplete', =>
@@ -8,11 +8,14 @@ class window.SudokuView
   render: ->
     sudoku = App.get().sudoku
     c = App.get().content
+    success = sudoku.getSuccess()
     html =
       """
       <table>
         <tr>
-          <td colspan="2" rowspan="2"></td>
+          <td colspan="2" rowspan="2" id='topcell' class='#{if success then 'success' else 'failure'}'>
+            #{if success then 'Sustainable' else 'Unsustainable'}
+          </td>
           <td colspan="2">
             <strong>Flows</strong>
             <i class='fa fa-info-circle'></i>
@@ -51,7 +54,7 @@ class window.SudokuView
           </td>
         </tr>
         <tr>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Food</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grain-equiv p.c.)
@@ -64,7 +67,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Energy</strong>
             <i class='fa fa-info-circle'></i><br>
             (GJ-GER p.c.)
@@ -77,7 +80,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Human Activity</strong>
             <i class='fa fa-info-circle'></i><br>
             (hrs p.c.)
@@ -90,7 +93,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Land Use</strong>
             <i class='fa fa-info-circle'></i><br>
             (ha p.c.)
@@ -103,7 +106,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Energy Metabolic Rate</strong>
             <i class='fa fa-info-circle'></i><br>
             (MJ/hrs)
@@ -116,7 +119,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>
+          <td class='cell-flowfund'>
             <strong>Food Metabolic Density</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grains-equiv/ha)
@@ -155,12 +158,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.get_TFOOD()}</td>
-          <td>#{sudoku.get_TET()}</td>
-          <td>#{sudoku.get_THA()}</td>
-          <td>#{sudoku.get_TLU()}</td>
-          <td>#{sudoku.get_EMR_WS()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.get_TFOOD()}</td>
+          <td class='cell-number'>#{sudoku.get_TET()}</td>
+          <td class='cell-number'>#{sudoku.get_THA()}</td>
+          <td class='cell-number'>#{sudoku.get_TLU()}</td>
+          <td class='cell-number'>#{sudoku.get_EMR_WS()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -175,12 +178,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.diet.get_HH_food()}</td>
-          <td>#{sudoku.households.get_ET_HH()}</td>
-          <td>#{sudoku.demographics.get_HA_HH()}</td>
-          <td>negl.</td>
-          <td>#{sudoku.get_EMR_HH()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.diet.get_HH_food()}</td>
+          <td class='cell-number'>#{sudoku.households.get_ET_HH()}</td>
+          <td class='cell-number'>#{sudoku.demographics.get_HA_HH()}</td>
+          <td class='cell-number'>negl.</td>
+          <td class='cell-number'>#{sudoku.get_EMR_HH()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -195,12 +198,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.diet.get_SG_food()}</td>
-          <td>#{sudoku.services.get_ET_SG()}</td>
-          <td>#{sudoku.services.get_HA_SG()}</td>
-          <td>negl.</td>
-          <td>#{sudoku.get_EMR_SG()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.diet.get_SG_food()}</td>
+          <td class='cell-number'>#{sudoku.services.get_ET_SG()}</td>
+          <td class='cell-number'>#{sudoku.services.get_HA_SG()}</td>
+          <td class='cell-number'>negl.</td>
+          <td class='cell-number'>#{sudoku.get_EMR_SG()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -215,12 +218,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.diet.get_BM_food()}</td>
-          <td>#{sudoku.bm.get_ET_BM()}</td>
-          <td>#{sudoku.bm.get_HA_BM()}</td>
-          <td>negl.</td>
-          <td>#{sudoku.get_EMR_BM()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.diet.get_BM_food()}</td>
+          <td class='cell-number'>#{sudoku.bm.get_ET_BM()}</td>
+          <td class='cell-number'>#{sudoku.bm.get_HA_BM()}</td>
+          <td class='cell-number'>negl.</td>
+          <td class='cell-number'>#{sudoku.get_EMR_BM()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -235,12 +238,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.diet.get_AG_food()}</td>
-          <td>#{sudoku.agriculture.get_ET_AG()}</td>
-          <td>#{sudoku.agriculture.get_HA_AG()}</td>
-          <td>#{sudoku.agriculture.get_LU_AG()}</td>
-          <td>#{sudoku.get_EMR_AG()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.diet.get_AG_food()}</td>
+          <td class='cell-number'>#{sudoku.agriculture.get_ET_AG()}</td>
+          <td class='cell-number'>#{sudoku.agriculture.get_HA_AG()}</td>
+          <td class='cell-number'>#{sudoku.agriculture.get_LU_AG()}</td>
+          <td class='cell-number'>#{sudoku.get_EMR_AG()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -255,12 +258,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>N/A</td>
-          <td>#{sudoku.energy.get_ET_EM()}</td>
-          <td>#{sudoku.energy.get_HA_EM()}</td>
-          <td>#{sudoku.energy.get_LU_EM()}</td>
-          <td>#{sudoku.get_EMR_EM()}</td>
-          <td>N/A</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>#{sudoku.energy.get_ET_EM()}</td>
+          <td class='cell-number'>#{sudoku.energy.get_HA_EM()}</td>
+          <td class='cell-number'>#{sudoku.energy.get_LU_EM()}</td>
+          <td class='cell-number'>#{sudoku.get_EMR_EM()}</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td colspan="8"></td>
@@ -290,12 +293,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.get_DS_food()}</td>
-          <td>#{sudoku.get_DS_energy()}</td>
-          <td>8760</td>
-          <td>#{sudoku.get_DS_LU()}</td>
-          <td>#{sudoku.get_EMR_DS()}</td>
-          <td>#{sudoku.get_FMD_DS()}</td>
+          <td class='cell-number'>#{sudoku.get_DS_food()}</td>
+          <td class='cell-number'>#{sudoku.get_DS_energy()}</td>
+          <td class='cell-number'>8760</td>
+          <td class='cell-number'>#{sudoku.get_DS_LU()}</td>
+          <td class='cell-number'>#{sudoku.get_EMR_DS()}</td>
+          <td class='cell-number'>#{sudoku.get_FMD_DS()}</td>
         </tr>
         <tr>
           <td>
@@ -310,12 +313,12 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>#{sudoku.get_imports_food()}</td>
-          <td>#{sudoku.get_imports_energy()}</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td class='cell-number'>#{sudoku.get_imports_food()}</td>
+          <td class='cell-number'>#{sudoku.get_imports_energy()}</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>N/A</td>
         </tr>
         <tr>
           <td>
@@ -330,15 +333,15 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td>N/A</td>
-          <td>N/A</td>
-          <td>#{sudoku.get_vimports_HA()}</td>
-          <td>#{sudoku.get_vimports_LU()}</td>
-          <td>N/A</td>
-          <td>N/A</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>#{sudoku.get_vimports_HA()}</td>
+          <td class='cell-number'>#{sudoku.get_vimports_LU()}</td>
+          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>N/A</td>
         </tr>
       </table>
-      <div>
+      <div #{if @isOverlay then "class='text-center'"}>
         <em>(Numbers may not add up due to rounding)</em>
       </div>
       """

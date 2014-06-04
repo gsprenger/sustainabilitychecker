@@ -1,7 +1,7 @@
 class window.SudokuOverlayView
   constructor: ->
     @$el = $("<div id='lvl3-main'>")
-    @sudokuV = new SudokuView()
+    @sudokuV = new SudokuView(true)
 
   render: ->
     c = App.get().content

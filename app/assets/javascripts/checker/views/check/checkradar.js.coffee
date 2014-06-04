@@ -142,35 +142,33 @@ class window.CheckRadarView
       </div>
       """
     @$el.html(html)
+    canvasEl = @$el.find("#radarcanvas")
+    dim = (if ($(window).height() > 1200) then $(window).height()/2 else 600)
+    canvasEl.height(dim)
+    canvasEl.width(dim)
+    canvas = canvasEl.get(0).getContext("2d")
+    margin = 50
+    config = {
+      animation: false,
+      scaleShowLabels: false,
+      scaleShowLine: true,
+      scaleShowXYAxis: true,
+      showLabels: true,
+      scaleOverride: true,
+      scaleSteps: 10,
+      scaleStepWidth: 10,
+      scaleStartValue: 0,
+      segmentShowStroke: false,
+      scaleFontSize: 10
+    };
+    new Chart(canvas, margin).PolarArea({}, config);
+    # setTimeout =>
+    new Chart(canvas, margin).PolarArea(@radar.getChartData(), config);
+    # , 2000    
     @events()
     return this
 
   events: ->
-    c = App.get().content
-    $(window).on 'clickshowresult', =>
-      canvasEl = @$el.find("#radarcanvas")
-      dim = (if ($(window).height() > 1200) then $(window).height()/2 else 600)
-      canvasEl.height(dim)
-      canvasEl.width(dim)
-      canvas = canvasEl.get(0).getContext("2d")
-      margin = 50
-      config = {
-        animation: false,
-        scaleShowLabels: false,
-        scaleShowLine: true,
-        scaleShowXYAxis: true,
-        showLabels: true,
-        scaleOverride: true,
-        scaleSteps: 10,
-        scaleStepWidth: 10,
-        scaleStartValue: 0,
-        segmentShowStroke: false,
-        scaleFontSize: 10
-      };
-      new Chart(canvas, margin).PolarArea({}, config);
-      # setTimeout =>
-      new Chart(canvas, margin).PolarArea(@radar.getChartData(), config);
-      # , 2000
     $(window).on 'appready', ->
       $('.radar-info').find('.fa').popover({
         placement: 'bottom',

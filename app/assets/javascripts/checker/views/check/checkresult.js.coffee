@@ -12,6 +12,7 @@ class window.CheckResultView
     success = (if App.get().sudoku.getSuccess() then 'passed' else 'failed')
     html = "<div class='checkresult in-level#{App.get().level}'>"
     if !App.get().isMercury
+      console.log(success)
       html += """
         <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
         <p class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</p>
@@ -175,10 +176,10 @@ class window.CheckResultView
       </div>
       """
     @$el.html(html)
-    @$el.find('#checkgraphcont').append(@graph.render().$el)
-    @$el.find('#checkradarcont').append(@radar.render().$el)
+    @$el.find('#checkgraphcont').empty().append(@graph.render().$el)
+    @$el.find('#checkradarcont').empty().append(@radar.render().$el)
     if l == 1
-      @$el.find('#checksudokucont').append(@sudoku.render().$el)
+      @$el.find('#checksudokucont').empty().append(@sudoku.render().$el)
     if !App.get().isMercury
       @$el.hide()
     @events()
@@ -189,5 +190,6 @@ class window.CheckResultView
       @$el.hide()
       $('body').animate({scrollTop: $('.section').first().offset().top}, 1000)
     $(window).on 'clickshowresult', =>
+      @render()
       @$el.show()
       $('body').animate({scrollTop: $('.checkresult').first().offset().top}, 500)

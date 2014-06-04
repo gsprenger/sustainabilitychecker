@@ -621,13 +621,31 @@ nav {
 #sudoku {
   font-weight: 400;
   table {
-    margin: 15px auto;
-    border: 1px solid $black;
+    width: 945px;
+    height: 433px;
+    margin: auto;
     tr {
       border: 1px solid $black;
       td {
         padding: 5px;
         border-right: 1px solid $black;
+      }
+      #topcell {
+        text-align: center;
+        font-size: 30px;
+        font-weight: 100;
+        &.success {
+          color: $green;
+        }
+        &.failure {
+          color: $red;
+        }
+      }
+      .cell-number {
+        width: 95px;
+      }
+      .cell-flowfund {
+        vertical-align: top;
       }
     }
   }
