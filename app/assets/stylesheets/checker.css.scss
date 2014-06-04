@@ -394,6 +394,9 @@ nav {
   font-weight: 300;
   // small devices 
   padding: 3% 3% 0 3%;
+  &.in-level1 {
+    margin-bottom: 30px;
+  }
 
   .check-result-title {
     color: $red;
@@ -432,16 +435,9 @@ nav {
         position: absolute;
       }
 
-      .bar-70 {
+      .bar-80 {
         border: 1px solid #4CAE4C;
         background-color: #5CB85C;
-
-      }
-
-      .bar-30 {
-        border: 1px solid #D58512;
-        background-color: #ED9C28;
-
       }
 
       .bar-0 { 
@@ -463,10 +459,7 @@ nav {
         border-top: none;
 
         .bar-percent {
-          display: none;
-          bottom: -18px;
-          color: $red;
-          text-shadow: 1px 1px 3px #888;
+          bottom: 0px;
         }
       }
 

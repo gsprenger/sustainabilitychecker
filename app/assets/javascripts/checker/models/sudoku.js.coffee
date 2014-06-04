@@ -103,4 +103,4 @@ class window.Sudoku
 
   getSuccess: ->
     threshold = 80
-    (@get_percent_local_food >= threshold && @get_percent_local_energy >= threshold)
+    (@get_percent_local_food() >= threshold && @get_percent_local_energy() >= threshold)
