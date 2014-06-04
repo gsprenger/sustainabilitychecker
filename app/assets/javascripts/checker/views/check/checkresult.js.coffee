@@ -3,7 +3,8 @@ class window.CheckResultView
     @$el = $("<div id='checkres-container'>")
     @graph = new CheckGraphView()
     @radar = new CheckRadarView()
-    @sudoku = new SudokuView()
+    if App.get().level < 3
+      @sudoku = new SudokuView()
 
   render: ->
     l = App.get().level
@@ -78,7 +79,8 @@ class window.CheckResultView
     @$el.html(html)
     @$el.find('#checkgraphcont').append(@graph.render().$el)
     @$el.find('#checkradarcont').append(@radar.render().$el)
-    @$el.find('#checksudokucont').append(@sudoku.render().$el)
+    if l < 3
+      @$el.find('#checksudokucont').append(@sudoku.render().$el)
     if !App.get().isMercury
       @$el.hide()
     @events()
