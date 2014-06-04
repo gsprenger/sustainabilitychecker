@@ -3,6 +3,7 @@ class window.CheckResultView
     @$el = $("<div id='checkres-container'>")
     @graph = new CheckGraphView()
     @radar = new CheckRadarView()
+    @sudoku = new SudokuView()
 
   render: ->
     l = App.get().level
@@ -62,6 +63,7 @@ class window.CheckResultView
           <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed3')}</p>
         """
     html += """
+        <div id='checksudokucont'></div>
         <div class='btn-row'>
       """
     if (l != 3)
@@ -76,6 +78,7 @@ class window.CheckResultView
     @$el.html(html)
     @$el.find('#checkgraphcont').append(@graph.render().$el)
     @$el.find('#checkradarcont').append(@radar.render().$el)
+    @$el.find('#checksudokucont').append(@sudoku.render().$el)
     if !App.get().isMercury
       @$el.hide()
     @events()
