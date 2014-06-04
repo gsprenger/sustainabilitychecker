@@ -9,9 +9,6 @@ class window.SudokuView
     sudoku = App.get().sudoku
     html =
       """
-      <div class='text-center'>
-        <em>(Numbers may not add up due to rounding)</em>
-      </div>
       <table>
         <tr>
           <td colspan="2" rowspan="2"></td>
@@ -132,6 +129,9 @@ class window.SudokuView
           <td>N/A</td>
         </tr>
       </table>
+      <div>
+        <em>(Numbers may not add up due to rounding)</em>
+      </div>
       """
     @$el.html(html)
     # precision -> 2

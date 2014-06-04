@@ -2,15 +2,14 @@ class window.AppView
   constructor: ->
     @$el = $('body')
     @views = []
-    lvl = App.get().level
     @views.push(new HeaderView())
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))
     @views.push(new CheckSummaryView())
     @views.push(new CheckResultView())
-    if (lvl > 2)
-      @views.push(new Level3View())
+    if (App.get().level >= 2)
+      @views.push(new SudokuOverlayView())
 
   render: ->
     e = App.get().experiment

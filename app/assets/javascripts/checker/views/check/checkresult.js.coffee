@@ -79,7 +79,7 @@ class window.CheckResultView
     @$el.html(html)
     @$el.find('#checkgraphcont').append(@graph.render().$el)
     @$el.find('#checkradarcont').append(@radar.render().$el)
-    if l < 3
+    if l == 1
       @$el.find('#checksudokucont').append(@sudoku.render().$el)
     if !App.get().isMercury
       @$el.hide()
