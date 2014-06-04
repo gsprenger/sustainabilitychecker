@@ -43,7 +43,7 @@ class window.SectionView
     if l >= 2
       @$el.find("#level2-#{@section.slug}").append(@level2View.render().$el)
     # Hide if not in current progression
-    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent())
+    unless (e.isCompleted(@section.slug) || @section.slug == e.getCurrent() || l == 3)
       @$el.hide()
     @events()
     return this
