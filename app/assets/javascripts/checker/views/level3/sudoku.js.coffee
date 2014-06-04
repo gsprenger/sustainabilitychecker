@@ -1,7 +1,6 @@
 class window.SudokuView
   constructor: (@isOverlay) ->
     @$el = $("<div id='sudoku'>")
-    @isRendered = false
     $(window).on 'choicecomplete', =>
       @render()
 
@@ -519,7 +518,6 @@ class window.SudokuView
         if ($(td).text() == '0')
           $(td).text('negl.')
     @events()
-    @isRendered = true
     return this
 
   events: ->

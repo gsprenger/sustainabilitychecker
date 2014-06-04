@@ -22,11 +22,5 @@ class window.SudokuOverlayView
         wHeight = $(window).innerHeight()-31 # Why 31 ? No idea...
         @$el.height(Math.min(wHeight, auto))
         el.remove()
-        # update sudoku after animation ends
-        if (!@sudokuV.isRendered)
-          setTimeout =>
-            @$el.find('#sudoku').remove()
-            @$el.append(@sudokuV.render().$el)
-          , 1000
       else
         @$el.innerHeight('50px')
