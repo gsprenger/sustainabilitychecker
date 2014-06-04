@@ -61,11 +61,15 @@ class window.Sudoku
     val = (@get_THA() - 8760)
     if (val < 0)
       return 0
+    else
+      return val
 
   get_vimports_LU: ->
     val = (@get_TLU() - @get_DS_LU())
     if (val < 0)
       return 0
+    else
+      return val
 
   get_EMR_WS: ->
     (@get_TET() / @get_THA())*1000

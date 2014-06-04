@@ -3,10 +3,7 @@ class window.SudokuView
     @$el = $("<div id='sudoku'>")
     @isRendered = false
     $(window).on 'choicecomplete', =>
-      if (@$el.parent().hasClass('out'))
-        @render()
-      else
-        @isRendered = false
+      @render()
 
   render: ->
     sudoku = App.get().sudoku
