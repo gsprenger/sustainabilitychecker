@@ -17,6 +17,8 @@ class window.SudokuOverlayView
       @toggleOverlay()
     $(window).on 'opensudokuoverlay', =>
       @toggleOverlay(true)
+    $(window).on 'click', (event) =>
+      console.log($(event.target).parent('#lvl3-main').length)
 
   toggleOverlay: (open) ->
     if !@$el.hasClass('sliding')
