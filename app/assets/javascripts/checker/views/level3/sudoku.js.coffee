@@ -1,205 +1,134 @@
 class window.SudokuView
+  indexHeaders: {
+    "TFOOD": ["hfood", "hws"],
+    "TET": ["henergy", "hws"],
+    "THA": ["hha", "hws"],
+    "TLU": ["hlu", "hws"],
+    "EMR_WS": ["hemr", "hws"],
+    "HH_food": ["hfood", "hhh"],
+    "ET_HH": ["henergy", "hhh"],
+    "HA_HH": ["hha", "hhh"],
+    "EMR_HH": ["hemr", "hhh"],
+    "SG_food": ["hfood", "hsg"],
+    "ET_SG": ["henergy", "hsg"],
+    "HA_SG": ["hha", "hsg"],
+    "EMR_SG": ["hemr", "hsg"],
+    "BM_food": ["hfood", "hbm"],
+    "ET_BM": ["henergy", "hbm"],
+    "HA_BM": ["hha", "hbm"],
+    "EMR_BM": ["hemr", "hbm"],
+    "AG_food": ["hfood", "hag"],
+    "ET_AG": ["henergy", "hag"],
+    "HA_AG": ["hha", "hag"],
+    "LU_AG": ["hlu", "hag"],
+    "EMR_AG": ["hemr", "hag"],
+    "ET_EM": ["henergy", "hem"],
+    "HA_EM": ["hha", "hem"],
+    "LU_EM": ["hlu", "hem"],
+    "EMR_EM": ["hemr", "hem"],
+    "DS_food": ["hfood", "hds"],
+    "DS_energy": ["henergy", "hds"],
+    "DS_LU": ["hlu", "hds"],
+    "EMR_DS": ["hemr", "hds"],
+    "FMD_DS": ["hfmd", "hds"],
+    "imports_food": ["hfood", "himports"],
+    "imports_energy": ["henergy", "himports"],
+    "vimports_HA": ["hha", "hvimports"],
+    "vimports_LU": ["hlu", "hvimports"],
+  }
+
   constructor: (@isOverlay) ->
     @$el = $("<div id='sudoku'>")
+    # get all value cells name
+    @valueNames = []
+    for k of @indexHeaders
+      @valueNames.push(k)
     $(window).on 'choicecomplete', =>
       @render()
       # flash new values
       if App.get().level >= 2
-        changes = []
-        if @TFOOD != @oldTFOOD
-          changes.push({"TFOOD": [@oldTFOOD, @TFOOD]})
-        if @TET != @oldTET
-          changes.push({"TET": [@oldTET, @TET]})
-        if @THA != @oldTHA
-          changes.push({"THA": [@oldTHA, @THA]})
-        if @TLU != @oldTLU
-          changes.push({"TLU": [@oldTLU, @TLU]})
-        if @EMR_WS != @oldEMR_WS
-          changes.push({"EMR_WS": [@oldEMR_WS, @EMR_WS]})
-        if @HH_food != @oldHH_food
-          changes.push({"HH_food": [@oldHH_food, @HH_food]})
-        if @ET_HH != @oldET_HH
-          changes.push({"ET_HH": [@oldET_HH, @ET_HH]})
-        if @HA_HH != @oldHA_HH
-          changes.push({"HA_HH": [@oldHA_HH, @HA_HH]})
-        if @EMR_HH != @oldEMR_HH
-          changes.push({"EMR_HH": [@oldEMR_HH, @EMR_HH]})
-        if @SG_food != @oldSG_food
-          changes.push({"SG_food": [@oldSG_food, @SG_food]})
-        if @ET_SG != @oldET_SG
-          changes.push({"ET_SG": [@oldET_SG, @ET_SG]})
-        if @HA_SG != @oldHA_SG
-          changes.push({"HA_SG": [@oldHA_SG, @HA_SG]})
-        if @EMR_SG != @oldEMR_SG
-          changes.push({"EMR_SG": [@oldEMR_SG, @EMR_SG]})
-        if @BM_food != @oldBM_food
-          changes.push({"BM_food": [@oldBM_food, @BM_food]})
-        if @ET_BM != @oldET_BM
-          changes.push({"ET_BM": [@oldET_BM, @ET_BM]})
-        if @HA_BM != @oldHA_BM
-          changes.push({"HA_BM": [@oldHA_BM, @HA_BM]})
-        if @EMR_BM != @oldEMR_BM
-          changes.push({"EMR_BM": [@oldEMR_BM, @EMR_BM]})
-        if @AG_food != @oldAG_food
-          changes.push({"AG_food": [@oldAG_food, @AG_food]})
-        if @ET_AG != @oldET_AG
-          changes.push({"ET_AG": [@oldET_AG, @ET_AG]})
-        if @HA_AG != @oldHA_AG
-          changes.push({"HA_AG": [@oldHA_AG, @HA_AG]})
-        if @LU_AG != @oldLU_AG
-          changes.push({"LU_AG": [@oldLU_AG, @LU_AG]})
-        if @EMR_AG != @oldEMR_AG
-          changes.push({"EMR_AG": [@oldEMR_AG, @EMR_AG]})
-        if @ET_EM != @oldET_EM
-          changes.push({"ET_EM": [@oldET_EM, @ET_EM]})
-        if @HA_EM != @oldHA_EM
-          changes.push({"HA_EM": [@oldHA_EM, @HA_EM]})
-        if @LU_EM != @oldLU_EM
-          changes.push({"LU_EM": [@oldLU_EM, @LU_EM]})
-        if @EMR_EM != @oldEMR_EM
-          changes.push({"EMR_EM": [@oldEMR_EM, @EMR_EM]})
-        if @DS_food != @oldDS_food
-          changes.push({"DS_food": [@oldDS_food, @DS_food]})
-        if @DS_energy != @oldDS_energy
-          changes.push({"DS_energy": [@oldDS_energy, @DS_energy]})
-        if @DS_LU != @oldDS_LU
-          changes.push({"DS_LU": [@oldDS_LU, @DS_LU]})
-        if @EMR_DS != @oldEMR_DS
-          changes.push({"EMR_DS": [@oldEMR_DS, @EMR_DS]})
-        if @FMD_DS != @oldFMD_DS
-          changes.push({"FMD_DS": [@oldFMD_DS, @FMD_DS]})
-        if @imports_food != @oldimports_food
-          changes.push({"imports_food": [@oldimports_food, @imports_food]})
-        if @imports_energy != @oldimports_energy
-          changes.push({"imports_energy": [@oldimports_energy, @imports_energy]})
-        if @vimports_HA != @oldvimports_HA
-          changes.push({"vimports_HA": [@oldvimports_HA, @vimports_HA]})
-        if @vimports_LU != @oldvimports_LU
-          changes.push({"vimports_LU": [@oldvimports_LU, @vimports_LU]})
-        # level 3: flash values
-        if App.get().level == 3
-          for e in changes
-            for name, vals of e
-              @$el.find('#'+name).css('background-color', 'gray')
+        changes = {}
+        # if new values are found, store them in changes array
+        for name in @valueNames
+          if @[name] != @['old'+name]
+            changes[name] = [@['old'+name], @[name]]
+        changed = false
+        for c of changes
+          changed = true 
+          break
+        if changed
+          delay = if $('#lvl3-main').hasClass('out') then 10 else 1000
+          $(window).trigger 'opensudokuoverlay'
+          setTimeout =>
+            # level 3: flash values
+            if App.get().level == 3
+              overlayToggled = false
+              for name, vals of changes
+                color = (if @success then '#5CB85C' else '#D9534F')
+                @flashCell(name, 3, color, '#fff')
+            # level 2: flash headers
+            if App.get().level == 2
+              overlayToggled = false
+              for name, vals of changes
+                @flashCell(@indexHeaders[name][0], 3, '#eee')
+                @flashCell(@indexHeaders[name][1], 3, '#eee')
+            if @success != @oldSuccess
+              @flashCell('topcell', 3, (if @success then '#5CB85C' else '#D9534F'), '#fff', true)
+          , delay
 
   render: ->
     sudoku = App.get().sudoku
     c = App.get().content
     l = App.get().level
-    success = sudoku.getSuccess()
-    # get all variables and store previous val unless first time
-    if @TFOOD?
-      @oldTFOOD = @TFOOD
+    if @success?
+      @oldSuccess = @success
+    @success = sudoku.getSuccess()
+    # store previous val
+    for name in @valueNames
+      if @[name]?
+        @['old'+name] = @[name]
+    # get all variables from Sudoku model
     @TFOOD = sudoku.get_TFOOD()
-    if @TET?
-      @oldTET = @TET
     @TET = sudoku.get_TET()
-    if @THA?
-      @oldTHA = @THA
     @THA = sudoku.get_THA()
-    if @TLU?
-      @oldTLU = @TLU
     @TLU = sudoku.get_TLU()
-    if @EMR_WS?
-      @oldEMR_WS = @EMR_WS
     @EMR_WS = sudoku.get_EMR_WS()
-    if @HH_food?
-      @oldHH_food = @HH_food
     @HH_food = sudoku.diet.get_HH_food()
-    if @ET_HH?
-      @oldET_HH = @ET_HH
     @ET_HH = sudoku.households.get_ET_HH()
-    if @HA_HH?
-      @oldHA_HH = @HA_HH
     @HA_HH = sudoku.demographics.get_HA_HH()
-    if @EMR_HH?
-      @oldEMR_HH = @EMR_HH
     @EMR_HH = sudoku.get_EMR_HH()
-    if @SG_food?
-      @oldSG_food = @SG_food
     @SG_food = sudoku.diet.get_SG_food()
-    if @ET_SG?
-      @oldET_SG = @ET_SG
     @ET_SG = sudoku.services.get_ET_SG()
-    if @HA_SG?
-      @oldHA_SG = @HA_SG
     @HA_SG = sudoku.services.get_HA_SG()
-    if @EMR_SG?
-      @oldEMR_SG = @EMR_SG
     @EMR_SG = sudoku.get_EMR_SG()
-    if @BM_food?
-      @oldBM_food = @BM_food
     @BM_food = sudoku.diet.get_BM_food()
-    if @ET_BM?
-      @oldET_BM = @ET_BM
     @ET_BM = sudoku.bm.get_ET_BM()
-    if @HA_BM?
-      @oldHA_BM = @HA_BM
     @HA_BM = sudoku.bm.get_HA_BM()
-    if @EMR_BM?
-      @oldEMR_BM = @EMR_BM
     @EMR_BM = sudoku.get_EMR_BM()
-    if @AG_food?
-      @oldAG_food = @AG_food
     @AG_food = sudoku.diet.get_AG_food()
-    if @ET_AG?
-      @oldET_AG = @ET_AG
     @ET_AG = sudoku.agriculture.get_ET_AG()
-    if @HA_AG?
-      @oldHA_AG = @HA_AG
     @HA_AG = sudoku.agriculture.get_HA_AG()
-    if @LU_AG?
-      @oldLU_AG = @LU_AG
     @LU_AG = sudoku.agriculture.get_LU_AG()
-    if @EMR_AG?
-      @oldEMR_AG = @EMR_AG
     @EMR_AG = sudoku.get_EMR_AG()
-    if @ET_EM?
-      @oldET_EM = @ET_EM
     @ET_EM = sudoku.energy.get_ET_EM()
-    if @HA_EM?
-      @oldHA_EM = @HA_EM
     @HA_EM = sudoku.energy.get_HA_EM()
-    if @LU_EM?
-      @oldLU_EM = @LU_EM
     @LU_EM = sudoku.energy.get_LU_EM()
-    if @EMR_EM?
-      @oldEMR_EM = @EMR_EM
     @EMR_EM = sudoku.get_EMR_EM()
-    if @DS_food?
-      @oldDS_food = @DS_food
     @DS_food = sudoku.get_DS_food()
-    if @DS_energy?
-      @oldDS_energy = @DS_energy
     @DS_energy = sudoku.get_DS_energy()
-    if @DS_LU?
-      @oldDS_LU = @DS_LU
     @DS_LU = sudoku.get_DS_LU()
-    if @EMR_DS?
-      @oldEMR_DS = @EMR_DS
     @EMR_DS = sudoku.get_EMR_DS()
-    if @FMD_DS?
-      @oldFMD_DS = @FMD_DS
     @FMD_DS = sudoku.get_FMD_DS()
-    if @imports_food?
-      @oldimports_food = @imports_food
     @imports_food = sudoku.get_imports_food()
-    if @imports_energy?
-      @oldimports_energy = @imports_energy
     @imports_energy = sudoku.get_imports_energy()
-    if @vimports_HA?
-      @oldvimports_HA = @vimports_HA
     @vimports_HA = sudoku.get_vimports_HA()
-    if @vimports_LU?
-      @oldvimports_LU = @vimports_LU
     @vimports_LU = sudoku.get_vimports_LU()
-
     html =
       """
       <table>
         <tr>
-          <td colspan="2" rowspan="2" id='topcell' class='#{if success then 'success' else 'failure'}'>
-            #{if success then 'Sustainable' else 'Unsustainable'}
+          <td colspan="2" rowspan="2" id='topcell' class='#{if @success then 'success' else 'failure'}'>
+            #{if @success then 'Sustainable' else 'Unsustainable'}
           </td>
           <td colspan="2" class='cell-header'>
             <strong>Flows</strong>
@@ -239,7 +168,7 @@ class window.SudokuView
           </td>
         </tr>
         <tr>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='hfood'>
             <strong>Food</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grain-equiv p.c.)
@@ -252,7 +181,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='henergy'>
             <strong>Energy</strong>
             <i class='fa fa-info-circle'></i><br>
             (GJ-GER p.c.)
@@ -265,7 +194,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='hha'>
             <strong>Human Activity</strong>
             <i class='fa fa-info-circle'></i><br>
             (hrs p.c.)
@@ -278,7 +207,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='hlu'>
             <strong>Land Use</strong>
             <i class='fa fa-info-circle'></i><br>
             (ha p.c.)
@@ -291,7 +220,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='hemr'>
             <strong>Energy Metabolic Rate</strong>
             <i class='fa fa-info-circle'></i><br>
             (MJ/hrs)
@@ -304,7 +233,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header cell-flowfund'>
+          <td class='cell-header cell-flowfund' id='hfmd'>
             <strong>Food Metabolic Density</strong>
             <i class='fa fa-info-circle'></i><br>
             (kg grains-equiv/ha)
@@ -331,7 +260,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header'>
+          <td class='cell-header' id='hws'>
             <i class='fa fa-info-circle'></i>
             <strong>Whole society</strong>
             <div class='popover'>
@@ -351,7 +280,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hhh'>
             <i class='fa fa-info-circle'></i>
             <strong>Households</strong>
             <div class='popover'>
@@ -371,7 +300,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hsg'>
             <i class='fa fa-info-circle'></i>
             <strong>Services and government</strong>
             <div class='popover'>
@@ -391,7 +320,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hbm'>
             <i class='fa fa-info-circle'></i>
             <strong>Building and manufacturing</strong>
             <div class='popover'>
@@ -411,7 +340,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hag'>
             <i class='fa fa-info-circle'></i>
             <strong>Agriculture</strong>
             <div class='popover'>
@@ -431,7 +360,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hem'>
             <i class='fa fa-info-circle'></i>
             <strong>Energy and mining</strong>
             <div class='popover'>
@@ -466,7 +395,7 @@ class window.SudokuView
               </div>
             </div>
           </td>
-          <td class='cell-header'>
+          <td class='cell-header' id='hds'>
             <i class='fa fa-info-circle'></i>
             <strong>Domestic Supply</strong>
             <div class='popover'>
@@ -486,7 +415,7 @@ class window.SudokuView
           <td id='FMD_DS' class='cell-number'>#{@FMD_DS}</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='himports'>
             <i class='fa fa-info-circle'></i>
             <strong>Imports</strong>
             <div class='popover'>
@@ -506,7 +435,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
         <tr>
-          <td class='cell-header'>
+          <td class='cell-header' id='hvimports'>
             <i class='fa fa-info-circle'></i>
             <strong>Virtual Imports</strong>
             <div class='popover'>
@@ -718,3 +647,21 @@ class window.SudokuView
     })
     @$el.find('.fa-info-circle').on 'click', ->
       $(this).popover('toggle')
+
+  flashCell: (cellID, times, color, textColor, preventStay) ->
+    originalColor = @$el.find('#'+cellID).css('background-color')
+    originalTextColor = @$el.find('#'+cellID).css('color')
+    textColor = if textColor? then textColor else originalTextColor
+    @recursiveFlashCell(cellID, times, color, textColor, originalColor, originalTextColor, preventStay)
+
+  recursiveFlashCell: (cellID, times, color, textColor, originalColor, originalTextColor, preventStay) ->
+    if times > 0
+      setTimeout =>
+        @$el.find('#'+cellID).css({backgroundColor: color, color: textColor})
+        setTimeout =>
+          @$el.find('#'+cellID).css({backgroundColor: originalColor, color: originalTextColor})
+          @recursiveFlashCell(cellID, --times, color, textColor, originalColor, originalTextColor, preventStay)
+        , 50
+      , 50
+    if times == 0 && !preventStay
+      @$el.find('#'+cellID).css({backgroundColor: color, color: textColor})

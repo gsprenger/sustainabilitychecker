@@ -19,12 +19,27 @@ $grey: #BBB;
 $lightgrey: #DDD;
 $white: #F2F2F2;
 $alphawhite: rgba(252,252,255,0.90);
-// colors
-$red: #CC3333;
-$green: #2ECC71;
-$darkgreen: #27AE60;
-$blue: #3498DB;
-$darkblue: #2980B9;
+// colors taken from bootstrap
+$darkblue: #3276B1;
+$darkblueborder: #285E8E;
+$blue: #428BCA;
+$blueborder: #357EBD;
+$darkgreen: #47A447;
+$darkgreenborder: #398439;
+$green: #5CB85C;
+$greenborder: #4CAE4C;
+$darklightblue: #39B3D7;
+$darklightblueborder: #269ABC;
+$lightblue: #5BC0DE;
+$lightblueborder: #46B8DA;
+$darkyellow: #ED9C28;
+$darkyellowborder: #D58512;
+$yellow: #F0AD4E;
+$yellowborder: #EEA236;
+$darkred: #D2322D;
+$darkredborder: #AC2925;
+$red: #D9534F;
+$redborder: #D43F3A;
 // colors in header
 $demand: #009933;
 $demandactive: #009933;
@@ -69,6 +84,7 @@ nav {
     a {
       color: $textgrey;
       font-size: 20px;
+      font-weight: 200;
       &:hover {
         color: $darkgrey;
         text-decoration: none;
@@ -620,7 +636,6 @@ nav {
 
 #sudoku {
   font-weight: 400;
-  color: #666;
   table {
     width: 945px;
     height: 433px;
