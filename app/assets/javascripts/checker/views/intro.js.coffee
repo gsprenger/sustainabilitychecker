@@ -12,6 +12,7 @@ class window.IntroView
         <div class='description'>
           <p>#{c.text('chkr_start_desc_level'+l)}</p>
         </div><br>
+        <div id='intro-header'></div>
         <div class='btn-row'>
           <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
       """
@@ -23,8 +24,6 @@ class window.IntroView
       """
     html += """
         </div>
-        <br><br>
-        <div id='intro-header'></div>
       </div>
       """
     @$el.html(html)
