@@ -128,22 +128,22 @@ nav {
       }
 
       .levels {
-        border-top: 2px solid $black;
+        border-top: 2px solid $level3;
         width: 170px;
       }
 
       .demand {
-        border-top: 2px solid $demand;
+        border-top: 2px solid $greenborder;
         width: 220px;
       }
 
       .supply {
-        border-top: 2px solid $supply;
+        border-top: 2px solid $redborder;
         width: 220px;
       }
 
       .check {
-        border-top: 2px solid $check;
+        border-top: 2px solid $level3;
         width: 55px;
       }
     }
@@ -154,7 +154,7 @@ nav {
       right: 30px;
       width: 465px;
       border: 0;
-      border-bottom: 2px solid $black;
+      border-bottom: 1px solid $black;
     }
 
     hr.hr-lvls {
@@ -163,7 +163,7 @@ nav {
       left: 25px;
       width: 125px;
       border: 0;
-      border-bottom: 2px solid $black;
+      border-bottom: 1px solid $black;
     }
 
     .ul-levels {
@@ -184,10 +184,11 @@ nav {
           margin: 0 12px;
           padding-left: 1px;
           background-color: $lightgrey;
-          border: 2px solid $black;
+          border: 1px solid $black;
           border-radius: 50%;
           color: $textgrey;
           font-size: 17px;
+          line-height: 28px;
           cursor: default;
           transition: 
             background-color 1s ease, 
@@ -199,7 +200,7 @@ nav {
             font-weight: 600;
           }
           &.available {
-            color: $black;
+            color: #000;
             cursor: pointer;
           }
           &.level1.available {
@@ -234,9 +235,10 @@ nav {
           margin: 0 12px;
           padding-left: 1px;
           background-color: $white;
-          border: 2px solid $black;
+          border: 1px solid $black;
           border-radius: 50%;
-          color: $black;
+          color: #000;
+          line-height: 28px;
           font-size: 17px;
           transition: 
             background-color 1s ease, 
@@ -245,10 +247,10 @@ nav {
             color: $black;
           }
           &.active.demand {
-            background-color: $demandactive;
+            background-color: $darkgreen;
           }
           &.active.supply {
-            background-color: $supplyactive;
+            background-color: $darkred;
           }
           &.activelevel1 {
             background-color: $level1;
@@ -260,10 +262,10 @@ nav {
             background-color: $level3;
           }
           &.complete.demand {
-            background-color: $demandcomplete;
+            background-color: $green;
           }
           &.complete.supply {
-            background-color: $supplycomplete;
+            background-color: $red;
           }
         }
       }
