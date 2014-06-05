@@ -1,15 +1,15 @@
 class window.Experiment  
   progression: ['intro', 'd_dem', 'd_die', 'd_hou', 'd_ser', 's_lan', 's_bm', 's_agr', 's_ene', 'check']
 
-  constructor:(@level) ->
-    exp = localStorage.getItem('experiment-level'+@level)
+  constructor: ->
+    exp = localStorage.getItem('experiment')
     if (exp?)
       @values = JSON.parse(exp)
     else
       @values = {current: @progression[0]}
   
   save: ->
-    localStorage.setItem('experiment-level'+@level, JSON.stringify(@values))
+    localStorage.setItem('experiment', JSON.stringify(@values))
 
   getValue:(slug) ->
     @values[slug]
