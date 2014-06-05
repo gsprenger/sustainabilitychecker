@@ -43,6 +43,7 @@ class window.SudokuView
     @valueNames = []
     for k of @indexHeaders
       @valueNames.push(k)
+    # When user makes a choice, update sudoku and flash cells
     $(window).on 'choicecomplete', =>
       @render()
       # flash new values
