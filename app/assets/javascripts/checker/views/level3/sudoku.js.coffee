@@ -59,6 +59,7 @@ class window.SudokuView
           break
         if changed
           delay = if $('#lvl3-main').hasClass('out') then 10 else 1000
+          console.log(delay)
           $(window).trigger 'opensudokuoverlay'
           setTimeout =>
             # level 3: flash values
