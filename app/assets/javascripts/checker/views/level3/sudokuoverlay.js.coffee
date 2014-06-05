@@ -6,6 +6,7 @@ class window.SudokuOverlayView
   render: ->
     c = App.get().content
     html = """
+      <div id='overlay-toggle'></div>
       """
     @$el.html(html)
     @$el.append(@sudokuV.render().$el)
@@ -13,12 +14,14 @@ class window.SudokuOverlayView
     return this
 
   events: ->
-    @$el.on 'click', =>
+    @$el.find('#overlay-toggle').on 'click', =>
       @toggleOverlay()
     $(window).on 'opensudokuoverlay', =>
       @toggleOverlay(true)
+    # When overlay is out, close it when user clicks outside
     $(window).on 'click', (event) =>
-      console.log($(event.target).parent('#lvl3-main').length)
+      if @$el.hasClass('out') && !$.contains(document.getElementById('lvl3-main'), event.target)
+        @toggleOverlay()
 
   toggleOverlay: (open) ->
     if !@$el.hasClass('sliding')
@@ -35,9 +38,9 @@ class window.SudokuOverlayView
           @$el.addClass('out')
         , 1000
       else
+        @$el.removeClass('out')
         @$el.addClass('sliding')
         @$el.innerHeight('50px')
         setTimeout =>
           @$el.removeClass('sliding')
-          @$el.removeClass('out')
         , 1000
