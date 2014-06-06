@@ -602,8 +602,14 @@ nav {
   }
 }
 
-/** Level 2 sections **/
-.section-lvl2 {
+/** Level 2&3 sectioninfo **/
+.sectioninfo-cont {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  clear: both;
+}
+
+.sectioninfo {
   width: 100%;
   background-color: #f9f9f9;
   border-left: 5px solid #dedede;
@@ -612,7 +618,7 @@ nav {
   padding: 15px 30px;
 }
 
-.lvl2-morelink, .lvl2-lesslink {
+.sectioninfo-morelink, .sectioninfo-lesslink {
   color: #428BCA;
   cursor: pointer;
   &:hover {
@@ -625,7 +631,7 @@ nav {
   text-align: center;
   clear: both;
   &.needs-padding {
-    padding-top: 30px;
+    padding-top: 10px;
   }
 }
 
