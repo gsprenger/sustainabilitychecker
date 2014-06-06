@@ -5,10 +5,13 @@ class window.SectionView
     for c in @section.choices
       switch (c.type)
         when ('Radio')
+          @sectionType = 'Radio'
           @choiceViews.push(new RadioView(@section, c))
         when ('Slider')
+          @sectionType = 'Slider'
           @choiceViews.push(new SliderView(@section, c))
         when ('SliderGroup')
+          @sectionType = 'SliderGroup'
           @choiceViews.push(new SliderGroupView(@section, c))
         else
           console.error('Unknown ChoiceView type: '+c.type)
@@ -30,11 +33,24 @@ class window.SectionView
         </div>
         <div id='level2-#{@section.slug}'>
         </div>
-        <div class='btn-row'>
-          <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_next')}</div>
-        </div>
-      </div>
       """
+    if @section.slug != 's_ene'
+      html += """
+          <div class='btn-row needs-padding'>
+            <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_next')}</div>
+          </div>
+        </div>
+        """
+    else
+      html += """
+          <div id='ene-resulttext'>
+            #{c.text('chkr_ene_resulttext')}
+          </div>
+          <div class='btn-row'>
+            <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_result')}</div>
+          </div>
+        </div>
+        """
     @$el.html(html)
     # Append choices
     for cv in @choiceViews

@@ -398,6 +398,12 @@ nav {
   }
 }
 
+#ene-resulttext {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 /** CHECK **/
 #check {
   width: 100%;
@@ -618,6 +624,9 @@ nav {
 .btn-row {
   text-align: center;
   clear: both;
+  &.needs-padding {
+    padding-top: 30px;
+  }
 }
 
 // Level 3 section

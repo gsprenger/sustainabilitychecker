@@ -61,20 +61,3 @@ class window.HeaderNavView
     $(window).on 'appready', ->
       # HeaderView: set offset to header position for affix to trigger
       $('#headernav').attr('data-offset-top', $('#headernav').offset().top)
-    $(window).on 'sectioncomplete', (e, data) ->
-      # mark header item as completed
-      if ($('[href=#'+data+']').length > 0)
-        $('[href=#'+data+']').addClass('complete')
-      nextSec = $('#'+data).nextAll('.section').first()
-      if (nextSec.length)
-        secID = nextSec.attr('id')
-        nextSec.show()
-        if ($('#'+secID+'-lvl2').length)
-          $('#'+secID+'-lvl2').show()
-        App.get().experiment.setCurrent(nextSec.data('slug'))
-        $('[href=#'+secID+']').addClass('active')
-        $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
-      else
-        $('[href=#check]').addClass('activelevel'+App.get().level)
-        $('#check').show()
-        $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
