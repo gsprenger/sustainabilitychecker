@@ -2,8 +2,15 @@ class window.StaticPages
   @setup: ->
     # Init tooltips
     $('body').tooltip {
-      selector: '[title]',
+      selector: '[data-toggle=tooltip]',
       placement: 'bottom'
+    }
+    # init popovers
+    $('body').popover {
+      selector: '[data-toggle=popover]'
+      placement: 'bottom',
+      trigger: 'hover',
+      container: 'body'
     }
     # Smooth scrolling
     $("a[href^='#']").on 'click', (e) ->
