@@ -663,7 +663,7 @@ class window.SudokuView
         setTimeout =>
           @$el.find('#'+cellID).css({backgroundColor: originalColor, color: originalTextColor})
           @recursiveFlashCell(cellID, --times, color, textColor, originalColor, originalTextColor, preventStay)
-        , 50
-      , 50
+        , 250
+      , 250
     if times == 0 && !preventStay
       @$el.find('#'+cellID).css({backgroundColor: color, color: textColor})
