@@ -1,5 +1,5 @@
 class window.SliderView
-  constructor:(@section, @slider) ->
+  constructor:(@section, @slider, @isFromSliderGroup) ->
     @$el = $("<div class='slider-container'>")
 
   render: ->
@@ -29,6 +29,9 @@ class window.SliderView
     # save on Change
     sliderEl.on 'slidechange', (e, ui) =>
       @slider.setValue(ui.value)
+      if (!@isFromSliderGroup)
+        $(window).trigger('choicecomplete')
+      $(window).trigger('slidervalchanged', @slider.slug)
 
   # This is contained in the View and not the Model because slider manipulation in JQuery is made with DOM elements
   initSlider: ->

@@ -6,6 +6,13 @@ class window.CheckView
     if App.get().level == 1
       @sudoku = new SudokuView()
     @summary = new CheckSummaryView()
+    # events placed in constructor because they're attached to window and shouldnt be repeated with each render
+    $(window).on 'showcheck', =>
+      @render()
+      @$el.show()
+      $('body').animate({scrollTop: $('#check').offset().top}, 500)
+    $(window).on 'choicecomplete', =>
+      @render()
 
   render: ->
     l = App.get().level
@@ -269,7 +276,3 @@ class window.CheckView
     @$el.find('.btn-again').on 'click', =>
       @$el.hide()
       $('body').animate({scrollTop: $('.section').first().offset().top}, 1000)
-    $(window).on 'showcheck', =>
-      @render()
-      @$el.show()
-      $('body').animate({scrollTop: $('#check').offset().top}, 500)

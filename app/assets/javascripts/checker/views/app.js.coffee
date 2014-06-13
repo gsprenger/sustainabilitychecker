@@ -9,6 +9,28 @@ class window.AppView
     @views.push(new CheckView())
     if (App.get().level >= 2)
       @views.push(new SudokuOverlayView())
+    # Window events go here so they arent repeated for each render
+    #$(window).on 'choicecomplete', (e, data) ->
+    #  if App.get().level == 3
+    #    sectionSlug = data.slug.split('_', 2).join('_')
+    $(window).on 'sectioncomplete', (e, data) ->
+      # mark header item as completed
+      if ($('[href=#'+data+']').length > 0)
+        $('[href=#'+data+']').addClass('complete')
+      nextSec = $('#'+data).nextAll('.section').first()
+      if (nextSec.length)
+        secID = nextSec.attr('id')
+        nextSec.show()
+        if ($('#'+secID+'-lvl2').length)
+          $('#'+secID+'-lvl2').show()
+        App.get().experiment.setCurrent(nextSec.data('slug'))
+        $('[href=#'+secID+']').addClass('active')
+        $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
+      else
+        $('[href=#check]').addClass('activelevel'+App.get().level)
+        $(window).trigger('showcheck')
+    $(window).on 'choicecomplete', =>
+      console.log("choicecomplete!")
 
   render: ->
     e = App.get().experiment
@@ -50,22 +72,6 @@ class window.AppView
     @$el.find('.nav-link').on 'click', (e) ->
       $('body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
-    $(window).on 'sectioncomplete', (e, data) ->
-      # mark header item as completed
-      if ($('[href=#'+data+']').length > 0)
-        $('[href=#'+data+']').addClass('complete')
-      nextSec = $('#'+data).nextAll('.section').first()
-      if (nextSec.length)
-        secID = nextSec.attr('id')
-        nextSec.show()
-        if ($('#'+secID+'-lvl2').length)
-          $('#'+secID+'-lvl2').show()
-        App.get().experiment.setCurrent(nextSec.data('slug'))
-        $('[href=#'+secID+']').addClass('active')
-        $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
-      else
-        $('[href=#check]').addClass('activelevel'+App.get().level)
-        $(window).trigger('showcheck')
 
   setupForMercury: ->
     e = App.get().experiment

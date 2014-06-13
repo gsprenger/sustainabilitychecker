@@ -17,9 +17,9 @@ class window.Slider
     if (@sliderType == 'text')
       value = @values[value]
     if (value in @values)
-      @value = value
-      @experiment.setValue(@slug, value)
-      $(window).trigger('choicecomplete', this)
+      if (value != @value)
+        @value = value
+        @experiment.setValue(@slug, value)
     else
       console.error(@type+' Error: trying to select unknown value '+ value)
 

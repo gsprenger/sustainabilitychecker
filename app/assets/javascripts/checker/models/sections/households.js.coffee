@@ -16,7 +16,11 @@ class window.Households
       ]))
     @choices.push(new SliderGroup('subapaslu', [
         @sliders['sub'], @sliders['apa'], @sliders['slu']
-      ]))    
+      ]))  
+    @valueChanged = true
+    $(window).on 'slidervalchanged', (e, name) =>
+      if (name.split('_', 2).join('_') == "d_hou")
+        @valueChanged = true
 
   addSecondSliders:(valUrb) ->
     switch (valUrb)
@@ -47,8 +51,8 @@ class window.Households
       if (v.section? && v.section.slug == 'd_hou')
         hhView = v
         break
-    v.choiceViews[1].slidergroup = g2
-    v.choiceViews[1].render()
+    hhView.choiceViews[1].slidergroup = g2
+    hhView.choiceViews[1].render()
 
   # SUDOKU DATA #  
   data:
@@ -75,13 +79,17 @@ class window.Households
       "0-50-50":  90
 
   getValue: ->
-    prop = @sliders['urb'].getValue() + '-' + @sliders['rur'].getValue()
-    value = @sliders['sub'].getValue() + '-' +
-      @sliders['apa'].getValue() + '-' + 
-      @sliders['slu'].getValue()
-    value += 'l' if prop == '50-50'
-    value += 'h' if prop == '30-70'
-    return value
+    if @valueChanged
+      rur = @sliders['rur'].getValue()
+      prop = (100-rur) + '-' + rur
+      value = @sliders['sub'].getValue() + '-' +
+        @sliders['apa'].getValue() + '-' + 
+        @sliders['slu'].getValue()
+      value += 'l' if prop == '50-50'
+      value += 'h' if prop == '30-70'
+      @value = value
+      @valueChanged = false
+    return @value
 
   get_EMR_HH: ->
      @data.EMR_HH[@getValue()]

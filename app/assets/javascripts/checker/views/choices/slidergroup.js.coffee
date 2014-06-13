@@ -7,7 +7,7 @@ class window.SliderGroupView
     p = @section.i18nPrefix
     @sliderViews = []
     for s in @slidergroup.sliders
-      @sliderViews.push(new SliderView(@section, s))
+      @sliderViews.push(new SliderView(@section, s, true))
     html = """
         <div class='slidergroup-title'>
           #{c.text(p+'_'+@slidergroup.slug)}
@@ -25,8 +25,16 @@ class window.SliderGroupView
       name = v.slider.slug
       sliderEl = v.$el.find('.slider')
       prevVal = 0
+      slidingSlider = false
       sliderEl.on 'slidestart', (e, ui) =>
         prevVal = ui.value
+      sliderEl.on 'slidechange', (e, ui) =>
+        if (slidingSlider && (name == 'd_hou_urb' || name == 'd_hou_rur'))
+          hh = App.get().households
+          hh.updateSecondGroup(if name == 'd_hou_urb' then ui.value else 100 - ui.value)
+        if slidingSlider
+          $(window).trigger 'choicecomplete'
+          slidingSlider = false
       sliderEl.on 'slide', (e, ui) =>
         # Get nearest value
         diff = null
@@ -82,10 +90,5 @@ class window.SliderGroupView
               break
           if (diff != 0)
             console.error("This setup of linked sliders is probably not supported. Something must have gone wrong somewhere and the total is not 100 anymore.")
+        slidingSlider = true
         return false
-      if (name == 'd_hou_urb' || name == 'd_hou_rur')
-        sliderEl.on 'slidechange', (e, ui) ->
-          if (name == 'd_hou_urb')
-            App.get().households.updateSecondGroup(ui.value)
-          else
-            App.get().households.updateSecondGroup(100 - ui.value)

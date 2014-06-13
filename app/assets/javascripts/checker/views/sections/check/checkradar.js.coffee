@@ -2,6 +2,17 @@ class window.CheckRadarView
   constructor: ->
     @$el = $("<div id='checkradar'>")
     @radar = App.get().radar
+    $(window).on 'appready', ->
+      $('.radar-info').find('.fa').popover({
+        placement: 'bottom',
+        trigger: 'hover',
+        container: 'body'
+        html: true,
+        title: ->
+          $(this).next('.popover').find('.popover-title').html()
+        , content: ->
+          $(this).next('.popover').find('.popover-content').html()
+      })
 
   render: ->
     level = App.get().level
@@ -169,16 +180,5 @@ class window.CheckRadarView
     return this
 
   events: ->
-    $(window).on 'appready', ->
-      $('.radar-info').find('.fa').popover({
-        placement: 'bottom',
-        trigger: 'hover',
-        container: 'body'
-        html: true,
-        title: ->
-          $(this).next('.popover').find('.popover-title').html()
-        , content: ->
-          $(this).next('.popover').find('.popover-content').html()
-      })
     $('.radar-info').on 'click', ->
       $(this).popover('toggle')

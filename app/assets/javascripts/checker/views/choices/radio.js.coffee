@@ -22,7 +22,7 @@ class window.RadioView
 
   events: ->
     @$el.find('.cell').on 'click', (e) =>
-      $(window).one 'choicecomplete', =>
-        @$el.find('.cell').removeClass('active')
-        $(e.currentTarget).addClass('active')
-      @radio.setValue($(e.currentTarget).attr('data-value'))
+      @radio.setValue($(e.currentTarget).attr('data-value'))      
+      @$el.find('.cell').removeClass('active')
+      $(e.currentTarget).addClass('active')
+      $(window).trigger('choicecomplete')

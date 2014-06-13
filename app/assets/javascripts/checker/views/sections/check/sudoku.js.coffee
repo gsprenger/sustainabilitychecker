@@ -44,10 +44,10 @@ class window.SudokuView
     for k of @indexHeaders
       @valueNames.push(k)
     # When user makes a choice, update sudoku and flash cells
-    $(window).on 'choicecomplete', =>
-      @render()
-      # flash new values
-      if App.get().level >= 2
+    if App.get().level >= 2
+      $(window).on 'choicecomplete', =>
+        @render()
+        # flash new values
         changes = {}
         # if new values are found, store them in changes array
         for name in @valueNames
@@ -59,7 +59,6 @@ class window.SudokuView
           break
         if changed
           delay = if $('#lvl3-main').hasClass('out') then 10 else 1000
-          console.log(delay)
           $(window).trigger 'opensudokuoverlay'
           setTimeout =>
             # level 3: flash values
@@ -637,6 +636,7 @@ class window.SudokuView
     return this
 
   events: ->
+    # Init info popovers
     @$el.find('.fa-info-circle').popover({
       placement: 'bottom',
       trigger: 'hover',

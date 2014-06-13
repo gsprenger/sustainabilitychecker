@@ -16,7 +16,6 @@ class window.Radio
     if (value in @values)
       @value = value
       @experiment.setValue(@slug, value)
-      $(window).trigger('choicecomplete', this)
     else
       console.error(@type+' Error: trying to select unknown value '+ value)
 

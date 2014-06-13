@@ -2,6 +2,12 @@ class window.SudokuOverlayView
   constructor: ->
     @$el = $("<div id='lvl3-main'>")
     @sudokuV = new SudokuView(true)
+    $(window).on 'opensudokuoverlay', =>
+      @toggleOverlay(true)
+    # When overlay is out, close it when user clicks outside
+    $(window).on 'click', (event) =>
+      if @$el.hasClass('out') && !$.contains(document.getElementById('lvl3-main'), event.target)
+        @toggleOverlay()
 
   render: ->
     c = App.get().content
@@ -16,12 +22,6 @@ class window.SudokuOverlayView
   events: ->
     @$el.find('#overlay-toggle').on 'click', =>
       @toggleOverlay()
-    $(window).on 'opensudokuoverlay', =>
-      @toggleOverlay(true)
-    # When overlay is out, close it when user clicks outside
-    $(window).on 'click', (event) =>
-      if @$el.hasClass('out') && !$.contains(document.getElementById('lvl3-main'), event.target)
-        @toggleOverlay()
 
   toggleOverlay: (open) ->
     if !@$el.hasClass('sliding')
@@ -30,7 +30,7 @@ class window.SudokuOverlayView
         # dirty hack to be able to get the auto height value
         el = @$el.clone().css('height', 'auto').hide().appendTo('body')
         auto = el.height()
-        wHeight = $(window).innerHeight()-31 # Why 31 ? No idea...
+        wHeight = $(window).outerHeight()-60 # Why 60 ? No idea... something with margins or overflow...
         @$el.height(Math.min(wHeight, auto))
         el.remove()
         setTimeout =>
