@@ -641,6 +641,9 @@ nav {
   &.needs-padding {
     padding-top: 10px;
   }
+  .btn:not(:first-child) {
+    margin-left: 25px;
+  }
 }
 
 // Level 3 section
@@ -724,6 +727,9 @@ nav {
     border-color: $darklevel1;
     background-color: $level1;
     color: $black;
+    &:hover {
+      background-color: $darklevel1;
+    }
   }
   .ui-widget-header {
     background: none;
@@ -736,6 +742,9 @@ nav {
     border-color: $darklevel2;
     background-color: $level2;
     color: $black;
+    &:hover {
+      background-color: $darklevel2;
+    }
   }
   .ui-widget-header {
     background: none;
@@ -748,6 +757,9 @@ nav {
     border-color: $darklevel3;
     background-color: $level3;
     color: $black;
+    &:hover {
+      background-color: $darklevel3;
+    }
   }
   .ui-widget-header {
     background: none;

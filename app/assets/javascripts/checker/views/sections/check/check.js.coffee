@@ -251,13 +251,13 @@ class window.CheckView
         <div id='checksudokucont'></div>
         <div id='checksummarycont'></div>
         <div class='btn-row'>
+          <div class='btn-again btn btn-lg btn-default'>#{c.text('chkr_res_again')}</div>
       """
     if (l != 3)
       html += """
-            <a href='/level#{l+1}'><div class='btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div></a>
+            <div class='btnlevel btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div>
         """
     html += """
-          <div class='btn-again btn btn-lg btn-default'>#{c.text('chkr_res_again')}</div>
         </div>
       </div>
       """
@@ -267,7 +267,7 @@ class window.CheckView
     if l == 1
       @$el.find('#checksudokucont').empty().append(@sudoku.render().$el)
     @$el.find('#checksummarycont').empty().append(@summary.render().$el)
-    if !App.get().isMercury && l != 3 && App.get().experiment.getCurrent() != 'check'
+    if !App.get().isMercury && l == 1 && App.get().experiment.getCurrent() != 'check'
       @$el.hide()
     @events()
     return this
@@ -276,3 +276,5 @@ class window.CheckView
     @$el.find('.btn-again').on 'click', =>
       @$el.hide()
       $('body').animate({scrollTop: $('.section').first().offset().top}, 1000)
+    @$el.find('.btnlevel').on 'click', =>
+      window.location.href = '/level'+App.get().level+1

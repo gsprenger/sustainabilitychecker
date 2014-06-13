@@ -21,13 +21,13 @@ class window.AppView
       if (nextSec.length)
         secID = nextSec.attr('id')
         nextSec.show()
-        if ($('#'+secID+'-lvl2').length)
-          $('#'+secID+'-lvl2').show()
         App.get().experiment.setCurrent(nextSec.data('slug'))
-        $('[href=#'+secID+']').addClass('active')
+        if App.get().level == 1
+          $('[href=#'+secID+']').addClass('active')
         $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
       else
         $('[href=#check]').addClass('activelevel'+App.get().level)
+        App.get().experiment.setCurrent('check')
         $(window).trigger('showcheck')
     $(window).on 'choicecomplete', =>
       console.log("choicecomplete!")
@@ -53,16 +53,17 @@ class window.AppView
       container: 'body'
     }
     # Scroll to current section
-    cur = e.getCurrent()
-    if (cur != 'intro')
-      lvl = e.getValue('level')
-      if (@level == lvl)
-        for s in App.get().sections
-          if (s.slug == cur)
-            name = s.name
-            break
-        name ?= 'check'
-        $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)
+    if App.get().level == 1
+      cur = e.getCurrent()
+      if (cur != 'intro')
+        lvl = e.getValue('level')
+        if (@level == lvl)
+          for s in App.get().sections
+            if (s.slug == cur)
+              name = s.name
+              break
+          name ?= 'check'
+          $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)
     # check if mercury is running and if yes run special method
     if (App.get().isMercury)
       @setupForMercury()

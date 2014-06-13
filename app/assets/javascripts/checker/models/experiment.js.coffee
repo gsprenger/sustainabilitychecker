@@ -30,4 +30,7 @@ class window.Experiment
     @progression[@progression.indexOf(slug)+1]
 
   isCompleted:(slug) ->
-    @progression.indexOf(slug) < @progression.indexOf(@values.current)
+    if App.get().level == 1
+      @progression.indexOf(slug) < @progression.indexOf(@values.current)
+    else
+      true

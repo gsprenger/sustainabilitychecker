@@ -43,7 +43,7 @@ class window.HeaderNavView
                 </a>
               </li>
         """
-    act = (if (app.experiment.getCurrent() == 'check') then ' activelevel'+l else '')
+    act = (if (l != 1 || app.experiment.getCurrent() == 'check') then ' activelevel'+l else '')
     html += """
             <li>
               <a href='#check' class='check nav-link#{act}' title='Check' data-toggle='tooltip'>
