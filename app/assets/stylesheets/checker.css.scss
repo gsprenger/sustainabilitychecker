@@ -274,8 +274,8 @@ nav {
 }
 
 /** SECTIONS **/
-.section.in-level2, #check.in-level2, #checkres-container.in-level2, .section.in-level3, #check.in-level3, #checkres-container.in-level3  {
-  padding-bottom: 55px;
+.section.in-level2, #check.in-level2, .section.in-level3, #check.in-level3 {
+  padding-bottom: 70px;
 }
 
 .section {
@@ -399,7 +399,6 @@ nav {
 }
 
 #ene-resulttext {
-  margin-top: 50px;
   margin-bottom: 15px;
   text-align: center;
 }
@@ -409,34 +408,22 @@ nav {
   width: 100%;
   font-weight: 300;
   // small devices 
-  padding: 3%;
-  min-height: none;
-  margin-bottom: 30px;
-
-  .result {
-    font-weight: 500;
-  }
-}
-
-.checkresult {
-  width: 100%;
-  font-weight: 300;
-  // small devices 
   padding: 3% 3% 0 3%;
   &.in-level1 {
     margin-bottom: 30px;
   }
+}
 
-  .check-result-title {
-    color: $red;
-    &.passed {
-      color: $green;
-    }
+.check-result-title {
+  text-align: center;
+  color: $red;
+  &.passed {
+    color: $green;
   }
+}
 
-  .check-result-expl {
-    text-align: center;
-  }
+.check-result-expl {
+  text-align: center;
 }
 
 .checkcharts {
@@ -600,6 +587,27 @@ nav {
     top: 81px;
     left: 103px;
   }
+}
+
+#checksudokucont {
+  margin-top: 25px;
+}
+
+#checksummarycont {
+  margin-top: 25px;
+}
+
+#checksum-panel {
+  border-color: #A6BAC4;
+}
+
+#checksum-panel-heading {
+  background-color: #C0D4DE;
+}
+
+#checksum-panel-body {
+  background-color: #D9EDF7;
+  border-top: 1px solid #A6BAC4;
 }
 
 /** Level 2&3 sectioninfo **/
@@ -773,14 +781,10 @@ nav {
   }
 
   #check {
-    padding: 65px 3% 3% 3%;
+    padding: 65px 3% 0 3%;
     .result {
       font-weight: 500;
     }
-  }
-
-  .checkresult {
-    padding: 65px 3% 0 3%;
   }
 
   #checkgraph {
@@ -805,11 +809,7 @@ nav {
   #check {
     min-height: 100%;
     margin: 0;
-    padding: 65px 15% 10px 15%;
-  }
-
-  .checkresult {
-    padding: 3% 15% 0 15%;
+    padding: 65px 15% 0 15%;
   }
 
   #checkgraph {

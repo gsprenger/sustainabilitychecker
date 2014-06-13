@@ -6,8 +6,7 @@ class window.AppView
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))
-    @views.push(new CheckSummaryView())
-    @views.push(new CheckResultView())
+    @views.push(new CheckView())
     if (App.get().level >= 2)
       @views.push(new SudokuOverlayView())
 
@@ -66,8 +65,7 @@ class window.AppView
         $('body,html').stop(true,true).animate({scrollTop: nextSec.offset().top}, 500)
       else
         $('[href=#check]').addClass('activelevel'+App.get().level)
-        $('#check').show()
-        $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
+        $(window).trigger('showcheck')
 
   setupForMercury: ->
     e = App.get().experiment

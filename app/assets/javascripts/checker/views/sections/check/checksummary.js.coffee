@@ -1,13 +1,18 @@
 class window.CheckSummaryView
   constructor: ->
-    @$el = $("<div id='check' class='in-level#{App.get().level}'>")
+    @$el = $("<div id='check-summary'>")
 
   render: ->
     app = App.get()
     c = app.content
     html = """
-      <h2>#{c.text('chkr_summ_title')}</h2>
-      <div class="alert alert-info">
+      <div id='checksum-panel' class='panel panel-info'>
+        <a data-toggle="collapse" href="#checksum-panel-body">
+          <div id='checksum-panel-heading' class='panel-heading'>
+            <h4 class='panel-title'>#{c.text('check_sum_heading', 'simple')}</h4>
+          </div>
+        </a>
+          <div id='checksum-panel-body' class='panel-body collapse'>
       """
     for s in app.sections
       p = s.i18nPrefix
@@ -37,9 +42,7 @@ class window.CheckSummaryView
           </ul>
         """
     html += """
-      </div>
-      <div class='btn-row'>
-        <div class='btn-showresult btn btn-lg btn-primary'>#{c.text('chkr_summ_btn')}</div>
+        </div>
       </div>
       """
     @$el.html(html)
@@ -49,5 +52,3 @@ class window.CheckSummaryView
     return this
 
   events: ->
-    @$el.find('.btn-showresult').on 'click', ->
-      $(window).trigger('clickshowresult')
