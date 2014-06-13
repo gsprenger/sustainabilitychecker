@@ -257,6 +257,10 @@ class window.CheckView
       html += """
             <div class='btnlevel btn btn-lg btn-primary'>#{c.text('chkr_res_next')}</div>
         """
+    else 
+      html += """
+            <div class='btnshare btn btn-lg btn-primary'>#{c.text('share_btn')}</div>
+        """
     html += """
         </div>
       </div>
