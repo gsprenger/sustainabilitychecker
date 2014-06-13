@@ -10,6 +10,9 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+body.modal-open {
+    overflow: visible;
+}
 /** COLORS **/
 // shades of grey
 $black: #333;

@@ -278,7 +278,6 @@ class window.CheckView
 
   events: ->
     @$el.find('.btn-again').on 'click', =>
-      @$el.hide()
-      $('body').animate({scrollTop: $('.section').first().offset().top}, 1000)
+      $('#modal-tryagain').modal()
     @$el.find('.btnlevel').on 'click', =>
       window.location.href = '/level'+App.get().level+1

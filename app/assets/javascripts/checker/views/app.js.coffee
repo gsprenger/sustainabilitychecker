@@ -9,6 +9,7 @@ class window.AppView
     @views.push(new CheckView())
     if (App.get().level >= 2)
       @views.push(new SudokuOverlayView())
+    @views.push(new TryAgainModal())
     # Window events go here so they arent repeated for each render
     #$(window).on 'choicecomplete', (e, data) ->
     #  if App.get().level == 3
