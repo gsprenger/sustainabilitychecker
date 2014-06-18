@@ -77,7 +77,7 @@ class window.SudokuView
                 @flashCell(@indexHeaders[name][0], 3, '#eee')
                 @flashCell(@indexHeaders[name][1], 3, '#eee')
             if @success != @oldSuccess
-              @flashCell('topcell', 3, (if @success then '#5CB85C' else '#D9534F'), '#fff', true)
+              @flashCell('topcell', 3, (if @success then '#5CB85C' else '#D9534F'), '#fff')
           , delay
 
   render: ->
@@ -659,20 +659,21 @@ class window.SudokuView
     @$el.find('.fa-info-circle').on 'click', ->
       $(this).popover('toggle')
 
-  flashCell: (cellID, times, color, textColor, preventStay) ->
+  flashCell: (cellID, times, color, textColor) ->
     originalColor = @$el.find('#'+cellID).css('background-color')
     originalTextColor = @$el.find('#'+cellID).css('color')
     textColor = if textColor? then textColor else originalTextColor
-    @recursiveFlashCell(cellID, times, color, textColor, originalColor, originalTextColor, preventStay)
+    @recursiveFlashCell(cellID, times, color, textColor, originalColor, originalTextColor)
 
-  recursiveFlashCell: (cellID, times, color, textColor, originalColor, originalTextColor, preventStay) ->
+  recursiveFlashCell: (cellID, times, color, textColor, originalColor, originalTextColor) ->
     if times > 0
       setTimeout =>
         @$el.find('#'+cellID).css({backgroundColor: color, color: textColor})
         setTimeout =>
           @$el.find('#'+cellID).css({backgroundColor: originalColor, color: originalTextColor})
-          @recursiveFlashCell(cellID, --times, color, textColor, originalColor, originalTextColor, preventStay)
+          @recursiveFlashCell(cellID, --times, color, textColor, originalColor, originalTextColor)
         , 250
       , 250
-    if times == 0 && !preventStay
+    if times == 0
       @$el.find('#'+cellID).css({backgroundColor: color, color: textColor})
+      @$el.find('#'+cellID).animate({backgroundColor: originalColor, color: originalTextColor}, 3000)

@@ -2,6 +2,7 @@
 // listed below.
 //
 //= require jquery.ui.slider
+//= require jquery.ui.effect-highlight
 //= require polar
 //= require_tree ./checker
 
