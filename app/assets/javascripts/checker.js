@@ -6,8 +6,7 @@
 //= require_tree ./checker
 
 var ready = function() {
-  app = App.get()
-  app.launchLevel(3)
+  App.get().launchApp()
 };
 
 $(document).ready(ready);

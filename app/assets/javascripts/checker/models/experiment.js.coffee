@@ -6,7 +6,7 @@ class window.Experiment
     if (exp?)
       @values = JSON.parse(exp)
     else
-      @values = {current: @progression[0]}
+      @values = {current: @progression[0], level: 1}
   
   save: ->
     localStorage.setItem('experiment', JSON.stringify(@values))
@@ -34,3 +34,10 @@ class window.Experiment
       @progression.indexOf(slug) < @progression.indexOf(@values.current)
     else
       true
+
+  getLastLevel: ->
+    @values.level
+
+  setLastLevel:(level) ->
+    @values.level = level
+    @save()

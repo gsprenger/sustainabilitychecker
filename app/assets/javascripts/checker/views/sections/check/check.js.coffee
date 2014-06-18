@@ -280,4 +280,5 @@ class window.CheckView
     @$el.find('.btn-again').on 'click', =>
       $('#modal-tryagain').modal()
     @$el.find('.btnlevel').on 'click', =>
+      App.get().experiment.setLastLevel(App.get().level+1)
       window.location.href = '/level'+(App.get().level+1)

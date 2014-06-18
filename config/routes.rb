@@ -19,9 +19,9 @@ Sustainabilitychecker::Application.routes.draw do
   post "glossary/remove" => "glossary#remove"
 
   # Checker Levels
-  get "level1" => "level1#app"
-  get "level2" => "level2#app"
-  get "level3" => "level3#app"
+  get "level1" => "checker#app"
+  get "level2" => "checker#app"
+  get "level3" => "checker#app"
 
   # Static website
   get "home" => "static_pages#home"
