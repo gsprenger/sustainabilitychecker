@@ -6,13 +6,15 @@ class window.SudokuOverlayView
       @toggleOverlay(true)
     # When overlay is out, close it when user clicks outside
     $(window).on 'click', (event) =>
-      if @$el.hasClass('out') && !$.contains(document.getElementById('lvl3-main'), event.target)
+      if @$el.hasClass('out') && !$.contains(document.getElementById('sudoku'), event.target)
         @toggleOverlay()
 
   render: ->
     c = App.get().content
     html = """
-      <div id='overlay-toggle'></div>
+      <div id='overlay-toggle'>
+        <div id='overlay-button'><i class='fa fa-chevron-up'></i></div>
+      </div>
       """
     @$el.html(html)
     @$el.append(@sudokuV.render().$el)
@@ -21,6 +23,15 @@ class window.SudokuOverlayView
 
   events: ->
     @$el.find('#overlay-toggle').on 'click', =>
+      @toggleOverlay()
+    @$el.find('#overlay-button').on 'click', (e) =>
+      icon = $(e.currentTarget).find('i')
+      if icon.hasClass('fa-chevron-up')
+        icon.removeClass('fa-chevron-up')
+        icon.addClass('fa-chevron-down')
+      else
+        icon.removeClass('fa-chevron-down')
+        icon.addClass('fa-chevron-up')
       @toggleOverlay()
 
   toggleOverlay: (open) ->

@@ -673,25 +673,45 @@ nav {
   }
 }
 
+
 #overlay-toggle {
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 20px;
-  background-color: $lightgrey;
+  background-color: #FFF;
   cursor: pointer;
+  z-index: 110;
   &:hover {
-    background-color: $grey;
+    background-color: #F9F9F9;
   }
+}
+
+#overlay-button {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  width: 30px;
+  height: 18px;
+  margin-left: -15px;
+  border: 1px solid $black;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  text-align: center;
+  line-height: 0px;
+  color: #000;
 }
 
 #sudoku {
   font-weight: 400;
   table {
+    position: relative;
+    z-index: 120;
     width: 945px;
     height: 433px;
     margin: auto;
+    background-color: #FFF;
     tr {
       border: 1px solid #666;
       td {
