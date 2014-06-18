@@ -39,6 +39,9 @@ class window.SudokuView
 
   constructor: (@isOverlay) ->
     @$el = $("<div id='sudoku'>")
+    # init variables
+    @firstTimeSustainable = false
+    @firstRender = true
     # get all value cells name
     @valueNames = []
     for k of @indexHeaders
@@ -84,6 +87,11 @@ class window.SudokuView
     if @success?
       @oldSuccess = @success
     @success = sudoku.getSuccess()
+    # first time sustainable in level 3 = show check
+    if l == 3
+      if !@firstTimeSustainable && @success && !@firstRender
+        $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
+        @firstTimeSustainable = true
     # store previous val
     for name in @valueNames
       if @[name]?
@@ -633,6 +641,7 @@ class window.SudokuView
         if ($(td).text() == '0')
           $(td).text('negl.')
     @events()
+    @firstRender = false
     return this
 
   events: ->

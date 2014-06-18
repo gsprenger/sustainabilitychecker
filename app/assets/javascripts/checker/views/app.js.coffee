@@ -11,9 +11,6 @@ class window.AppView
       @views.push(new SudokuOverlayView())
     @views.push(new TryAgainModal())
     # Window events go here so they arent repeated for each render
-    #$(window).on 'choicecomplete', (e, data) ->
-    #  if App.get().level == 3
-    #    sectionSlug = data.slug.split('_', 2).join('_')
     $(window).on 'sectioncomplete', (e, data) ->
       # mark header item as completed
       if ($('[href=#'+data+']').length > 0)
@@ -30,8 +27,6 @@ class window.AppView
         $('[href=#check]').addClass('activelevel'+App.get().level)
         App.get().experiment.setCurrent('check')
         $(window).trigger('showcheck')
-    $(window).on 'choicecomplete', =>
-      console.log("choicecomplete!")
 
   render: ->
     e = App.get().experiment
