@@ -1,10 +1,10 @@
-// This is a manifest file that'll be compiled into admin.js, which will include all the files
+// This is a manifest file that'll be compiled into site.js, which will include all the files
 // listed below.
 //
-//= require_tree ./admin
+//= require_tree ./site
 
 var ready = function () {
-  Admin.setup();
+  
 };
 
 // Turbolinks workaround      

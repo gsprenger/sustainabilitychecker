@@ -13,7 +13,7 @@ class window.HeaderView
           <a href='/'>Home</a>
         </div>
         <div class='header-contact'>
-          <a href='/#contact'>Contact us</a>
+          <a href='/contact'>Contact us</a>
         </div>
       </nav>
       """
