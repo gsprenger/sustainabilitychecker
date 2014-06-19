@@ -5,6 +5,7 @@
     <!-- Stylesheets -->
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag    "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css", "data-turbolinks-track" => true %>
+    <%= stylesheet_link_tag    "site", "data-turbolinks-track" => true %>
     <%= stylesheet_link_tag    "app", "data-turbolinks-track" => true %>
     <!-- Javascripts -->
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -15,6 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <%= render "layouts/common/header" %>
     <%= yield %>
+    <%= render "layouts/common/footer" %>
   </body>
 </html>

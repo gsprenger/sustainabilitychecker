@@ -1,0 +1,71 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.site-header {
+  background-color: #F0F0F0;
+  border-bottom: 1px solid #DDD;
+  width: 100%;
+}
+
+.site-nav {
+  background: image-url("site-nav-shadow.png") bottom center no-repeat;
+  margin: auto;
+  clear: both;
+  max-width: 978px;
+  padding: 37px 0 12px;
+  position: relative;
+  width: 98%;
+}
+
+.site-nav:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.site-logo {
+  background: image-url("http://dummyimage.com/160x80/333/fff.png&text=LOGO");
+  float: left;
+  height: 79px;
+  margin: 0;
+  padding: 0;
+  text-indent: -9999px;
+  width: 159px;
+  margin-right: 50px;
+}
+
+.site-nav-items {
+  float: left;
+  list-style-type: none;
+  margin: 46px 0 0 0;
+}
+
+.site-nav-items li {
+  display: inline;
+  margin: 0 0 0 35px;
+}
+
+.site-nav-items a {
+  color: #888;
+  display: inline-block;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+}
+
+.site-nav-items .selected {
+  color: #4C4C4C;
+}
+
+.site-nav-items .selected:after {
+  bottom: -30px;
+  content: image-url("site-nav-arrow.png");
+  left: 50%;
+  position: absolute;
+  margin-left: -12px;
+}

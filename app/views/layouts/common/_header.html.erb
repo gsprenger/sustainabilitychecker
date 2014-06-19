@@ -1,0 +1,21 @@
+<div class="site-header">
+  <div class="site-nav">
+    <h1 class="site-logo">
+      <a href="/">Sustainability Sudoku</a>
+    </h1>
+    <ul class="site-nav-items">
+      <li>
+        <a <%= action_name == 'index' ? "class=selected " : "" %>href="/">Home</a>
+      </li>
+      <li>
+        <a <%= action_name == 'app' ? "class=selected " : "" %>href="/level1">Play Now</a>
+      </li>
+      <li>
+        <a <%= action_name == 'more' ? "class=selected " : "" %>href="/more">Learn More</a>
+      </li>
+      <li>
+        <a <%= action_name == 'contact' ? "class=selected " : "" %>href="/contact">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</div>
