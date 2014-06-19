@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+// HEADER
 .site-header {
   background-color: #F0F0F0;
   border-bottom: 1px solid #DDD;
@@ -68,4 +69,70 @@ body {
   left: 50%;
   position: absolute;
   margin-left: -12px;
+}
+
+// FOOTER
+.site-footer {
+  border-bottom: 1px solid #F0F0F0;
+  border-top: 1px solid #F0F0F0;
+  background: #FFF;
+}
+
+.site-footer-content {
+  margin: 0 auto;
+  max-width: 978px;
+  padding: 12px 0 11px;
+  width: 98%;
+}
+
+.site-footer-content:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+.site-footer ul {
+  float: left;
+  font-size: 13px;
+  list-style-type: none;
+  margin: 0 7px 0 0;
+}
+
+.site-footer li {
+  display: inline;
+  margin: 0 15px 0 0;
+}
+
+.site-footer-list {
+  margin: 0;
+  padding: 0;
+}
+
+.site-footer-list a {
+  color: #888;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-footer .social {
+  border-left: 1px solid #E6E6E6;
+  padding-left: 22px;
+}
+
+.site-footer .social .fa {
+  font-size: 18px;
+}
+
+.site-footer .social .fa-facebook-square {
+  color: #3b5998;
+}
+
+.site-footer .social .fa-twitter-square {
+  color: #00aced;
+}
+
+.site-footer .social .fa-google-plus-square {
+  color: #dd4b39;
 }
