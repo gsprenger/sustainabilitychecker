@@ -28,7 +28,7 @@ body {
 }
 
 .site-logo {
-  background: image-url("http://dummyimage.com/160x80/333/fff.png&text=LOGO");
+  background: image-url("http://dummyimage.com/160x80/bfbfff/333.png&text=LOGO");
   float: left;
   height: 79px;
   margin: 0;
@@ -135,4 +135,137 @@ body {
 
 .site-footer .social .fa-google-plus-square {
   color: #dd4b39;
+}
+
+// COMMON
+.site-body-content {
+  clear: both;
+  margin: 0 auto;
+  max-width: 978px;
+  padding: 25px 1px;
+  width: 98%;
+}
+
+.site-body-content h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  color: #3369E8;
+  font-size: 37px;
+  line-height: 1.15em;
+  margin: 8px 0;
+}
+
+.site-body-content h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-size: 32px;
+  color: #D50F25;
+  line-height: 1.2em;
+  margin: 30px 0 8px;
+}
+
+.site-body-content h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #000;
+  font-size: 17px;
+  margin: 12px 0 6px;
+  line-height: 1.4em;
+}
+
+.site-body-content h1 span {
+  display: block;
+}
+
+.site-body-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6em;
+}
+
+.site-body-content img {
+     max-width: 100%;
+}
+
+.site-body-content .more, .site-body-content a {
+  color: #116DCC;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 20px 0 0;
+  padding: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-body-content .more:hover, .site-body-content a:hover .more {
+  color: #2F8AE7;
+}
+
+.site-body-content .more span {
+  position: relative;
+  padding: 0 3px;
+}
+
+.site-body-content .more span i {
+  position: absolute;
+  top: 3px;
+  margin-left: 4px;
+  -moz-transition: margin-left .1s linear;
+  -webkit-transition: margin-left .1s linear;
+  transition: margin-left .1s linear;
+}
+
+.site-body-content .more:hover span i, .site-body-content a:hover .more span i {
+  margin-left: 6px;
+}
+
+.divider {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 0;
+  border-top: 1px solid #DEDEDE;
+}
+
+// INDEX
+.index-intro {
+  padding-top: 10px;
+}
+
+.index-logo {
+  text-align: center;
+}
+
+.index-playsudoku {
+  text-align: center;
+}
+
+.index-about h2 {
+  margin: 8px 0 22px;
+  padding-bottom: 0;
+}
+
+.index-about h3 {
+  margin-top: 22px;
+}
+
+.index-about ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  color: #666;
+  line-height: 1.6em;
+}
+
+.index-about p {
+  margin: 0;
+  font-size: 13px;
+}
+
+// MORE
+.more-divider {
+  margin-top: 40px;
+}
+
+.more-image {
+  padding-top: 20px;
 }
