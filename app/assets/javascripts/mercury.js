@@ -449,13 +449,6 @@ window.Mercury = {
 };
 
 // CUSTOM CODE
-// hide links so they can be edited
-$(window).bind('mercury:ready', function() {
-    $('iframe#mercury_iframe').contents().find('a').each(function() {
-      $(this).removeAttr('href')
-    });
-});
-
 // intercept save to provide visual feedback
 $(window).bind('mercury:saved', function(e, data) {
   var alert = 
