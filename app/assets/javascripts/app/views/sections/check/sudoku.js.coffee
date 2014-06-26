@@ -141,145 +141,57 @@ class window.SudokuView
           </td>
           <td colspan="2" class='cell-header'>
             <strong>Flows</strong>
-            <i class='fa fa-info-circle'></i>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_flows_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_flows_c')}
-              </div>
-            </div>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_flows_t', 'attr')}' data-content='#{c.text('chkr_sud_flows_c', 'attr')}'></i>
           </td>
           <td colspan="2" class='cell-header'>
             <strong>Funds</strong>
-            <i class='fa fa-info-circle'></i>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_funds_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_funds_c')}
-              </div>
-            </div>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_funds_t', 'attr')}' data-content='#{c.text('chkr_sud_funds_c', 'attr')}'></i>
           </td>
           <td colspan="2" class='cell-header'>
             <strong>Flow/Fund</strong>
-            <i class='fa fa-info-circle'></i>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_flowfund_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_flowfund_c')}
-              </div>
-            </div>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_flowfund_t', 'attr')}' data-content='#{c.text('chkr_sud_flowfund_c', 'attr')}'></i>
           </td>
         </tr>
         <tr>
           <td class='cell-header cell-flowfund' id='hfood'>
             <strong>Food</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_food_t', 'attr')}' data-content='#{c.text('chkr_sud_food_c', 'attr')}'></i><br>
             (kg grain-equiv p.c.)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_food_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_food_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-header cell-flowfund' id='henergy'>
             <strong>Energy</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_energy_t', 'attr')}' data-content='#{c.text('chkr_sud_energy_c', 'attr')}'></i><br>
             (GJ-GER p.c.)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_energy_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_energy_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-header cell-flowfund' id='hha'>
             <strong>Human Activity</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_ha_t', 'attr')}' data-content='#{c.text('chkr_sud_ha_c', 'attr')}'></i><br>
             (hrs p.c.)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_ha_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_ha_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-header cell-flowfund' id='hlu'>
             <strong>Land Use</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_lu_t', 'attr')}' data-content='#{c.text('chkr_sud_lu_c', 'attr')}'></i><br>
             (ha p.c.)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_lu_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_lu_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-header cell-flowfund' id='hemr'>
             <strong>Energy Metabolic Rate</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_emr_t', 'attr')}' data-content='#{c.text('chkr_sud_emr_c', 'attr')}'></i><br>
             (MJ/hrs)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_emr_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_emr_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-header cell-flowfund' id='hfmd'>
             <strong>Food Metabolic Density</strong>
-            <i class='fa fa-info-circle'></i><br>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_fmd_t', 'attr')}' data-content='#{c.text('chkr_sud_fmd_c', 'attr')}'></i><br>
             (kg grains-equiv/ha)
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_fmd_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_fmd_c')}
-              </div>
-            </div>
           </td>
         </tr>
         <tr>
           <td rowspan="6" class='cell-header'>
             <strong>Consumption</strong>
-            <i class='fa fa-info-circle'></i>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_consumption_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_consumption_c')}
-              </div>
-            </div>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_consumption_t', 'attr')}' data-content='#{c.text('chkr_sud_consumption_c', 'attr')}'></i>
           </td>
           <td class='cell-header' id='hws'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_ws_t', 'attr')}' data-content='#{c.text('chkr_sud_ws_c', 'attr')}'></i>
             <strong>Whole society</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_ws_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_ws_c')}
-              </div>
-            </div>
           </td>
           <td id='TFOOD' class='cell-number'>#{@TFOOD}</td>
           <td id='TET' class='cell-number'>#{@TET}</td>
@@ -290,16 +202,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hhh'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_hh_t', 'attr')}' data-content='#{c.text('chkr_sud_hh_c', 'attr')}'></i>
             <strong>Households</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_hh_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_hh_c')}
-              </div>
-            </div>
           </td>
           <td id='HH_food' class='cell-number'>#{@HH_food}</td>
           <td id='ET_HH' class='cell-number'>#{@ET_HH}</td>
@@ -310,16 +214,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hsg'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_sg_t', 'attr')}' data-content='#{c.text('chkr_sud_sg_c', 'attr')}'></i>
             <strong>Services and government</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_sg_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_sg_c')}
-              </div>
-            </div>
           </td>
           <td id='SG_food' class='cell-number'>#{@SG_food}</td>
           <td id='ET_SG' class='cell-number'>#{@ET_SG}</td>
@@ -330,16 +226,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hbm'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_bm_t', 'attr')}' data-content='#{c.text('chkr_sud_bm_c', 'attr')}'></i>
             <strong>Building and manufacturing</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_bm_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_bm_c')}
-              </div>
-            </div>
           </td>
           <td id='BM_food' class='cell-number'>#{@BM_food}</td>
           <td id='ET_BM' class='cell-number'>#{@ET_BM}</td>
@@ -350,16 +238,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hag'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_ag_t', 'attr')}' data-content='#{c.text('chkr_sud_ag_c', 'attr')}'></i>
             <strong>Agriculture</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_ag_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_ag_c')}
-              </div>
-            </div>
           </td>
           <td id='AG_food' class='cell-number'>#{@AG_food}</td>
           <td id='ET_AG' class='cell-number'>#{@ET_AG}</td>
@@ -370,16 +250,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hem'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_em_t', 'attr')}' data-content='#{c.text('chkr_sud_em_c', 'attr')}'></i>
             <strong>Energy and mining</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_em_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_em_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-number'>N/A</td>
           <td id='ET_EM' class='cell-number'>#{@ET_EM}</td>
@@ -394,27 +266,11 @@ class window.SudokuView
         <tr>
           <td rowspan="3" class='cell-header'>
             <strong>Supply</strong>
-            <i class='fa fa-info-circle'></i>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_supply_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_supply_c')}
-              </div>
-            </div>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_supply_t', 'attr')}' data-content='#{c.text('chkr_sud_supply_c', 'attr')}'></i>
           </td>
           <td class='cell-header' id='hds'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_domsup_t', 'attr')}' data-content='#{c.text('chkr_sud_domsup_c', 'attr')}'></i>
             <strong>Domestic Supply</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_domsup_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_domsup_c')}
-              </div>
-            </div>
           </td>
           <td id='DS_food' class='cell-number'>#{@DS_food}</td>
           <td id='DS_energy' class='cell-number'>#{@DS_energy}</td>
@@ -425,16 +281,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='himports'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info data-toggle='popover' data-title='#{c.text('chkr_sud_imports_t', 'attr')}' data-content='#{c.text('chkr_sud_imports_c', 'attr')}'-circle'></i>
             <strong>Imports</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_imports_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_imports_c')}
-              </div>
-            </div>
           </td>
           <td id='imports_food' class='cell-number'>#{@imports_food}</td>
           <td id='imports_energy' class='cell-number'>#{@imports_energy}</td>
@@ -445,16 +293,8 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='hvimports'>
-            <i class='fa fa-info-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_vimports_t', 'attr')}' data-content='#{c.text('chkr_sud_vimports_c', 'attr')}'></i>
             <strong>Virtual Imports</strong>
-            <div class='popover'>
-              <div class='popover-title'>
-                #{c.text('chkr_sud_vimports_t')}
-              </div>
-              <div class='popover-content'>
-                #{c.text('chkr_sud_vimports_c')}
-              </div>
-            </div>
           </td>
           <td class='cell-number'>N/A</td>
           <td class='cell-number'>N/A</td>
@@ -645,19 +485,6 @@ class window.SudokuView
     return this
 
   events: ->
-    # Init info popovers
-    @$el.find('.fa-info-circle').popover({
-      placement: 'bottom',
-      trigger: 'hover',
-      container: 'body'
-      html: true,
-      title: ->
-        $(event.target).nextAll('.popover').find('.popover-title').html()
-      , content: ->
-        $(event.target).nextAll('.popover').find('.popover-content').html()
-    })
-    @$el.find('.fa-info-circle').on 'click', ->
-      $(this).popover('toggle')
 
   flashCell: (cellID, times, color, textColor) ->
     originalColor = @$el.find('#'+cellID).css('background-color')

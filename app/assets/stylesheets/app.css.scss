@@ -68,7 +68,7 @@ $darklevel3: #22558C;
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 11;
+    z-index: 130;
     height: 65px;
     width: 100%;
     background-color: rgba(252, 252, 255, 0.9);
@@ -236,6 +236,10 @@ $darklevel3: #22558C;
 }
 
 /** SECTIONS **/
+#intro {
+  padding-bottom: 60px;
+}
+
 .section.in-level2, #check.in-level2, .section.in-level3, #check.in-level3 {
   padding-bottom: 70px;
 }
@@ -702,6 +706,10 @@ $darklevel3: #22558C;
       }
     }
   }
+}
+
+#sudoku .fa-info-circle {
+  cursor: pointer;
 }
 
 // Different colors for each level

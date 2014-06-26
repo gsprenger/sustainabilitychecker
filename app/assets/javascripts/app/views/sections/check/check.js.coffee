@@ -10,7 +10,7 @@ class window.CheckView
     $(window).on 'showcheck', =>
       @render()
       @$el.show()
-      $('body').animate({scrollTop: $('#check').offset().top}, 500)
+      $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
     $(window).on 'choicecomplete', =>
       @render()
 

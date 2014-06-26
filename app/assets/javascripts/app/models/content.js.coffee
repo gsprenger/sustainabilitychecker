@@ -22,6 +22,8 @@ class window.Content
         html = "<img data-mercury='image' id='"+slug+"' src='"+content+"'>"
       when 'none'
         html = content
+      when 'attr'
+        html = content.replace(/\'/, "&#39;").replace(/\"/, "&#34;")
       else
        html = "<div data-mercury='full' id='"+slug+"'>"+content+"</div>"
     return html

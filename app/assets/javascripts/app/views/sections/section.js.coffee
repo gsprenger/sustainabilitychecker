@@ -36,7 +36,7 @@ class window.SectionView
       """
     if @section.slug != 's_ene'
       html += """
-          <div class='btn-row#{if l == 1 then ' needs-padding' else ''}''>
+          <div class='btn-row#{if l == 1 then ' needs-padding' else ''}'>
             <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_next')}</div>
           </div>
         </div>
@@ -46,7 +46,7 @@ class window.SectionView
           <div id='ene-resulttext'>
             #{c.text('chkr_ene_resulttext')}
           </div>
-          <div class='btn-row'>
+          <div class='btn-row#{if l == 1 then ' needs-padding' else ''}'>
             <div class='btn btn-lg btn-primary nextbtn'>#{c.text('chkr_result')}</div>
           </div>
         </div>
