@@ -19,7 +19,8 @@ class window.Experiment
 
   setValue:(slug, value) ->
     @values[slug] = value
-    @values['current'] = @getNext((if (slug.lastIndexOf('_') != 1) then slug.substr(0,5) else slug))
+    if @progression.indexOf(slug) > @progression.indexOf(@values.current)
+      @values['current'] = @getNext((if (slug.lastIndexOf('_') != 1) then slug.substr(0,5) else slug))
     @save()
 
   setCurrent:(slug) ->
