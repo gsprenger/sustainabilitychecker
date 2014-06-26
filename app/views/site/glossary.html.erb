@@ -1,1 +1,20 @@
-Glossary page
+<h2><%= Content.text('gloss_title') %></h2>
+<div class='gloss-main'>
+  <h3><%= Content.text('gloss_index_title') %></h3>
+  <p>
+  <ul>
+  <% @glossary.each do |g| %>
+    <li><a href='#<%=g.slug%>'><%=g.name%></a></li>
+  <% end %>
+  </ul>
+  </p>
+  <hr>
+  <% @glossary.each do |g| %>
+    <div class='glos-entry' id='<%=g.slug%>'>
+      <h3>&#10165; <%=g.name%></h3>
+      <blockquote>
+        <p><%=g.definition%></p>
+      </blockquote>
+    </div>
+  <% end %>
+</div>

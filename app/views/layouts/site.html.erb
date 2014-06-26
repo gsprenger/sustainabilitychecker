@@ -16,7 +16,9 @@
   </head>
   <body>
     <%= render "layouts/common/header" %>
-    <%= yield %>
+    <div class='site-body-content'>
+      <%= yield %>
+    </div>
     <%= render "layouts/common/footer" %>
   </body>
 </html>
