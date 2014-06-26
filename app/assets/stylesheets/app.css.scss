@@ -642,9 +642,6 @@ $darklevel3: #22558C;
   background-color: #FFF;
   cursor: pointer;
   z-index: 110;
-  &:hover {
-    background-color: #F9F9F9;
-  }
 }
 
 #overlay-button {
@@ -660,6 +657,10 @@ $darklevel3: #22558C;
   text-align: center;
   line-height: 0px;
   color: #000;
+}
+
+#overlay-toggle:hover #overlay-button {
+  background-color: #86B4CF;
 }
 
 #sudoku {

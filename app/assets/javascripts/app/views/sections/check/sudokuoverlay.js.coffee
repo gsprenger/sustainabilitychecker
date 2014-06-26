@@ -24,20 +24,15 @@ class window.SudokuOverlayView
   events: ->
     @$el.find('#overlay-toggle').on 'click', =>
       @toggleOverlay()
-    @$el.find('#overlay-button').on 'click', (e) =>
-      icon = $(e.currentTarget).find('i')
-      if icon.hasClass('fa-chevron-up')
-        icon.removeClass('fa-chevron-up')
-        icon.addClass('fa-chevron-down')
-      else
-        icon.removeClass('fa-chevron-down')
-        icon.addClass('fa-chevron-up')
-      @toggleOverlay()
 
   toggleOverlay: (open) ->
     if !@$el.hasClass('sliding')
+      icon = @$el.find('#overlay-button').find('i')
+      console.log(icon.get(0))
       if open || !@$el.hasClass('out')
         @$el.addClass('sliding')
+        icon.removeClass('fa-chevron-up')
+        icon.addClass('fa-chevron-down')
         # dirty hack to be able to get the auto height value
         el = @$el.clone().css('height', 'auto').hide().appendTo('body')
         auto = el.height()
@@ -51,6 +46,8 @@ class window.SudokuOverlayView
       else
         @$el.removeClass('out')
         @$el.addClass('sliding')
+        icon.removeClass('fa-chevron-down')
+        icon.addClass('fa-chevron-up')
         @$el.innerHeight('50px')
         setTimeout =>
           @$el.removeClass('sliding')
