@@ -61,49 +61,6 @@ $darklevel2: #5081B5;
 $darklevel3: #22558C;
 
 /** HEADER **/
-header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  background-color: $alphawhite;
-  border-bottom: 1px solid $lightgrey;
-  z-index: 10;
-  height: 65px;
-  width: 100%;
-  // small devices
-  display: none;
-}
-
-nav {
-  // small devices
-  display: none;
-  position: fixed;
-  left: 50%;
-  z-index: 12;
-
-  .header-home, .header-contact {
-    position: absolute;
-    top: 17px;
-    a {
-      color: $textgrey;
-      font-size: 20px;
-      font-weight: 200;
-      &:hover {
-        color: $darkgrey;
-        text-decoration: none;
-      }
-    }
-  }
-
-  .header-home {
-    left: -440px;
-  }
-
-  .header-contact {
-    right: -455px;
-  }
-}
-
 #headernav {
   // small devices
   display: none;
@@ -114,6 +71,8 @@ nav {
     z-index: 11;
     height: 65px;
     width: 100%;
+    background-color: rgba(252, 252, 255, 0.9);
+    border-bottom: 1px solid #DDD;
   }
   #headernav-cont {
     position: relative;

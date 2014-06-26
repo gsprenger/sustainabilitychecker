@@ -1,8 +1,7 @@
 class window.AppView
   constructor: ->
-    @$el = $('body')
+    @$el = $('#app')
     @views = []
-    @views.push(new HeaderView())
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))
