@@ -1,6 +1,9 @@
 class window.HeaderNavView
   constructor: ->
     @$el = $("<div data-spy='affix' id='headernav'>")
+    $(window).on 'appready', ->
+      # HeaderView: set offset to header position for affix to trigger
+      $('#headernav').attr('data-offset-top', $('#headernav').offset().top)
 
   render: ->
     app = App.get()
@@ -58,6 +61,3 @@ class window.HeaderNavView
     return this
 
   events: ->
-    $(window).on 'appready', ->
-      # HeaderView: set offset to header position for affix to trigger
-      $('#headernav').attr('data-offset-top', $('#headernav').offset().top)

@@ -60,7 +60,40 @@ $darklevel1: #6792AB;
 $darklevel2: #5081B5;
 $darklevel3: #22558C;
 
+#app {
+  position: relative;
+}
+
 /** HEADER **/
+#modalicons {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  &.affix {
+    position: fixed;
+    top: 17px;
+    right: 20px;
+    z-index: 131;
+  }
+}
+
+.modalicon {
+  float: left;
+  width: 31px;
+  height: 30px;
+  margin-left: 10px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  color: #000;
+  line-height: 28px;
+  font-size: 17px;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    background-color: #f6f6f6;
+  }
+}
+
 #headernav {
   // small devices
   display: none;

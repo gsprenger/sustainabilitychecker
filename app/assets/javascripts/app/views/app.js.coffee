@@ -2,6 +2,7 @@ class window.AppView
   constructor: ->
     @$el = $('#app')
     @views = []
+    @views.push(new ModalIconsView())
     @views.push(new IntroView())
     for s in App.get().sections
       @views.push(new SectionView(s))
