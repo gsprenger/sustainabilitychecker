@@ -10,6 +10,8 @@ class window.AppView
     if (App.get().level >= 2)
       @views.push(new SudokuOverlayView())
     @views.push(new TryAgainModal())
+    @views.push(new HelpModal())
+    @views.push(new ShareModal())
     # Window events go here so they arent repeated for each render
     $(window).on 'sectioncomplete', (e, data) ->
       # mark header item as completed
