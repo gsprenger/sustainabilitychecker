@@ -841,6 +841,30 @@ $darklevel3: #22558C;
   font-size: 28px;
 }
 
+#modal-share h1 {
+  font-size: 26px;
+}
+
+#modal-share #saveinput {
+  display: block;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  background-color: #DDD;
+}
+
+#modal-share ul {
+  list-style: none;
+  padding: 0;
+}
+
+#modal-share li {
+  float: left;
+  margin-right: 10px;
+}
+
 /** RESPONSIVE DESIGN **/
 @media (min-width: 600px) {
   .section {
