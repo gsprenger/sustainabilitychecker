@@ -59,8 +59,8 @@ class window.HelpModal
               <div class='col-xs-4 icon-cont'>
                 <div class='row'>
                   <div class='col-xs-4 helptabicon-cont'>
-                    <a href="#tablevel1" role="tab" data-toggle="tab">
-                      <div class='helptabicon'>
+                    <a href="#tablevel1" role="tab" data-toggle="tab" class='tabtrigger tablevel'>
+                      <div class='helptabicon active'>
                         <div class='help-table'>
                           <div class='help-cell'>
                             Level 1
@@ -70,7 +70,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-4 helptabicon-cont'>
-                    <a href="#tablevel2" role="tab" data-toggle="tab">
+                    <a href="#tablevel2" role="tab" data-toggle="tab" class='tabtrigger tablevel'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -81,7 +81,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-4 helptabicon-cont'>
-                    <a href="#tablevel3" role="tab" data-toggle="tab">
+                    <a href="#tablevel3" role="tab" data-toggle="tab" class='tabtrigger tablevel'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -95,7 +95,7 @@ class window.HelpModal
                 <hr>
                 <div class='row'>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabdem" role="tab" data-toggle="tab">
+                    <a href="#tabdem" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -106,7 +106,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabdie" role="tab" data-toggle="tab">
+                    <a href="#tabdie" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -117,7 +117,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabhou" role="tab" data-toggle="tab">
+                    <a href="#tabhou" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -128,7 +128,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabser" role="tab" data-toggle="tab">
+                    <a href="#tabser" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -142,7 +142,7 @@ class window.HelpModal
                 <br>
                 <div class='row'>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tablan" role="tab" data-toggle="tab">
+                    <a href="#tablan" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -153,7 +153,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabbm" role="tab" data-toggle="tab">
+                    <a href="#tabbm" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -164,7 +164,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabagr" role="tab" data-toggle="tab">
+                    <a href="#tabagr" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -175,7 +175,7 @@ class window.HelpModal
                     </a>
                   </div>
                   <div class='col-xs-3 helptabicon-cont'>
-                    <a href="#tabene" role="tab" data-toggle="tab">
+                    <a href="#tabene" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
@@ -189,11 +189,11 @@ class window.HelpModal
                 <hr>
                 <div class='row'>
                   <div class='col-xs-12 helptabicon-cont'>
-                    <a href="#tabcheck" role="tab" data-toggle="tab">
+                    <a href="#tabcheck" role="tab" data-toggle="tab" class="tabtrigger tabcheck">
                       <div class='helptabicon'>
                         <div class='help-table'>
                           <div class='help-cell'>
-                            Check
+                            <i class='fa fa-check'></i> Check
                           </div>
                         </div>
                       </div>
@@ -214,4 +214,6 @@ class window.HelpModal
     return this
 
   events: ->
-    @$el.find('#modal-btntryagain').on 'click', ->
+    @$el.find('.tabtrigger').on 'click', (e) =>
+      @$el.find('.helptabicon').removeClass('active')
+      $(e.currentTarget).find('.helptabicon').addClass('active')
