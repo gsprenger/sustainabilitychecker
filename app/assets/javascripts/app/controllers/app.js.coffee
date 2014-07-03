@@ -8,7 +8,14 @@ class window.App
       # get exp model from local storage or create new
       @experiment = new Experiment()
       # check if trying to load a specific level
-      requestedLvl = +window.location.pathname.slice(-1)
+      if window.location.pathname.match(/load\/[0-9]+/)
+        loadCode = window.location.pathname.match(/load\/([0-9]+)/)[1]
+        @experiment.loadFromCode(loadCode)
+        requestedLvl = @experiment.getLastLevel()
+      else if window.location.pathname.match(/level[1-3]/)
+        requestedLvl = +window.location.pathname.match(/level([1-3])/)[1]
+      else
+        requestedLvl = 1
       # if trying to play a level without having played previous ones, redirect
       if @experiment.getLastLevel() < requestedLvl
         document.location = '/level'+@experiment.getLastLevel()

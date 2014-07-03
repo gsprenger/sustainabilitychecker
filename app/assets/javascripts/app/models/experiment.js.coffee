@@ -42,3 +42,9 @@ class window.Experiment
   setLastLevel:(level) ->
     @values.level = level
     @save()
+
+  loadFromCode:(code) ->
+
+
+  getLoadCode: ->
+    loadCode = ""

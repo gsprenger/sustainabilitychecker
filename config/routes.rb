@@ -11,6 +11,8 @@ Sustainabilitychecker::Application.routes.draw do
   get "glossary" => "site#glossary"
 
   # Checker Levels
+  get "load/:expid" => "app#app"
+  get "start" => "app#app"
   get "level1" => "app#app"
   get "level2" => "app#app"
   get "level3" => "app#app"

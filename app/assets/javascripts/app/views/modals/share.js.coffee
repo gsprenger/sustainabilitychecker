@@ -14,7 +14,7 @@ class window.ShareModal
           <div class="modal-body">
             <div class='share-save'>
               <h1>#{c.text('modal_share_savetitle', 'simple')}</h1>
-              <input type='text' id='saveinput' value='http://www.sustainabilitysudoku.info/'>
+              <input type='text' id='saveinput' value='#{@getSharePermalink()}'>
               <p class='savetext'>#{c.text('modal_share_savetext')}</p>
             </div>
             <div class='share-social'>
@@ -40,3 +40,6 @@ class window.ShareModal
     @$el.find('#saveinput').on 'click', (e) ->
       this.focus()
       this.select()
+
+  getSharePermalink: ->
+    "http://www.sustainabilitysudoku.info/"
