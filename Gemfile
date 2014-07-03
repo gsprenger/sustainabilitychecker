@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '4.1.4'
 gem 'pg'
 
 gem 'therubyracer', platforms: :ruby
@@ -18,8 +18,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver'
-  gem 'capybara'
 end
 
 group :doc do
@@ -32,7 +30,6 @@ group :production do
 end
 
 # Custom
-gem 'mail_form'
 gem 'animate-rails'
 gem 'jquery-ui-rails'
 gem 'mercury-rails', git: 'https://github.com/jejacks0n/mercury.git'
