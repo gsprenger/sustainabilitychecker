@@ -1,6 +1,8 @@
 class window.ShareModal
   constructor: ->
     @$el = $('<div class="modal fade" id="modal-share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
+    $(window).on 'choicecomplete', =>
+      @$el.find('#saveinput').val(@getSharePermalink())
 
   render: ->
     c = App.get().content

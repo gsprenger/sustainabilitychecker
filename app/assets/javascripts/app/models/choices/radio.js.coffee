@@ -17,7 +17,7 @@ class window.Radio
       @value = value
       @experiment.setValue(@slug, value)
     else
-      console.error(@type+' Error: trying to select unknown value '+ value)
+      @experiment.setValue(@slug, @values[0])
 
   isValueSet: ->
     return @value?

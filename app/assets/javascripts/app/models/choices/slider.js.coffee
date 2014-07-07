@@ -21,7 +21,8 @@ class window.Slider
         @value = value
         @experiment.setValue(@slug, value)
     else
-      console.error(@type+' Error: trying to select unknown value '+ value)
+      @value = @default
+      @experiment.setValue(@slug, @default)
 
   getShortName: ->
     @slug.substr(@slug.lastIndexOf('_')+1)
