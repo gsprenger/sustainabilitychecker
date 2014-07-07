@@ -21,7 +21,17 @@ class window.ShareModal
             </div>
             <div class='share-social'>
               <h1>#{c.text('modal_share_socialtitle', 'simple')}</h1>
-              <p class='savetext'>#{c.text('modal_share_socialtitle')}</p>
+              <h2>#{c.text('modal_share_thisexperience', 'simple')}</h2>
+              <p class='savetext'>#{c.text('modal_share_sthisexp_text')}</p>
+              <ul>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Google+</li>
+                <li>via Email</li>
+              </ul>
+              <div class='clearfix'></div>
+              <h2>#{c.text('modal_share_thewebsite', 'simple')}</h2>
+              <p class='savetext'>#{c.text('modal_share_web_text')}</p>
               <ul>
                 <li>Facebook</li>
                 <li>Twitter</li>
@@ -44,4 +54,4 @@ class window.ShareModal
       this.select()
 
   getSharePermalink: ->
-    "http://thesustainabilitysudoku.info/load/"+App.get().experiment.getLoadCode()
+    window.location.origin+"/load/"+App.get().experiment.getLoadCode()
