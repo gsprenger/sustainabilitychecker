@@ -42,4 +42,4 @@ class window.ShareModal
       this.select()
 
   getSharePermalink: ->
-    "http://www.sustainabilitysudoku.info/"
+    "http://thesustainabilitysudoku.info/load/"+App.get().experiment.getLoadCode()

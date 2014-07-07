@@ -44,7 +44,23 @@ class window.Experiment
     @save()
 
   loadFromCode:(code) ->
-
+    @values = @hashToObject(code)
+    if (!@values.current && !@values.level)
+      @values = {current: @progression[0], level: 1}
 
   getLoadCode: ->
-    loadCode = ""
+    @objectToHash(@values)
+
+  objectToHash:(string) ->
+    str = JSON.stringify(string)
+    hash = ""
+    for i in [0..str.length-1]
+      hash += str.charCodeAt(i).toString(16)
+    return hash
+
+  hashToObject:(hexx) ->
+    hex = hexx.toString()
+    str = ''
+    for i in [0..hex.length-1] by 2
+      str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+    return JSON.parse(str)
