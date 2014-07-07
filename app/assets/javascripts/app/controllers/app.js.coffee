@@ -8,8 +8,8 @@ class window.App
       # get exp model from local storage or create new
       @experiment = new Experiment()
       # check if trying to load a specific level
-      if window.location.pathname.match(/load\/[0-9]+/)
-        loadCode = window.location.pathname.match(/load\/([0-9]+)/)[1]
+      if window.location.pathname.match(/load\/[a-zA-Z0-9]+/)
+        loadCode = window.location.pathname.match(/load\/([a-zA-Z0-9]+)/)[1]
         @experiment.loadFromCode(loadCode)
         requestedLvl = @experiment.getLastLevel()
       else if window.location.pathname.match(/level[1-3]/)

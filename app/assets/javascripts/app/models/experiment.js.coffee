@@ -59,8 +59,10 @@ class window.Experiment
     return hash
 
   hashToObject:(hexx) ->
+    console.log("going to parse #{hexx}")
     hex = hexx.toString()
     str = ''
     for i in [0..hex.length-1] by 2
       str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+    console.log("parsed to #{str}")
     return JSON.parse(str)
