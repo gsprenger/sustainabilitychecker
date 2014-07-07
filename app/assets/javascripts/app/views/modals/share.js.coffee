@@ -24,19 +24,19 @@ class window.ShareModal
               <h2>#{c.text('modal_share_thisexperience', 'simple')}</h2>
               <p class='savetext'>#{c.text('modal_share_sthisexp_text')}</p>
               <ul>
-                <li>Facebook</li>
-                <li>Twitter</li>
-                <li>Google+</li>
-                <li>via Email</li>
+                <li><div class="fb-share-button" data-href="#{@getSharePermalink()}" data-type="button"></div></li>
+                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="#{@getSharePermalink()}" data-hashtags="thesustainabilitysudoku" data-dnt="true" data-count="none">Tweet</a></li>
+                <li><div class="g-plusone" data-action="share" data-size="medium" data-annotation="none" data-href="#{@getSharePermalink()}"></div></li>
+                <li>or via Email</li>
               </ul>
               <div class='clearfix'></div>
               <h2>#{c.text('modal_share_thewebsite', 'simple')}</h2>
               <p class='savetext'>#{c.text('modal_share_web_text')}</p>
               <ul>
-                <li>Facebook</li>
-                <li>Twitter</li>
-                <li>Google+</li>
-                <li>via Email</li>
+                <li><div class="fb-share-button" data-href="#{window.location.origin}" data-type="button_count"></div></li>
+                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="#{window.location.origin}" data-hashtags="thesustainabilitysudoku" data-dnt="true">Tweet</a></li>
+                <li><div class="g-plusone" data-action="share" data-size="medium" data-href="#{window.location.origin}"></div></li>
+                <li>or via Email</li>
               </ul>
               <div class='clearfix'></div>
             </div>
