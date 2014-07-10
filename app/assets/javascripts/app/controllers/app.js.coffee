@@ -22,7 +22,7 @@ class window.App
       # if trying to load an already played level or last level, allow it. 
       else
         @level = requestedLvl
-        window.history.pushState(null, null, window.location.origin+'/level'+@level)
+        window.history.replaceState(null, null, window.location.origin+'/level'+@level)
         # setup Application
         @isMercury = (document.URL.indexOf('mercury') > 0)
         # Models
