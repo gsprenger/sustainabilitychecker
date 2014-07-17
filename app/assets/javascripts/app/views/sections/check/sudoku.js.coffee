@@ -304,7 +304,7 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
         </tr>
       </table>
-      <div #{if @isOverlay then "class='text-center'"}>
+      <div#{if @isOverlay then " class='text-center'" else ""}>
         <em>(Numbers may not add up due to rounding)</em>
       </div>
       """

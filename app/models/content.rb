@@ -7,14 +7,16 @@ class Content < ActiveRecord::Base
     if (c)
       html = ''
       case editType
-      when 'full'
-        html += "<div data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</div>"
       when 'simple'
         html += "<span data-mercury='simple' id='#{c.slug.to_s}'>#{c.content}</span>"
       when 'image'
         html += "<img data-mercury='image' id='#{c.slug.to_s}' src='#{c.content}'>"
       when 'raw'
         html += c.content
+      when 'full'
+        html += "<div data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</div>"
+      else
+        html += "<div data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</div>"
       end
       html = Content.checkForGlossaryEntries(html)
       return html.html_safe
@@ -23,7 +25,7 @@ class Content < ActiveRecord::Base
       when 'raw'
         return slug
       else
-        return "<span data-mercury='full' id='#{slug}'>#{slug}</span>".html_safe
+        return "<div data-mercury='full' id='#{slug}'>#{slug}</div>".html_safe
       end
     end
   end

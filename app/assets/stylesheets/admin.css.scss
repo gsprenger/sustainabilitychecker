@@ -15,4 +15,43 @@ h2 {
   margin-top: 0;
 }
 
+#uneditables h3 {
+  margin-bottom: 0;
+}
 
+#uneditables h4 {
+  font-size: 22px;
+  color: #D50F25;
+}
+
+#uneditables h5:before {
+  content: '\27A3\0020';
+}
+
+#uneditables h5 {
+  font-size: 18px;
+}
+
+#uneditables h6 {
+  font-size: 16px;
+}
+
+#uneditables h6 + div {
+  margin-left: 15px;
+}
+
+#uneditables .collapse {
+  margin-left: 15px;
+}
+
+#uneditables .cont4 {
+  margin-left: 15px;
+}
+
+#uneditables .cont5 {
+  margin-left: 15px;
+}
+
+#uneditables p.desc {
+  font-style: italic;
+}

@@ -23,9 +23,9 @@ class window.App
       else
         @level = requestedLvl
         @experiment.setCurrentLevel(@level)
-        window.history.replaceState(null, null, window.location.origin+'/level'+@level)
-        # setup Application
         @isMercury = (document.URL.indexOf('mercury') > 0)
+        # setup Application
+        window.history.replaceState(null, null, window.location.origin+'/level'+@level)
         # Models
         @content = Content.setup()
         @demographics = new Demographics()

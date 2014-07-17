@@ -7,10 +7,10 @@ class window.ModalIconsView
     l = app.level
     c = app.content
     html = """
-        <div class='modalicon' id='modaliconshare' title='Share' data-toggle='tooltip'>
+        <div class='modalicon' id='modaliconshare' title='#{c.text('chkr_modal_share_t', 'none')}' data-toggle='tooltip'>
           <i class='fa fa-share'></i>
         </div>
-        <div class='modalicon' id='modaliconhelp' title='Help!' data-toggle='tooltip'>
+        <div class='modalicon' id='modaliconhelp' title='#{c.text('chkr_modal_help_t', 'none')}' data-toggle='tooltip'>
           <i class='fa fa-question'></i>
         </div>
       """
