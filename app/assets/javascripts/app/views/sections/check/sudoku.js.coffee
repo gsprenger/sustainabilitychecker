@@ -281,7 +281,7 @@ class window.SudokuView
         </tr>
         <tr>
           <td class='cell-header' id='himports'>
-            <i class='fa fa-info data-toggle='popover' data-title='#{c.text('chkr_sud_imports_t', 'attr')}' data-content='#{c.text('chkr_sud_imports_c', 'attr')}'-circle'></i>
+            <i class='fa fa-info-circle' data-toggle='popover' data-title='#{c.text('chkr_sud_imports_t', 'attr')}' data-content='#{c.text('chkr_sud_imports_c', 'attr')}'></i>
             <strong>Imports</strong>
           </td>
           <td id='imports_food' class='cell-number'>#{@imports_food}</td>
