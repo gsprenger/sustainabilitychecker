@@ -114,11 +114,11 @@ class window.Sudoku
     @get_percent_local_energy() >= threshold
     
   getHASuccess: ->
-    true
+    @get_THA() < 8760 
     
   getLUSuccess: ->
-    true
+    @get_TLU() < @get_DS_LU()
     
   getEMRSuccess: ->
-    true
+    @get_EMR_WS() > 5
     
