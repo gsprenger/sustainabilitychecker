@@ -213,8 +213,19 @@
 </div>
 
 <h3><a href='#expl' data-toggle='collapse'>Sustainability Explanations</a></h3>
-<p class='desc'>These are the passed/failed explanation texts in the Check section. First one is right after the "Sustainable/Unsustainable" title, second one right after the graph/radar section. Each paragraph has six possible states: a passed/failed couple for each of the three levels.</p>
+<p class='desc'>These are the passed/failed explanation title and texts in the Check section. Title is at the top og the Check section. First paragraph is located right after the title, second one right after the graph/radar section. Each paragraph has six possible states: a passed/failed couple for each of the three levels.</p>
 <div id='expl' class='cont3 collapse fade'>
+  <h4>Title</h4>
+  <div class='cont4'>
+    <h5>Passed</h5>
+    <div class='cont5'>
+      <%= Content.text('chkr_res_title_passed') %>
+    </div>
+    <h5>Failed</h5>
+    <div class='cont5'>
+      <%= Content.text('chkr_res_title_failed') %>
+    </div>
+  </div>
   <h4>First paragraph</h4>
   <div class='cont4'>
     <h5>Level 1</h5>

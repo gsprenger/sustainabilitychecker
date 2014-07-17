@@ -23,61 +23,16 @@ class window.CheckView
     html = """
         <div class='checkresult in-level#{App.get().level}'>
           <h2>#{c.text('check_title', 'simple')}</h2>
-      """
-    if !App.get().isMercury
-      html += """
-        <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
-        <div class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</div>
-        """
-    else
-      html += """
-        <h3>(Editor only) chkr_res_title_passed:</h3>
-        <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_passed')}</h2>
-        <h3>(Editor only) chkr_res_title_failed:</h3>
-        <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_failed')}</h2>
-        <h3>(Editor only) chkr_res_explanation_passed1:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed1')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed1:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed1')}</p>
-        <h3>(Editor only) chkr_res_explanation_passed2:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed2')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed2:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed2')}</p>
-        <h3>(Editor only) chkr_res_explanation_passed3:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_passed3')}</p>
-        <h3>(Editor only) chkr_res_explanation_failed3:</h3>
-        <p class='check-result-expl'>#{c.text('chkr_res_explanation_failed3')}</p>
-        """
-    # Graph and radar
-    html += """
+      <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
+      <div class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</div>
       </div>
       <div class='row checkcharts'>
         <div id='checkgraphcont' class='col-md-6'></div>
         <div id='checkradarcont' class='col-md-6'></div>
       </div>
       <div class='checkresult in-level#{l}'>
-      """
-    if !App.get().isMercury
-      html += """
-          <div class='check-result-expl'>#{c.text('chkr_res_explanation2_'+success+l)}</div>
-        """
-    else
-      html += """        
-          <h3>(Editor only) chkr_res_explanation2_passed1:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed1')}</p>
-          <h3>(Editor only) chkr_res_explanation2_failed1:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed1')}</p>
-          <h3>(Editor only) chkr_res_explanation2_passed2:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed2')}</p>
-          <h3>(Editor only) chkr_res_explanation2_failed2:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed2')}</p>
-          <h3>(Editor only) chkr_res_explanation2_passed3:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_passed3')}</p>
-          <h3>(Editor only) chkr_res_explanation2_failed3:</h3>
-          <p class='check-result-expl'>#{c.text('chkr_res_explanation2_failed3')}</p>
-        """
-    html += """
-        </div>
+        <div class='check-result-expl'>#{c.text('chkr_res_explanation2_'+success+l)}</div>
+      </div>
       """
     # Indicators panels for level 3
     if l == 3
@@ -92,10 +47,10 @@ class window.CheckView
           <div class='col-sm-6'>
             <div class='panel panel-#{if foodSuccess then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if foodSuccess then 'check' else 'times'}'></i> #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_t', 'simple')}
+                <i class='fa fa-#{if foodSuccess then 'check' else 'times'}'></i> #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_c')}
+                #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
@@ -103,10 +58,10 @@ class window.CheckView
             <div class='panel panel-#{if energySuccess then 'success' else 'danger'}'>
               <div class='panel-heading'>
                 <i class='fa fa-#{if energySuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_t', 'simple')}
+                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_c')}
+                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
@@ -116,10 +71,10 @@ class window.CheckView
             <div class='panel panel-#{if HASuccess then 'success' else 'danger'}'>
               <div class='panel-heading'>
                 <i class='fa fa-#{if HASuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_t', 'simple')}
+                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_c')}
+                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
@@ -127,10 +82,10 @@ class window.CheckView
             <div class='panel panel-#{if LUSuccess then 'success' else 'danger'}'>
               <div class='panel-heading'>
                 <i class='fa fa-#{if LUSuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_t', 'simple')}
+                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_c')}
+                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
@@ -140,10 +95,10 @@ class window.CheckView
             <div class='panel panel-#{if EMRSuccess then 'success' else 'danger'}'>
               <div class='panel-heading'>
                 <i class='fa fa-#{if EMRSuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_t', 'simple')}
+                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_c')}
+                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
