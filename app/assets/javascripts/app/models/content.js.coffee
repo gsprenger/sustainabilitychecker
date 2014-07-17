@@ -24,6 +24,8 @@ class window.Content
         html = content
       when 'attr'
         html = content.replace(/\'/, "&#39;").replace(/\"/, "&#34;")
+      when 'fullspan'
+        html = "<span data-mercury='full' id='"+slug+"'>"+content+"</span>"
       else
        html = "<div data-mercury='full' id='"+slug+"'>"+content+"</div>"
     return html

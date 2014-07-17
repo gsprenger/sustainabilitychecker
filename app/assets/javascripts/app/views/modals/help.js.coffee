@@ -9,7 +9,7 @@ class window.HelpModal
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">#{c.text('modal_help_title', 'simple')}</h4>
+            <h4 class="modal-title">#{c.text('modal_help_title')}</h4>
           </div>
           <div class="modal-body">
             <div class='row'>
@@ -204,7 +204,7 @@ class window.HelpModal
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_help_closeandplaybtn', 'simple')}</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_help_closeandplaybtn')}</button>
           </div>
         </div>
       </div>

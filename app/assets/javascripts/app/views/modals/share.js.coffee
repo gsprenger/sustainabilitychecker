@@ -12,17 +12,17 @@ class window.ShareModal
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">#{c.text('modal_share_title', 'simple')}</h4>
+            <h4 class="modal-title">#{c.text('modal_share_titlwee')}</h4>
           </div>
           <div class="modal-body">
             <div class='share-save'>
-              <h1>#{c.text('modal_share_savetitle', 'simple')}</h1>
+              <h1>#{c.text('modal_share_savetitle')}</h1>
               <input type='text' id='saveinput' value='#{@getSharePermalink()}'>
               <p class='savetext'>#{c.text('modal_share_savetext')}</p>
             </div>
             <div class='share-social'>
-              <h1>#{c.text('modal_share_socialtitle', 'simple')}</h1>
-              <h2>#{c.text('modal_share_thisexperience', 'simple')}</h2>
+              <h1>#{c.text('modal_share_socialtitle')}</h1>
+              <h2>#{c.text('modal_share_thisexperience')}</h2>
               <p class='savetext'>#{c.text('modal_share_sthisexp_text')}</p>
               <ul>
                 <li><div class="fb-share-button" data-href="#{@getSharePermalink()}" data-type="button"></div></li>
@@ -31,7 +31,7 @@ class window.ShareModal
                 <li>or via Email</li>
               </ul>
               <div class='clearfix'></div>
-              <h2>#{c.text('modal_share_thewebsite', 'simple')}</h2>
+              <h2>#{c.text('modal_share_thewebsite')}</h2>
               <p class='savetext'>#{c.text('modal_share_web_text')}</p>
               <ul>
                 <li><div class="fb-share-button" data-href="#{window.location.origin}" data-type="button_count"></div></li>
