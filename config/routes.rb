@@ -28,6 +28,7 @@ Sustainabilitychecker::Application.routes.draw do
   post "glossary/new" => "glossary#new"
   post "glossary/edit" => "glossary#edit"
   post "glossary/remove" => "glossary#remove"
+  get "shortener/shorten" => "shortener#shorten"
 
   # Mercury
   namespace :mercury do
@@ -37,4 +38,8 @@ Sustainabilitychecker::Application.routes.draw do
   mount Mercury::Engine => '/'
   # Admin panel for mercury
   get 'admin' => "admin#admin"
+
+  # Shortener
+  get '/shrt/:id' => "shortener/shortened_urls#show"
+
 end

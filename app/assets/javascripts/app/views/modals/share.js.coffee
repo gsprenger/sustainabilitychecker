@@ -1,6 +1,7 @@
 class window.ShareModal
   constructor: ->
     @$el = $('<div class="modal fade" id="modal-share" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
+    @cachedLoadCode = ''
     $(window).on 'choicecomplete', =>
       @$el.find('#saveinput').val(@getSharePermalink())
 
@@ -54,4 +55,14 @@ class window.ShareModal
       this.select()
 
   getSharePermalink: ->
-    window.location.origin+"/load/"+App.get().experiment.getLoadCode()
+    if (@cachedLoadCode != App.get().experiment.getLoadCode())
+      @cachedLoadCode = App.get().experiment.getLoadCode()
+      res = $.ajax({
+          type: "GET",
+          url: "/shortener/shorten",
+          async: false
+          data: {url: window.location.origin+"/load/"+@cachedLoadCode}
+      }).responseText;
+      @permalink = JSON.parse(res).shrturl
+    return @permalink
+    

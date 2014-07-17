@@ -36,6 +36,13 @@ class window.Experiment
     else
       true
 
+  getCurrentLevel: ->
+    @values.curlevel
+
+  setCurrentLevel:(level) ->
+    @values.curlevel = level
+    @save()
+
   getLastLevel: ->
     @values.level
 
@@ -51,16 +58,16 @@ class window.Experiment
   getLoadCode: ->
     @objectToHash(@values)
 
-  objectToHash:(string) ->
-    str = JSON.stringify(string)
+  objectToHash:(obj) ->
+    str = JSON.stringify(obj)
     hash = ""
     for i in [0..str.length-1]
       hash += str.charCodeAt(i).toString(16)
     return hash
 
-  hashToObject:(hexx) ->
-    hex = hexx.toString()
+  hashToObject:(hash) ->
+    sHash = hash.toString()
     str = ''
-    for i in [0..hex.length-1] by 2
-      str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+    for i in [0..sHash.length-1] by 2
+      str += String.fromCharCode(parseInt(sHash.substr(i, 2), 16))
     return JSON.parse(str)

@@ -11,7 +11,7 @@ class window.App
       if window.location.pathname.match(/load\/[a-zA-Z0-9]+/)
         loadCode = window.location.pathname.match(/load\/([a-zA-Z0-9]+)/)[1]
         @experiment.loadFromCode(loadCode)
-        requestedLvl = @experiment.getLastLevel()
+        requestedLvl = @experiment.getCurrentLevel()
       else if window.location.pathname.match(/level[1-3]/)
         requestedLvl = +window.location.pathname.match(/level([1-3])/)[1]
       else
@@ -22,6 +22,7 @@ class window.App
       # if trying to load an already played level or last level, allow it. 
       else
         @level = requestedLvl
+        @experiment.setCurrentLevel(@level)
         window.history.replaceState(null, null, window.location.origin+'/level'+@level)
         # setup Application
         @isMercury = (document.URL.indexOf('mercury') > 0)
