@@ -14,7 +14,7 @@ body {
   margin: auto;
   clear: both;
   max-width: 978px;
-  padding: 37px 0 12px;
+  padding: 12px 0 12px;
   position: relative;
   width: 98%;
 }
@@ -28,13 +28,13 @@ body {
 }
 
 .site-logo {
-  background: image-url("http://dummyimage.com/160x80/bfbfff/333.png&text=LOGO");
+  width: 150px;
+  height: 130px;
+  background: image-url("logo.png");
   float: left;
-  height: 79px;
   margin: 0;
   padding: 0;
   text-indent: -9999px;
-  width: 159px;
   margin-right: 50px;
 }
 
@@ -47,7 +47,7 @@ body {
 .site-nav-items {
   float: left;
   list-style-type: none;
-  margin: 46px 0 0 0;
+  margin: 96px 0 0 0;
 }
 
 .site-nav-items li {
