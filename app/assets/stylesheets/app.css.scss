@@ -941,6 +941,19 @@ $googlecolor: #dd4b39;
   background-color: $black
 }
 
+#scrolltopicon-cont {
+  position: fixed;
+  bottom: -4px;
+  right: 6px;
+  display: none;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+#scrolltopicon-cont.inlevel2, #scrolltopicon-cont.inlevel3 {
+  bottom: 57px;
+}
+
 /** RESPONSIVE DESIGN **/
 @media (min-width: 600px) {
   .section {
