@@ -11,7 +11,16 @@ class window.RadioView
       active = if @radio.isValueSet() && @radio.getValue() == vals[i] then ' active' else ''
       html += """
         <div class='cell lg-4#{active}' data-value='#{vals[i]}'>
-          #{c.text('http://dummyimage.com/400x400/d1d9ff/5e5e5e.png&text=placeholder', 'image')}
+        """
+      if !App.get().isMercury
+        html += """
+            <img src='#{c.text(p+'_'+vals[i]+'_img', 'none')}'>
+          """
+      else 
+        html += """
+          Image URL (Editor only): #{c.text(p+'_'+vals[i]+'_img')}
+        """
+      html += """
           <div class='text'>#{c.text(p+'_'+vals[i]+'_t')}</div>
           <div><small>#{c.text(p+'_'+vals[i]+'_c')}</small></div>
         </div>
