@@ -1,4 +1,6 @@
 class SiteController < ApplicationController
+  before_filter :check_mercury, only: [:index, :more]
+
   def index
   end
 
@@ -18,4 +20,9 @@ class SiteController < ApplicationController
   def glossary
     @glossary = Glossary.order('name')
   end
+
+  private
+    def check_mercury
+      @isMercury = !(/mercury/ =~ request.original_url).nil?
+    end
 end

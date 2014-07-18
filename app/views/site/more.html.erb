@@ -5,13 +5,25 @@
     <p><%= Content.text('more_about_1_desc') %></p>
   </div>
   <div class='col-sm-4 more-image'>
-    <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=Placeholder'><br>
+    <% if !@isMercury %>
+      <img src='<%= Content.text('more_img_1', 'raw')%>'><br>
+    <% else %>
+      Image URL + credit (editor only):
+      <%= Content.text('more_img_1')%>
+      <%= Content.text('more_imgcred_1')%>
+    <% end %>
   </div>
 </div>
 <div class='more-divider'></div>
 <div class='row' id='humansocieties'>
   <div class='col-sm-4 more-image'>
-    <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=Placeholder'><br>
+    <% if !@isMercury %>
+      <img src='<%= Content.text('more_img_2', 'raw')%>'><br>
+    <% else %>
+      Image URL + credit (editor only):
+      <%= Content.text('more_img_2')%>
+      <%= Content.text('more_imgcred_2')%>
+    <% end %>
   </div>
   <div class='col-sm-8 more-section'>
     <h3><%= Content.text('more_about_2_title') %></h3>
@@ -26,13 +38,25 @@
     <p><%= Content.text('more_how_1_desc') %></p>
   </div>
   <div class='col-sm-4 more-image'>
-    <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=Placeholder'><br>
+    <% if !@isMercury %>
+      <img src='<%= Content.text('more_img_3', 'raw')%>'><br>
+    <% else %>
+      Image URL + credit (editor only):
+      <%= Content.text('more_img_3')%>
+      <%= Content.text('more_imgcred_3')%>
+    <% end %>
   </div>
 </div>
 <div class='more-divider'></div>
 <div class='row' id='musiasem'>
   <div class='col-sm-4 more-image'>
-    <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=Placeholder'><br>
+    <% if !@isMercury %>
+      <img src='<%= Content.text('more_img_4', 'raw')%>'><br>
+    <% else %>
+      Image URL + credit (editor only):
+      <%= Content.text('more_img_4')%>
+      <%= Content.text('more_imgcred_4')%>
+    <% end %>
   </div>
   <div class='col-sm-8 more-section'>
     <h3><%= Content.text('more_how_2_title') %></h3>

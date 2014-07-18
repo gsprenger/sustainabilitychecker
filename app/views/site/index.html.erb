@@ -1,5 +1,6 @@
 <div class='row'>
   <div class='col-sm-6 index-intro'>
+    <%= @isMercury %>
     <h1><%= Content.text('index_hero_title') %></h1>
     <p>
       <%= Content.text('index_hero_desc') %>
@@ -9,14 +10,26 @@
     </p>
   </div>
   <div class='col-sm-6 index-logo'>
-    <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=LOGO'>
+      <% if !@isMercury %>
+        <img src='<%= Content.text('home_img_homesplash', 'raw')%>'><br>
+      <% else %>
+        Image URL + credit (editor only):
+        <%= Content.text('home_img_homesplash')%>
+        <%= Content.text('home_imgcred_homesplash')%>
+      <% end %>
   </div>
 </div>
 <div class='divider'></div>
 <div class='row'>
   <div class='col-sm-6 index-playsudoku'>
     <a href='/level1'>
-      <img src='http://dummyimage.com/360x200/bfbfff/333.png&text=Sudoku preview'><br>
+      <% if !@isMercury %>
+        <img src='<%= Content.text('home_img_sudokuprev', 'raw')%>'><br>
+      <% else %>
+        Image URL + credit (editor only):
+        <%= Content.text('home_img_sudokuprev')%>
+        <%= Content.text('home_imgcred_sudokuprev')%>
+      <% end %>
       <span class='more'>Play the Sustainability Sudoku now<span><i class='fa fa-chevron-right'></i></span></span>
     </a>
     <p>
