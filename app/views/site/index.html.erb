@@ -1,6 +1,5 @@
 <div class='row'>
   <div class='col-sm-6 index-intro'>
-    <%= @isMercury %>
     <h1><%= Content.text('index_hero_title') %></h1>
     <p>
       <%= Content.text('index_hero_desc') %>
@@ -11,7 +10,7 @@
   </div>
   <div class='col-sm-6 index-logo'>
       <% if !@isMercury %>
-        <img src='<%= Content.text('home_img_homesplash', 'raw')%>'><br>
+        <img src='<%= Content.text('home_img_homesplash', 'raw')%>' title='<%= Content.text('home_imgcred_homesplash', 'raw')%>'><br>
       <% else %>
         Image URL + credit (editor only):
         <%= Content.text('home_img_homesplash')%>
@@ -24,7 +23,7 @@
   <div class='col-sm-6 index-playsudoku'>
     <a href='/level1'>
       <% if !@isMercury %>
-        <img src='<%= Content.text('home_img_sudokuprev', 'raw')%>'><br>
+        <img src='<%= Content.text('home_img_sudokuprev', 'raw')%>' title='<%= Content.text('home_imgcred_sudokuprev', 'raw')%>'><br>
       <% else %>
         Image URL + credit (editor only):
         <%= Content.text('home_img_sudokuprev')%>
