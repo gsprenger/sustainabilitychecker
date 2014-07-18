@@ -67,3 +67,17 @@ class window.SectionView
   events: ->
     @$el.find('.nextbtn').on 'click', =>
       $(window).trigger('sectioncomplete', @section.name)
+    if @section.slug == 's_ene' || @section.slug == 's_agr'
+      varID = (if @section.slug == 's_agr' then 'grains_equiv' else 's_ene_con')
+      @$el.find('.description:contains("'+varID+'")').html (_, html) -> 
+        regexp = new RegExp("\\[("+varID+")\\]")
+        html.replace(regexp, '<span class="realtimeval">$1</span>')
+      updateField = =>
+        if @section.slug == 's_agr'
+          @$el.find('.realtimeval').text(+(+App.get().sudoku.diet.get_grains_equiv()).toPrecision(2))
+        else
+          @$el.find('.realtimeval').text(+(+App.get().sudoku.energy.get_s_ene_con()).toPrecision(2))
+      $(window).on 'choicecomplete', =>
+        updateField()
+      updateField()
+
