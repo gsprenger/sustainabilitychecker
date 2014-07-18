@@ -910,11 +910,12 @@ $googlecolor: #dd4b39;
   padding: 5px;
 }
 
-#modal-share .social a, #modal-share .social a:visited {
+#modal-share a, #modal-share a:visited {
   color: $white;
+  text-decoration: none;
 }
 
-#modal-share .social a:hover {
+#modal-share a:hover {
   color: $lightgrey;
   text-decoration: none;
 }
