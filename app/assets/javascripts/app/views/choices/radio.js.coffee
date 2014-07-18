@@ -14,7 +14,7 @@ class window.RadioView
         """
       if !App.get().isMercury
         html += """
-            <img src='#{c.text(p+'_'+vals[i]+'_img', 'none')}'>
+            <img src='#{c.text(p+'_'+vals[i]+'_img', 'none')}' title='#{c.text(p+'_'+vals[i]+'_imgcred', 'none')}'>
           """
       else 
         html += """
