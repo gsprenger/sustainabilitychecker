@@ -59,6 +59,10 @@ $level3: #6792AB;
 $darklevel1: #6792AB;
 $darklevel2: #5081B5;
 $darklevel3: #22558C;
+// social colors
+$facebookcolor: #3b5998;
+$twittercolor: #00aced;
+$googlecolor: #dd4b39;
 
 #app {
   position: relative;
@@ -862,10 +866,18 @@ $darklevel3: #22558C;
 
 #modal-share h1 {
   font-size: 26px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #modal-share h2 {
   font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#modal-share .share-save {
+  margin-bottom: 25px;
 }
 
 #modal-share #saveinput {
@@ -876,16 +888,51 @@ $darklevel3: #22558C;
   color: #666;
   font-style: italic;
   background-color: #DDD;
+  margin-top: 15px;
 }
 
-#modal-share ul {
-  list-style: none;
-  padding: 0;
+#modal-share .clearfix {
+  margin-bottom: 25px;
 }
 
-#modal-share li {
-  float: left;
-  margin-right: 10px;
+#modal-share .nopadl {
+  padding-left: 1px;
+}
+
+#modal-share .nopadr {
+  padding-right: 1px;
+}
+
+#modal-share .social {
+  color: $white;
+  border-radius: 5px;
+  text-align: center;
+  padding: 5px;
+}
+
+#modal-share .social a, #modal-share .social a:visited {
+  color: $white;
+}
+
+#modal-share .social a:hover {
+  color: $lightgrey;
+  text-decoration: none;
+}
+
+#modal-share .facebook {
+  background-color: $facebookcolor
+}
+
+#modal-share .twitter {
+  background-color: $twittercolor
+}
+
+#modal-share .google {
+  background-color: $googlecolor
+}
+
+#modal-share .email {
+  background-color: $black
 }
 
 /** RESPONSIVE DESIGN **/

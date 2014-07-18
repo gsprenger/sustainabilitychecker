@@ -12,7 +12,7 @@ class window.ShareModal
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">#{c.text('modal_share_titlwee')}</h4>
+            <h1 class="modal-title">#{c.text('modal_share_titlwee')}</h1>
           </div>
           <div class="modal-body">
             <div class='share-save'>
@@ -24,22 +24,69 @@ class window.ShareModal
               <h1>#{c.text('modal_share_socialtitle')}</h1>
               <h2>#{c.text('modal_share_thisexperience')}</h2>
               <p class='savetext'>#{c.text('modal_share_sthisexp_text')}</p>
-              <ul>
-                <li><div class="fb-share-button" data-href="#{@getSharePermalink()}" data-type="button"></div></li>
-                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="#{@getSharePermalink()}" data-hashtags="thesustainabilitysudoku" data-dnt="true" data-count="none">Tweet</a></li>
-                <li><div class="g-plusone" data-action="share" data-size="medium" data-annotation="none" data-href="#{@getSharePermalink()}"></div></li>
-                <li>or via Email</li>
-              </ul>
+              <div class='row'>
+                <div class='col-xs-3 nopadr'>
+                  <div class='social facebook'>
+                    <a class="facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=#{@getSharePermalink()}" title="Share this experiment on Facebook">
+                      <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadr nopadl'>
+                  <div class='social twitter'>
+                    <a target='_blank' href="https://twitter.com/share?url=#{@getSharePermalink()}&hashtags=thesustainabilitysudoku&text=Just played the Sustainability Sudoku! Check out how sustainable I am:" title="Share this experiment on Twitter">
+                      <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadr nopadl'>
+                  <div class='social google'>
+                    <a target='_blank' href="https://plus.google.com/share?url=#{@getSharePermalink()}" title="Share this experiment on Google+">
+                      <i class="fa fa-google-plus"></i> Google+
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadl'>
+                  <div class='social email'>
+                    <a title="Share this experiment via email" href="mailto:?&subject=The%20Sustainability%20Sudoku&body=Just%20played%20the%20Sustainability%20Sudoku!%20Check%20out%20how%20sustainable%20I%20am%3A%20#{encodeURIComponent(@getSharePermalink())}">
+                      via Email
+                    </a>
+                  </div>
+                </div>
+              </div>
               <div class='clearfix'></div>
               <h2>#{c.text('modal_share_thewebsite')}</h2>
               <p class='savetext'>#{c.text('modal_share_web_text')}</p>
-              <ul>
-                <li><div class="fb-share-button" data-href="#{window.location.origin}" data-type="button_count"></div></li>
-                <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="#{window.location.origin}" data-hashtags="thesustainabilitysudoku" data-dnt="true">Tweet</a></li>
-                <li><div class="g-plusone" data-action="share" data-size="medium" data-href="#{window.location.origin}"></div></li>
-                <li>or via Email</li>
-              </ul>
-              <div class='clearfix'></div>
+              <div class='row'>
+                <div class='col-xs-3 nopadr'>
+                  <div class='social facebook'>
+                    <a class="facebook" title="Share this website on Facebook" target="_blank" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=300')" href="http://www.facebook.com/sharer/sharer.php?u=http://thesustainabilitysudoku.info">
+                      <i class="fa fa-facebook"></i> Facebook
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadr nopadl'>
+                  <div class='social twitter'>
+                    <a target='_blank' href="https://twitter.com/share?url=http://thesustainabilitysudoku.info&hashtags=thesustainabilitysudoku&text=Just played the Sustainability Sudoku! Define your society and try to get it sustainable!" title="Share this website on Twitter">
+                      <i class="fa fa-twitter"></i> Twitter
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadr nopadl'>
+                  <div class='social google'>
+                    <a target='_blank' title="Share this website on Google+" href="https://plus.google.com/share?url=http://thesustainabilitysudoku.info">
+                      <i class="fa fa-google-plus"></i> Google+
+                    </a>
+                  </div>
+                </div>
+                <div class='col-xs-3 nopadl'>
+                  <div class='social email'>
+                    <a title="Share this website on via email" ref="mailto:?&subject=The%20Sustainability%20Sudoku&body=Just%20played%20the%20Sustainability%20Sudoku!%20Define%20your%20society%20and%20try%20to%20get%20it%20sustainable!%20http%3A%2F%2Fthesustainabilitysudoku.info">
+                      via Email
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
