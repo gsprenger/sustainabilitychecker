@@ -18,7 +18,8 @@ class window.RadioView
           """
       else 
         html += """
-          Image URL (Editor only): #{c.text(p+'_'+vals[i]+'_img')}
+          Image URL + credit (Editor only): #{c.text(p+'_'+vals[i]+'_img')}
+          #{c.text(p+'_'+vals[i]+'_imgcred')}<br>
         """
       html += """
           <div class='text'>#{c.text(p+'_'+vals[i]+'_t')}</div>
