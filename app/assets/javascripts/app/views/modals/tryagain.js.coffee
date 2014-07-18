@@ -9,14 +9,14 @@ class window.TryAgainModal
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">#{c.text('modal_tryagain_title', 'simple')}</h4>
+            <h4 class="modal-title">#{c.text('modal_tryagain_title')}</h4>
           </div>
           <div class="modal-body">
             #{c.text('modal_tryagain_body')}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">#{c.text('modal_tryagain_btnclose', 'simple')}</button>
-            <button type="button" id='modal-btntryagain' class="btn btn-primary">#{c.text('modal_tryagain_btnconfirm', 'simple')}</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">#{c.text('modal_tryagain_btnclose')}</button>
+            <button type="button" id='modal-btntryagain' class="btn btn-primary">#{c.text('modal_tryagain_btnconfirm')}</button>
           </div>
         </div>
       </div>
