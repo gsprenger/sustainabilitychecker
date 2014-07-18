@@ -10,7 +10,7 @@ class window.SliderGroupView
       @sliderViews.push(new SliderView(@section, s, true))
     html = """
         <div class='slidergroup-title'>
-          #{c.text(p+'_'+@slidergroup.slug)}
+          #{c.text(p+'_slidergroup_'+@slidergroup.slug)}
         </div>
       """
     @$el.html(html)
