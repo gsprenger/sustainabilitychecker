@@ -77,8 +77,6 @@ class window.AppView
       return false
 
   setupForMercury: ->
-    e = App.get().experiment
-    $('.btn, .nav-link, .cell, .btnnext').off('click')
     $('.section, #check').show()
-    e.save = e.setValue = ->
+    App.get().experiment.save = ->
       true
