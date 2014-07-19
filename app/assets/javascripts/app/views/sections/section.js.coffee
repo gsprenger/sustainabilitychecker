@@ -25,7 +25,7 @@ class window.SectionView
     p = @section.i18nPrefix
     html = """
       <div class='section-wrapper'>
-        <h2>#{c.text(p+'_title')}<small>#{c.text(p+'_subtitle')}</small></h2>
+        <h2>#{c.text(p+'_yatitle')}<small>#{c.text(p+'_subtitle')}</small></h2>
         <div class='description'>
           #{c.text(p+'_desc')}
         </div>
