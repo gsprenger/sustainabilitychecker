@@ -73,4 +73,4 @@ class window.Experiment
     return JSON.parse(str)
 
   isNew: ->
-    (@values['d_dem'] == undefined)
+    (@values['d_dem'] == undefined && App.get().level == 1)
