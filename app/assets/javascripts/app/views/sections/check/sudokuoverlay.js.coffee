@@ -8,6 +8,8 @@ class window.SudokuOverlayView
     $(window).on 'click', (event) =>
       if @$el.hasClass('out') && !$.contains(document.getElementById('sudoku'), event.target)
         @toggleOverlay()
+    # Add CSS property to footer so that it doesnt overlap with overlay
+    $("body").find('.site-footer').addClass('withoverlay')
 
   render: ->
     c = App.get().content
@@ -18,6 +20,7 @@ class window.SudokuOverlayView
       """
     @$el.html(html)
     @$el.append(@sudokuV.render().$el)
+    console.log($(window).find('.site-footer').html())
     @events()
     return this
 
