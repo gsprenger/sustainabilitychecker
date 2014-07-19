@@ -12,10 +12,10 @@ class window.HeaderNavView
     html = """
         <div id='headernav-cont'>
           <div class='titles'>
-            <div class='title levels'>#{c.text('chkr_levels', 'simple')}</div>
-            <div class='title demand'>#{c.text('chkr_demand', 'simple')}</div>
-            <div class='title supply'>#{c.text('chkr_supply', 'simple')}</div>
-            <div class='title check'>#{c.text('chkr_check', 'simple')}</div>
+            <div class='title levels'>#{c.text('chkr_levels')}</div>
+            <div class='title demand'>#{c.text('chkr_demand')}</div>
+            <div class='title supply'>#{c.text('chkr_supply')}</div>
+            <div class='title check'>#{c.text('chkr_check')}</div>
           </div>
           <hr class='hr-sec'>
           <hr class='hr-lvls'>

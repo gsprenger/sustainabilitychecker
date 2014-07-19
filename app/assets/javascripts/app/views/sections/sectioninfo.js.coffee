@@ -9,7 +9,7 @@ class window.SectionInfoView
     html = """
       <div>
       <h4>#{c.text(p+'_title_sectioninfo')}</h4>
-        #{c.text(p+'_visible_sectioninfo', 'simple')}<span class='sectioninfo-morelink#{if l == 2 then ' hidden' else ''}'>...Read more</span><span class='sectioninfo-more#{if l == 3 then ' hidden' else ''}'>#{c.text(p+'_more_sectioninfo', 'simple')}<span class='sectioninfo-lesslink'><br>Collapse</span></span>
+        #{c.text(p+'_visible_sectioninfo')}<span class='sectioninfo-morelink#{if l == 2 then ' hidden' else ''}'>...Read more</span><span class='sectioninfo-more#{if l == 3 then ' hidden' else ''}'>#{c.text(p+'_more_sectioninfo')}<span class='sectioninfo-lesslink'><br>Collapse</span></span>
       </div>
       """
     @$el.html(html)

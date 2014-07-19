@@ -22,7 +22,7 @@ class window.CheckView
     success = (if sud.getSuccess() then 'passed' else 'failed')
     html = """
         <div class='checkresult in-level#{App.get().level}'>
-          <h2>#{c.text('check_title', 'simple')}</h2>
+          <h2>#{c.text('check_title')}</h2>
       <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
       <div class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</div>
       </div>
