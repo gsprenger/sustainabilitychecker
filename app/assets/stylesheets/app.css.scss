@@ -13,6 +13,13 @@ body {
 body.modal-open {
     overflow: visible;
 }
+
+//prevent tooltips from going multiline
+.tooltip-inner {
+    white-space:pre;
+    max-width:none;
+}
+
 /** COLORS **/
 // shades of grey
 $black: #333;
