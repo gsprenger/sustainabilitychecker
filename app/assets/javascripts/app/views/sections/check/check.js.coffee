@@ -115,6 +115,7 @@ class window.CheckView
       """
     html += """
         <div id='checksudokucont'></div>
+        <div class='check-result-expl'>#{c.text('chkr_res_explanation3_'+success+l)}</div>
         <div id='checksummarycont'></div>
         <div class='btn-row'>
           <div class='btn-again btn btn-lg btn-default'>#{c.text('chkr_res_again')}</div>
