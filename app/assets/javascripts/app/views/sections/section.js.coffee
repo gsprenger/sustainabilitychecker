@@ -66,7 +66,12 @@ class window.SectionView
 
   events: ->
     @$el.find('.nextbtn').on 'click', =>
+      for c in @section.choices
+        # This will ensure the field is set in experiment, using default if no choice has been made
+        c.setValue(c.getValue())
       $(window).trigger('sectioncomplete', @section.name)
+
+    # Update [grains_equiv] and [s_ene_con] fields
     if @section.slug == 's_ene' || @section.slug == 's_agr'
       varID = (if @section.slug == 's_agr' then 'grains_equiv' else 's_ene_con')
       @$el.find('.description:contains("'+varID+'")').html (_, html) -> 

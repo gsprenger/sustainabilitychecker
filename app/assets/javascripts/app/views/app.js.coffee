@@ -64,8 +64,11 @@ class window.AppView
           name ?= 'check'
           $('body').animate({scrollTop: $("##{name}").offset().top}, 1000)
     # check if mercury is running and if yes run special method
-    if (App.get().isMercury)
+    if App.get().isMercury
       @setupForMercury()
+    # if user is new display help modal
+    if e.isNew()
+      $('#modal-help').modal()
 
   events: ->
     # Init smooth scrolling

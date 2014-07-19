@@ -20,7 +20,6 @@ class window.SudokuOverlayView
       """
     @$el.html(html)
     @$el.append(@sudokuV.render().$el)
-    console.log($(window).find('.site-footer').html())
     @events()
     return this
 

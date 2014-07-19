@@ -71,3 +71,6 @@ class window.Experiment
     for i in [0..sHash.length-1] by 2
       str += String.fromCharCode(parseInt(sHash.substr(i, 2), 16))
     return JSON.parse(str)
+
+  isNew: ->
+    (@values['d_dem'] == undefined)
