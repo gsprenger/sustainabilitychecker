@@ -155,12 +155,12 @@ class window.Radar
   getChartData: ->
     data = [
       {
-        section: 'Sovereignty',
+        section: 'International trade',
         name: 'Quality',
         value: @get_sov_qual()
       },
       {
-        section: 'Sovereignty',
+        section: 'International trade',
         name: 'Quantity',
         value: @get_sov_quan()
       },
@@ -191,7 +191,7 @@ class window.Radar
       },
       {
         section: 'Economic',
-        name: 'Devise',
+        name: 'Currency',
         value: @get_eco_dev()
       }
     ]
