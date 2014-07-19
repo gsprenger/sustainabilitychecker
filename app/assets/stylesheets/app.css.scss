@@ -760,6 +760,11 @@ $googlecolor: #dd4b39;
   cursor: pointer;
 }
 
+#sudoku tr.noborder h3 {
+  margin-top: 0;
+  text-align: center;
+}
+
 #sudoku tr.noborder, #sudoku tr.noborder td {
   border: 0;
   text-align: left;

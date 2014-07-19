@@ -135,6 +135,11 @@ class window.SudokuView
     html =
       """
       <table>
+        <tr class='noborder'>
+          <td colspan="8">
+            <h3>#{c.text('chkr_sud_maintitle')}</h3>
+          </td>
+        </tr>
         <tr>
           <td colspan="2" rowspan="2" id='topcell' class='#{if @success then 'success' else 'failure'}'>
             #{if @success then 'Sustainable' else 'Unsustainable'}

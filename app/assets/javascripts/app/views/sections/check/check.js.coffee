@@ -26,6 +26,15 @@ class window.CheckView
       <h2 class='check-result-title #{success}'>#{c.text('chkr_res_title_'+success)}</h2>
       <div class='check-result-expl'>#{c.text('chkr_res_explanation_'+success+l)}</div>
       </div>
+      
+      <div class='row chartstitles'>
+        <div class='col-md-6'>
+          <h3>#{c.text('chkr_graph_maintitle')}</h3>
+        </div>
+        <div class='col-md-6'>
+          <h3>#{c.text('chkr_radar_maintitle')}</h3>
+        </div>
+      </div>
       <div class='row checkcharts'>
         <div id='checkgraphcont' class='col-md-6'></div>
         <div id='checkradarcont' class='col-md-6'></div>
