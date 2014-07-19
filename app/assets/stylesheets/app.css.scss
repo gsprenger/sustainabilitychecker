@@ -753,6 +753,11 @@ $googlecolor: #dd4b39;
   cursor: pointer;
 }
 
+#sudoku tr.noborder, #sudoku tr.noborder td {
+  border: 0;
+  text-align: left;
+}
+
 // Different colors for each level
 .in-level1 {
   .btn-primary {

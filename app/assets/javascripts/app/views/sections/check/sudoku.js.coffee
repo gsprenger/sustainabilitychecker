@@ -303,10 +303,12 @@ class window.SudokuView
           <td class='cell-number'>N/A</td>
           <td class='cell-number'>N/A</td>
         </tr>
+        <tr class='noborder'>
+          <td colspan="8">
+            <em>(Numbers may not add up due to rounding)</em>
+          </td>
+        </tr>
       </table>
-      <div#{if @isOverlay then " class='text-center'" else ""}>
-        <em>(Numbers may not add up due to rounding)</em>
-      </div>
       """
     @$el.html(html)
     # precision -> 2
