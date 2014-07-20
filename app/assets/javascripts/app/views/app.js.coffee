@@ -1,5 +1,5 @@
 class window.AppView
-  constructor: ->
+  constructor:(@isPermalink) ->
     @$el      = $('#app')
     @$loading = $('#app-loading')
     @$app     = $('#app-main')
@@ -14,6 +14,8 @@ class window.AppView
       @views.push(new SudokuOverlayView())
     @views.push(new TryAgainModal())
     @views.push(new HelpModal())
+    @views.push(new HelpNewModal())
+    @views.push(new HelpPermalinkModal())
     @views.push(new ShareModal())
     # Window events go here so they arent repeated for each render
     $(window).on 'sectioncomplete', (e, data) ->
@@ -76,7 +78,9 @@ class window.AppView
         $('body').removeClass('inapploading')
         # if user is new display help modal
         if e.isNew()
-          $('#modal-help').modal()
+          $('#modal-helpnew').modal()
+        if @isPermalink
+          $('#modal-helppermalink').modal()
       , 400
     , 500
 

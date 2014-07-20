@@ -8,10 +8,12 @@ class window.App
       # get exp model from local storage or create new
       @experiment = new Experiment()
       # check if trying to load a specific level
+      permalinkUser = false
       if window.location.pathname.match(/load\/[a-zA-Z0-9]+/)
         loadCode = window.location.pathname.match(/load\/([a-zA-Z0-9]+)/)[1]
         @experiment.loadFromCode(loadCode)
         requestedLvl = @experiment.getCurrentLevel()
+        permalinkUser = true
       else if window.location.pathname.match(/level[1-3]/)
         requestedLvl = +window.location.pathname.match(/level([1-3])/)[1]
       else
@@ -40,7 +42,7 @@ class window.App
         @sudoku = new Sudoku()
         @radar = new Radar()
         # Main view
-        @appView = new AppView()
+        @appView = new AppView(permalinkUser)
         @appView.render()
 
   @get: ->

@@ -1,6 +1,6 @@
-class window.HelpModal
+class window.HelpNewModal
   constructor: ->
-    @$el = $('<div class="modal fade modal-help" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
+    @$el = $('<div class="modal fade modal-help" id="modal-helpnew" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
     @helpSection = new HelpSectionView()
 
   render: ->
@@ -10,14 +10,16 @@ class window.HelpModal
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">#{c.text('modal_help_title')}</h4>
+            <h4 class="modal-title">#{c.text('modal_helpnew_title')}</h4>
           </div>
           <div class="modal-body">
-            <div class='helpsection'></div> 
+            #{c.text('modal_helpnew_paragraph')}
+            <hr>
+            <div class='helpsection'></div>            
           </div>
           <div class="modal-footer">
             #{c.text('modal_help_close_text', 'fullspan')}&nbsp;
-            <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_help_closeandplaybtn')}</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_helpnew_startnewgame')}</button>
           </div>
         </div>
       </div>

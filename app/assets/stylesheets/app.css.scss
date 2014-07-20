@@ -837,19 +837,19 @@ $googlecolor: #dd4b39;
 }
 
 // MODALS
-#modal-help .icon-cont {
+.modal-help .icon-cont {
   border-left: 1px solid #EEE;
 }
 
-#modal-help hr {
+.modal-help hr {
   margin: 10px 0 10px 0;
 }
 
-#modal-help .helptabicon-cont {
+.modal-help .helptabicon-cont {
   padding: 0;
 }
 
-#modal-help .helptabicon-cont a {
+.modal-help .helptabicon-cont a {
   color: #333;
   &:hover {
     color: #333;
@@ -857,7 +857,7 @@ $googlecolor: #dd4b39;
   }
 }
 
-#modal-help .helptabicon {
+.modal-help .helptabicon {
   height: 50px;
   border: 1px solid #999;
   border-radius: 5px;
@@ -871,38 +871,38 @@ $googlecolor: #dd4b39;
   }
 }
 
-#modal-help .help-table {
+.modal-help .help-table {
   display: table;
   width: 100%;
   height: 100%;
 }
 
-#modal-help .help-cell {
+.modal-help .help-cell {
   display: table-cell;
   vertical-align: middle;
 }
 
-#modal-help .helptabicon .fa {
+.modal-help .helptabicon .fa {
   font-size: 28px;
 }
 
-#modal-help .tabtrigger .helptabicon.active {
+.modal-help .tabtrigger .helptabicon.active {
   background-color: #B8D0DE;
 }
 
-#modal-help .tablevel .helptabicon.active {
+.modal-help .tablevel .helptabicon.active {
   // background-color: #B8D0DE;
 }
 
-#modal-help .tabdem .helptabicon.active {
+.modal-help .tabdem .helptabicon.active {
   // background-color: #B8D0DE;
 }
 
-#modal-help .tabsup .helptabicon.active {
+.modal-help .tabsup .helptabicon.active {
   // background-color: #B8D0DE;
 }
 
-#modal-help .tabcheck .helptabicon.active {
+.modal-help .tabcheck .helptabicon.active {
   // background-color: #B8D0DE;
 }
 
