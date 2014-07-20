@@ -1,6 +1,8 @@
 class window.AppView
   constructor: ->
-    @$el = $('#app')
+    @$el      = $('#app')
+    @$loading = $('#app-loading')
+    @$app     = $('#app-main')
     @views = []
     @views.push(new ModalIconsView())
     @views.push(new ScrollTopIconView())
@@ -35,7 +37,7 @@ class window.AppView
     e = App.get().experiment
     # render all attached views
     for v in @views
-      @$el.append(v.render().$el)
+      @$app.append(v.render().$el)
     # Notify other views
     $(window).trigger('appready')
     @events()
@@ -66,9 +68,17 @@ class window.AppView
     # check if mercury is running and if yes run special method
     if App.get().isMercury
       @setupForMercury()
-    # if user is new display help modal
-    if e.isNew()
-      $('#modal-help').modal()
+    # Remove loading screen and check if modals should be triggered.
+    setTimeout =>
+      @$loading.fadeOut()
+      setTimeout =>
+        $('.site-footer').removeClass('inapploading')
+        $('body').removeClass('inapploading')
+        # if user is new display help modal
+        if e.isNew()
+          $('#modal-help').modal()
+      , 400
+    , 500
 
   events: ->
     # Init smooth scrolling

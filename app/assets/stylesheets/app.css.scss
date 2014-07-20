@@ -11,7 +11,11 @@ body {
 }
 
 body.modal-open {
-    overflow: visible;
+  overflow: visible;
+}
+
+body.inapploading {
+  overflow: hidden;
 }
 
 //prevent tooltips from going multiline
@@ -72,6 +76,22 @@ $twittercolor: #00aced;
 $googlecolor: #dd4b39;
 
 #app {
+  position: relative;
+}
+
+#app-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 50px;
+  z-index: 1000001;
+  text-align: center;
+  background-color: #FFF;
+}
+
+#app-main {
   position: relative;
 }
 
