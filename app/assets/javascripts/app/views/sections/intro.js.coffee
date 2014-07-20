@@ -14,15 +14,13 @@ class window.IntroView
         </div><br>
         <div id='intro-header'></div>
         <div class='btn-row'>
-          <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
       """
     if (l>1)
       html += """
-            <a href='/level#{l-1}'>
-              <div class='btn btn-lg btn-default'>#{c.text('chkr_goback_btn_level'+l)}</div>
-            </a>
+            <div class='btn btn-lg btn-default btngoback'>#{c.text('chkr_goback_btn_level'+l)}</div>
       """
     html += """
+          <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
         </div>
       </div>
       """
@@ -34,4 +32,6 @@ class window.IntroView
   events: ->
     @$el.find('.btnnext').on 'click', ->
       $(window).trigger('sectioncomplete', 'intro')
-
+    @$el.find('.btngoback').on 'click', ->
+      console.log("/level#{(App.get().level)-1}")
+      window.location = "/level#{(App.get().level)-1}"
