@@ -18,8 +18,8 @@ Sustainabilitychecker::Application.routes.draw do
   get "level3"      => "app#app"
   
   # Admin pages
-  get 'admin'          => "admin#admin"
-  get 'admin/uneditables' => "admin#uneditables"
+  get 'admin-sudoku'          => "admin#admin"
+  get 'admin-sudoku/uneditables' => "admin#uneditables"
 
   # Pending removal - Static website
   get "oldhome"     => "static_pages#home"
