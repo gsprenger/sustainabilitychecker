@@ -599,14 +599,13 @@ window.Chart = function(context, paramMargin){
           ctx.font ='bold '+config.scaleFontSize+'px Arial';
           var angleTab = [];
           if (config.scaleShowXYAxis) {
-            index = [0, 2, 4, 6]
-            angleTab[index[0]] = -Math.PI/4;
-            angleTab[index[1]] = Math.PI/4;
-            angleTab[index[2]] = (3*Math.PI)/4;
-            angleTab[index[3]] = (5*Math.PI)/4;
+            angleTab[1]  = -Math.PI/4;
+            angleTab[7]  = Math.PI/4;
+            angleTab[13] = (3*Math.PI)/4;
+            angleTab[19] = (5*Math.PI)/4;
           } else if (config.scaleShowQuintAxis) {
-            angleTab[1] = (Math.PI/5)-(Math.PI/2);
-            angleTab[7] = (3*Math.PI/5)-(Math.PI/2);
+            angleTab[1]  = (Math.PI/5)-(Math.PI/2);
+            angleTab[7]  = (3*Math.PI/5)-(Math.PI/2);
             angleTab[13] = (5*Math.PI/5)-(Math.PI/2);
             angleTab[19] = (7*Math.PI/5)-(Math.PI/2);
             angleTab[25] = (9*Math.PI/5)-(Math.PI/2);

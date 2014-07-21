@@ -153,6 +153,16 @@ class window.Radar
     return listObj[listObj.length-1]
 
   getChartData: ->
+    # Config
+    separatorAngle = 10
+    colors =
+      green:  "#5CB85C", 
+      yellow: "#ED9C28", 
+      red:    "#D2322D"
+    thresholds =
+      low:  30,
+      med:  70,
+      high: 100
     data = [
       {
         section: 'International trade',
@@ -195,30 +205,39 @@ class window.Radar
         value: @get_eco_dev()
       }
     ]
+    # Generate data
     chartData = []
-    colors = ["#5CB85C", "#ED9C28", "#D2322D"]
-    thresholds = [100, 70, 30, 0]
-    for i in [1..3]
-      for j in [0..7]
-        # Set proper value
-        value = data[j].value
-        if value >= thresholds[i-1]
-          drawVal = thresholds[i-1]
-        else if value < thresholds[i]
-          drawVal = 0
-        else 
-          drawVal = value
-        # Colors, reverse Env. colors
-        color = colors[i-1]
-        if data[j].section == 'Environment'
-          color = colors[3-i]
-        chartData.push({
-          min:   0,
-          value: drawVal,
-          max:   100,
-          angle: 45,
-          color: color,
-          name: if i == 3 then data[j].name else '',
-          section: if i == 1 then data[j].section else '',
-        });     
+    for i in [0..data.length-1]
+      # cap min max
+      value = Math.max(data[i].value, 30)
+      value = Math.min(data[i].value, 100)
+      # determine color
+      if value >= thresholds.low
+        if value >= thresholds.med
+          color = if data[i].section == 'Environment' then colors.red else colors.green
+        else
+          color = colors.yellow
+      else
+        color = if data[i].section == 'Environment' then colors.green else colors.red 
+      # push data
+      chartData.push
+        min:   0,
+        value: 0,
+        max:   100,
+        angle: (if i%2 == 0 then separatorAngle else separatorAngle/2),
+        color: "#FFFFFF"
+      chartData.push
+        min:   0,
+        value: value,
+        max:   100,
+        angle: 30,
+        color: color,
+        name: data[i].name,
+        section: data[i].section
+      chartData.push
+        min:   0,
+        value: 0,
+        max:   100,
+        angle: (if i%2 == 0 then separatorAngle/2 else separatorAngle),
+        color: "#FFFFFF"
     return chartData
