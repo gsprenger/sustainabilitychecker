@@ -24,18 +24,18 @@ class window.CheckSummaryView
         html += "<li>"
         switch (ch.type)
           when ('Radio')
-            html += "<span class='result'>#{c.text(p+'_'+ch.getValue()+'_t', 'fullspan')}</span>"
+            html += "<span class='result'>#{c.text(p+'_'+ch.getValue()+'_t', 'none')}</span>"
           when ('Slider')
             suf = (if ch.sliderType == 'number' then '%' else '')
-            html += "#{c.text(p+'_'+ch.getShortName(), 'fullspan')}: <span class='result'>#{ch.getValue()+suf}</span>"
+            html += "#{c.text(p+'_'+ch.getShortName(), 'none')}: <span class='result'>#{ch.getValue()+suf}</span>"
           when ('SliderGroup')
             html += """
-                #{c.text(p+'_'+ch.slug, 'fullspan')}:
+                #{c.text(p+'_'+ch.slug, 'none')}:
                 <ul>
               """
             suf = (if ch.sliders[0].sliderType == 'number' then '%' else '')
             for slider in ch.sliders
-              html += "<li>#{c.text(p+'_'+slider.getShortName(), 'fullspan')}: <span class='result'>#{slider.getValue()+suf}</span></li>"
+              html += "<li>#{c.text(p+'_'+slider.getShortName(), 'none')}: <span class='result'>#{slider.getValue()+suf}</span></li>"
             html += "</ul>"
         html += "</li>"
       html += """
@@ -46,8 +46,6 @@ class window.CheckSummaryView
       </div>
       """
     @$el.html(html)
-    if (App.get().experiment.getCurrent() != 'check')
-      @$el.hide()
     @events()
     return this
 

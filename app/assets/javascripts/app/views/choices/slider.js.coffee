@@ -6,7 +6,7 @@ class window.SliderView
     c = App.get().content
     p = @section.i18nPrefix
     html = """
-        <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName())}</div>
+        <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName(), 'none')}</div>
         <div class='slider'></div>
       """
     @$el.html(html)

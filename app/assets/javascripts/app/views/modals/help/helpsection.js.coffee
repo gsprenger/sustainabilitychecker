@@ -10,42 +10,42 @@ class window.HelpSectionView
           <div class='tab-content'>
             <!-- Levels -->
             <div class='tab-pane fade in active' id='tablevel1'>
-              #{c.text('modal_help_level1')}
+              #{c.text('modal_help_level1', 'none')}
             </div>
             <div class='tab-pane fade' id='tablevel2'>
-              #{c.text('modal_help_level2')}
+              #{c.text('modal_help_level2', 'none')}
             </div>
             <div class='tab-pane fade' id='tablevel3'>
-              #{c.text('modal_help_level3')}
+              #{c.text('modal_help_level3', 'none')}
             </div>
             <!-- Demand -->
             <div class='tab-pane fade' id='tabdem'>
-              #{c.text('modal_help_dem')}
+              #{c.text('modal_help_dem', 'none')}
             </div>
             <div class='tab-pane fade' id='tabdie'>
-              #{c.text('modal_help_die')}
+              #{c.text('modal_help_die', 'none')}
             </div>
             <div class='tab-pane fade' id='tabhou'>
-              #{c.text('modal_help_hou')}
+              #{c.text('modal_help_hou', 'none')}
             </div>
             <div class='tab-pane fade' id='tabser'>
-              #{c.text('modal_help_ser')}
+              #{c.text('modal_help_ser', 'none')}
             </div>
             <!-- Supply -->
             <div class='tab-pane fade' id='tablan'>
-              #{c.text('modal_help_lan')}
+              #{c.text('modal_help_lan', 'none')}
             </div>
             <div class='tab-pane fade' id='tabbm'>
-              #{c.text('modal_help_bm')}
+              #{c.text('modal_help_bm', 'none')}
             </div>
             <div class='tab-pane fade' id='tabagr'>
-              #{c.text('modal_help_agr')}
+              #{c.text('modal_help_agr', 'none')}
             </div>
             <div class='tab-pane fade' id='tabene'>
-              #{c.text('modal_help_ene')}
+              #{c.text('modal_help_ene', 'none')}
             </div>
             <div class='tab-pane fade' id='tabcheck'>
-              #{c.text('modal_help_check')}
+              #{c.text('modal_help_check', 'none')}
             </div>
           </div>
         </div>

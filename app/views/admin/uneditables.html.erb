@@ -6,14 +6,14 @@
 <h3><a href='#navicons' data-toggle='collapse'>Navigation Icons Tooltips</a></h3>
 <p class='desc'>These are the tooltips used in the navigation header icons.</p>
 <div id='navicons' class='cont3 collapse fade'>
-  <h4>Levels</h4>
-  <div class='cont4'>
+  <h4><a href='#levels' data-toggle='collapse'>Levels</a></h4>
+  <div class='cont4 collapse fade in' id='levels'>
     <p><%= Content.text('chkr_navtool_lvl1', @isMercury) %></p>
     <p><%= Content.text('chkr_navtool_lvl2', @isMercury) %></p>
     <p><%= Content.text('chkr_navtool_lvl3', @isMercury) %></p>
   </div>
-  <h4>Sections</h4>
-  <div class='cont4'>
+  <h4><a href='#sections' data-toggle='collapse'>Sections</a></h4>
+  <div class='cont4 collapse fade in' id='sections'>
     <p><%= Content.text('chkr_dem_title', @isMercury) %></p>
     <p><%= Content.text('chkr_die_title', @isMercury) %></p>
     <p><%= Content.text('chkr_hou_title', @isMercury) %></p>
@@ -24,8 +24,8 @@
     <p><%= Content.text('chkr_ene_title', @isMercury) %></p>
     <p><%= Content.text('chkr_check_title', @isMercury) %></p>
   </div>
-  <h4>Scroll Top button</h4>
-  <div class='cont4'>
+  <h4><a href='#scrolltop' data-toggle='collapse'>Scroll Top button</a></h4>
+  <div class='cont4 collapse fade in' id='scrolltop'>
     <p><%= Content.text('chkr_scrolltop_t', @isMercury) %></p>
   </div>
 <hr>
@@ -34,8 +34,8 @@
 <h3><a href='#radar' data-toggle='collapse'>Radar Tooltips</a></h3>
 <p class='desc'>Each entry has a title and a content.</p>
 <div id='radar' class='cont3 collapse fade'>
-  <h4>Areas</h4>
-  <div class='cont4'>
+  <h4><a href='#areas' data-toggle='collapse'>Areas</a></h4>
+  <div class='cont4 collapse fade in' id='areas'>
     <h5>Quality</h5>
     <div class='cont5'>
       <%= Content.text('chkr_rdr_i1_t', @isMercury) %>
@@ -77,8 +77,8 @@
       <%= Content.text('chkr_rdr_i8_c', @isMercury) %>
     </div>
   </div>
-  <h4>Sections</h4>
-  <div class='cont4'>
+  <h4><a href='#sections2' data-toggle='collapse'>Sections</a></h4>
+  <div class='cont4 collapse fade in' id='sections2'>
     <h5>International trade</h5>
     <div class='cont5'>
       <%= Content.text('chkr_rdr_G1_t', @isMercury) %>
@@ -106,8 +106,8 @@
 <h3><a href='#sudoku' data-toggle='collapse'>Sudoku Tooltips</a></h3>
 <p class='desc'>Each entry has a title and a content.</p>
 <div id='sudoku' class='cont3 collapse fade'>
-  <h4>Flow/Fund titles</h4>
-  <div class='cont4'>
+  <h4><a href='#fftitles' data-toggle='collapse'>Flow/Fund titles</a></h4>
+  <div class='cont4 collapse fade in' id='fftitles'>
     <h5>Flows</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_flows_t', @isMercury) %>
@@ -154,8 +154,8 @@
       <%= Content.text('chkr_sud_fmd_c', @isMercury) %>
     </div>
   </div>
-  <h4>Supply/Demand titles</h4>
-  <div class='cont4'>
+  <h4><a href='#sdtitles' data-toggle='collapse'>Supply/Demand titles</a></h4>
+  <div class='cont4 collapse fade in' id='sdtitles'>
     <h5>Consumption</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_consumption_t', @isMercury) %>
@@ -218,8 +218,8 @@
 <h3><a href='#expl' data-toggle='collapse'>Sustainability Explanations</a></h3>
 <p class='desc'>These are the passed/failed explanation title and texts in the Check section. Title is at the top og the Check section. First paragraph is located right after the title, second one right after the graph/radar section. Each paragraph has six possible states: a passed/failed couple for each of the three levels.</p>
 <div id='expl' class='cont3 collapse fade'>
-  <h4>Title</h4>
-  <div class='cont4'>
+  <h4><a href='#ttitle' data-toggle='collapse'>Title</a></h4>
+  <div class='cont4 collapse fade in' id='ttitle'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_res_title_passed', @isMercury) %>
@@ -229,8 +229,8 @@
       <%= Content.text('chkr_res_title_failed', @isMercury) %>
     </div>
   </div>
-  <h4>First paragraph</h4>
-  <div class='cont4'>
+  <h4><a href='#fp' data-toggle='collapse'>First paragraph</a></h4>
+  <div class='cont4 collapse fade in' id='fp'>
     <h5>Level 1</h5>
     <div class='cont5'>
       <h6>Passed</h6>
@@ -253,8 +253,8 @@
       <%= Content.text('chkr_res_explanation1_failed3', @isMercury) %>
     </div>
   </div>
-  <h4>Second paragraph</h4>
-  <div class='cont4'>
+  <h4><a href='#sp' data-toggle='collapse'>Second paragraph</a></h4>
+  <div class='cont4 collapse fade in' id='sp'>
     <h5>Level 1</h5>
     <div class='cont5'>
       <h6>Passed</h6>
@@ -277,8 +277,8 @@
       <%= Content.text('chkr_res_explanation2_failed3', @isMercury) %>
     </div>
   </div>
-  <h4>Third paragraph</h4>
-  <div class='cont4'>
+  <h4><a href='#tp' data-toggle='collapse'>Third paragraph</a></h4>
+  <div class='cont4 collapse fade in' id='tp'>
     <h5>Level 1</h5>
     <div class='cont5'>
       <h6>Passed</h6>
@@ -307,8 +307,8 @@
 <h3><a href='#crit' data-toggle='collapse'>Criteria indicators</a></h3>
 <p class='desc'>These are the 5 sections corresponding to Food, Energy, HA, LU and EMR criteria. Each criterion has two states: passed and failed. Each of those entries has a title and a content.</p>
 <div id='crit' class='cont3 collapse fade'>
-  <h4>Food</h4>
-  <div class='cont4'>
+  <h4><a href='#food' data-toggle='collapse'>Food</a></h4>
+  <div class='cont4 collapse fade in' id='food'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_foodsuc_t', @isMercury) %>
@@ -320,8 +320,8 @@
       <%= Content.text('chkr_sud_foodfail_c', @isMercury) %>
     </div>
   </div>
-  <h4>Energy</h4>
-  <div class='cont4'>
+  <h4><a href='#energy' data-toggle='collapse'>Energy</a></h4>
+  <div class='cont4 collapse fade in' id='energy'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_energysuc_t', @isMercury) %>
@@ -333,8 +333,8 @@
       <%= Content.text('chkr_sud_energyfail_c', @isMercury) %>
     </div>
   </div>
-  <h4>HA</h4>
-  <div class='cont4'>
+  <h4><a href='#HA' data-toggle='collapse'>HA</a></h4>
+  <div class='cont4 collapse fade in' id='HA'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_HAsuc_t', @isMercury) %>
@@ -346,8 +346,8 @@
       <%= Content.text('chkr_sud_HAfail_c', @isMercury) %>
     </div>
   </div>
-  <h4>LU</h4>
-  <div class='cont4'>
+  <h4><a href='#LU' data-toggle='collapse'>LU</a></h4>
+  <div class='cont4 collapse fade in' id='LU'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_LUsuc_t', @isMercury) %>
@@ -359,8 +359,8 @@
       <%= Content.text('chkr_sud_LUfail_c', @isMercury) %>
     </div>
   </div>
-  <h4>EMR</h4>
-  <div class='cont4'>
+  <h4><a href='#EMR' data-toggle='collapse'>EMR</a></h4>
+  <div class='cont4 collapse fade in' id='EMR'>
     <h5>Passed</h5>
     <div class='cont5'>
       <%= Content.text('chkr_sud_EMRsuc_t', @isMercury) %>
@@ -378,12 +378,121 @@
 <h3><a href='#modals' data-toggle='collapse'>Modals Tooltips</a></h3>
 <p class='desc'>These are the tooltips displayed when hovering the modal buttons in the header.</p>
 <div id='modals' class='cont3 collapse fade'>
-  <h4>Share</h4>
-  <div class='cont4'>
+  <h4><a href='#share' data-toggle='collapse'>Share</a></h4>
+  <div class='cont4 collapse fade in' id='share'>
     <p><%= Content.text('chkr_modal_share_t', @isMercury) %></p>
   </div>
-  <h4>Help</h4>
-  <div class='cont4'>
+  <h4><a href='#help' data-toggle='collapse'>Help</a></h4>
+  <div class='cont4 collapse fade in' id='help'>
     <p><%= Content.text('chkr_modal_help_t', @isMercury) %></p>
+  </div>
+</div>
+
+<h3><a href='#misc' data-toggle='collapse'>Miscellaneous</a></h3>
+<p class='desc'>Items whose ID appear several times in the same page and thus cannot be edited live.</p>
+<div id='misc' class='cont3 collapse fade'>
+  <h4><a href='#helps' data-toggle='collapse'>Help Section (in Help modals)</a></h4>
+  <div class='cont4 collapse fade in' id='helps'>
+    <h5>Level1</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_level1', @isMercury) %></p>
+    </div>
+    <h5>Level2</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_level2', @isMercury) %></p>
+    </div>
+    <h5>Level3</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_level3', @isMercury) %></p>
+    </div>
+    <h5>Demographics</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_dem', @isMercury) %></p>
+    </div>
+    <h5>Diet</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_die', @isMercury) %></p>
+    </div>
+    <h5>Households</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_hou', @isMercury) %></p>
+    </div>
+    <h5>Service</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_ser', @isMercury) %></p>
+    </div>
+    <h5>Land</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_lan', @isMercury) %></p>
+    </div>
+    <h5>BM</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_bm', @isMercury) %></p>
+    </div>
+    <h5>Agriculture</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_agr', @isMercury) %></p>
+    </div>
+    <h5>Energy</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_ene', @isMercury) %></p>
+    </div>
+    <h5>Check</h5>
+    <div class='cont5'>
+      <p><%= Content.text('modal_help_check', @isMercury) %></p>
+    </div>
+  </div>
+  <h4><a href='#sstitles' data-toggle='collapse'>Sliders title</a></h4>
+  <div class='cont4 collapse fade in' id='sstitles'>
+    <h5>Households</h5>
+    <p><%= Content.text('chkr_hou_urbrur', @isMercury) %></p>
+    <p><%= Content.text('chkr_hou_subapaslu', @isMercury) %></p>
+    <div class='cont5'>
+      <h6>Urban</h6>
+      <p><%= Content.text('chkr_hou_urb', @isMercury) %></p>
+      <h6>Urban</h6>
+      <p><%= Content.text('chkr_hou_rur', @isMercury) %></p>
+      <h6>Urban</h6>
+      <p><%= Content.text('chkr_hou_sub', @isMercury) %></p>
+      <h6>Urban</h6>
+      <p><%= Content.text('chkr_hou_apa', @isMercury) %></p>
+      <h6>Urban</h6>
+      <p><%= Content.text('chkr_hou_slu', @isMercury) %></p>
+    </div>
+    <h5>Services</h5>
+    <div class='cont5'>
+      <h6>Education & Healthcare</h6>
+      <p><%= Content.text('chkr_ser_edu', @isMercury) %></p>
+      <h6>Media, Entertainment, Tourism</h6>
+      <p><%= Content.text('chkr_ser_med', @isMercury) %></p>
+      <h6>Public Institutions, Government, Military</h6>
+      <p><%= Content.text('chkr_ser_pub', @isMercury) %></p>
+      <h6>Transportation, Retailing</h6>
+      <p><%= Content.text('chkr_ser_tra', @isMercury) %></p>
+    </div>
+    <h5>Electricity</h5>
+    <p><%= Content.text('chkr_ene_ele', @isMercury) %></p>
+    <div class='cont5'>
+      <h6>Nuclear</h6>
+      <p><%= Content.text('chkr_ene_nuc', @isMercury) %></p>
+      <h6>Hydropower</h6>
+      <p><%= Content.text('chkr_ene_hyd', @isMercury) %></p>
+      <h6>Wind Power</h6>
+      <p><%= Content.text('chkr_ene_win', @isMercury) %></p>
+      <h6>Photovoltaics</h6>
+      <p><%= Content.text('chkr_ene_pho', @isMercury) %></p>
+      <h6>Concentrated Solar Power</h6>
+      <p><%= Content.text('chkr_ene_csp', @isMercury) %></p>
+    </div>
+    <h5>Fuel</h5>
+    <p><%= Content.text('chkr_ene_fue', @isMercury) %></p>
+    <div class='cont5'>
+      <h6>Biofuels</h6>
+      <p><%= Content.text('chkr_ene_bio', @isMercury) %></p>
+      <h6>Hydrogen</h6>
+      <p><%= Content.text('chkr_ene_hyd', @isMercury) %></p>
+      <h6>Non-conventional fossile resources</h6>
+      <p><%= Content.text('chkr_ene_ncf', @isMercury) %></p>
+    </div>
   </div>
 </div>
