@@ -4,7 +4,7 @@
 //= require_tree ./site
 
 var ready = function () {
-  
+  setup()
 };
 
 // Turbolinks workaround      

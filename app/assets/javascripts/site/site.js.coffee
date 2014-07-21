@@ -15,3 +15,17 @@ window.initialize = ->
     position: pos,
     map: map
   })
+
+window.setup = ->
+  # Init tooltips
+  $('body').tooltip {
+    selector: '[data-toggle=tooltip]',
+    placement: 'bottom'
+  }
+  # init popovers
+  $('body').popover {
+    selector: '[data-toggle=popover]'
+    placement: 'bottom',
+    trigger: 'hover',
+    container: 'body'
+  }
