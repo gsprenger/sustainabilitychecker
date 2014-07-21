@@ -20,7 +20,7 @@ class window.HelpPermalinkModal
             #{c.text('modal_helppermalink_paragraph2')}
           </div>
           <div class="modal-footer">
-            #{c.text('modal_help_close_text_permalink', 'fullspan')}&nbsp;
+            #{c.text('modal_helpperma_close_text_permalink', 'fullspan')}&nbsp;
             <button type="button" class="btn btn-default btntryagain">#{c.text('modal_help_permalinkreset')}</button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_help_okloadsettings')}</button>
           </div>

@@ -18,7 +18,7 @@ class window.HelpNewModal
             <div class='helpsection'></div>            
           </div>
           <div class="modal-footer">
-            #{c.text('modal_help_close_text', 'fullspan')}&nbsp;
+            #{c.text('modal_helpnew_close_text', 'fullspan')}&nbsp;
             <button type="button" class="btn btn-primary" data-dismiss="modal">#{c.text('modal_helpnew_startnewgame')}</button>
           </div>
         </div>
