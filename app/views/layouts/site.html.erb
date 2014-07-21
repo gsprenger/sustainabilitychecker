@@ -9,8 +9,8 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "site", "data-turbolinks-track" => true %>
-    <% if current_page?(:action => 'contact') %>
-      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
+    <% if controller.controller_name ==  'site' %>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js", "data-turbolinks-track" => true %>
     <% end %>
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
