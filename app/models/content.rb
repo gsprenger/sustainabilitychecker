@@ -2,7 +2,7 @@ class Content < ActiveRecord::Base
   validates :slug, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
 
-  def self.text (slug, editType='full', parseGlossary=true)
+  def self.text (slug, isMercury=true, editType='full')
     c = Content.find_by_slug(slug)
     if (c)
       html = ''
@@ -18,7 +18,7 @@ class Content < ActiveRecord::Base
       else
         html += "<div data-mercury='full' id='#{c.slug.to_s}'>#{c.content}</div>"
       end
-      if (parseGlossary)
+      if (!isMercury)
         html = Content.checkForGlossaryEntries(html)
       end
       return html.html_safe

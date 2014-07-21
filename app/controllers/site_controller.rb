@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  before_filter :check_mercury, only: [:index, :more, :contact]
+  before_filter :check_mercury
 
   def index
   end

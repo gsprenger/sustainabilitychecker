@@ -1,16 +1,16 @@
-<h2><%= Content.text('more_about_title') %></h2>
+<h2><%= Content.text('more_about_title', @isMercury) %></h2>
 <div class='row' id='narratives'>
   <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_about_1_title') %></h3>
-    <p><%= Content.text('more_about_1_desc') %></p>
+    <h3><%= Content.text('more_about_1_title', @isMercury) %></h3>
+    <p><%= Content.text('more_about_1_desc', @isMercury) %></p>
   </div>
   <div class='col-sm-4 more-image'>
     <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_1', 'raw')%>' title='<%= Content.text('more_imgcred_1', 'raw')%>'><br>
+      <img src='<%= Content.text('more_img_1', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_1', @isMercury, 'raw')%>'><br>
     <% else %>
       Image URL + credit (editor only):
-      <%= Content.text('more_img_1')%>
-      <%= Content.text('more_imgcred_1')%>
+      <%= Content.text('more_img_1', @isMercury)%>
+      <%= Content.text('more_imgcred_1', @isMercury)%>
     <% end %>
   </div>
 </div>
@@ -18,32 +18,32 @@
 <div class='row' id='humansocieties'>
   <div class='col-sm-4 more-image'>
     <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_2', 'raw')%>' title='<%= Content.text('more_imgcred_2', 'raw')%>'><br>
+      <img src='<%= Content.text('more_img_2', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_2', @isMercury, 'raw')%>'><br>
     <% else %>
       Image URL + credit (editor only):
-      <%= Content.text('more_img_2')%>
-      <%= Content.text('more_imgcred_2')%>
+      <%= Content.text('more_img_2', @isMercury)%>
+      <%= Content.text('more_imgcred_2', @isMercury)%>
     <% end %>
   </div>
   <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_about_2_title') %></h3>
-    <p><%= Content.text('more_about_2_desc') %></p>
+    <h3><%= Content.text('more_about_2_title', @isMercury) %></h3>
+    <p><%= Content.text('more_about_2_desc', @isMercury) %></p>
   </div>
 </div>
 <div class='divider'></div>
-<h2><%= Content.text('more_how_title') %></h2>
+<h2><%= Content.text('more_how_title', @isMercury) %></h2>
 <div class='row' id='metabolicpattern'>
   <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_how_1_title') %></h3>
-    <p><%= Content.text('more_how_1_desc') %></p>
+    <h3><%= Content.text('more_how_1_title', @isMercury) %></h3>
+    <p><%= Content.text('more_how_1_desc', @isMercury) %></p>
   </div>
   <div class='col-sm-4 more-image'>
     <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_3', 'raw')%>' title='<%= Content.text('more_imgcred_3', 'raw')%>'><br>
+      <img src='<%= Content.text('more_img_3', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_3', @isMercury, 'raw')%>'><br>
     <% else %>
       Image URL + credit (editor only):
-      <%= Content.text('more_img_3')%>
-      <%= Content.text('more_imgcred_3')%>
+      <%= Content.text('more_img_3', @isMercury)%>
+      <%= Content.text('more_imgcred_3', @isMercury)%>
     <% end %>
   </div>
 </div>
@@ -51,15 +51,15 @@
 <div class='row' id='musiasem'>
   <div class='col-sm-4 more-image'>
     <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_4', 'raw')%>' title='<%= Content.text('more_imgcred_4', 'raw')%>'><br>
+      <img src='<%= Content.text('more_img_4', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_4', @isMercury, 'raw')%>'><br>
     <% else %>
       Image URL + credit (editor only):
-      <%= Content.text('more_img_4')%>
-      <%= Content.text('more_imgcred_4')%>
+      <%= Content.text('more_img_4', @isMercury)%>
+      <%= Content.text('more_imgcred_4', @isMercury)%>
     <% end %>
   </div>
   <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_how_2_title') %></h3>
-    <p><%= Content.text('more_how_2_desc') %></p>
+    <h3><%= Content.text('more_how_2_title', @isMercury) %></h3>
+    <p><%= Content.text('more_how_2_desc', @isMercury) %></p>
   </div>
 </div>

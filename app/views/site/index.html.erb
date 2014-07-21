@@ -1,8 +1,8 @@
 <div class='row'>
   <div class='col-sm-6 index-intro'>
-    <h1><%= Content.text('index_hero_title') %></h1>
+    <h1><%= Content.text('index_hero_title', @isMercury) %></h1>
     <p>
-      <%= Content.text('index_hero_desc') %>
+      <%= Content.text('index_hero_desc', @isMercury) %>
     </p>
     <p class='text-center'>
       <a href='/level1' class='more'>Start the experience now!<span><i class='fa fa-chevron-right'></i></span></a>
@@ -10,11 +10,11 @@
   </div>
   <div class='col-sm-6 index-logo'>
       <% if !@isMercury %>
-        <img src='<%= Content.text('home_img_homesplash', 'raw')%>' title='<%= Content.text('home_imgcred_homesplash', 'raw')%>'><br>
+        <img src='<%= Content.text('home_img_homesplash', @isMercury, 'raw')%>' title='<%= Content.text('home_imgcred_homesplash', @isMercury, 'raw')%>'><br>
       <% else %>
         Image URL + credit (editor only):
-        <%= Content.text('home_img_homesplash')%>
-        <%= Content.text('home_imgcred_homesplash')%>
+        <%= Content.text('home_img_homesplash', @isMercury)%>
+        <%= Content.text('home_imgcred_homesplash', @isMercury)%>
       <% end %>
   </div>
 </div>
@@ -23,32 +23,32 @@
   <div class='col-sm-6 index-playsudoku'>
     <a href='/level1'>
       <% if !@isMercury %>
-        <img src='<%= Content.text('home_img_sudokuprev', 'raw')%>' title='<%= Content.text('home_imgcred_sudokuprev', 'raw')%>'><br>
+        <img src='<%= Content.text('home_img_sudokuprev', @isMercury, 'raw')%>' title='<%= Content.text('home_imgcred_sudokuprev', @isMercury, 'raw')%>'><br>
       <% else %>
         Image URL + credit (editor only):
-        <%= Content.text('home_img_sudokuprev')%>
-        <%= Content.text('home_imgcred_sudokuprev')%>
+        <%= Content.text('home_img_sudokuprev', @isMercury)%>
+        <%= Content.text('home_imgcred_sudokuprev', @isMercury)%>
       <% end %>
       <span class='more'>Play the Sustainability Sudoku now<span><i class='fa fa-chevron-right'></i></span></span>
     </a>
     <p>
-      <%= Content.text('index_play_desc') %>
+      <%= Content.text('index_play_desc', @isMercury) %>
     </p>
   </div>
   <div class='col-sm-6 index-about'>
-    <h2><%= Content.text('index_about_title') %></h2>
+    <h2><%= Content.text('index_about_title', @isMercury) %></h2>
     <ul>
       <li>
-        <h3><%= Content.text('index_about_1_title') %></h3>
+        <h3><%= Content.text('index_about_1_title', @isMercury) %></h3>
         <p>
-          <%= Content.text('index_about_1_desc') %>
+          <%= Content.text('index_about_1_desc', @isMercury) %>
         </p>
         <a href='/more#narratives' class='more'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
       </li>
       <li>
-        <h3><%= Content.text('index_about_2_title') %></h3>
+        <h3><%= Content.text('index_about_2_title', @isMercury) %></h3>
         <p>
-          <%= Content.text('index_about_2_desc') %>
+          <%= Content.text('index_about_2_desc', @isMercury) %>
         </p>
         <a href='/more#humansocieties' class='more'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
       </li>
