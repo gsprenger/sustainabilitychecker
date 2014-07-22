@@ -1,13 +1,13 @@
 class window.SliderGroupView
   constructor:(@section, @slidergroup) ->
     @$el = $("<div class='slidergroup'>")
+    @sliderViews = []
+    for s in @slidergroup.sliders
+      @sliderViews.push(new SliderView(@section, s, true))
 
   render: ->
     c = App.get().content
     p = @section.i18nPrefix
-    @sliderViews = []
-    for s in @slidergroup.sliders
-      @sliderViews.push(new SliderView(@section, s, true))
     html = """
         <div class='slidergroup-title'>
           #{c.text(p+'_slidergroup_'+@slidergroup.slug, 'none')}

@@ -9,7 +9,11 @@ class window.SectionInfoView
     html = """
       <div>
       <h4>#{c.text(p+'_title_sectioninfo')}</h4>
-        #{c.text(p+'_visible_sectioninfo')}<span class='sectioninfo-morelink#{if l == 2 then ' hidden' else ''}'>...Read more</span><span class='sectioninfo-more#{if l == 3 then ' hidden' else ''}'>#{c.text(p+'_more_sectioninfo')}<span class='sectioninfo-lesslink'><br>Collapse</span></span>
+        #{c.text(p+'_visible_sectioninfo')}
+        <a href='##{p}_collapsiblezone' data-toggle='collapse'>#{if l == 2 then 'Hide details' else 'More details'}</a>
+        <div id="#{p}_collapsiblezone" class="collapse fade#{if l == 2 then ' in' else ''}">
+          #{c.text(p+'_more_sectioninfo')}
+        </div>
       </div>
       """
     @$el.html(html)
@@ -17,9 +21,11 @@ class window.SectionInfoView
     return this
 
   events: ->
-    @$el.find('.sectioninfo-morelink').on 'click', =>
-      @$el.find('.sectioninfo-more').removeClass('hidden')
-      @$el.find('.sectioninfo-morelink').addClass('hidden')
-    @$el.find('.sectioninfo-lesslink').on 'click', =>
-      @$el.find('.sectioninfo-morelink').removeClass('hidden')
-      @$el.find('.sectioninfo-more').addClass('hidden')
+    p = @section.i18nPrefix_collapsiblezone
+    @$el.find('a').on "click", (e) ->
+      if $(this).text() == 'More details'
+        $(this).text('Hide details')
+      else
+        $(this).text('More details')
+
+
