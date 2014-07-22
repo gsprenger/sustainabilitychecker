@@ -39,7 +39,7 @@ class Content < ActiveRecord::Base
       g = Glossary.find_by slug: slug
       if (g)
         definition = g.definition.gsub(/\'/, "&#39;").gsub(/\"/, "&#34;")
-        "<span class='glossary-entry' data-toggle='popover' data-content='#{definition}' data-title='#{g.name}'>#{text}</span>"
+        "<span id='p#{slug}' class='glossary-entry' data-toggle='popover' data-content='#{definition}' data-title='#{g.name}' data-container='#p#{slug}'>#{text}</span>"
       else
         text
       end

@@ -543,6 +543,11 @@ $googlecolor: #dd4b39;
   } 
 }
 
+.popover {
+  max-width: none;
+  width: 500px;
+}
+
 #checkradar .radar-info {
   text-shadow: 1px 1px 3px #EEE;
 }
@@ -555,55 +560,8 @@ $googlecolor: #dd4b39;
 #checkradar {
   .radar-info {
     position: absolute;
-
-    .popover {
-      top: 20px;
-      right: 0px;
-      left: auto;
-    }
   }
 
-/*  #radarinfoS1 {
-    top: 8%;
-    left: 65%;
-  }
-
-  #radarinfoS2 {
-    top: 28%;
-    left: 84%;
-  }
-
-  #radarinfoS3 {
-    top: 68%;
-    left: 84%;
-  }
-
-  #radarinfoS4 {
-    top: 88%;
-    left: 65%;
-  }
-
-  #radarinfoS5 {
-    top: 88%;
-    left: 28%;
-  }
-
-  #radarinfoS6 {
-    top: 68%;
-    left: 8%;
-  }
-
-  #radarinfoS7 {
-    top: 28%;
-    left: 8%;
-  }
-
-  #radarinfoS8 {
-    top: 8%;
-    left: 28%;
-  }*/  
-  // TODO EACH SECTION STUCK TO ITS QUADRANT WITH A BIT OF MARGIN
-  // QUADRANT NAMES STUCK TO CORNERS WITH MARGIN
   #radarinfoS1 {
     top: 30px;
     left: 50%;

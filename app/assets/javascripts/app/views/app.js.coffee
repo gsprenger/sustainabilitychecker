@@ -47,12 +47,10 @@ class window.AppView
       placement: 'bottom'
     }
     # init popovers
-    $('body').popover {
+    $('body').popover
       selector: '[data-toggle=popover]'
       placement: 'bottom',
-      trigger: 'hover',
-      container: 'body'
-    }
+      trigger: 'hover click'
     # Scroll to current section
     if App.get().level == 1
       cur = e.getCurrent()

@@ -26,6 +26,5 @@ window.setup = ->
   $('body').popover {
     selector: '[data-toggle=popover]'
     placement: 'bottom',
-    trigger: 'hover',
-    container: 'body'
+    trigger: 'hover click',
   }
