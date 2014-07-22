@@ -72,7 +72,7 @@ class window.SectionView
       $(window).trigger('sectioncomplete', @section.name)
 
     # Update [grains_equiv] and [s_ene_con] fields
-    if @section.slug == 's_ene' || @section.slug == 's_agr'
+    if !App.get().isMercury && (@section.slug == 's_ene' || @section.slug == 's_agr')
       varID = (if @section.slug == 's_agr' then 'grains_equiv' else 's_ene_con')
       @$el.find('.description:contains("'+varID+'")').html (_, html) -> 
         regexp = new RegExp("\\[("+varID+")\\]")
