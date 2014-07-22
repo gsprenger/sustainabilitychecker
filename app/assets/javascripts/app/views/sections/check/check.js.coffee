@@ -28,16 +28,16 @@ class window.CheckView
       </div>
       
       <div class='row chartstitles'>
-        <div class='col-md-6'>
+        <div class='col-md-5'>
           <h3>#{c.text('chkr_graph_maintitle')}</h3>
         </div>
-        <div class='col-md-6'>
+        <div class='col-md-7'>
           <h3>#{c.text('chkr_radar_maintitle')}</h3>
         </div>
       </div>
       <div class='row checkcharts'>
-        <div id='checkgraphcont' class='col-md-6'></div>
-        <div id='checkradarcont' class='col-md-6'></div>
+        <div id='checkgraphcont' class='col-md-5'></div>
+        <div id='checkradarcont' class='col-md-7'></div>
       </div>
       <div class='checkresult in-level#{l}'>
         <div class='check-result-expl'>#{c.text('chkr_res_explanation2_'+success+l)}</div>

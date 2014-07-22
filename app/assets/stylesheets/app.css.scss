@@ -462,7 +462,7 @@ $googlecolor: #dd4b39;
 }
 
 .checkcharts {
-  margin: 0 3% 0 3%;
+  margin: 0;
 }
 
 #checkgraph {
@@ -470,7 +470,6 @@ $googlecolor: #dd4b39;
     margin: 0;
     border-color: $black;
   }
-
   .row {
     .cell {
       position: relative;
@@ -544,17 +543,18 @@ $googlecolor: #dd4b39;
   } 
 }
 
-#checkradar {
-  position: relative;
-  width: 600px;
-  height: 600px;
-  margin: auto;
+#checkradar .radar-info {
+  text-shadow: 1px 1px 3px #EEE;
+}
 
+#checkradar .fa-info-circle {
+  cursor: pointer;
+  text-shadow: none;
+}
+
+#checkradar {
   .radar-info {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
 
     .popover {
       top: 20px;
@@ -563,64 +563,117 @@ $googlecolor: #dd4b39;
     }
   }
 
-  #radarinfoS1 {
-    top: 37px;
-    left: 423px;
+/*  #radarinfoS1 {
+    top: 8%;
+    left: 65%;
   }
 
   #radarinfoS2 {
-    top: 182px;
-    left: 572px;
+    top: 28%;
+    left: 84%;
   }
 
   #radarinfoS3 {
-    top: 399px;
-    left: 566px;
+    top: 68%;
+    left: 84%;
   }
 
   #radarinfoS4 {
-    top: 545px;
-    left: 418px;
+    top: 88%;
+    left: 65%;
   }
 
   #radarinfoS5 {
-    top: 545px;
-    left: 221px;
+    top: 88%;
+    left: 28%;
   }
 
   #radarinfoS6 {
-    top: 399px;
-    left: 82px;
+    top: 68%;
+    left: 8%;
   }
 
   #radarinfoS7 {
-    top: 182px;
-    left: 83px;
+    top: 28%;
+    left: 8%;
   }
 
   #radarinfoS8 {
-    top: 37px;
-    left: 220px;
+    top: 8%;
+    left: 28%;
+  }*/  
+  // TODO EACH SECTION STUCK TO ITS QUADRANT WITH A BIT OF MARGIN
+  // QUADRANT NAMES STUCK TO CORNERS WITH MARGIN
+  #radarinfoS1 {
+    top: 30px;
+    left: 50%;
+    margin-left: 50px;
+  }
+
+  #radarinfoS2 {
+    right: 30px;
+    bottom: 50%;
+    margin-bottom: 50px;
+  }
+
+  #radarinfoS3 {
+    right: 30px;
+    top: 50%;
+    margin-top: 50px;
+  }
+
+  #radarinfoS4 {
+    bottom: 30px;
+    left: 50%;
+    margin-left: 50px;
+  }
+
+  #radarinfoS5 {
+    bottom: 30px;
+    right: 50%;
+    margin-right: 50px;
+  }
+
+  #radarinfoS6 {
+    left: 30px;
+    top: 50%;
+    margin-top: 50px;
+  }
+
+  #radarinfoS7 {
+    left: 30px;
+    bottom: 50%;
+    margin-bottom: 50px;
+  }
+
+  #radarinfoS8 {
+    top: 30px;
+    right: 50%;
+    margin-right: 50px;
   }
 
   #radarinfoG1 {
-    top: 81px;
-    left: 602px;
+    top: 15%;
+    right: 30px;
+    font-weight: 600;
   }
 
   #radarinfoG2 {
-    top: 501px;
-    left: 550px;
+    bottom: 15%;
+    right: 30px;
+    font-weight: 600;
   }
 
   #radarinfoG3 {
-    top: 501px;
-    left: 103px;
+    bottom: 15%;
+    left: 30px;
+    font-weight: 600;
   }
 
   #radarinfoG4 {
-    top: 81px;
-    left: 103px;
+    top: 15%;
+    left: 30px;
+    font-weight: 600;
   }
 }
 
@@ -1046,9 +1099,5 @@ $googlecolor: #dd4b39;
     min-height: 100%;
     margin: 0;
     padding: 65px 15% 0 15%;
-  }
-
-  #checkgraph {
-    margin-top: 150px;
   }
 }

@@ -595,7 +595,7 @@ window.Chart = function(context, paramMargin){
           }
         }
         // draw section
-        if (data[i].section && data[i].section !== '') {
+        if (config.showLabels && data[i].section && data[i].section !== '') {
           ctx.font ='bold '+config.scaleFontSize+'px Arial';
           var angleTab = [];
           if (config.scaleShowXYAxis) {

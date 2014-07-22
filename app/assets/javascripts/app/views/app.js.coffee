@@ -40,8 +40,6 @@ class window.AppView
     # render all attached views
     for v in @views
       @$app.append(v.render().$el)
-    # Notify other views
-    $(window).trigger('appready')
     @events()
     # Init tooltips
     $('body').tooltip {
@@ -83,6 +81,8 @@ class window.AppView
           $('#modal-helppermalink').modal()
       , 400
     , 500
+    # Notify other views
+    $(window).trigger('appready')
 
   events: ->
     # Init smooth scrolling
