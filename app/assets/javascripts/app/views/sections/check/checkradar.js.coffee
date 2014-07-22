@@ -2,7 +2,9 @@ class window.CheckRadarView
   constructor: ->
     @$el = $("<div id='checkradar'>")
     @radar = App.get().radar
+    @canDraw = false
     $(window).on 'appready', =>
+      @canDraw = true
       @drawRadar()
     $(window).on 'resize', =>
       @drawRadar()
@@ -50,7 +52,8 @@ class window.CheckRadarView
       </div>
       """
     @$el.html(html)
-    @drawRadar()
+    if @canDraw
+      @drawRadar()
     @events()
     return this
 
