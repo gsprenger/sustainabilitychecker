@@ -33,7 +33,7 @@ class Content < ActiveRecord::Base
   end
   
   def self.checkForGlossaryEntries (html)
-    html = html.gsub(/\[\[([\p{Alnum}\s]+)\|(\p{Alnum}+)\]\]/) do |match|
+    html = html.gsub(/\[\[([^\[]+)\|([^\[]+)\]\]/) do |match|
       text = $1
       slug = $2
       g = Glossary.find_by slug: slug
