@@ -17,15 +17,19 @@
     <div id="map_canvas"></div>
   </div>
   <div class='col-md-6'>
-    <div class='pull-left visitimg'>    
-      <% if !@isMercury %>
+    <% if !@isMercury %>
+      <div class='pull-left visitimg'>    
         <img src='<%= Content.text('contact_img_icta', @isMercury, 'raw')%>'>
-      <% else %>
+      </div>
+    <% else %>
+      <div>
         Image URL (editor only):
         <%= Content.text('contact_img_icta', @isMercury)%>
-      <% end %>
+      </div>
+    <% end %>
+    <div>
+      <%= Content.text('contact_visit_content', @isMercury) %>
     </div>
-    <%= Content.text('contact_visit_content', @isMercury) %>
   </div>  
 </div>
 <script>
