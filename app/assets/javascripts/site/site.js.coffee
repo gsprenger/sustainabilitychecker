@@ -28,3 +28,17 @@ window.setup = ->
     placement: 'bottom',
     trigger: 'hover click',
   }
+  # create and init scrollTop button
+  $('body').append("""
+      <div id='scrolltopicon-cont'>
+        <div id='scrolltopicon' title='Scroll to the top'><i class='fa fa-arrow-circle-o-up'></i></div>"
+      </div>
+    """)
+  $(window).scroll ->
+    if $(this).scrollTop() > 100
+      $('#scrolltopicon-cont').fadeIn()
+    else
+      $('#scrolltopicon-cont').fadeOut()
+  $('#scrolltopicon').on 'click', ->
+    $('html, body').animate({scrollTop : 0},800)
+    false

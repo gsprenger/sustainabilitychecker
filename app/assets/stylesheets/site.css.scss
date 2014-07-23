@@ -240,6 +240,15 @@ body {
   border-top: 1px solid #DEDEDE;
 }
 
+#scrolltopicon-cont {
+  position: fixed;
+  bottom: -4px;
+  right: 6px;
+  display: none;
+  font-size: 36px;
+  cursor: pointer;
+}
+
 // INDEX
 .index-intro {
   padding-top: 10px;
