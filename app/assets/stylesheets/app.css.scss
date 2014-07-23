@@ -433,6 +433,26 @@ $googlecolor: #dd4b39;
   }
 }
 
+.row-equalheight {
+  overflow: hidden; 
+}
+
+.col-equalheight {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.sliders-image-main {
+  text-align: center;
+  border-left: 2px solid #eee;
+}
+
+.sliders-image-main img {
+  padding: 0 30px;
+  width: 100%;
+  height: auto;
+}
+
 #ene-resulttext {
   margin-bottom: 15px;
   text-align: center;

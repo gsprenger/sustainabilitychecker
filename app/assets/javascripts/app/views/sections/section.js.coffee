@@ -17,6 +17,8 @@ class window.SectionView
           console.error('Unknown ChoiceView type: '+c.type)
     if App.get().level >= 2
       @sectionInfoView = new SectionInfoView(@section)
+    if @section.slug == 'd_hou' || @section.slug == 'd_ser'
+      @sliderImageView = new SliderImageView(@section)
 
   render: ->
     l = App.get().level
@@ -29,8 +31,24 @@ class window.SectionView
         <div class='description'>
           #{c.text(p+'_desc')}
         </div>
-        <div class='choice' id='choice-#{@section.slug}'>
-        </div>
+      """
+    if @section.slug == 'd_hou' || @section.slug == 'd_ser'
+      html += """
+          <div class='row-fluid row-equalheight'>
+            <div class='col-md-6 col-equalheight'>
+              <div class='choice' id='choice-#{@section.slug}'></div>
+            </div>
+            <div class='col-md-6 col-equalheight'>
+              <div class='sliders-image-cont'></div>
+            </div>
+          </div>
+          <div class='clearfix'></div>
+        """
+    else
+      html += """
+          <div class='choice' id='choice-#{@section.slug}'></div>
+        """
+    html += """
         <div id='level2-#{@section.slug}' class='sectioninfo-cont'>
         </div>
       """
@@ -55,6 +73,9 @@ class window.SectionView
     # Append choices
     for cv in @choiceViews
       @$el.find("#choice-#{@section.slug}").append(cv.render().$el)
+    # Append Slider image view
+    if @section.slug == 'd_hou' || @section.slug == 'd_ser'
+      @$el.find('.sliders-image-cont').append(@sliderImageView.render().$el)
     # Append level 2 section
     if l >= 2
       @$el.find("#level2-#{@section.slug}").append(@sectionInfoView.render().$el)

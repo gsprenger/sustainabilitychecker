@@ -30,7 +30,6 @@ class window.SudokuOverlayView
   toggleOverlay: (open) ->
     if !@$el.hasClass('sliding')
       icon = @$el.find('#overlay-button').find('i')
-      console.log(icon.get(0))
       if open || !@$el.hasClass('out')
         @$el.addClass('sliding')
         icon.removeClass('fa-chevron-up')

@@ -102,3 +102,18 @@ class window.Households
 
   get_ET_HH: ->
     (@get_EMR_HH() * App.get().demographics.get_HA_HH())/1000
+
+  get_urb: ->
+    @sliders['urb'].getValue()
+
+  get_rur: ->
+    @sliders['rur'].getValue()
+
+  get_sub: ->
+    @sliders['sub'].getValue()
+
+  get_apa: ->
+    @sliders['apa'].getValue()
+
+  get_slu: ->
+    @sliders['slu'].getValue()

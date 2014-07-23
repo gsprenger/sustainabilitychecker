@@ -1,15 +1,23 @@
 class window.Services
+  @values: [null, 'low', 'med', 'high']
+
   constructor: ->
     @name = 'services'
     @slug = 'd_ser'
     @type = 'demand'
     @headerIcon = 'fa-medkit'
     @i18nPrefix = 'chkr_ser'
+    @sliders = {
+      'edu': new Slider('d_ser_edu', ['low', 'med', 'high'], 'low'),
+      'med': new Slider('d_ser_med', ['low', 'med', 'high'], 'low'),
+      'pub': new Slider('d_ser_pub', ['low', 'med', 'high'], 'low'),
+      'tra': new Slider('d_ser_tra', ['low', 'med', 'high'], 'low')
+    }
     @choices = []
-    @choices.push(new Slider('d_ser_edu', ['low', 'med', 'high'], 'low'))
-    @choices.push(new Slider('d_ser_med', ['low', 'med', 'high'], 'low'))
-    @choices.push(new Slider('d_ser_pub', ['low', 'med', 'high'], 'low'))
-    @choices.push(new Slider('d_ser_tra', ['low', 'med', 'high'], 'low'))
+    @choices.push(@sliders.edu)
+    @choices.push(@sliders.med)
+    @choices.push(@sliders.pub)
+    @choices.push(@sliders.tra)
 
   # SUDOKU DATA #  
   data:
@@ -57,3 +65,15 @@ class window.Services
 
   get_ET_SG: ->
     (@get_HA_SG() * @get_EMR_SG())/1000
+
+  get_edu: ->
+    Services.values.indexOf(@sliders.edu.getValue())
+
+  get_med: ->
+    Services.values.indexOf(@sliders.med.getValue())
+
+  get_pub: ->
+    Services.values.indexOf(@sliders.pub.getValue())
+
+  get_tra: ->
+    Services.values.indexOf(@sliders.tra.getValue())

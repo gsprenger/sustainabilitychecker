@@ -1,21 +1,41 @@
 class window.SliderGroupView
   constructor:(@section, @slidergroup) ->
     @$el = $("<div class='slidergroup'>")
-    @sliderViews = []
-    for s in @slidergroup.sliders
-      @sliderViews.push(new SliderView(@section, s, true))
+    if @slidergroup.slug == "ele" || @slidergroup.slug == "fue"
+      @sliderImageView = new SliderImageView(@section, @slidergroup.slug)
 
   render: ->
     c = App.get().content
     p = @section.i18nPrefix
-    html = """
+    @sliderViews = [] 
+    for s in @slidergroup.sliders
+      @sliderViews.push(new SliderView(@section, s, true))
+    html = """      
         <div class='slidergroup-title'>
           #{c.text(p+'_slidergroup_'+@slidergroup.slug, 'none')}
         </div>
-      """
+        """
+    if @slidergroup.slug == "ele" || @slidergroup.slug == "fue"
+      html += """
+          <div class='row-fluid row-equalheight'>
+            <div class='col-md-6 col-equalheight'>
+              <div class='slidergroup-container'></div>
+            </div>
+            <div class='col-md-6 col-equalheight'>
+              <div id='#{p}_sg_img_cont' class='sliders-image-cont'></div>
+            </div>
+          </div>
+          <div class='clearfix'></div>
+        """
+    else
+      html += """
+          <div class='slidergroup-container'></div>
+        """
     @$el.html(html)
     for v in @sliderViews
-      @$el.append(v.render().$el)
+      @$el.find('.slidergroup-container').append(v.render().$el)
+    if @slidergroup.slug == "ele" || @slidergroup.slug == "fue"
+      @$el.find('.sliders-image-cont').append(@sliderImageView.render().$el)
     @events()
     return this
 
@@ -29,13 +49,11 @@ class window.SliderGroupView
       sliderEl.on 'slidestart', (e, ui) =>
         prevVal = ui.value
       sliderEl.on 'slidechange', (e, ui) =>
-        if (slidingSlider && (name == 'd_hou_urb' || name == 'd_hou_rur'))
-          hh = App.get().households
-          hh.updateSecondGroup(if name == 'd_hou_urb' then ui.value else 100 - ui.value)
         if slidingSlider
           $(window).trigger 'choicecomplete'
           slidingSlider = false
       sliderEl.on 'slide', (e, ui) =>
+        slidingSlider = true
         # Get nearest value
         diff = null
         for val in v.slider.values
@@ -88,7 +106,15 @@ class window.SliderGroupView
                           break
             if (diff == 0)
               break
+          if (name == 'd_hou_urb' || name == 'd_hou_rur')
+            hh = App.get().households
+            hh.updateSecondGroup(if name == 'd_hou_urb' then nearest else 100 - nearest)
+          if (@section.slug == "d_hou" || @section.slug == "s_ene")
+            $(window).trigger 'updatesliderimage',
+              section:     @section.slug, 
+              slidergroup: @slidergroup.slug, 
+              slider:      name
+              value:       nearest
           if (diff != 0)
             console.error("This setup of linked sliders is probably not supported. Something must have gone wrong somewhere and the total is not 100 anymore.")
-        slidingSlider = true
         return false

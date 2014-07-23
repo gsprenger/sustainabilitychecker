@@ -33,5 +33,4 @@ class window.IntroView
     @$el.find('.btnnext').on 'click', ->
       $(window).trigger('sectioncomplete', 'intro')
     @$el.find('.btngoback').on 'click', ->
-      console.log("/level#{(App.get().level)-1}")
       window.location = "/level#{(App.get().level)-1}"

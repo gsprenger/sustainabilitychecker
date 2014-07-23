@@ -185,3 +185,27 @@ class window.Energy
        (@app.households.get_perc_ET_ELEC() / 100)) + 
      (@get_LU_FUELS() / @data.GER_EC_FUELS * 
        (@app.households.get_perc_ET_FUELS() / 100)))
+
+  get_nuc: ->
+    @sliders.nuc.getValue()
+
+  get_hyd: ->
+    @sliders.hyd.getValue()
+
+  get_win: ->
+    @sliders.win.getValue()
+
+  get_pho: ->
+    @sliders.pho.getValue()
+
+  get_csp: ->
+    @sliders.csp.getValue()
+
+  get_bio: ->
+    @sliders.bio.getValue()
+
+  get_hyg: ->
+    @sliders.hyg.getValue()
+
+  get_ncf: ->
+    @sliders.ncf.getValue()

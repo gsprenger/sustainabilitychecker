@@ -16,16 +16,26 @@ class window.SliderView
 
   events: ->
     sliderEl = @$el.find('.slider')
-    if (@slider.sliderType == 'number')
-      sliderEl.on 'slide', (e, ui) =>
+    prevVal = -1
+    sliderEl.on 'slide', (e, ui) =>
+      if (@slider.sliderType == 'number')
+        # prevent sliding on unautorized values
         diff = null
         for val in @slider.values
           newDiff = Math.abs(ui.value - val)
           if (diff == null || newDiff < diff)
             diff = newDiff
             nearest = val
-        sliderEl.slider('value', nearest)
+        if (!@isFromSliderGroup && (nearest != prevVal))
+          sliderEl.slider('value', nearest)
+          $(window).trigger "updatesliderimage", {section: @section.slug, slider: @slider.slug, value: nearest}
+          prevVal = nearest
         return false
+      else
+        val = ui.value
+        if (!@isFromSliderGroup && (val != prevVal))
+          $(window).trigger "updatesliderimage", {section: @section.slug, slider: @slider.slug, value: ui.value}
+          prevVal = ui.value
     # save on Change
     sliderEl.on 'slidechange', (e, ui) =>
       @slider.setValue(ui.value)
