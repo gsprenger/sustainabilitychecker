@@ -33,18 +33,9 @@
 <div class='divider'></div>
 <h2><%= Content.text('more_how_title', @isMercury) %></h2>
 <div class='row' id='metabolicpattern'>
-  <div class='col-sm-8 more-section'>
+  <div class='col-sm-12 more-section'>
     <h3><%= Content.text('more_how_1_title', @isMercury) %></h3>
     <p><%= Content.text('more_how_1_desc', @isMercury) %></p>
-  </div>
-  <div class='col-sm-4 more-image'>
-    <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_3', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_3', @isMercury, 'raw')%>'><br>
-    <% else %>
-      Image URL + credit (editor only):
-      <%= Content.text('more_img_3', @isMercury)%>
-      <%= Content.text('more_imgcred_3', @isMercury)%>
-    <% end %>
   </div>
 </div>
 <div class='more-divider'></div>
