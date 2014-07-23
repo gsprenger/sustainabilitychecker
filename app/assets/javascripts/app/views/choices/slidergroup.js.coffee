@@ -18,10 +18,10 @@ class window.SliderGroupView
     if @slidergroup.slug == "ele" || @slidergroup.slug == "fue"
       html += """
           <div class='row-fluid row-equalheight'>
-            <div class='col-md-6 col-equalheight'>
+            <div class='col-md-7 col-equalheight'>
               <div class='slidergroup-container'></div>
             </div>
-            <div class='col-md-6 col-equalheight'>
+            <div class='col-md-5 col-equalheight'>
               <div id='#{p}_sg_img_cont' class='sliders-image-cont'></div>
             </div>
           </div>

@@ -35,10 +35,10 @@ class window.SectionView
     if @section.slug == 'd_hou' || @section.slug == 'd_ser'
       html += """
           <div class='row-fluid row-equalheight'>
-            <div class='col-md-6 col-equalheight'>
+            <div class='col-md-7 col-equalheight'>
               <div class='choice' id='choice-#{@section.slug}'></div>
             </div>
-            <div class='col-md-6 col-equalheight'>
+            <div class='col-md-5 col-equalheight'>
               <div class='sliders-image-cont'></div>
             </div>
           </div>

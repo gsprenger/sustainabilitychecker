@@ -347,17 +347,17 @@ $googlecolor: #dd4b39;
         margin-bottom: 15px;
         &.active  {
           img {
-            border: 2px solid $green;
+            border: 2px solid #23a7c0;
           }
         }
         &:hover  {
           img {
-            border: 2px solid $blue;
+            border: 2px solid transparent;
           }
         }
         &:hover.active  {
           img {
-            border: 2px solid $green;
+            border: 2px solid #23a7c0;
           }
         }
 
@@ -445,12 +445,22 @@ $googlecolor: #dd4b39;
 .sliders-image-main {
   text-align: center;
   border-left: 2px solid #eee;
+  padding: 0 0 0 30px;
 }
 
 .sliders-image-main img {
-  padding: 0 0 0 30px;
   width: 100%;
   height: auto;
+  border: 2px solid #23A7C0 ;
+}
+
+.sliders-image-main .desc {
+  font-weight: 500;
+}
+
+.sliders-image-main .descsub {
+  font-weight: 200;
+  font-size: 85%;
 }
 
 #ene-resulttext {
