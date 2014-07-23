@@ -5,7 +5,7 @@
       <%= Content.text('index_hero_desc', @isMercury) %>
     </p>
     <p class='text-center'>
-      <a href='/level1' class='more'>Start the experience now!<span><i class='fa fa-chevron-right'></i></span></a>
+      <a href='/level1' class='more capitalize'>Start the experience now!<span><i class='fa fa-chevron-right'></i></span></a>
     </p>
   </div>
   <div class='col-sm-6 index-logo'>
@@ -21,7 +21,7 @@
 <div class='divider'></div>
 <div class='row'>
   <div class='col-sm-6 index-playsudoku'>
-    <a href='/level1'>
+    <a href='/level1' class='capitalize'>
       <% if !@isMercury %>
         <img src='<%= Content.text('home_img_sudokuprev', @isMercury, 'raw')%>' title='<%= Content.text('home_imgcred_sudokuprev', @isMercury, 'raw')%>'><br>
       <% else %>
@@ -43,14 +43,14 @@
         <p>
           <%= Content.text('index_about_1_desc', @isMercury) %>
         </p>
-        <a href='/more#narratives' class='more'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
+        <a href='/more#narratives' class='more capitalize'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
       </li>
       <li>
         <h3><%= Content.text('index_about_2_title', @isMercury) %></h3>
         <p>
           <%= Content.text('index_about_2_desc', @isMercury) %>
         </p>
-        <a href='/more#humansocieties' class='more'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
+        <a href='/more#humansocieties' class='more capitalize'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
       </li>
     </ul>
   </div>

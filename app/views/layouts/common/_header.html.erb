@@ -5,16 +5,16 @@
     </h1>
     <ul class="site-nav-items">
       <li>
-        <a <%= action_name == 'index' ? "class=selected " : "" %>href="/">Home</a>
+        <a class='capitalize <%= action_name == 'index' ? " selected" : "" %>' href="/">Home</a>
       </li>
       <li>
-        <a <%= action_name == 'app' ? "class=selected " : "" %>href="/start">Play Now</a>
+        <a class='capitalize <%= action_name == 'app' ? " selected" : "" %>' href="/start">Play Now</a>
       </li>
       <li>
-        <a <%= action_name == 'more' ? "class=selected " : "" %>href="/more">Learn More</a>
+        <a class='capitalize <%= action_name == 'more' ? " selected" : "" %>' href="/more">Learn More</a>
       </li>
       <li>
-        <a <%= action_name == 'contact' ? "class=selected " : "" %>href="/contact">Contact Us</a>
+        <a class='capitalize <%= action_name == 'contact' ? " selected" : "" %>' href="/contact">Contact Us</a>
       </li>
     </ul>
   </div>
