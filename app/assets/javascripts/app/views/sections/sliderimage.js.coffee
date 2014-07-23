@@ -87,7 +87,7 @@ class window.SliderImageView
         prefix = "sligm_#{p}_#{contextSlug}_"
         $img.attr('src', "#{c.text(prefix+'img', 'none')}")
         $img.attr('title', "#{c.text(prefix+'imgcred', 'none')}")
-        $desc.text("#{c.text(prefix+'desc', 'none')}")
+        $desc.html("<div>#{c.text(prefix+'desc', 'none')}</div><div><small>#{c.text(prefix+'descsub', 'none')}</small></div>")
 
   getHHContextSlug:(urb, sub, apa, slu) ->
     prop = if urb == 30 then 'l' else if urb == 50 then 'h' else ''
