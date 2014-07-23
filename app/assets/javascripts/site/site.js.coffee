@@ -31,7 +31,7 @@ window.setup = ->
   # create and init scrollTop button
   $('body').append("""
       <div id='scrolltopicon-cont'>
-        <div id='scrolltopicon' title='Scroll to the top'><i class='fa fa-arrow-circle-o-up'></i></div>"
+        <div id='scrolltopicon' title='Scroll to the top'><i class='fa fa-arrow-circle-o-up'></i></div>
       </div>
     """)
   $(window).scroll ->
