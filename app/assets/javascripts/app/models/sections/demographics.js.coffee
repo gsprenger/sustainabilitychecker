@@ -3,7 +3,7 @@ class window.Demographics
     @name = 'demographics'
     @slug = 'd_dem'
     @type = 'demand'
-    @headerIcon = 'fa-globe'
+    @headerIcon = 'fa-users'
     @i18nPrefix = 'chkr_dem'
     @choices = []
     @choices.push(new Radio(@slug, ['low', 'med', 'high']))

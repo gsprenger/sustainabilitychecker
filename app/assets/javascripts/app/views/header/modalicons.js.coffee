@@ -8,7 +8,7 @@ class window.ModalIconsView
     c = app.content
     html = """
         <div class='modalicon' id='modaliconshare' title='#{c.text('chkr_modal_share_t', 'none')}' data-toggle='tooltip'>
-          <i class='fa fa-share'></i>
+          <i class='fa fa-share-alt'></i>
         </div>
         <div class='modalicon' id='modaliconhelp' title='#{c.text('chkr_modal_help_t', 'none')}' data-toggle='tooltip'>
           <i class='fa fa-question'></i>

@@ -92,7 +92,7 @@ class window.HelpSectionView
                 <div class='helptabicon'>
                   <div class='help-table'>
                     <div class='help-cell'>
-                      <i class='fa fa-globe'></i>
+                      <i class='fa fa-users'></i>
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ class window.HelpSectionView
                 <div class='helptabicon'>
                   <div class='help-table'>
                     <div class='help-cell'>
-                      <i class='fa fa-bolt'></i>
+                      <i class='fa fa-fire'></i>
                     </div>
                   </div>
                 </div>

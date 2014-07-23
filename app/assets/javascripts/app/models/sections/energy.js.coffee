@@ -3,7 +3,7 @@ class window.Energy
     @name = 'energy'
     @slug = 's_ene'
     @type = 'supply'
-    @headerIcon = 'fa-bolt'
+    @headerIcon = 'fa-fire'
     @i18nPrefix = 'chkr_ene'
     @choices = []
     @sliders = {
