@@ -141,7 +141,7 @@ $googlecolor: #dd4b39;
   #headernav-cont {
     position: relative;
     margin: auto;
-    width: 680px;
+    width: 686px;
 
     .titles {
       position: absolute;
@@ -151,50 +151,45 @@ $googlecolor: #dd4b39;
       .title {
         float: left;
         font-weight: 500;
+        margin-right: 2px;
+        border-top: 2px solid #999;
+        color: #666;
       }
 
       .levels {
-        border-top: 2px solid $level3;
         width: 170px;
       }
 
-      .demand {
-        border-top: 2px solid $greenborder;
-        width: 220px;
-      }
-
-      .supply {
-        border-top: 2px solid $redborder;
+      .demand, .supply {
         width: 220px;
       }
 
       .check {
-        border-top: 2px solid $level3;
         width: 55px;
       }
     }
 
     hr.hr-sec {
       position: absolute;
-      top: 21px;
+      top: 20px;
       right: 30px;
       width: 465px;
       border: 0;
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid #BBB;
     }
 
     hr.hr-lvls {
       position: absolute;
-      top: 21px;
+      top: 20px;
       left: 25px;
       width: 125px;
       border: 0;
-      border-bottom: 1px solid $black;
+      border-bottom: 1px solid #BBB;
     }
 
     .ul-levels {
       position: absolute;
-      top: 27px;
+      top: 18px;
       list-style-type: none;
       padding-left: 0;
 
@@ -209,25 +204,16 @@ $googlecolor: #dd4b39;
           height: 30px;
           margin: 0 12px;
           padding-left: 1px;
-          background-color: $lightgrey;
-          border: 1px solid $black;
-          border-radius: 50%;
-          color: $textgrey;
+          color: #00B2CB;
           font-size: 17px;
-          line-height: 28px;
-          cursor: default;
+          line-height: 10px;
+          cursor: pointer;
           transition: 
             background-color 1s ease, 
             color 1s ease;
           &:hover, &:focus, &:visited {
+            color: #00B2CB;
             text-decoration: none;
-          }
-          &.current {
-            font-weight: 600;
-          }
-          &.available {
-            color: #000;
-            cursor: pointer;
           }
           &.level1.available {
             background-color: $level1;
@@ -238,13 +224,16 @@ $googlecolor: #dd4b39;
           &.level3.available  {
             background-color: $level3;
           }
+          .levelnumber {
+            color: #333;
+          }
         }
       }
     }
 
     .ul-navigation {
       position: absolute;
-      top: 27px;
+      top: 18px;
       left: 170px;
       list-style-type: none;
       padding-left: 0;
@@ -260,43 +249,23 @@ $googlecolor: #dd4b39;
           height: 30px;
           margin: 0 12px;
           padding-left: 1px;
-          background-color: $white;
-          border: 1px solid $black;
-          border-radius: 50%;
-          color: #000;
-          line-height: 28px;
+          color: #00B2CB;
           font-size: 17px;
+          line-height: 28px;
+          cursor: pointer;
           transition: 
             background-color 1s ease, 
             color 1s ease;
           &:hover, &:focus, &:visited { 
-            color: $black;
-          }
-          &.active.demand {
-            background-color: $darkgreen;
-          }
-          &.active.supply {
-            background-color: $darkred;
-          }
-          &.activelevel1 {
-            background-color: $level1;
-          }
-          &.activelevel2 {
-            background-color: $level2;
-          }
-          &.activelevel3 {
-            background-color: $level3;
-          }
-          &.complete.demand {
-            background-color: $green;
-          }
-          &.complete.supply {
-            background-color: $red;
+            color: #00B2CB;
           }
         }
       }
     }
   }
+}
+.colorwhite {
+  color: #fff;
 }
 
 /** SECTIONS **/

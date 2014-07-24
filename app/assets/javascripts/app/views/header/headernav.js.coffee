@@ -24,10 +24,14 @@ class window.HeaderNavView
     for i in [1..3]
       curr = (if (i == app.level) then ' current' else '')
       avlb = (if (i <= app.level) then ' available' else '')
+      levelIcon = [null, 'fa-minus', 'fa-bars', 'fa-bars']
       html += """
                 <li>
-                  <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link#{curr}#{avlb}#{' level'+i}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}' data-toggle='tooltip'>
-                    #{i}
+                  <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link' title='#{c.text('chkr_navtool_lvl'+i, 'none')}' data-toggle='tooltip'>
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-square fa-stack-2x"></i>
+                      <i class="fa #{levelIcon[i]} fa-stack-1x colorwhite"></i>
+                    </span>
                   </a>
                 </li>
         """
@@ -36,21 +40,26 @@ class window.HeaderNavView
           <ul class='ul-navigation' role='navigation'>
       """
     for s in app.sections
-      com = (if (app.experiment.isCompleted(s.slug)) then ' complete' else '')
-      act = (if (app.experiment.getCurrent() == s.slug) then ' active' else '')
+      com = (app.experiment.isCompleted(s.slug))
       p = s.i18nPrefix
       html += """
               <li>
-                <a href='##{s.name}' class='nav-link #{s.type}#{com}#{act}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
-                  <i class="fa #{s.headerIcon}"></i>
+                <a href='##{s.name}' class='nav-link #{s.type}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-square fa-stack-2x"></i>
+                    <i class="fa #{s.headerIcon} fa-stack-1x colorwhite#{if com then ' fa-inverse' else ''}"></i>
+                  </span>
                 </a>
               </li>
         """
-    act = (if (l != 1 || app.experiment.getCurrent() == 'check') then ' activelevel'+l else '')
+    com = (l != 1 || app.experiment.getCurrent() == 'check')
     html += """
             <li>
-              <a href='#check' class='check nav-link#{act}' title='#{c.text('chkr_check_title', 'none')}' data-toggle='tooltip'>
-                <i class="fa fa-check"></i>
+              <a href='#check' class='check nav-link' title='#{c.text('chkr_check_title', 'none')}' data-toggle='tooltip'>
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-square fa-stack-2x"></i>
+                  <i class="fa fa-check fa-stack-1x colorwhite#{if com then ' fa-inverse' else ''}"></i>
+                </span>
               </a>
             </li>
           </ul>
