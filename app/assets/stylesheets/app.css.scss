@@ -557,6 +557,7 @@ $googlecolor: #dd4b39;
         text-align: center;
         color: $black;
         text-shadow: 1px 1px 1px #eee;
+        font-weight: 200;
       }
 
       .bar-title {
@@ -954,10 +955,6 @@ $googlecolor: #dd4b39;
 
 .modal-help .tabcheck .helptabicon.active {
   // background-color: #B8D0DE;
-}
-
-.modal-help {
-  margin-top: 155px;
 }
 
 #modal-share h1 {
