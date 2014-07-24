@@ -6,7 +6,7 @@ class window.CheckRadarView
     $(window).on 'appready', =>
       @canDraw = true
       @drawRadar()
-    $(window).on 'resize', =>
+    $(window).on 'resize drawradar', =>
       @drawRadar()
 
   render: ->

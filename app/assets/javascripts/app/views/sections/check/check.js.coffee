@@ -10,6 +10,7 @@ class window.CheckView
     $(window).on 'showcheck', =>
       @render()
       @$el.show()
+      $(window).trigger "drawradar"
       $('body,html').stop(true,true).animate({scrollTop: $('#check').offset().top}, 500)
     $(window).on 'choicecomplete', =>
       @render()

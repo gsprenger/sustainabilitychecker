@@ -53,9 +53,6 @@ class window.CheckGraphView
     @$el.find('.bar-upper.bar-energy .bar-percent').text(if heightUpperEnergy <= 15 then '' else heightUpperEnergy+'%')
     @$el.find('.bar-lower.bar-food .bar-percent').text(if heightLowerFood <= 15 then '' else heightLowerFood+'%')
     @$el.find('.bar-lower.bar-energy .bar-percent').text(if heightLowerEnergy <= 15 then '' else heightLowerEnergy+'%')
-    # update color
-    @$el.find('.bar-food').addClass('bar-'+(if heightUpperFood >= 80 then 80 else 0))
-    @$el.find('.bar-energy').addClass('bar-'+(if heightUpperEnergy >= 80 then 80 else 0))
     # Update bars: first top bars, then lower bars.
     # setTimeout ->
     @$el.find('.bar-upper.bar-food').css('height', heightUpperFood+'%')
