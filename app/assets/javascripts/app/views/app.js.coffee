@@ -85,7 +85,7 @@ class window.AppView
   events: ->
     # Init smooth scrolling
     @$el.find('.nav-link').on 'click', (e) ->
-      $('body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
+      $('html, body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
       return false
 
   setupForMercury: ->
