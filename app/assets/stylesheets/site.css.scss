@@ -44,20 +44,24 @@ body {
   text-align: center;
   line-height: 4px;
   text-transform: uppercase;
-  font-weight: 100;
-  a {
-    color: #999;
-    &:hover {
-      text-decoration: none;
-      color: #428BCA;
-    }
-  }
+  font-weight: 100;  
 }
 
 .site-logo a {
   display: block;
   width: 150px;
   height: 130px;
+}
+
+.site-hashtag a {
+  color: #999;
+  width: auto;
+  height: auto;  
+}
+
+.site-hashtag a:hover {
+  text-decoration: none;
+  color: #428BCA;
 }
 
 .site-nav-items {
@@ -282,6 +286,7 @@ body {
 
 .index-playsudoku {
   text-align: center;
+  padding: 0 50px;
 }
 
 .index-about h2 {
