@@ -561,6 +561,35 @@
   <hr>
 </div>
 
+<h3><a href='#permahelp' data-toggle='collapse'>Permalink Help Modal</a></h3>
+<p class='desc'>Modal displayed when following a Sudoku permalink.</p>
+<div id='permahelp' class='cont3 collapse fade'>
+  <h5>Title</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_helppermalink_title', @isMercury) %></p>
+  </div>
+  <h5>Paragraph 1</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_helppermalink_paragraph', @isMercury) %></p>
+  </div>
+  <h5>Paragraph 2</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_helppermalink_paragraph2', @isMercury) %></p>
+  </div>
+  <h5>Close Text (besides buttons)</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_helpperma_close_text_permalink', @isMercury) %></p>
+  </div>
+  <h5>Reset button</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_help_permalinkreset', @isMercury) %></p>
+  </div>
+  <h5>Ok Load Settings Button</h5>
+  <div class='cont5'>
+    <p><%= Content.text('modal_help_okloadsettings', @isMercury) %></p>
+  </div>
+</div>
+
 <h3><a href='#misc' data-toggle='collapse'>Miscellaneous</a></h3>
 <p class='desc'>Items whose ID appear several times in the same page and thus cannot be edited live.</p>
 <div id='misc' class='cont3 collapse fade'>
@@ -668,4 +697,4 @@
       <p><%= Content.text('chkr_ene_ncf', @isMercury) %></p>
     </div>
   </div>
-</div>
+</div>  
