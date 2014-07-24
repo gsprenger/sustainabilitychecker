@@ -1,6 +1,7 @@
 class window.SectionView
   constructor:(@section) ->
     @$el = $("<div class='section in-level#{App.get().level}' id='#{@section.name}' data-slug=#{@section.slug}>")
+    @section.view = this
     @choiceViews = []
     for c in @section.choices
       switch (c.type)
@@ -106,4 +107,22 @@ class window.SectionView
       $(window).on 'choicecomplete', =>
         updateField()
       updateField()
+
+  getTopology: ->
+    switch @section.slug
+      when "d_dem", "d_die", "s_lan", "s_bm", "s_agr"
+        # Radio 1 topo
+        @choiceViews[0].radio.getValue()
+      when "d_ser"
+        # Slider 1 topo
+        @sliderImageView.getSGContextSlug()
+      when "d_hou"
+        # Slider group 1 topo
+        @sliderImageView.getHHContextSlug()
+      when "s_ene"
+        # Slider group 2 topo
+        [
+          @choiceViews[0].sliderImageView.getElecContextSlug()
+          @choiceViews[1].sliderImageView.getFuelsContextSlug()
+        ]
 
