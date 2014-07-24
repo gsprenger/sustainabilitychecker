@@ -38,6 +38,22 @@ body {
   margin-right: 50px;
 }
 
+.site-hashtag {
+  text-indent: 0px;
+  font-size: 10px;
+  text-align: center;
+  line-height: 4px;
+  text-transform: uppercase;
+  font-weight: 100;
+  a {
+    color: #999;
+    &:hover {
+      text-decoration: none;
+      color: #428BCA;
+    }
+  }
+}
+
 .site-logo a {
   display: block;
   width: 150px;
