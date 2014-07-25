@@ -215,22 +215,27 @@ class window.Sudoku
     Math.round(@get_DS_energy() / (@get_DS_energy() + @get_imports_energy()) * 100)
 
   getSuccess: ->
-    @getFoodSuccess() && @getEnergySuccess && @getHASuccess() && @getLUSuccess() && @getEMRSuccess()
+    (@getFoodSuccess() && @getEnergySuccess() && @getHASuccess() && @getLUSuccess() && @getEMRSuccess())
 
   getFoodSuccess: ->
     threshold = 80
+    console.log("Food success: #{@get_percent_local_food()} >= #{threshold} = #{@get_percent_local_food() >= threshold}")
     @get_percent_local_food() >= threshold 
 
   getEnergySuccess: ->
     threshold = 80
+    console.log("Energy success: #{@get_percent_local_energy()} >= #{threshold} = #{@get_percent_local_energy() >= threshold}")
     @get_percent_local_energy() >= threshold
     
   getHASuccess: ->
-    @get_THA() <= 8760 
+    console.log("HA success: #{@get_THA()} <= 8760 = #{@get_THA() <= 8760}")
+    @get_THA() <= 8760
     
   getLUSuccess: ->
+    console.log("LU success: #{@get_TLU()} <= #{@get_DS_LU()} = #{@get_TLU() <= @get_DS_LU()}")
     @get_TLU() <= @get_DS_LU()
     
   getEMRSuccess: ->
+    console.log("EMR success: #{@get_EMR_WS()} >= 5 = #{@get_EMR_WS() >= 5}")
     @get_EMR_WS() >= 5
     
