@@ -1,7 +1,7 @@
 class window.HelpModal
   constructor: ->
     @$el = $('<div class="modal fade modal-help" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
-    @helpSection = new HelpSectionView()
+    @helpSection = new HelpSectionView("help_")
 
   render: ->
     c = App.get().content

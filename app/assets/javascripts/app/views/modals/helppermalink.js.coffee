@@ -1,7 +1,7 @@
 class window.HelpPermalinkModal
   constructor: ->
     @$el = $('<div class="modal fade modal-help" id="modal-helppermalink" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">')
-    @helpSection = new HelpSectionView()
+    @helpSection = new HelpSectionView("helpperma_")
 
   render: ->
     c = App.get().content
