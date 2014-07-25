@@ -322,7 +322,13 @@ class window.SudokuView
     @$el.find('td').each (i, td) ->
       val = $(td).text()
       if (val != "" && !isNaN(val))
-        $(td).text(+(+val).toPrecision(2))
+        if val.indexOf('.') == -1 && val.length > 3 
+          precision = val.length - 1
+        else if val.indexOf('.') > 3
+          precision = val.indexOf('.') - 1
+        else
+          precision = 2
+        $(td).text(+(+val).toPrecision(precision))
         if ($(td).text() == '0')
           $(td).text('negl.')
     @events()
