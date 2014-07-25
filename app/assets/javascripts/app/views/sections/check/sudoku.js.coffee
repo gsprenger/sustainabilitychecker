@@ -196,19 +196,19 @@ class window.SudokuView
             <strong>Consumption</strong>
             <i class='fa fa-info-circle' id='chkr_sud_consumption_c' data-toggle='popover' data-title='#{c.text('chkr_sud_consumption_t', 'attr')}' data-content='#{c.text('chkr_sud_consumption_c', 'attr')}' data-container='#chkr_sud_consumption_c'></i>
           </td>
-          <td class='cell-header' id='hws'>
+          <td class='cell-header doublebot n-level' id='hws'>
             <i class='fa fa-info-circle' id='chkr_sud_ws_c' data-toggle='popover' data-title='#{c.text('chkr_sud_ws_t', 'attr')}' data-content='#{c.text('chkr_sud_ws_c', 'attr')}' data-container='#chkr_sud_ws_c'></i>
             <strong>Whole society</strong>
           </td>
-          <td id='TFOOD' class='cell-number'>#{@TFOOD}</td>
-          <td id='TET' class='cell-number'>#{@TET}</td>
-          <td id='THA' class='cell-number'>#{@THA}</td>
-          <td id='TLU' class='cell-number'>#{@TLU}</td>
-          <td id='EMR_WS' class='cell-number'>#{@EMR_WS}</td>
-          <td class='cell-number'>#{@FMD_WS}</td>
+          <td id='TFOOD' class='cell-number doublebot'>#{@TFOOD}</td>
+          <td id='TET' class='cell-number doublebot'>#{@TET}</td>
+          <td id='THA' class='cell-number doublebot'>#{@THA}</td>
+          <td id='TLU' class='cell-number doublebot'>#{@TLU}</td>
+          <td id='EMR_WS' class='cell-number doublebot'>#{@EMR_WS}</td>
+          <td class='cell-number doublebot'>#{@FMD_WS}</td>
         </tr>
         <tr>
-          <td class='cell-header' id='hhh'>
+          <td class='cell-header n-1-level' id='hhh'>
             <i class='fa fa-info-circle' id='chkr_sud_hh_c' data-toggle='popover' data-title='#{c.text('chkr_sud_hh_t', 'attr')}' data-content='#{c.text('chkr_sud_hh_c', 'attr')}' data-container='#chkr_sud_hh_c'></i>
             <strong>Households</strong>
           </td>

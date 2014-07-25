@@ -832,6 +832,50 @@ $googlecolor: #dd4b39;
   text-align: left;
 }
 
+#sudoku .doublebot {
+  border-bottom-style: double;
+}
+
+#sudoku .n-level {
+  position: relative;
+}
+
+#sudoku .n-level:after {
+  content: "Level n";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 2px 5px;
+  font-size: 9px;
+  color: #666;
+  font-weight: 600;
+  border-left: 1px solid #666;
+  border-bottom: 1px solid #666;
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+}
+
+#sudoku .n-1-level {
+  position: relative;
+}
+
+#sudoku .n-1-level:after {
+  content: "Level n-1";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 2px 5px;
+  font-size: 9px;
+  color: #666;
+  font-weight: 600;
+  border-left: 1px solid #666;
+  border-bottom: 1px solid #666;
+  -webkit-border-radius: 0 0 0 4px;
+  -moz-border-radius: 0 0 0 4px;
+  border-radius: 0 0 0 4px;
+}
+
 // Different colors for each level
 .in-level1 {
   .btn-primary {
