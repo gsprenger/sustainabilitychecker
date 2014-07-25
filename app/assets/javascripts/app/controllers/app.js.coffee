@@ -19,7 +19,7 @@ class window.App
       else
         requestedLvl = 1
       # if trying to play a level without having played previous ones, redirect
-      if requestedLvl > @experiment.getLastLevel()
+      if requestedLvl > @experiment.getLastLevel() && @experiment.getCurrent() != 'check'
         document.location = '/level'+@experiment.getLastLevel()
       # if trying to load an already played level or last level, allow it. 
       else
