@@ -34,8 +34,8 @@ class window.Radar
           'low':  10
           'med':  50
           'high': 90
-    "sov":
-      "qual":
+    "sec":
+      "food":
         "1":
           '4':  10
           '5':  20
@@ -46,18 +46,8 @@ class window.Radar
           '10': 70
           '11': 80
           '12': 90
-      "quan":
+      "energy":
         "1":
-          '0.1': 10
-          '0.2': 20
-          '0.4': 30
-          '0.5': 40
-          '0.6': 50
-          '0.7': 60
-          '0.8': 70
-          '0.9': 80
-          '100': 90
-        "2":
           '0.1': 10
           '0.2': 20
           '0.4': 30
@@ -120,12 +110,11 @@ class window.Radar
   get_eco_dev: ->
     +(@data.eco.dev[1][@bm.getValue()]).toPrecision(1)
 
-  get_sov_qual: ->
-    +(@data.sov.qual[1][@services.getValue()]).toPrecision(1)
+  get_sec_food: ->
+    +(@findIntervalInf(@data.sec.food[1], (@sudoku.get_DS_food() / @sudoku.get_TFOOD()))).toPrecision(1)
 
-  get_sov_quan: ->
-    +((@findIntervalInf(@data.sov.quan[1], (@sudoku.get_DS_food() / @sudoku.get_TFOOD())) +
-     @findIntervalInf(@data.sov.quan[1], (@sudoku.get_DS_energy() / @sudoku.get_TET()))) / 2).toPrecision(1)
+  get_sec_energy: ->
+    +(@findIntervalInf(@data.sec.energy[1], (@sudoku.get_DS_energy() / @sudoku.get_TET()))).toPrecision(1)
 
   get_soc_wage: ->
     +((@data.soc.wage[1][@agriculture.getValue()] + 
@@ -164,53 +153,21 @@ class window.Radar
       med:  70,
       high: 100
     data = [
-      {
-        section: 'International trade',
-        name: 'Quality',
-        value: @get_sov_qual()
-      },
-      {
-        section: 'International trade',
-        name: 'Quantity',
-        value: @get_sov_quan()
-      },
-      {
-        section: 'Society',
-        name: 'Wage',
-        value: @get_soc_wage()
-      },
-      {
-        section: 'Society',
-        name: 'Jobs',
-        value: @get_soc_jobs()
-      },
-      {
-        section: 'Environment',
-        name: 'Land use',
-        value: @get_env_lan()
-      },
-      {
-        section: 'Environment',
-        name: 'Soil pollution',
-        value: @get_env_pol()
-      },
-      {
-        section: 'Economic',
-        name: 'Value added',
-        value: @get_eco_val()
-      },
-      {
-        section: 'Economic',
-        name: 'Currency',
-        value: @get_eco_dev()
-      }
+      @get_sec_food(),
+      @get_sec_energy(),
+      @get_soc_wage(),
+      @get_soc_jobs(),
+      @get_env_lan(),
+      @get_env_pol(),
+      @get_eco_val(),
+      @get_eco_dev()
     ]
     # Generate data
     chartData = []
     for i in [0..data.length-1]
       # cap min max
-      value = Math.max(data[i].value, 30)
-      value = Math.min(data[i].value, 100)
+      value = Math.max(data[i], 30)
+      value = Math.min(data[i], 100)
       # determine color
       if value >= thresholds.low
         if value >= thresholds.med
