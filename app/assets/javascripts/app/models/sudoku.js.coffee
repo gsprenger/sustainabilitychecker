@@ -10,12 +10,12 @@ class window.Sudoku
     @agriculture = app.agriculture
     @energy = app.energy
     # loop variables
-    @THALoopExecuted = false
-    @TLULoopExecuted = false
+    @THALoopFinished = false
+    @TLULoopFinished = false
 
   reset: ->
-    @THALoopExecuted = false
-    @TLULoopExecuted = false
+    @THALoopFinished = false
+    @TLULoopFinished = false
 
   # SUDOKU DATA #
   get_TFOOD: ->
@@ -88,10 +88,11 @@ class window.Sudoku
     while THA > 8761
       HA_PWs = HA_SG + HA_BM + HA_AG + HA_EM
       THAs = HA_HH + HA_PWs
-      HA_SG = HA_SG * (HA_PW / HA_PWs)
-      HA_BM = HA_BM * (HA_PW / HA_PWs)
-      HA_AG = HA_AG * (HA_PW / HA_PWs)
-      HA_EM = HA_EM * (HA_PW / HA_PWs)
+      coeff = (HA_PW / HA_PWs)
+      HA_SG = HA_SG * coeff
+      HA_BM = HA_BM * coeff
+      HA_AG = HA_AG * coeff
+      HA_EM = HA_EM * coeff
       THA = HA_HH + HA_SG + HA_BM + HA_AG + HA_EM
       HA_virtual = THAs - THA
     @THALoopFinished = true
@@ -136,12 +137,12 @@ class window.Sudoku
     LU_virtual = 0
     LU_AG = @agriculture.get_LU_AG()
     LU_EM = @energy.get_LU_EM()
-    cnt = 0
-    while TLU > @land.get_s_lan() && cnt < 20
-      cnt++
+    s_lan = @land.get_s_lan()
+    while TLU > s_lan
       TLUs = LU_AG + LU_EM
-      LU_AG = LU_AG * (TLU / TLUs)
-      LU_EM = LU_EM * (TLU / TLUs)
+      coeff = (1 - (TLU - s_lan) / TLU )
+      LU_AG = LU_AG * coeff
+      LU_EM = LU_EM * coeff
       TLU = LU_AG + LU_EM
       LU_virtual = TLUs - TLU
     @TLULoopFinished = true
