@@ -24,8 +24,8 @@ class window.CheckSummaryView
         """
       if (s.slug != "s_ene")
         html += """
-            <div class='sum-topo'>
-              Topology: <span class='topology'>#{c.text(data[s.slug].topo, 'none')}</span>
+            <div class='sum-typo'>
+              Typology: <span class='typology'>#{c.text(data[s.slug].typo, 'none')}</span>
               <span class='country'>#{c.text(data[s.slug].country, 'none')}</span><br>
           """
         # Values
@@ -48,8 +48,8 @@ class window.CheckSummaryView
         for i in [0, 1]
           html += """
               #{sgName[i]}<br>
-              <div class='sum-topo'>
-                Topology: <span class='topology'>#{c.text(data[s.slug+sgSlug[i]].topo, 'none')}</span>
+              <div class='sum-typo'>
+                Typology: <span class='typology'>#{c.text(data[s.slug+sgSlug[i]].typo, 'none')}</span>
                 <span class='country'>#{c.text(data[s.slug+sgSlug[i]].country, 'none')}</span><br>
                 Values:
             """
@@ -71,22 +71,22 @@ class window.CheckSummaryView
     data = {}
     for s in App.get().sections
       p = s.i18nPrefix
-      topo = s.view.getTopology()
+      typo = s.view.getTypology()
       switch s.slug
         when "d_dem", "d_die", "s_lan", "s_bm", "s_agr"
           data[s.slug] = {}
-          data[s.slug].topo = "#{p}_#{topo}_t"
-          data[s.slug].country = "#{p}_#{topo}_c"
+          data[s.slug].typo = "#{p}_#{typo}_t"
+          data[s.slug].country = "#{p}_#{typo}_c"
         when "d_hou", "d_ser"
           data[s.slug] = {}
-          data[s.slug].topo = "sligm_#{p}_#{topo}_desc"
-          data[s.slug].country = "sligm_#{p}_#{topo}_descsub"
+          data[s.slug].typo = "sligm_#{p}_#{typo}_desc"
+          data[s.slug].country = "sligm_#{p}_#{typo}_descsub"
         when "s_ene"
           data[s.slug+"ele"] = {}
           data[s.slug+"fue"] = {}
-          data[s.slug+"ele"].topo = "sligm_#{p}ele_#{topo[0]}_desc"
-          data[s.slug+"ele"].country = "sligm_#{p}ele_#{topo[0]}_descsub"
-          data[s.slug+"fue"].topo = "sligm_#{p}fue_#{topo[1]}_desc"
-          data[s.slug+"fue"].country = "sligm_#{p}fue_#{topo[1]}_descsub"
+          data[s.slug+"ele"].typo = "sligm_#{p}ele_#{typo[0]}_desc"
+          data[s.slug+"ele"].country = "sligm_#{p}ele_#{typo[0]}_descsub"
+          data[s.slug+"fue"].typo = "sligm_#{p}fue_#{typo[1]}_desc"
+          data[s.slug+"fue"].country = "sligm_#{p}fue_#{typo[1]}_descsub"
     return data
 

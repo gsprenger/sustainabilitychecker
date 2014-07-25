@@ -108,7 +108,7 @@ class window.SectionView
         updateField()
       updateField()
 
-  getTopology: ->
+  getTypology: ->
     switch @section.slug
       when "d_dem", "d_die", "s_lan", "s_bm", "s_agr"
         # Radio 1 topo
