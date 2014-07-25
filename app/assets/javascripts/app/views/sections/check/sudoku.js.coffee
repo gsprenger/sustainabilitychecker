@@ -82,6 +82,7 @@ class window.SudokuView
 
   render: ->
     sudoku = App.get().sudoku
+    sudoku.reset()
     c = App.get().content
     l = App.get().level
     if @success?
@@ -102,6 +103,7 @@ class window.SudokuView
     @THA = sudoku.get_THA()
     @TLU = sudoku.get_TLU()
     @EMR_WS = sudoku.get_EMR_WS()
+    @FMD_WS = sudoku.get_FMD_WS()
     @HH_food = sudoku.diet.get_HH_food()
     @ET_HH = sudoku.households.get_ET_HH()
     @HA_HH = sudoku.demographics.get_HA_HH()
@@ -203,7 +205,7 @@ class window.SudokuView
           <td id='THA' class='cell-number'>#{@THA}</td>
           <td id='TLU' class='cell-number'>#{@TLU}</td>
           <td id='EMR_WS' class='cell-number'>#{@EMR_WS}</td>
-          <td class='cell-number'>N/A</td>
+          <td class='cell-number'>#{@FMD_WS}</td>
         </tr>
         <tr>
           <td class='cell-header' id='hhh'>

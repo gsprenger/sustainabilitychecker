@@ -9,6 +9,13 @@ class window.Sudoku
     @bm = app.bm
     @agriculture = app.agriculture
     @energy = app.energy
+    # loop variables
+    @THALoopExecuted = false
+    @TLULoopExecuted = false
+
+  reset: ->
+    @THALoopExecuted = false
+    @TLULoopExecuted = false
 
   # SUDOKU DATA #
   get_TFOOD: ->
@@ -24,16 +31,126 @@ class window.Sudoku
       @agriculture.get_ET_AG() +
       @energy.get_ET_EM())
 
+  #THA LOOP
   get_THA: ->
-    (@demographics.get_HA_HH() +
+    if !@THALoopFinished
+      @loopTHA().THA
+    else
+      @THALoopData.THA
+
+  get_HA_virtual: ->
+    if !@THALoopFinished
+      @loopTHA().HA_virtual
+    else
+      @THALoopData.HA_virtual
+
+  get_HA_HH: ->
+    @demographics.get_HA_HH()
+
+  get_HA_SG: ->
+    if !@THALoopFinished
+      @loopTHA().HA_SG
+    else
+      @THALoopData.HA_SG
+
+  get_HA_BM: ->
+    if !@THALoopFinished
+      @loopTHA().HA_BM
+    else
+      @THALoopData.HA_BM
+
+  get_HA_AG: ->
+    if !@THALoopFinished
+      @loopTHA().HA_AG
+    else
+      @THALoopData.HA_AG
+
+  get_HA_EM: ->
+    if !@THALoopFinished
+      @loopTHA().HA_EM
+    else
+      @THALoopData.HA_EM
+
+  loopTHA: ->
+    THA = (@demographics.get_HA_HH() +
       @services.get_HA_SG() +
       @bm.get_HA_BM() +
       @agriculture.get_HA_AG() +
       @energy.get_HA_EM())
+    HA_virtual = 0
+    HA_HH = @demographics.get_HA_HH()
+    HA_SG = @services.get_HA_SG()
+    HA_BM = @bm.get_HA_BM()
+    HA_AG = @agriculture.get_HA_AG()
+    HA_EM = @energy.get_HA_EM()
+    HA_PW = @demographics.get_HA_PW()
+    cnt = 0
+    while THA > 8761
+      HA_PWs = HA_SG + HA_BM + HA_AG + HA_EM
+      THAs = HA_HH + HA_PWs
+      HA_SG = HA_SG * (HA_PW / HA_PWs)
+      HA_BM = HA_BM * (HA_PW / HA_PWs)
+      HA_AG = HA_AG * (HA_PW / HA_PWs)
+      HA_EM = HA_EM * (HA_PW / HA_PWs)
+      THA = HA_HH + HA_SG + HA_BM + HA_AG + HA_EM
+      HA_virtual = THAs - THA
+    @THALoopFinished = true
+    return @THALoopData = {
+      THA: THA,
+      HA_virtual: HA_virtual,
+      HA_HH: HA_HH,
+      HA_SG: HA_SG,
+      HA_BM: HA_BM,
+      HA_AG: HA_AG,
+      HA_EM: HA_EM
+    }
 
+  # TLU LOOP
   get_TLU: ->
-    (@agriculture.get_LU_AG() + 
+    if !@TLULoopFinished
+      @loopTLU().TLU
+    else
+      @TLULoopData.TLU
+
+  get_LU_virtual: ->
+    if !@TLULoopFinished
+      @loopTLU().LU_virtual
+    else
+      @TLULoopData.LU_virtual
+
+  get_LU_AG: ->
+    if !@TLULoopFinished
+      @loopTLU().LU_AG
+    else
+      @TLULoopData.LU_AG
+
+  get_LU_EM: ->
+    if !@TLULoopFinished
+      @loopTLU().LU_EM
+    else
+      @TLULoopData.LU_EM
+
+  loopTLU: ->
+    TLU = (@agriculture.get_LU_AG() + 
       @energy.get_LU_EM())
+    LU_virtual = 0
+    LU_AG = @agriculture.get_LU_AG()
+    LU_EM = @energy.get_LU_EM()
+    cnt = 0
+    while TLU > @land.get_s_lan() && cnt < 20
+      cnt++
+      TLUs = LU_AG + LU_EM
+      LU_AG = LU_AG * (TLU / TLUs)
+      LU_EM = LU_EM * (TLU / TLUs)
+      TLU = LU_AG + LU_EM
+      LU_virtual = TLUs - TLU
+    @TLULoopFinished = true
+    return @TLULoopData = {
+      TLU: TLU,
+      LU_virtual: LU_virtual,
+      LU_AG: LU_AG,
+      LU_EM: LU_EM
+    }
 
   get_DS_food: ->
     Math.min(@get_TFOOD(), ((@get_TFOOD() / @agriculture.get_LU_AG()) * @land.get_s_lan()))
@@ -58,42 +175,37 @@ class window.Sudoku
     (@get_TET() - @get_DS_energy())
 
   get_vimports_HA: ->
-    val = (@get_THA() - 8760)
-    if (val < 0)
-      return 0
-    else
-      return val
+    @get_HA_virtual()
 
   get_vimports_LU: ->
-    val = (@get_TLU() - @get_DS_LU())
-    if (val < 0)
-      return 0
-    else
-      return val
+    @get_LU_virtual()
 
   get_EMR_WS: ->
     (@get_TET() / @get_THA())*1000
 
   get_EMR_HH: ->
-    (@households.get_ET_HH() / @demographics.get_HA_HH())*1000
+    (@households.get_ET_HH() / @get_HA_HH())*1000
 
   get_EMR_SG: ->
-    (@services.get_ET_SG() / @services.get_HA_SG())*1000
+    (@services.get_ET_SG() / @get_HA_SG())*1000
 
   get_EMR_BM: ->
-    (@bm.get_ET_BM() / @bm.get_HA_BM())*1000
+    (@bm.get_ET_BM() / @get_HA_BM())*1000
 
   get_EMR_AG: ->
-    (@agriculture.get_ET_AG() / @agriculture.get_HA_AG())*1000
+    (@agriculture.get_ET_AG() / @get_HA_AG())*1000
 
   get_EMR_EM: ->
-    (@energy.get_ET_EM() / @energy.get_HA_EM())*1000
+    (@energy.get_ET_EM() / @get_HA_EM())*1000
 
   get_EMR_DS: ->
     (@get_DS_energy() / 8760)*1000
 
+  get_FMD_WS: ->
+    (@get_TFOOD() / @get_TLU())
+
   get_FMD_DS: ->
-    (@get_DS_food() / @agriculture.get_LU_AG())
+    (@get_DS_food() / @land.get_s_lan())
 
   get_percent_local_food: ->
     Math.round(@get_DS_food() / (@get_DS_food() + @get_imports_food()) * 100)
