@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default from: "no-reply@thesustainabilitysudoku.info"
+  default from: "notifications@thesustainabilitysudoku.info"
 
   def send_contact_email(name, text, email)
     @name = name
@@ -9,6 +9,6 @@ class ContactMailer < ActionMailer::Base
     else 
       @email = false
     end
-    mail(:to => 'thesustainabilitysudoku@gmail.com', :subject => 'New message from Contact Form!')
+    mail(:to => 'thesustainabilitysudoku@gmail.com', :subject => 'New message from the contact form!')
   end
 end
