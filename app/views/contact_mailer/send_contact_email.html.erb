@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>The sustainability Sudoku</h1>
+    <p>New message sent from the contact form!</p>
+    <hr>
+    <p>User: <%= @name %></p>
+    <p>Email: <%= if @email then @email else 'Not provided' end %></p>
+    <p>Message: <br> <%= @text %></p>
+    <hr>
+    <small>This is an automated message, please do not reply.</small>
+  </body>
+</html>

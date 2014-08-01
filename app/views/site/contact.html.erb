@@ -2,7 +2,23 @@
 <div class='row-fluid'>
   <div class='col-md-6 borderright'>
     <h3><%= Content.text('contact_viaemail', @isMercury) %></h3>
-    TODO contact form
+    <div id='contact-form' class="form" role="form">
+      <div class="form-group">
+        <label for="nameinput">Name</label>
+        <input type="text" class="form-control" id="nameinput" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <label for="emailinput">Email address <em>(Optional)</em></label>
+        <input type="email" class="form-control" id="emailinput" placeholder="Enter your email address">
+      </div>
+      <div class="form-group">
+        <label for="msginput">Your message</label>
+        <textarea class="form-control" rows="3" id='msginput'></textarea>
+      </div>
+      <div class='text-center'>
+        <div class='btn btn-success' id='btnsend-contactform'>Send message</div>
+      </div>
+    </div>
   </div>
   <div class='col-md-6'>
     <h3><%= Content.text('contact_viapostal', @isMercury) %></h3>
