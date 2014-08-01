@@ -72,19 +72,15 @@ class window.Sudoku
       @THALoopData.HA_EM
 
   loopTHA: ->
-    THA = (@demographics.get_HA_HH() +
-      @services.get_HA_SG() +
-      @bm.get_HA_BM() +
-      @agriculture.get_HA_AG() +
-      @energy.get_HA_EM())
     HA_virtual = 0
+    # values from choice
     HA_HH = @demographics.get_HA_HH()
     HA_SG = @services.get_HA_SG()
     HA_BM = @bm.get_HA_BM()
     HA_AG = @agriculture.get_HA_AG()
     HA_EM = @energy.get_HA_EM()
     HA_PW = @demographics.get_HA_PW()
-    cnt = 0
+    THA = HA_HH + HA_SG + HA_BM + HA_AG + HA_EM
     while THA > 8761
       HA_PWs = HA_SG + HA_BM + HA_AG + HA_EM
       THAs = HA_HH + HA_PWs
