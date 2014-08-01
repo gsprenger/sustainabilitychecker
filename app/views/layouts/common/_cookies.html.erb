@@ -1,0 +1,22 @@
+<% if !cookies[:cookie_disclaimer_closed] %>
+  <div class='cookies' id='cookie-alert'>
+    <div class='alert alert-warning text-center'>
+      <button type="button" class="close" id='cookie-alert-close-btn'>×</button>
+      By using our website and closing this alert, you agree to our <a href='/legal#cookies'>Cookie Policy</a>.
+    </div>
+  </div>
+  <script>
+    $(function() {
+      $('#cookie-alert-close-btn').on('click', function(){
+        var date = new Date();
+        date.setTime(date.getTime()+(60*24*60*60*1000)); // 60 days
+        var expires = " expires="+date.toGMTString();
+        document.cookie = 'cookie_disclaimer_closed=true;'+expires+'; path=/';
+        $('#cookie-alert').fadeOut();
+        setTimeout(function() {
+          $('#cookie-alert').remove();
+        }, 500);
+      });
+    });
+  </script>
+<% end %>

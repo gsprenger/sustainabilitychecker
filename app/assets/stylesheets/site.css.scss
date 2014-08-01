@@ -271,7 +271,6 @@ body {
 }
 
 .site-body-content .more, .site-body-content a {
-  color: #116DCC;
   font-weight: 600;
   margin: 20px 0 0;
   padding: 0;
@@ -281,10 +280,6 @@ body {
 .site-body-content .more.capitalize, .site-body-content a.capitalize {
   font-size: 12px;
   text-transform: uppercase;
-}
-
-.site-body-content .more:hover, .site-body-content a:hover .more {
-  color: #2F8AE7;
 }
 
 .site-body-content .more span {
@@ -384,4 +379,18 @@ body {
 
 .visitimg {
   margin: 0 15px 15px 0;
+}
+
+// COOKIES
+.cookie-alert-appcont #cookie-alert {
+  margin-top: 15px;
+}
+
+#cookie-alert .alert {
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.cookies strong {
+  font-weight: 500;
 }
