@@ -68,9 +68,9 @@ class window.AppView
       @setupForMercury()
     # Remove loading screen and check if modals should be triggered.
     setTimeout =>
+      $('.site-footer').removeClass('inapploading')
       @$loading.fadeOut()
       setTimeout =>
-        $('.site-footer').removeClass('inapploading')
         $('body').removeClass('inapploading')
         # if user is new display help modal
         if e.isNew()

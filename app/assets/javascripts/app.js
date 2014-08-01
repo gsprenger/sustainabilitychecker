@@ -1,6 +1,7 @@
 // This is a manifest file that'll be compiled into app.js, which will include all the files
 // listed below.
 //
+//= require modernizr
 //= require jquery.ui.slider
 //= require jquery.ui.effect
 //= require polar

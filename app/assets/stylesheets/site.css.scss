@@ -150,7 +150,11 @@ body {
 }
 
 .site-footer.inapploading {
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000000;
 }
 
 .site-footer.withoverlay {
