@@ -80,18 +80,21 @@ class window.Sudoku
     HA_AG = @agriculture.get_HA_AG()
     HA_EM = @energy.get_HA_EM()
     HA_PW = @demographics.get_HA_PW()
+    # console.log("pre loop HA_EM=#{HA_EM}")
     THA = HA_HH + HA_SG + HA_BM + HA_AG + HA_EM
-    while THA > 8761
+    while THA > (8760 + 1) #Error margin
       HA_PWs = HA_SG + HA_BM + HA_AG + HA_EM
       THAs = HA_HH + HA_PWs
       coeff = (HA_PW / HA_PWs)
       HA_SG = HA_SG * coeff
       HA_BM = HA_BM * coeff
       HA_AG = HA_AG * coeff
+      # console.log("loop HA_EM = HA_EM(#{HA_EM}) * (HA_PW(#{HA_PW}) / HA_PWs(#{HA_PWs})) = #{HA_EM * coeff}")
       HA_EM = HA_EM * coeff
       THA = HA_HH + HA_SG + HA_BM + HA_AG + HA_EM
       HA_virtual = THAs - THA
     @THALoopFinished = true
+    # console.log("post loop HA_EM=#{HA_EM}")
     return @THALoopData = {
       THA: THA,
       HA_virtual: HA_virtual,
@@ -128,20 +131,22 @@ class window.Sudoku
       @TLULoopData.LU_EM
 
   loopTLU: ->
-    TLU = (@agriculture.get_LU_AG() + 
-      @energy.get_LU_EM())
     LU_virtual = 0
     LU_AG = @agriculture.get_LU_AG()
     LU_EM = @energy.get_LU_EM()
     s_lan = @land.get_s_lan()
-    while TLU > s_lan
+    TLU = LU_AG + LU_EM
+    # console.log("Pre loop: TLU:#{TLU}, LU_AG:#{LU_AG}, LU_EM:#{LU_EM}, s_lan:#{s_lan}")
+    while TLU > (s_lan + 0.001) #Error margin
       TLUs = LU_AG + LU_EM
       coeff = (1 - (TLU - s_lan) / TLU )
       LU_AG = LU_AG * coeff
       LU_EM = LU_EM * coeff
       TLU = LU_AG + LU_EM
       LU_virtual = TLUs - TLU
+      # console.log("looping: TLUs:#{TLUs},  TLU:#{TLU}, new LU_AG:#{LU_AG}, new LU_EM:#{LU_EM}, LU_virtual:#{LU_virtual}")
     @TLULoopFinished = true
+    # console.log("finished looping")
     return @TLULoopData = {
       TLU: TLU,
       LU_virtual: LU_virtual,
@@ -193,6 +198,7 @@ class window.Sudoku
     (@agriculture.get_ET_AG() / @get_HA_AG())*1000
 
   get_EMR_EM: ->
+    # console.log("(@energy.get_ET_EM(): #{@energy.get_ET_EM()} / @get_HA_EM(): #{@get_HA_EM()})*1000 = #{(@energy.get_ET_EM() / @get_HA_EM())*1000}")
     (@energy.get_ET_EM() / @get_HA_EM())*1000
 
   get_EMR_DS: ->
@@ -215,23 +221,23 @@ class window.Sudoku
 
   getFoodSuccess: ->
     threshold = 80
-    console.log("Food success: #{@get_percent_local_food()} >= #{threshold} = #{@get_percent_local_food() >= threshold}")
+    # console.log("Food success: #{@get_percent_local_food()} >= #{threshold} = #{@get_percent_local_food() >= threshold}")
     @get_percent_local_food() >= threshold 
 
   getEnergySuccess: ->
     threshold = 80
-    console.log("Energy success: #{@get_percent_local_energy()} >= #{threshold} = #{@get_percent_local_energy() >= threshold}")
+    # console.log("Energy success: #{@get_percent_local_energy()} >= #{threshold} = #{@get_percent_local_energy() >= threshold}")
     @get_percent_local_energy() >= threshold
     
   getHASuccess: ->
-    console.log("HA success: #{@get_THA()} <= 8760 = #{@get_THA() <= 8760}")
+    # console.log("HA success: #{@get_THA()} <= 8760 = #{@get_THA() <= 8760}")
     @get_THA() <= 8760
     
   getLUSuccess: ->
-    console.log("LU success: #{@get_TLU()} <= #{@get_DS_LU()} = #{@get_TLU() <= @get_DS_LU()}")
+    # console.log("LU success: #{@get_TLU()} <= #{@get_DS_LU()} = #{@get_TLU() <= @get_DS_LU()}")
     @get_TLU() <= @get_DS_LU()
     
   getEMRSuccess: ->
-    console.log("EMR success: #{@get_EMR_WS()} >= 5 = #{@get_EMR_WS() >= 5}")
+    # console.log("EMR success: #{@get_EMR_WS()} >= 5 = #{@get_EMR_WS() >= 5}")
     @get_EMR_WS() >= 5
     

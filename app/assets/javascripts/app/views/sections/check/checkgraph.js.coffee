@@ -49,8 +49,8 @@ class window.CheckGraphView
     heightLowerFood = 100 - heightUpperFood
     heightLowerEnergy = 100 - heightUpperEnergy
     # update percents
-    @$el.find('.bar-upper.bar-food .bar-percent').text(if heightUpperFood <= 15 then '' else heightUpperFood+'%')
-    @$el.find('.bar-upper.bar-energy .bar-percent').text(if heightUpperEnergy <= 15 then '' else heightUpperEnergy+'%')
+    @$el.find('.bar-upper.bar-food .bar-percent').text(heightUpperFood+'%')
+    @$el.find('.bar-upper.bar-energy .bar-percent').text(heightUpperEnergy+'%')
     @$el.find('.bar-lower.bar-food .bar-percent').text(if heightLowerFood <= 15 then '' else heightLowerFood+'%')
     @$el.find('.bar-lower.bar-energy .bar-percent').text(if heightLowerEnergy <= 15 then '' else heightLowerEnergy+'%')
     # Update bars: first top bars, then lower bars.
