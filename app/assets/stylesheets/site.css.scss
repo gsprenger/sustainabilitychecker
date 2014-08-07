@@ -283,10 +283,6 @@ body {
   text-transform: uppercase;
 }
 
-.site-body-content .more {
-  position: relative;
-}
-
 .site-body-content .more span {
   position: relative;
   padding: 0 3px;
@@ -295,6 +291,7 @@ body {
 .site-body-content .more span i {
   position: absolute;
   top: 3px;
+  left: 3px;
   margin-left: 4px;
   -moz-transition: margin-left .1s linear;
   -webkit-transition: margin-left .1s linear;
