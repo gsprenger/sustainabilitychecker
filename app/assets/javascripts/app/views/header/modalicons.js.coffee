@@ -7,12 +7,14 @@ class window.ModalIconsView
     l = app.level
     c = app.content
     html = """
-        <div class='modalicon' id='modaliconshare' title='#{c.text('chkr_modal_share_t', 'none')}' data-toggle='tooltip'>
-          <i class='fa fa-share-alt'></i>
-        </div>
-        <div class='modalicon' id='modaliconhelp' title='#{c.text('chkr_modal_help_t', 'none')}' data-toggle='tooltip'>
-          <i class='fa fa-question'></i>
-        </div>
+        <span class="modalicon fa-stack fa-lg" id='modaliconshare' title='#{c.text('chkr_modal_share_t', 'none')}' data-toggle='tooltip'>
+          <i class="fa fa-circle-o fa-stack-2x"></i>
+          <i class="fa fa-share-alt fa-stack-1x"></i>
+        </span>
+        <span class="modalicon fa-stack fa-lg" id='modaliconhelp' title='#{c.text('chkr_modal_help_t', 'none')}' data-toggle='tooltip'>
+          <i class="fa fa-circle-o fa-stack-2x"></i>
+          <i class="fa fa-question fa-stack-1x"></i>
+        </span>
       """
     @$el.html(html)
     @events()
