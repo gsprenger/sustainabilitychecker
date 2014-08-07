@@ -19,6 +19,7 @@ body {
   position: absolute;
   left: -38px;
   top: 29px;
+  z-index: 100;
   /* 45 deg ccw rotation */
   -webkit-transform: rotate(-45deg);
      -moz-transform: rotate(-45deg);
@@ -280,6 +281,10 @@ body {
 .site-body-content .more.capitalize, .site-body-content a.capitalize {
   font-size: 12px;
   text-transform: uppercase;
+}
+
+.site-body-content .more {
+  position: relative;
 }
 
 .site-body-content .more span {
