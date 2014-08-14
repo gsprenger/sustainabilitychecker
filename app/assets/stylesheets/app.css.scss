@@ -105,18 +105,23 @@ $googlecolor: #dd4b39;
 /** HEADER **/
 #modalicons {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 7px;
+  right: 6px;
+
   &.affix {
     position: fixed;
     top: 17px;
-    right: 20px;
     z-index: 131;
   }
 }
 
 .modalicon {
   cursor: pointer;
+  color: #444;
+}
+
+.tilt1left {
+  left: -1px;
 }
 
 #headernav {

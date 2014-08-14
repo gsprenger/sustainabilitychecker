@@ -9,7 +9,7 @@ class window.ModalIconsView
     html = """
         <span class="modalicon fa-stack fa-lg" id='modaliconshare' title='#{c.text('chkr_modal_share_t', 'none')}' data-toggle='tooltip'>
           <i class="fa fa-circle-o fa-stack-2x"></i>
-          <i class="fa fa-share-alt fa-stack-1x"></i>
+          <i class="fa fa-share-alt fa-stack-1x tilt1left"></i>
         </span>
         <span class="modalicon fa-stack fa-lg" id='modaliconhelp' title='#{c.text('chkr_modal_help_t', 'none')}' data-toggle='tooltip'>
           <i class="fa fa-circle-o fa-stack-2x"></i>
