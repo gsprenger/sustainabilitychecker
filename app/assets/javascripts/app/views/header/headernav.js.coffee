@@ -1,9 +1,10 @@
 class window.HeaderNavView
   constructor: ->
-    @$el = $("<div data-spy='affix' id='headernav'>")
-    $(window).on 'appready', ->
-      # HeaderView: set offset to header position for affix to trigger
-      $('#headernav').attr('data-offset-top', $('#headernav').offset().top)
+    @$el = $("<div id='headernav-wrap'>")
+    $(window).on 'sectioncomplete', (e, data) =>
+      setTimeout =>
+        @render()
+      , 50
 
   render: ->
     app = App.get()
@@ -19,46 +20,50 @@ class window.HeaderNavView
           </div>
           <hr class='hr-sec'>
           <hr class='hr-lvls'>
-          <ul class='ul-levels'>
+          <ul class='navicon-cont ul-levels'>
       """
     for i in [1..3]
-      curr = (if (i == app.level) then ' current' else '')
-      avlb = (if (i <= app.level) then ' available' else '')
-      levelIcon = [null, 'fa-minus', 'fa-bars', 'fa-bars']
+      avlb = (i <= app.experiment.getLastLevel())
       html += """
                 <li>
-                  <a href='#{if(avlb) then '/level'+i else '#'}' class='nav-link' title='#{c.text('chkr_navtool_lvl'+i, 'none')}' data-toggle='tooltip'>
+                  <#{if avlb then 'a' else 'span'} href='/level#{i}' class='navicon#{if avlb then ' available' else ''}' title='#{c.text('chkr_navtool_lvl'+i, 'none')}' data-toggle='tooltip' data-no-turbolink>
                     <span class="fa-stack fa-lg">
-                      <i class="fa fa-square fa-stack-2x"></i>
-                      <i class="fa #{levelIcon[i]} fa-stack-1x colorwhite"></i>
+                      #{if !avlb then '<i class="fa fa-square fa-stack-2x whitesquare"></i>' else ''}
+                      <i class="fa fa-square#{if !avlb then '-o' else ''} fa-stack-2x"></i>
+        """
+      for j in [1..i]
+        html += "<i class='fa fa-minus fa-stack-1x bar#{j} levelbar icon#{if avlb then ' available' else ''}'></i>"
+      html += """
                     </span>
                   </a>
                 </li>
         """
     html += """
           </ul>
-          <ul class='ul-navigation' role='navigation'>
+          <ul class='navicon-cont ul-navigation' role='navigation'>
       """
     for s in app.sections
-      com = (app.experiment.isCompleted(s.slug))
+      avlb = (app.experiment.isCompleted(s.slug) || app.experiment.getCurrent() == s.slug)
       p = s.i18nPrefix
       html += """
               <li>
-                <a href='##{s.name}' class='nav-link #{s.type}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
+                <a href='##{s.name}' class='nav-link navicon #{s.type}#{if avlb then ' available' else ''}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
                   <span class="fa-stack fa-lg">
-                    <i class="fa fa-square fa-stack-2x"></i>
-                    <i class="fa #{s.headerIcon} fa-stack-1x colorwhite#{if com then ' fa-inverse' else ''}"></i>
+                    #{if !avlb then '<i class="fa fa-square fa-stack-2x whitesquare"></i>' else ''}
+                    <i class="fa fa-square#{if !avlb then '-o' else ''} fa-stack-2x"></i>
+                    <i class="fa #{s.headerIcon} fa-stack-1x icon#{if avlb then ' available' else ''}"></i>
                   </span>
                 </a>
               </li>
         """
-    com = (l != 1 || app.experiment.getCurrent() == 'check')
+    avlb = (l != 1 || app.experiment.getCurrent() == 'check')
     html += """
             <li>
-              <a href='#check' class='check nav-link' title='#{c.text('chkr_check_title', 'none')}' data-toggle='tooltip'>
+              <a href='#check' class='check nav-link navicon #{s.type}#{if avlb then ' available' else ''}' title='#{c.text('chkr_check_title', 'none')}' data-toggle='tooltip'>
                 <span class="fa-stack fa-lg">
-                  <i class="fa fa-square fa-stack-2x"></i>
-                  <i class="fa fa-check fa-stack-1x colorwhite#{if com then ' fa-inverse' else ''}"></i>
+                  #{if !avlb then '<i class="fa fa-square fa-stack-2x whitesquare"></i>' else ''}
+                  <i class="fa fa-square#{if !avlb then '-o' else ''} fa-stack-2x"></i>
+                  <i class="fa fa-check fa-stack-1x icon#{if avlb then ' available' else ''}"></i>
                 </span>
               </a>
             </li>

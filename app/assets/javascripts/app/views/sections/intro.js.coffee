@@ -2,6 +2,9 @@ class window.IntroView
   constructor: ->
     @$el = $("<div class='section in-level#{App.get().level}' id='intro'>")
     @headernav = new HeaderNavView()
+    $(window).on 'appready', ->
+      # HeaderView: set offset to header position for affix to trigger
+      $('#headernav').attr('data-offset-top', $('#headernav').offset().top)
 
   render: ->
     l = App.get().level
@@ -12,7 +15,8 @@ class window.IntroView
         <div class='description'>
           <p>#{c.text('chkr_start_desc_level'+l)}</p>
         </div><br>
-        <div id='intro-header'></div>
+        <div id='headernav' data-spy='affix'></div>
+        <div class='invisible-margin'></div>
         <div class='btn-row'>
       """
     if (l>1)
@@ -25,7 +29,7 @@ class window.IntroView
       </div>
       """
     @$el.html(html)
-    @$el.find('#intro-header').append(@headernav.render().$el)
+    @$el.find('#headernav').append(@headernav.render().$el)
     @events()
     return this
 
