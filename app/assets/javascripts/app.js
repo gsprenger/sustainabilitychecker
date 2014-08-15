@@ -2,8 +2,8 @@
 // listed below.
 //
 //= require modernizr
-//= require jquery.ui.slider
-//= require jquery.ui.effect
+//= require jquery-ui/slider
+//= require jquery-ui/effect
 //= require polar
 //= require_tree ./app
 
