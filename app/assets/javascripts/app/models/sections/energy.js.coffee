@@ -6,16 +6,23 @@ class window.Energy
     @headerIcon = 'fa-fire'
     @i18nPrefix = 'chkr_ene'
     @choices = []
+    @app = App.get()
+    lvl = @app.level
     @sliders = {
       'nuc': new Slider('s_ene_nuc', [0, 25,50, 75, 100], 0),
       'hyd': new Slider('s_ene_hyd', [0, 25,50, 75, 100], 25),
       'win': new Slider('s_ene_win', [0, 25,50, 75, 100], 25),
       'pho': new Slider('s_ene_pho', [0, 25,50, 75, 100], 25),
-      'csp': new Slider('s_ene_csp', [0, 25,50, 75, 100], 25),
-      'bio': new Slider('s_ene_bio', [0, 25,50, 75, 100], 100),
-      #'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
-      'ncf': new Slider('s_ene_ncf', [0, 25,50, 75, 100], 0)
+      'csp': new Slider('s_ene_csp', [0, 25,50, 75, 100], 25)
     }
+    if lvl != 3
+      @sliders['bio'] = new Slider('s_ene_bio', [100], 100)
+      @sliders['ncf'] = new Slider('s_ene_ncf', [0], 0)
+    else
+      @sliders['bio'] = new Slider('s_ene_bio', [0, 25,50, 75, 100], 100)
+      @sliders['ncf'] = new Slider('s_ene_ncf', [0, 25,50, 75, 100], 0)
+    # 'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
+
     @choices.push(new SliderGroup('ele', [
         @sliders['nuc'], 
         @sliders['hyd'], 
@@ -28,7 +35,6 @@ class window.Energy
         #@sliders['hyg'], 
         @sliders['ncf']
       ]))
-    @app = App.get()
 
   # SUDOKU DATA #  
   data:

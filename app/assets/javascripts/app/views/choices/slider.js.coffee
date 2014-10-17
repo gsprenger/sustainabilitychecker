@@ -9,6 +9,12 @@ class window.SliderView
         <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName(), 'none')}</div>
         <div class='slider'></div>
       """
+    if @slider.slug == 's_ene_bio' || @slider.slug == 's_ene_ncf'
+      html += """
+          <div class='slider-descsub'>
+            #{c.text(p+'_'+@slider.getShortName()+'_descsub', 'none')}
+          </div>
+        """
     @$el.html(html)
     @initSlider()
     @events()
