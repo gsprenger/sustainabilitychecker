@@ -375,6 +375,20 @@ $googlecolor: #dd4b39;
       z-index: 4;
     }
 
+    &.nuc, &.ncf {
+      .ui-widget-header {
+        background: none;
+        background-color: #D9534F;
+      }
+    }
+
+    &.hyd, &.win, &.pho, &.csp, &.bio {
+      .ui-widget-header {
+        background: none;
+        background-color: #5CB85C;
+      }
+    }
+
     .step {
       position: absolute;
       top: 0px;
@@ -891,10 +905,6 @@ $googlecolor: #dd4b39;
       background-color: $darklevel1;
     }
   }
-  .ui-widget-header {
-    background: none;
-    background-color: $level1;
-  }
 }
 
 .in-level2 {
@@ -906,10 +916,6 @@ $googlecolor: #dd4b39;
       background-color: $darklevel2;
     }
   }
-  .ui-widget-header {
-    background: none;
-    background-color: $level2;
-  }
 }
 
 .in-level3 {
@@ -920,10 +926,6 @@ $googlecolor: #dd4b39;
     &:hover {
       background-color: $darklevel3;
     }
-  }
-  .ui-widget-header {
-    background: none;
-    background-color: $level3;
   }
 }
 

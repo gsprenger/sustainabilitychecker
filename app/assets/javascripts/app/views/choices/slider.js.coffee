@@ -8,7 +8,7 @@ class window.SliderView
     p = @section.i18nPrefix
     html = """
         <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName(), 'none')}</div>
-        <div class='slider'></div>
+        <div class='slider #{@slider.getShortName()}'></div>
       """
     if @slider.slug == 's_ene_bio' || @slider.slug == 's_ene_ncf'
       html += """
