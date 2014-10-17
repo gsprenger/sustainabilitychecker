@@ -45,7 +45,7 @@ class window.CheckView
       </div>
       """
     # Indicators panels for level 3
-    if l == 3
+    if l >= 2
       foodSuccess = sud.getFoodSuccess()
       energySuccess = sud.getEnergySuccess()
       HASuccess = sud.getHASuccess()
