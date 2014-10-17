@@ -4,6 +4,7 @@ class window.SliderView
 
   render: ->
     c = App.get().content
+    l = App.get().level
     p = @section.i18nPrefix
     html = """
         <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName(), 'none')}</div>
@@ -12,7 +13,7 @@ class window.SliderView
     if @slider.slug == 's_ene_bio' || @slider.slug == 's_ene_ncf'
       html += """
           <div class='slider-descsub'>
-            #{c.text(p+'_'+@slider.getShortName()+'_descsub', 'none')}
+            #{c.text(p+'_'+@slider.getShortName()+'_descsub_'+l, 'none')}
           </div>
         """
     @$el.html(html)
