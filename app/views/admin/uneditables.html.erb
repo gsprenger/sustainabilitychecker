@@ -481,33 +481,41 @@
 <h3><a href='#crit' data-toggle='collapse'>Criteria indicators</a></h3>
 <p class='desc'>These are the 5 sections corresponding to Food, Energy, HA, LU and EMR criteria. Each criterion has two states: passed and failed. Each of those entries has a title and a content.</p>
 <div id='crit' class='cont3 collapse fade'>
-  <h4><a href='#food' data-toggle='collapse'>Food</a></h4>
-  <div class='cont4 collapse fade in' id='food'>
+  <h4><a href='#security' data-toggle='collapse'>Security</a></h4>
+  <div class='cont4 collapse fade in' id='security'>
     <h5>Passed</h5>
     <div class='cont5'>
+      <%= Content.text('chkr_sud_securitysuc_t', @isMercury) %>
+      <%= Content.text('chkr_sud_securitysuc_c', @isMercury) %>
       <%= Content.text('chkr_sud_foodsuc_t', @isMercury) %>
       <%= Content.text('chkr_sud_foodsuc_c', @isMercury) %>
-    </div>
-    <h5>Failed</h5>
-    <div class='cont5'>
-      <%= Content.text('chkr_sud_foodfail_t', @isMercury) %>
-      <%= Content.text('chkr_sud_foodfail_c', @isMercury) %>
-    </div>
-  </div>
-  <h4><a href='#energy' data-toggle='collapse'>Energy</a></h4>
-  <div class='cont4 collapse fade in' id='energy'>
-    <h5>Passed</h5>
-    <div class='cont5'>
       <%= Content.text('chkr_sud_energysuc_t', @isMercury) %>
       <%= Content.text('chkr_sud_energysuc_c', @isMercury) %>
     </div>
     <h5>Failed</h5>
     <div class='cont5'>
+      <%= Content.text('chkr_sud_securityfail_t', @isMercury) %>
+      <%= Content.text('chkr_sud_securityfail_c', @isMercury) %>
+      <%= Content.text('chkr_sud_foodfail_t', @isMercury) %>
+      <%= Content.text('chkr_sud_foodfail_c', @isMercury) %>
       <%= Content.text('chkr_sud_energyfail_t', @isMercury) %>
       <%= Content.text('chkr_sud_energyfail_c', @isMercury) %>
     </div>
   </div>
-  <h4><a href='#HA' data-toggle='collapse'>HA</a></h4>
+  <h4><a href='#renewability' data-toggle='collapse'>Renewability</a></h4>
+  <div class='cont4 collapse fade in' id='renewability'>
+    <h5>Passed</h5>
+    <div class='cont5'>
+      <%= Content.text('chkr_sud_renewabilitysuc_t', @isMercury) %>
+      <%= Content.text('chkr_sud_renewabilitysuc_c', @isMercury) %>
+    </div>
+    <h5>Failed</h5>
+    <div class='cont5'>
+      <%= Content.text('chkr_sud_renewabilityfail_t', @isMercury) %>
+      <%= Content.text('chkr_sud_renewabilityfail_c', @isMercury) %>
+    </div>
+  </div>
+  <h4><a href='#HA' data-toggle='collapse'>Viability</a></h4>
   <div class='cont4 collapse fade in' id='HA'>
     <h5>Passed</h5>
     <div class='cont5'>
@@ -520,7 +528,7 @@
       <%= Content.text('chkr_sud_HAfail_c', @isMercury) %>
     </div>
   </div>
-  <h4><a href='#LU' data-toggle='collapse'>LU</a></h4>
+  <h4><a href='#LU' data-toggle='collapse'>Feasibility</a></h4>
   <div class='cont4 collapse fade in' id='LU'>
     <h5>Passed</h5>
     <div class='cont5'>
@@ -533,7 +541,7 @@
       <%= Content.text('chkr_sud_LUfail_c', @isMercury) %>
     </div>
   </div>
-  <h4><a href='#EMR' data-toggle='collapse'>EMR</a></h4>
+  <h4><a href='#EMR' data-toggle='collapse'>Desirability</a></h4>
   <div class='cont4 collapse fade in' id='EMR'>
     <h5>Passed</h5>
     <div class='cont5'>

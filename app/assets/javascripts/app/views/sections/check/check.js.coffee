@@ -46,69 +46,76 @@ class window.CheckView
       """
     # Indicators panels for level 3
     if l >= 2
-      foodSuccess = sud.getFoodSuccess()
-      energySuccess = sud.getEnergySuccess()
-      HASuccess = sud.getHASuccess()
-      LUSuccess = sud.getLUSuccess()
-      EMRSuccess = sud.getEMRSuccess()
+      foodSecurity = sud.getFoodSuccess()
+      energySecurity = sud.getEnergySuccess()
+      security = sud.getSecuritySuccess()
+      renewability = sud.getRenewabilitySuccess()
+      viability = sud.getHASuccess()
+      feasibility = sud.getLUSuccess()
+      desirability = sud.getEMRSuccess()
       html += """
         <br>
         <div class='row'>
           <div class='col-sm-6'>
-            <div class='panel panel-#{if foodSuccess then 'success' else 'danger'}'>
+            <div class='panel panel-#{if security then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if foodSuccess then 'check' else 'times'}'></i> #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_t', 'none')}
+                <i class='fa fa-#{if security then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_security'+(if security then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_food'+(if foodSuccess then 'suc' else 'fail')+'_c', 'none')}
+                <p>#{c.text('chkr_sud_security'+(if security then 'suc' else 'fail')+'_c', 'none')}</p>
+                <p>#{c.text('chkr_sud_food'+(if foodSecurity then 'suc' else 'fail')+'_t', 'none')}</p>
+                <p>#{c.text('chkr_sud_food'+(if foodSecurity then 'suc' else 'fail')+'_c', 'none')}</p>
+                <p>#{c.text('chkr_sud_energy'+(if energySecurity then 'suc' else 'fail')+'_t', 'none')}</p>
+                <p>#{c.text('chkr_sud_energy'+(if energySecurity then 'suc' else 'fail')+'_c', 'none')}</p>
               </div>
             </div>
           </div>
           <div class='col-sm-6'>
-            <div class='panel panel-#{if energySuccess then 'success' else 'danger'}'>
+            <div class='panel panel-#{if renewability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if energySuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_t', 'none')}
+                <i class='fa fa-#{if renewability then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_renewability'+(if renewability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_energy'+(if energySuccess then 'suc' else 'fail')+'_c', 'none')}
+                #{c.text('chkr_sud_renewability'+(if renewability then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
         </div>
         <div class='row'>
           <div class='col-sm-6'>
-            <div class='panel panel-#{if HASuccess then 'success' else 'danger'}'>
+            <div class='panel panel-#{if viability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if HASuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_t', 'none')}
+                <i class='fa fa-#{if viability then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_HA'+(if viability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_HA'+(if HASuccess then 'suc' else 'fail')+'_c', 'none')}
+                #{c.text('chkr_sud_HA'+(if viability then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
           <div class='col-sm-6'>
-            <div class='panel panel-#{if LUSuccess then 'success' else 'danger'}'>
+            <div class='panel panel-#{if feasibility then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if LUSuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_t', 'none')}
+                <i class='fa fa-#{if feasibility then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_LU'+(if feasibility then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_LU'+(if LUSuccess then 'suc' else 'fail')+'_c', 'none')}
+                #{c.text('chkr_sud_LU'+(if feasibility then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>
         </div>
         <div class='row'>
           <div class='col-sm-12'>
-            <div class='panel panel-#{if EMRSuccess then 'success' else 'danger'}'>
+            <div class='panel panel-#{if desirability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if EMRSuccess then 'check' else 'times'}'></i>
-                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_t', 'none')}
+                <i class='fa fa-#{if desirability then 'check' else 'times'}'></i>
+                #{c.text('chkr_sud_EMR'+(if desirability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
-                #{c.text('chkr_sud_EMR'+(if EMRSuccess then 'suc' else 'fail')+'_c', 'none')}
+                #{c.text('chkr_sud_EMR'+(if desirability then 'suc' else 'fail')+'_c', 'none')}
               </div>
             </div>
           </div>

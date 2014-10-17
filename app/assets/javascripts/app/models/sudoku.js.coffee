@@ -217,7 +217,7 @@ class window.Sudoku
     Math.round(@get_DS_energy() / (@get_DS_energy() + @get_imports_energy()) * 100)
 
   getSuccess: ->
-    (@getFoodSuccess() && @getEnergySuccess() && @getHASuccess() && @getLUSuccess() && @getEMRSuccess())
+    (@getSecuritySuccess() && @getRenewabilitySuccess() && @getHASuccess() && @getLUSuccess() && @getEMRSuccess())
 
   getFoodSuccess: ->
     threshold = 80
@@ -228,14 +228,20 @@ class window.Sudoku
     threshold = 80
     # console.log("Energy success: #{@get_percent_local_energy()} >= #{threshold} = #{@get_percent_local_energy() >= threshold}")
     @get_percent_local_energy() >= threshold
+
+  getSecuritySuccess: ->
+    @getFoodSuccess() && @getEnergySuccess()
     
+  getRenewabilitySuccess: ->
+    @energy.get_nuc() == 0 && @energy.get_ncf() == 0
+
   getHASuccess: ->
     # console.log("HA success: #{@get_THA()} <= 8760 = #{@get_THA() <= 8760}")
-    @get_THA() <= 8760
+    @get_HA_virtual() == 0
     
   getLUSuccess: ->
     # console.log("LU success: #{@get_TLU()} <= #{@get_DS_LU()} = #{@get_TLU() <= @get_DS_LU()}")
-    @get_TLU() <= @get_DS_LU()
+    @get_LU_virtual() == 0
     
   getEMRSuccess: ->
     # console.log("EMR success: #{@get_EMR_WS()} >= 5 = #{@get_EMR_WS() >= 5}")
