@@ -12,9 +12,9 @@ class window.Energy
       'win': new Slider('s_ene_win', [0, 25,50, 75, 100], 25),
       'pho': new Slider('s_ene_pho', [0, 25,50, 75, 100], 25),
       'csp': new Slider('s_ene_csp', [0, 25,50, 75, 100], 25),
-      'bio': new Slider('s_ene_bio', [0, 25,50, 75, 100], 25),
-      'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
-      'ncf': new Slider('s_ene_ncf', [0, 25,50, 75, 100], 25)
+      'bio': new Slider('s_ene_bio', [0, 25,50, 75, 100], 100),
+      #'hyg': new Slider('s_ene_hyg', [0, 25,50, 75, 100], 50),
+      'ncf': new Slider('s_ene_ncf', [0, 25,50, 75, 100], 0)
     }
     @choices.push(new SliderGroup('ele', [
         @sliders['nuc'], 
@@ -25,7 +25,7 @@ class window.Energy
       ]))
     @choices.push(new SliderGroup('fue', [
         @sliders['bio'], 
-        @sliders['hyg'], 
+        #@sliders['hyg'], 
         @sliders['ncf']
       ]))
     @app = App.get()
@@ -47,7 +47,7 @@ class window.Energy
         "low":  23
         "med":  95
         "high": 168
-      "hyg": 3
+      #"hyg": 3
       "ncf": 0 # negl.
     "ET_ELEC":
       "nuc": 0.03
@@ -59,7 +59,7 @@ class window.Energy
         "low":  0 # negl.
         "med":  0 # negl.
         "high": 0 # negl.
-      "hyg": 0.4
+      #"hyg": 0.4
       "ncf": 0 # negl.
     "ET_FUELS":
       "nuc": 0.1
@@ -71,7 +71,7 @@ class window.Energy
         "low":  0.67
         "med":  0.79
         "high": 0.91
-      "hyg": 0 # negl.
+      #"hyg": 0 # negl.
       "ncf": 0.71
     "HA_ELEC":
       "nuc": 133
@@ -84,7 +84,7 @@ class window.Energy
         "low":  6667
         "med":  5569.5
         "high": 4472
-      "hyg": 139
+      #"hyg": 139
       "ncf": 1187
 
   loopAllWithValue: (data) ->    
@@ -204,8 +204,8 @@ class window.Energy
   get_bio: ->
     @sliders.bio.getValue()
 
-  get_hyg: ->
-    @sliders.hyg.getValue()
+  #get_hyg: ->
+  #  @sliders.hyg.getValue()
 
   get_ncf: ->
     @sliders.ncf.getValue()

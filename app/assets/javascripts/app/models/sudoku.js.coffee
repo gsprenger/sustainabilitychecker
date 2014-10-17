@@ -240,4 +240,3 @@ class window.Sudoku
   getEMRSuccess: ->
     # console.log("EMR success: #{@get_EMR_WS()} >= 5 = #{@get_EMR_WS() >= 5}")
     @get_EMR_WS() >= 5
-    

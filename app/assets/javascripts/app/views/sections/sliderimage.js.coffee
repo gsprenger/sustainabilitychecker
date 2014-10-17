@@ -124,13 +124,13 @@ class window.SliderImageView
   getFuelsContextSlug:(data) ->
     sudokuModel = App.get().sudoku
     bio = (if data && data.slider == 's_ene_bio' then data.value else sudokuModel.energy.get_bio())
-    hyg = (if data && data.slider == 's_ene_hyg' then data.value else sudokuModel.energy.get_hyg())
+    #hyg = (if data && data.slider == 's_ene_hyg' then data.value else sudokuModel.energy.get_hyg())
     ncf = (if data && data.slider == 's_ene_ncf' then data.value else sudokuModel.energy.get_ncf())
     #console.log("Energy Fuel image update! bio#{bio} hyg#{hyg} ncf#{ncf}")
     if bio >= 75
       @contextSlug =  'bio75'
-    else if hyg >= 75
-      @contextSlug =  'hyg75'
+    #else if hyg >= 75
+    #  @contextSlug =  'hyg75'
     else if ncf >= 75
       @contextSlug =  'ncf75'
     else
