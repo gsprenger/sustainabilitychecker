@@ -1,15 +1,16 @@
 class window.SliderImageView
   constructor:(@section, @slidergroupSlug) ->
     @p = @section.i18nPrefix
-    @$el = $("<div id='#{@p_sliders_page}' class='sliders-image-main'>")
+    @$el = $("<div class='sliders-image-main'>")
     if !App.get().isMercury
       $(window).on "updatesliderimage", (e, data) =>
         @updateImg(data)
 
   render: ->
+    cssClass = @section.slug.split('_').pop()
     if !App.get().isMercury
       html = """
-          <img src='' title=''>
+          <img src='' title='' class='#{cssClass}'>
           <div class='description'>
           </div>
         """

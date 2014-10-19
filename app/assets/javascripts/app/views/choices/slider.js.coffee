@@ -6,9 +6,10 @@ class window.SliderView
     c = App.get().content
     l = App.get().level
     p = @section.i18nPrefix
+    cssClass = @section.slug.split('_').pop()
     html = """
         <div class='slider-title'>#{c.text(p+'_'+@slider.getShortName(), 'none')}</div>
-        <div class='slider #{@slider.getShortName()}'></div>
+        <div class='slider #{@slider.getShortName()} #{cssClass}'></div>
       """
     if @slider.slug == 's_ene_bio' || @slider.slug == 's_ene_ncf'
       html += """

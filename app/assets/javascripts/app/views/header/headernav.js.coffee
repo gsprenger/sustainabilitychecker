@@ -45,9 +45,10 @@ class window.HeaderNavView
     for s in app.sections
       avlb = (app.experiment.isCompleted(s.slug) || app.experiment.getCurrent() == s.slug)
       p = s.i18nPrefix
+      cssClass = s.slug.split('_').pop()
       html += """
               <li>
-                <a href='##{s.name}' class='nav-link navicon #{s.type}#{if avlb then ' available' else ''}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
+                <a href='##{s.name}' class='nav-link navicon #{cssClass} #{s.type}#{if avlb then ' available' else ''}' title='#{c.text(p+'_title', 'none')}' data-toggle='tooltip'>
                   <span class="fa-stack fa-lg">
                     #{if !avlb then '<i class="fa fa-square fa-stack-2x whitesquare"></i>' else ''}
                     <i class="fa fa-square#{if !avlb then '-o' else ''} fa-stack-2x"></i>

@@ -89,7 +89,7 @@ class window.HelpSectionView
           <div class='row'>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabdem" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
-                <div class='helptabicon'>
+                <div class='helptabicon dem'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-users'></i>
@@ -100,7 +100,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabdie" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
-                <div class='helptabicon'>
+                <div class='helptabicon die'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-cutlery'></i>
@@ -111,7 +111,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabhou" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
-                <div class='helptabicon'>
+                <div class='helptabicon hou'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-home'></i>
@@ -122,7 +122,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabser" role="tab" data-toggle="tab" class='tabtrigger tabdem'>
-                <div class='helptabicon'>
+                <div class='helptabicon ser'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-medkit'></i>
@@ -136,7 +136,7 @@ class window.HelpSectionView
           <div class='row'>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tablan" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
-                <div class='helptabicon'>
+                <div class='helptabicon lan'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-picture-o'></i>
@@ -147,7 +147,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabbm" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
-                <div class='helptabicon'>
+                <div class='helptabicon bm'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-wrench'></i>
@@ -158,7 +158,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabagr" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
-                <div class='helptabicon'>
+                <div class='helptabicon agr'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-leaf'></i>
@@ -169,7 +169,7 @@ class window.HelpSectionView
             </div>
             <div class='col-xs-3 helptabicon-cont'>
               <a href="##{@prefix}tabene" role="tab" data-toggle="tab" class='tabtrigger tabsup'>
-                <div class='helptabicon'>
+                <div class='helptabicon ene'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-fire'></i>
@@ -183,7 +183,7 @@ class window.HelpSectionView
           <div class='row'>
             <div class='col-xs-12 helptabicon-cont'>
               <a href="##{@prefix}tabcheck" role="tab" data-toggle="tab" class="tabtrigger tabcheck">
-                <div class='helptabicon'>
+                <div class='helptabicon check'>
                   <div class='help-table'>
                     <div class='help-cell'>
                       <i class='fa fa-check'></i> Check

@@ -5,6 +5,7 @@ class window.RadioView
   render: ->
     c = App.get().content
     p = @section.i18nPrefix
+    cssClass = @section.slug.split('_').pop()
     vals = @radio.values
     html = ''
     for i in [0..vals.length-1]
@@ -14,7 +15,7 @@ class window.RadioView
         """
       if !App.get().isMercury
         html += """
-            <img src='#{c.text(p+'_'+vals[i]+'_img', 'none')}' title='#{c.text(p+'_'+vals[i]+'_imgcred', 'none')}'>
+            <img class='#{cssClass}' src='#{c.text(p+'_'+vals[i]+'_img', 'none')}' title='#{c.text(p+'_'+vals[i]+'_imgcred', 'none')}'>
           """
       else 
         html += """

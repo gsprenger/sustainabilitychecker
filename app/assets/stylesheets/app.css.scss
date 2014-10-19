@@ -32,6 +32,7 @@ body.inapploading {
 }
 
 /** COLORS **/
+// this part needs tidying as some colors are not used anymore, other badly referenced
 // shades of grey
 $black: #333;
 $darkgrey: #666;
@@ -61,15 +62,6 @@ $darkred: #D2322D;
 $darkredborder: #AC2925;
 $red: #D9534F;
 $redborder: #D43F3A;
-// colors in header
-$demand: #009933;
-$demandactive: #009933;
-$demandcomplete: #33CC66;
-$supply: #CC3333;
-$supplyactive: #CC3333;
-$supplycomplete: #FF6666;
-$check: #2ECC71;
-$checkactive: #2ECC71;
 // colors in sections
 $level1: #B8D0DE;
 $level2: #86B4CF;
@@ -81,6 +73,16 @@ $darklevel3: #22558C;
 $facebookcolor: #3b5998;
 $twittercolor: #00aced;
 $googlecolor: #dd4b39;
+// sections colors
+$dem: #F68E51;
+$die: #00A78D;
+$hou: #7DB6D3;
+$ser: #B995C5;
+$lan: #BFD74B;
+$bm:  #154478;
+$agr: #FFDF5E;
+$ene: #D9302B;
+$check: #17B0CD;
 
 #app {
   position: relative;
@@ -234,8 +236,34 @@ $googlecolor: #dd4b39;
   color: #23A7C0;
   cursor: default;
   &:hover, &:focus, &:visited {
-    color: #23A7C0;
     text-decoration: none;
+  }
+  &.dem {
+    color: $dem;
+  }
+  &.die {
+    color: $die;
+  }
+  &.hou {
+    color: $hou;
+  }
+  &.ser {
+    color: $ser;
+  }
+  &.lan {
+    color: $lan;
+  }
+  &.bm {
+    color: $bm;
+  }
+  &.agr {
+    color: $agr;
+  }
+  &.ene {
+    color: $ene;
+  }
+  &.check {
+    color: $check;
   }
 }
 
@@ -298,135 +326,182 @@ $googlecolor: #dd4b39;
   padding: 3%;
   min-height: none;
   margin-bottom: 30px;
+}
 
-  .section-wrapper {
+.section h2 {
+  &.dem {
+    color: $dem;
   }
-
-  h2 small {
-    color: $darkgrey;
+  &.die {
+    color: $die;
   }
-
-  #intro-header {
-    height: 90px;
-    margin: 10px 0 10px 0;
+  &.hou {
+    color: $hou;
   }
-
-  // RADIO CHOICE
-  .choice {
-    .radio-row {
-      margin-top: 15px;
-      width: 100%;
-
-      .cell {
-        margin-right: 1px;
-        padding: 15px;
-        font-weight: 500;
-        cursor: pointer;
-        text-align: center;
-        background-color: transparent;
-        // small devices
-        width: 100%;
-        margin-bottom: 15px;
-        &.active  {
-          img {
-            border: 2px solid #23a7c0;
-          }
-        }
-        &:hover  {
-          img {
-            border: 2px solid transparent;
-          }
-        }
-        &:hover.active  {
-          img {
-            border: 2px solid #23a7c0;
-          }
-        }
-
-        small {
-          font-weight: 200;
-        }
-
-        img {
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
+  &.ser {
+    color: $ser;
   }
+  &.lan {
+    color: $lan;
+  }
+  &.bm {
+    color: $bm;
+  }
+  &.agr {
+    color: $agr;
+  }
+  &.ene {
+    color: $ene;
+  }
+}
+
+.section h2 small {
+  color: $darkgrey;
+}
+
+.section #intro-header {
+  height: 90px;
+  margin: 10px 0 10px 0;
+}
+
+// RADIO CHOICE
+.section .choice .radio-row {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.section .choice .radio-row .cell {
+  margin-right: 1px;
+  padding: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent;
+  // small devices
+  width: 100%;
+  margin-bottom: 15px;
+}  
+
+.section .choice .radio-row .cell small {
+  font-weight: 200;
+}
+
+.section .choice .radio-row .cell img {
+  width: 100%;
+  height: auto;
+}
+      
+.section .choice .radio-row .cell:hover img {
+  border: 2px solid transparent;
+}
+
+.section .choice .radio-row .cell.active img,
+.section .choice .radio-row .cell:hover.active img  {
+  border: 3px solid #23a7c0;
+  &.dem {
+    border-color: $dem;
+  }
+  &.die {
+    border-color: $die;
+  }
+  &.lan {
+    border-color: $lan;
+  }
+  &.bm {
+    border-color: $bm;
+  }
+  &.agr {
+    border-color: $agr;
+  }
+}
 
   // SLIDER CHOICE
-  .slidergroup-title {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
+.section .choice .slidergroup-title {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
-  .slider {
-    position: relative; 
-    margin-bottom: 25px;
-    font-weight: 400;
+.section .choice .slider {
+  position: relative; 
+  margin-bottom: 25px;
+  font-weight: 400;
+}
 
-    .ui-slider-range {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
+.section .choice .slider .ui-slider-range {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
-    .ui-slider-handle {
-      z-index: 4;
-    }
+.section .choice .slider .ui-slider-handle {
+  z-index: 4;
+}
 
-    &.nuc, &.ncf {
-      .ui-widget-header {
-        background: none;
-        background-color: #D9534F;
-      }
-    }
+.section .choice .slider.hou .ui-widget-header {
+  background: none;
+  background-color: $hou;
+}
 
-    &.hyd, &.win, &.pho, &.csp, &.bio {
-      .ui-widget-header {
-        background: none;
-        background-color: #5CB85C;
-      }
-    }
+.section .choice .slider.ser .ui-widget-header {
+  background: none;
+  background-color: $ser;
+}
 
-    .step {
-      position: absolute;
-      top: 0px;
-      border-left: 1px solid $grey;
-      z-index: 3;
-      line-height: 53px;
-      height: 15px;
+.section .choice .slider.nuc .ui-widget-header, 
+.section .choice .slider.ncf .ui-widget-header {
+  background: none;
+  background-color: #D9534F;
+}
+    
 
-      .name {
-        position: absolute;
-        top: -7px;
-        left: -14px;
-        font-size: 9px;
-        color: $textgrey;
-        width: 30px;
-        text-align: center;
-      }
-    }
+.section .choice .slider.hyd .ui-widget-header,
+.section .choice .slider.win .ui-widget-header,
+.section .choice .slider.pho .ui-widget-header,
+.section .choice .slider.csp .ui-widget-header,
+.section .choice .slider.bio .ui-widget-header {
+  background: none;
+  background-color: #5CB85C;
+}
+    
 
-    .min-limit, .max-limit {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      z-index: 2;
-      background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
-      background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-      background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-      background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-      background-size: 35px 35px;
-    }
-    .min-limit {
-      left: 0;
-    }
-    .max-limit {
-      right: 0;
-      background-color: $grey;
-    }
-  }
+.section .choice .slider .step {
+  position: absolute;
+  top: 0px;
+  border-left: 1px solid $grey;
+  z-index: 3;
+  line-height: 53px;
+  height: 15px;
+}
+
+.section .choice .slider .step .name {
+  position: absolute;
+  top: -7px;
+  left: -14px;
+  font-size: 9px;
+  color: $textgrey;
+  width: 30px;
+  text-align: center;
+}
+
+.section .choice .slider .min-limit, 
+.section .choice .slider .max-limit {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 35px 35px;
+}
+
+.section .choice .slider .min-limit {
+  left: 0;
+}
+
+.section .choice .slider .max-limit {
+  right: 0;
+  background-color: $grey;
 }
 
 .row-equalheight {
@@ -447,7 +522,16 @@ $googlecolor: #dd4b39;
 .sliders-image-main img {
   width: 100%;
   height: auto;
-  border: 2px solid #23A7C0 ;
+  border: 2px solid #23A7C0;
+  &.hou {
+    border-color: $hou;
+  }
+  &.ser {
+    border-color: $ser;
+  }
+  &.ene {
+    border-color: $ene;
+  }
 }
 
 .sliders-image-main .desc {
@@ -959,8 +1043,35 @@ $googlecolor: #dd4b39;
   margin-right: 10px;
   text-align: center;
   cursor: pointer;
-  &:hover {
+  &:hover, &.active{
     background-color: #B8D0DE;
+  }
+  &.dem:hover, &.dem.active {
+    background-color: $dem;
+  }
+  &.die:hover, &.die.active {
+    background-color: $die;
+  }
+  &.hou:hover, &.hou.active {
+    background-color: $hou;
+  }
+  &.ser:hover, &.ser.active {
+    background-color: $ser;
+  }
+  &.lan:hover, &.lan.active {
+    background-color: $lan;
+  }
+  &.bm:hover, &.bm.active {
+    background-color: $bm;
+  }
+  &.agr:hover, &.agr.active {
+    background-color: $agr;
+  }
+  &.ene:hover, &.ene.active {
+    background-color: $ene;
+  }
+  &.check:hover, &.check.active {
+    background-color: $check;
   }
 }
 
@@ -977,10 +1088,6 @@ $googlecolor: #dd4b39;
 
 .modal-help .helptabicon .fa {
   font-size: 28px;
-}
-
-.modal-help .tabtrigger .helptabicon.active {
-  background-color: #B8D0DE;
 }
 
 .modal-help .tablevel .helptabicon.active {
@@ -1088,25 +1195,23 @@ $googlecolor: #dd4b39;
 @media (min-width: 600px) {
   .section {
     padding: 65px 3% 3% 3%;
-    .choice {
-      .radio-row {
-        .cell {
-          float: left;
-          margin-bottom: 0;
-          transition: 0.4s all ease;
-          &:hover { 
-            transform: scale(1.1);
-            -ms-transform: scale(1.1); /* IE 9 */
-            -moz-transform: scale(1.1); /* Firefox */
-            -webkit-transform: scale(1.1); /* Safari and Chrome */
-            -o-transform: scale(1.1); /* Opera */
-          }
-          &.lg-4 {
-            width: 33%;
-          }
-        }
-      }
+  }
+
+  .section .choice .radio-row .cell {
+    float: left;
+    margin-bottom: 0;
+    transition: 0.4s all ease;
+    &:hover { 
+      transform: scale(1.1);
+      -ms-transform: scale(1.1); /* IE 9 */
+      -moz-transform: scale(1.1); /* Firefox */
+      -webkit-transform: scale(1.1); /* Safari and Chrome */
+      -o-transform: scale(1.1); /* Opera */
     }
+  }
+
+  .section .choice .radio-row .cell.lg-4 {
+    width: 33%;
   }
 
   #check {
