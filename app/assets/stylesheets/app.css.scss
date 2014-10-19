@@ -238,31 +238,31 @@ $check: #17B0CD;
   &:hover, &:focus, &:visited {
     text-decoration: none;
   }
-  &.dem {
+  &.available.dem {
     color: $dem;
   }
-  &.die {
+  &.available.die {
     color: $die;
   }
-  &.hou {
+  &.available.hou {
     color: $hou;
   }
-  &.ser {
+  &.available.ser {
     color: $ser;
   }
-  &.lan {
+  &.available.lan {
     color: $lan;
   }
-  &.bm {
+  &.available.bm {
     color: $bm;
   }
-  &.agr {
+  &.available.agr {
     color: $agr;
   }
-  &.ene {
+  &.available.ene {
     color: $ene;
   }
-  &.check {
+  &.available.check {
     color: $check;
   }
 }

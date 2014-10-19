@@ -46,15 +46,15 @@ body {
 }
 
 // HEADER
-.active {
-  color: #17B0CD;
-}
-
 .navbar-nav {
   float:none;
   margin: 0 auto;
   display: table;
   table-layout: fixed;
+}
+
+.navbar-nav .active {
+  color: #17B0CD;
 }
 
 // FOOTER
