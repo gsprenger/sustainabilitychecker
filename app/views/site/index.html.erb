@@ -1,5 +1,5 @@
 <div class='row'>
-  <div class='col-sm-6 index-intro'>
+  <div class='col-sm-12 index-intro text-center'>
     <h1><%= Content.text('index_hero_title', @isMercury) %></h1>
     <p>
       <%= Content.text('index_hero_desc', @isMercury) %>
@@ -8,7 +8,11 @@
       <a href='/level1' class='more capitalize'>Start the experience now!<span><i class='fa fa-chevron-right'></i></span></a>
     </p>
   </div>
-  <div class='col-sm-6 index-logo'>
+</div>
+<div class='main-divider'></div>
+<div class='row'>
+  <div class='col-sm-6 index-playsudoku'>
+    <a href='/level1' class='capitalize'>
       <% if !@isMercury %>
         <img src='<%= Content.text('home_img_homesplash', @isMercury, 'raw')%>' title='<%= Content.text('home_imgcred_homesplash', @isMercury, 'raw')%>'><br>
       <% else %>
@@ -16,24 +20,7 @@
         <%= Content.text('home_img_homesplash', @isMercury)%>
         <%= Content.text('home_imgcred_homesplash', @isMercury)%>
       <% end %>
-  </div>
-</div>
-<div class='divider'></div>
-<div class='row'>
-  <div class='col-sm-6 index-playsudoku'>
-    <a href='/level1' class='capitalize'>
-      <% if !@isMercury %>
-        <img src='<%= Content.text('home_img_sudokuprev', @isMercury, 'raw')%>' title='<%= Content.text('home_imgcred_sudokuprev', @isMercury, 'raw')%>'><br>
-      <% else %>
-        Image URL + credit (editor only):
-        <%= Content.text('home_img_sudokuprev', @isMercury)%>
-        <%= Content.text('home_imgcred_sudokuprev', @isMercury)%>
-      <% end %>
-      <span class='more'>Play the Sustainability Sudoku now<span><i class='fa fa-chevron-right'></i></span></span>
     </a>
-    <p>
-      <%= Content.text('index_play_desc', @isMercury) %>
-    </p>
   </div>
   <div class='col-sm-6 index-about'>
     <h2><%= Content.text('index_about_title', @isMercury) %></h2>
@@ -44,13 +31,6 @@
           <%= Content.text('index_about_1_desc', @isMercury) %>
         </p>
         <a href='/more#narratives' class='more capitalize'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
-      </li>
-      <li>
-        <h3><%= Content.text('index_about_2_title', @isMercury) %></h3>
-        <p>
-          <%= Content.text('index_about_2_desc', @isMercury) %>
-        </p>
-        <a href='/more#humansocieties' class='more capitalize'>Read more<span><i class='fa fa-chevron-right'></i></span></a>
       </li>
     </ul>
   </div>

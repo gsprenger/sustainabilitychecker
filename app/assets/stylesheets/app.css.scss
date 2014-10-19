@@ -63,12 +63,12 @@ $darkredborder: #AC2925;
 $red: #D9534F;
 $redborder: #D43F3A;
 // colors in sections
-$level1: #B8D0DE;
-$level2: #86B4CF;
-$level3: #6792AB;
-$darklevel1: #6792AB;
-$darklevel2: #5081B5;
-$darklevel3: #22558C;
+$level1: #17B0CD;
+$level2: #17B0CD;
+$level3: #17B0CD;
+$darklevel1: #007D9A;
+$darklevel2: #007D9A;
+$darklevel3: #007D9A;
 // social colors
 $facebookcolor: #3b5998;
 $twittercolor: #00aced;
@@ -233,7 +233,7 @@ $check: #17B0CD;
   height: 45px;
   margin-left: 10px;
   font-size: 17px;
-  color: #23A7C0;
+  color: #17B0CD;
   cursor: default;
   &:hover, &:focus, &:visited {
     text-decoration: none;
@@ -273,7 +273,7 @@ $check: #17B0CD;
 
 //  - icons
 #headernav-cont li .navicon .icon {
-  color: #23A7C0;
+  color: #17B0CD;
 }
 
 #headernav-cont li .navicon .icon.available {
@@ -397,7 +397,7 @@ $check: #17B0CD;
 
 .section .choice .radio-row .cell.active img,
 .section .choice .radio-row .cell:hover.active img  {
-  border: 3px solid #23a7c0;
+  border: 3px solid #17B0CD;
   &.dem {
     border-color: $dem;
   }
@@ -522,7 +522,7 @@ $check: #17B0CD;
 .sliders-image-main img {
   width: 100%;
   height: auto;
-  border: 2px solid #23A7C0;
+  border: 2px solid #17B0CD;
   &.hou {
     border-color: $hou;
   }

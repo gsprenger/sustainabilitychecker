@@ -1,24 +1,31 @@
-<div class="site-header">
-  <div class="site-nav">
-    <h1 class="site-logo">
-      <a href="/">Sustainability Sudoku</a>
-      <div class='site-hashtag'>
-        <a href='https://twitter.com/search?f=realtime&q=%23thesustainabilitysudoku' target='_blank'>#thesustainabilitysudoku</a>
-      </div>
-    </h1>
-    <ul class="site-nav-items">
-      <li>
-        <a class='capitalize <%= action_name == 'index' ? " selected" : "" %>' href="/">Home</a>
-      </li>
-      <li>
-        <a class='capitalize <%= action_name == 'app' ? " selected" : "" %>' href="/start">Play Now</a>
-      </li>
-      <li>
-        <a class='capitalize <%= action_name == 'more' ? " selected" : "" %>' href="/more">Learn More</a>
-      </li>
-      <li>
-        <a class='capitalize <%= action_name == 'contact' ? " selected" : "" %>' href="/contact">Contact Us</a>
-      </li>
-    </ul>
-  </div>
-</div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container text-center">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">The Sustainability Sudoku</a>
+        </div>
+        <li class='<%= action_name == 'index' ? " active" : "" %>'>
+          <a href="/">Home</a>
+        </li>
+        <li class='<%= action_name == 'app' ? " active" : "" %>'>
+          <a href="/start">Play Now</a>
+        </li>
+        <li class='<%= action_name == 'more' ? " active" : "" %>'>
+          <a href="/more">Learn More</a>
+        </li>
+        <li class='<%= action_name == 'contact' ? " active" : "" %>'>
+          <a href="/contact">Contact Us</a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
