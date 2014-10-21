@@ -160,6 +160,20 @@ body {
   color: #dd4b39;
 }
 
+.site-footer .copyright {
+  font-size: 12px;
+}
+
+.site-footer .copyright a,
+.site-footer .copyright a:hover {
+  color: #999;
+  text-decoration: none;
+}
+
+.site-footer .copyright img {
+  width: 21px;
+}
+
 // COMMON
 .site-body-content {
   clear: both;

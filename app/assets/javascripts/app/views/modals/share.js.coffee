@@ -33,7 +33,7 @@ class window.ShareModal
                   </a>                    
                 </div>
                 <div class='col-xs-3 nopadr nopadl'>
-                  <a target='_blank' href="https://twitter.com/share?url=#{encodeURIComponent(@getSharePermalink())}&hashtags=thesustainabilitysudoku&text=Just played the Sustainability Sudoku! Check out how sustainable I am:" title="Share this experiment on Twitter">
+                  <a target='_blank' href="https://twitter.com/share?url=#{encodeURIComponent(@getSharePermalink())}&hashtags=thesustainabilitysudoku,sustainability,MuSIASEM,dataviz&text=I tried to run a society w/o fossil energy. Impossible!" title="Share this experiment on Twitter">
                     <div class='social twitter'>
                       <i class="fa fa-twitter"></i> Twitter
                     </div>
@@ -66,7 +66,7 @@ class window.ShareModal
                   </a>                    
                 </div>
                 <div class='col-xs-3 nopadr nopadl'>
-                  <a target='_blank' href="https://twitter.com/share?url=http%3A%2F%2Fthesustainabilitysudoku.info&hashtags=thesustainabilitysudoku&text=Just%20played%20the%20Sustainability%20Sudoku!%20Define%20your%20society%20and%20try%20to%20get%20it%20sustainable!" title="Share this website on Twitter">
+                  <a target='_blank' href="https://twitter.com/share?url=http%3A%2F%2Fthesustainabilitysudoku.info&hashtags=thesustainabilitysudoku,sustainability,MuSIASEM,dataviz&text=The Sustainability Sudoku: " title="Share this website on Twitter">
                     <div class='social twitter'>
                       <i class="fa fa-twitter"></i> Twitter
                     </div>
