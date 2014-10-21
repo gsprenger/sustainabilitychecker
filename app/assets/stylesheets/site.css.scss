@@ -95,7 +95,7 @@ a:hover {
 .site-footer {
   border-bottom: 1px solid #F0F0F0;
   border-top: 1px solid #F0F0F0;
-  background: #FFF;
+  background: #FDFDFD;
 }
 
 .site-footer.inapploading {
@@ -148,8 +148,12 @@ a:hover {
   text-decoration: none;
 }
 
+.site-footer-list a:hover {
+  color: #09C;
+}
+
 .site-footer .social {
-  border-left: 1px solid #E6E6E6;
+  float: right;
   padding-left: 22px;
 }
 
@@ -170,17 +174,21 @@ a:hover {
 }
 
 .site-footer .copyright {
-  font-size: 12px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #999;
 }
 
-.site-footer .copyright a,
-.site-footer .copyright a:hover {
+.site-footer .copyright a {
   color: #999;
+}
+
+.site-footer .copyright a:hover {
+  color: #09C;
   text-decoration: none;
 }
 
 .site-footer .copyright img {
-  width: 21px;
 }
 
 // COMMON

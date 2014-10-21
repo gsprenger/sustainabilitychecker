@@ -15,7 +15,7 @@ class SiteController < ApplicationController
   end
 
   def legal
-    @license = File.read('LICENSE').gsub(/\n/, '<br>')
+    @license = File.read('LICENSE')
   end
 
   def glossary
