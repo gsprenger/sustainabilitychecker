@@ -55,11 +55,10 @@ class window.CheckView
       desirability = sud.getEMRSuccess()
       html += """
         <br>
-        <div class='row'>
-          <div class='col-sm-6'>
+        <div class='row criteria-row'>
+          <div class='col-sm-6 criteria-col'>
             <div class='panel panel-#{if security then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if security then 'check' else 'times'}'></i>
                 #{c.text('chkr_sud_security'+(if security then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
@@ -71,10 +70,9 @@ class window.CheckView
               </div>
             </div>
           </div>
-          <div class='col-sm-6'>
+          <div class='col-sm-6 criteria-col'>
             <div class='panel panel-#{if renewability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if renewability then 'check' else 'times'}'></i>
                 #{c.text('chkr_sud_renewability'+(if renewability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
@@ -83,11 +81,10 @@ class window.CheckView
             </div>
           </div>
         </div>
-        <div class='row'>
-          <div class='col-sm-6'>
+        <div class='row criteria-row'>
+          <div class='col-sm-6 criteria-col'>
             <div class='panel panel-#{if viability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if viability then 'check' else 'times'}'></i>
                 #{c.text('chkr_sud_HA'+(if viability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
@@ -95,10 +92,9 @@ class window.CheckView
               </div>
             </div>
           </div>
-          <div class='col-sm-6'>
+          <div class='col-sm-6 criteria-col'>
             <div class='panel panel-#{if feasibility then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if feasibility then 'check' else 'times'}'></i>
                 #{c.text('chkr_sud_LU'+(if feasibility then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>
@@ -111,7 +107,6 @@ class window.CheckView
           <div class='col-sm-12'>
             <div class='panel panel-#{if desirability then 'success' else 'danger'}'>
               <div class='panel-heading'>
-                <i class='fa fa-#{if desirability then 'check' else 'times'}'></i>
                 #{c.text('chkr_sud_EMR'+(if desirability then 'suc' else 'fail')+'_t', 'none')}
               </div>
               <div class='panel-body'>

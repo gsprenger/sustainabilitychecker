@@ -745,17 +745,17 @@ $check: #17B0CD;
 }
 
 #checksum-panel {
-  border-color: #C0D4DE;
+  border-color: #03A4C3;
   border-width: 2px;
 }
 
 #checksum-panel-heading {
-  background-color: #D9EDF7;
+  background-color: rgba(102,204,223,0.2);
 }
 
 #checksum-panel-body {
-  background-color: #D9EDF7;
-  border-top: 1px solid #C0D4DE;
+  background-color: rgba(102,204,223,0.2);
+  border-top: 1px solid #03A4C3;
   border-width: 1px;
 }
 
@@ -790,6 +790,20 @@ $check: #17B0CD;
   margin-left: 25px;
 }
 
+/** Level 2&3 criteria **/
+.criteria-row, .criteria-row > div[class*='col-'] {  
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
+}
+
+.criteria-row .panel {
+  width: 100%;
+}
+
 /** Level 2&3 sectioninfo **/
 .sectioninfo-cont {
   padding-top: 15px;
@@ -799,19 +813,26 @@ $check: #17B0CD;
 
 .sectioninfo {
   width: 100%;
-  background-color: #D9EDF7;
-  border-left: 5px solid #C0D4DE;
+  background-color: rgba(102,204,223,0.2);
+  border-left: 5px solid #03A4C3;
   clear: both;
   margin: 15px 0;
   padding: 15px 30px;
 }
 
+.sectioninfo a {
+  color: #03A4C3;
+  &:hover {
+    color: #008BAA;
+  }
+}
+
 .sectioninfo-morelink, .sectioninfo-lesslink {
-  color: #428BCA;
+  color: #03A4C3;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
-    color: #2A6496;
+    color: #008BAA;
   }
 }
 
