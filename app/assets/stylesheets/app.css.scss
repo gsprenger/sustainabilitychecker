@@ -927,15 +927,20 @@ $check: #17B0CD;
   position: absolute;
   top: -1px;
   left: 50%;
-  width: 30px;
-  height: 18px;
-  margin-left: -15px;
-  border: 1px solid $black;
+  width: 40px;
+  height: 25px;
+  margin-left: -20px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   text-align: center;
   line-height: 0px;
-  color: #000;
+  color: #FFF;
+}
+
+#overlay-button .fa {
+  line-height: 7px;
+  margin-left: -3px;
+  font-size: 15px;
 }
 
 #overlay-toggle:hover #overlay-button {
@@ -1072,7 +1077,7 @@ $check: #17B0CD;
   text-align: center;
   cursor: pointer;
   &:hover, &.active{
-    background-color: #B8D0DE;
+    background-color: #17B0CD;
   }
   &.dem:hover, &.dem.active {
     background-color: $dem;

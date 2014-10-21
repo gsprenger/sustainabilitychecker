@@ -15,7 +15,7 @@ class window.SudokuOverlayView
     c = App.get().content
     html = """
       <div id='overlay-toggle'>
-        <div id='overlay-button'><i class='fa fa-chevron-up'></i></div>
+        <div id='overlay-button' class='btn'><i class='fa fa-chevron-up'></i></div>
       </div>
       """
     @$el.html(html)

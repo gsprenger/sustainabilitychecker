@@ -10,6 +10,15 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+a {
+  color: #17B0CD;
+}
+
+a:hover {
+  color: #09C;
+  text-decoration: none;
+}
+
 // BETA RIBBON
 .beta-ribbon {
   background-color: #23A7C0;
