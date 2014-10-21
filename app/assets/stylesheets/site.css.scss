@@ -46,6 +46,11 @@ body {
 }
 
 // HEADER
+.navbar .container {
+  width: 978px;
+  padding: 0;
+}
+
 .navbar-nav {
   float:none;
   margin: 0 auto;
@@ -53,8 +58,28 @@ body {
   table-layout: fixed;
 }
 
-.navbar-nav .active {
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
   color: #17B0CD;
+}
+
+.navbar .navbar-brand {
+  position: relative;
+  color: #17B0CD;
+}
+
+.navbar .navbar-brand:hover {
+  color: #0097B4;
+}
+
+.navbar-brand img {
+  width: 44px;
+  float: left;
+  margin-top: -10px;
+  margin-right: 8px;
 }
 
 // FOOTER
