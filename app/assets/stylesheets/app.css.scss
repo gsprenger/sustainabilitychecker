@@ -826,6 +826,68 @@ $check: #17B0CD;
   }
 }
 
+.btn {
+  display: inline-block;
+  font-size: 13px;
+  padding: 8px 15px 7px;
+  border-radius: 3px;
+  border: 1px solid #347F93;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 0 rgba(250, 250, 250, 0.2) inset,0 1px 3px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0 1px 0 rgba(250,250,250,.2) inset,0 1px 3px rgba(0,0,0,.28);
+  box-shadow: 0 1px 0 rgba(250, 250, 250, 0.2) inset,0 1px 3px rgba(0, 0, 0, 0.28);
+  background-color: #57ABC0;
+  background-image: -moz-linear-gradient(100% 100% 90deg,#3D92A8,#57ABC0);
+  background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#57ABC0),to(#3D92A8));
+  -pie-background: linear-gradient(#57ABC0,#3D92A8 100%);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  border-color: #0E7486;
+  background-color: #128FA6;
+  background-image: -moz-linear-gradient(100% 100% 90deg,#128fa6,#17b0cd);
+  background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#17B0CD),to(#128FA6));
+  -pie-background: linear-gradient(#17b0cd,#128fa6 100%);
+  color: #FFF;
+}
+
+.btn:focus, .btn:active {
+  border: 1px solid #555;
+  background-color: #57ABC0;
+}
+
+.btn-primary {
+  color: #FFF;
+}
+
+.btn-again {
+  background-color: #F39245;
+  background-image: -moz-linear-gradient(100% 100% 90deg,#D9782B,#F39245);
+  background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#F39245),to(#D9782B));
+  -pie-background: linear-gradient(#F39245,#D9782B 100%);
+  border: 1px solid #A85412;
+  color: #FFF;
+}
+
+.btn-again:hover {
+  border-color: #0E7486;
+  background-color: #128FA6;
+  background-image: -moz-linear-gradient(100% 100% 90deg,#DA6D17,#F38630);
+  background-image: -webkit-gradient(linear,0% 0%,0% 100%,from(#F38630),to(#DA6D17));
+  -pie-background: linear-gradient(#F38630,#DA6D17 100%);
+  color: #FFF;
+}
+
+.btn-again:focus, .btn-again:active {
+  border: 1px solid #555;
+  background-color: #F39245;
+  color: #FFF;
+}
+
 // Level 3 section
 #lvl3-main {
   position: fixed;
@@ -977,40 +1039,6 @@ $check: #17B0CD;
   -webkit-border-radius: 0 0 0 4px;
   -moz-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
-}
-
-// Different colors for each level
-.in-level1 {
-  .btn-primary {
-    border-color: $darklevel1;
-    background-color: $level1;
-    color: $black;
-    &:hover {
-      background-color: $darklevel1;
-    }
-  }
-}
-
-.in-level2 {
-  .btn-primary {
-    border-color: $darklevel2;
-    background-color: $level2;
-    color: $black;
-    &:hover {
-      background-color: $darklevel2;
-    }
-  }
-}
-
-.in-level3 {
-  .btn-primary {
-    border-color: $darklevel3;
-    background-color: $level3;
-    color: $black;
-    &:hover {
-      background-color: $darklevel3;
-    }
-  }
 }
 
 // MODALS

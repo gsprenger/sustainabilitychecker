@@ -18,12 +18,6 @@ class window.IntroView
         <div id='headernav' data-spy='affix'></div>
         <div class='invisible-margin'></div>
         <div class='btn-row'>
-      """
-    if (l>1)
-      html += """
-            <div class='btn btn-lg btn-default btngoback'>#{c.text('chkr_goback_btn_level'+l)}</div>
-      """
-    html += """
           <div class='btn btn-lg btn-primary btnnext'>#{c.text('chkr_start_btn_level'+l)}</div>
         </div>
       </div>
