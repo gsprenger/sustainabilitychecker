@@ -171,11 +171,12 @@ class window.Radar
       # determine color
       if value >= thresholds.low
         if value >= thresholds.med
-          color = if data[i].section == 'Environment' then colors.red else colors.green
+          console.log(data[i])
+          color = if (i == 4 || i == 5) then colors.red else colors.green
         else
           color = colors.yellow
       else
-        color = if data[i].section == 'Environment' then colors.green else colors.red 
+        color = if (i == 4 || i == 5) then colors.green else colors.red 
       # push data
       chartData.push
         min:   0,
