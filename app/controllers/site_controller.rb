@@ -20,6 +20,7 @@ class SiteController < ApplicationController
 
   def glossary
     @glossary = Glossary.order('name')
+    @glossarySplit = @glossary.in_groups(2, false)
   end
 
   def send_contact_email

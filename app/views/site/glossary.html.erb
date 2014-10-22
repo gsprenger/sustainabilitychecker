@@ -1,13 +1,25 @@
 <h2><%= Content.text('gloss_title', @isMercury) %></h2>
 <div class='gloss-main'>
   <h3><%= Content.text('gloss_index_title', @isMercury) %></h3>
-  <p>
-  <ul>
-  <% @glossary.each do |g| %>
-    <li><a href='#<%=g.slug%>'><%=g.name%></a></li>
-  <% end %>
-  </ul>
-  </p>
+  <div class='row'>
+    <div class='col-md-6'>
+      <p>
+      <ul>
+      <% @glossarySplit[0].each do |g| %>
+        <li><a href='#<%=g.slug%>'><%=g.name%></a></li>
+      <% end %>
+      </ul>
+      </p>
+    </div>
+    <div class='col-md-6'>
+      <p>
+      <ul>
+      <% @glossarySplit[1].each do |g| %>
+        <li><a href='#<%=g.slug%>'><%=g.name%></a></li>
+      <% end %>
+      </ul>
+      </p>
+    </div>
   <hr>
   <% @glossary.each do |g| %>
     <div class='glos-entry' id='<%=g.slug%>'>
