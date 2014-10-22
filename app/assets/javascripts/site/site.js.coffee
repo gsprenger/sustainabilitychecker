@@ -28,6 +28,10 @@ window.setup = ->
     placement: 'bottom',
     trigger: 'hover click',
   }
+  # Init smooth scrolling
+  $('a').on 'click', (e) ->
+    $('html, body').animate({scrollTop: $(e.currentTarget.hash).offset().top}, 1000)  
+    return false
   # create and init scrollTop button
   $('body').append("""
       <div id='scrolltopicon-cont'>

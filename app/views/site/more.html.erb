@@ -1,35 +1,54 @@
-<h2><%= Content.text('more_about_title', @isMercury) %></h2>
-<div class='row' id='narratives'>
-  <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_about_1_title', @isMercury) %></h3>
-    <p><%= Content.text('more_about_1_desc', @isMercury) %></p>
+<div class='more-row'>
+  <div class='sidenav-cont'>
+    <div class='sidenav-affix affix' data-spy="affix" data-offset-top="100" >
+      <div class='sidenav nav'>
+        <li>
+          <a href='#what'>What this website is about</a>
+        </li>
+        <li>
+          <a href='#how'>How this website works</a>
+        </li>
+        <li>
+          <a href='#disclaimer'>Disclaimer</a>
+        </li>
+      </div>
+    </div>
   </div>
-  <div class='col-sm-4 more-image'>
-    <% if !@isMercury %>
-      <img src='<%= Content.text('more_img_1', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_1', @isMercury, 'raw')%>'><br>
-    <% else %>
-      Image URL + credit (editor only):
-      <%= Content.text('more_img_1', @isMercury)%>
-      <%= Content.text('more_imgcred_1', @isMercury)%>
-    <% end %>
-  </div>
-</div>
-<div class='more-divider'></div>
-<div class='row' id='humansocieties'>
-  <div class='col-sm-4 more-image'>
-    <iframe src="http://media.mtvnservices.com/embed/mgid:cms:video:thedailyshow.com:312470" frameborder="0"></iframe>
-    <div class='text-center'><small><em><%= Content.text('more_about_2_videodesc', @isMercury) %></em></small></div>
-  </div>
-  <div class='col-sm-8 more-section'>
-    <h3><%= Content.text('more_about_2_title', @isMercury) %></h3>
-    <p><%= Content.text('more_about_2_desc', @isMercury) %></p>
-  </div>
-</div>
-<div class='divider'></div>
-<h2><%= Content.text('more_how_title', @isMercury) %></h2>
-<div class='row' id='metabolicpattern'>
-  <div class='col-sm-12 more-section'>
-    <h3><%= Content.text('more_how_1_title', @isMercury) %></h3>
-    <p><%= Content.text('more_how_1_desc', @isMercury) %></p>
+  <div class='more-cont'>
+    <h2 id='what'><%= Content.text('more_about_title', @isMercury) %></h2>
+    <div class='row' id='narratives'>
+      <div class='col-sm-8 more-section'>
+        <h3><%= Content.text('more_about_1_title', @isMercury) %></h3>
+        <p><%= Content.text('more_about_1_desc', @isMercury) %></p>
+      </div>
+      <div class='col-sm-4 more-image'>
+        <% if !@isMercury %>
+          <img src='<%= Content.text('more_img_1', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_1', @isMercury, 'raw')%>'><br>
+        <% else %>
+          Image URL + credit (editor only):
+          <%= Content.text('more_img_1', @isMercury)%>
+          <%= Content.text('more_imgcred_1', @isMercury)%>
+        <% end %>
+      </div>
+    </div>
+    <div class='more-divider'></div>
+    <div class='row' id='humansocieties'>
+      <div class='col-sm-4 more-image'>
+        <iframe src="http://media.mtvnservices.com/embed/mgid:cms:video:thedailyshow.com:312470" frameborder="0"></iframe>
+        <div class='text-center'><small><em><%= Content.text('more_about_2_videodesc', @isMercury) %></em></small></div>
+      </div>
+      <div class='col-sm-8 more-section'>
+        <h3><%= Content.text('more_about_2_title', @isMercury) %></h3>
+        <p><%= Content.text('more_about_2_desc', @isMercury) %></p>
+      </div>
+    </div>
+    <div class='divider'></div>
+    <h2 id='how'><%= Content.text('more_how_title', @isMercury) %></h2>
+    <div class='row' id='metabolicpattern'>
+      <div class='col-sm-12 more-section'>
+        <h3><%= Content.text('more_how_1_title', @isMercury) %></h3>
+        <p><%= Content.text('more_how_1_desc', @isMercury) %></p>
+      </div>
+    </div>
   </div>
 </div>

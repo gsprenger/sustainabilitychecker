@@ -1,5 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  position: relative;
 }
 
 .popover {
@@ -291,6 +292,7 @@ a:hover {
   display: none;
   font-size: 36px;
   cursor: pointer;
+  color: #17B0CD;
 }
 
 // INDEX
@@ -334,6 +336,43 @@ a:hover {
 }
 
 // MORE
+.more-row {
+  position: relative;
+}
+
+.sidenav-cont {
+  float: left;
+  width: 200px;
+}
+
+.sidenav-affix.affix {
+  top: 16px;
+  width: 200px;
+}
+
+.sidenav li a {
+  margin-top: 5px;
+  font-weight: normal;
+  border-left: 3px solid #FFF;
+}
+
+.sidenav li.active a {
+  font-weight: bold;
+  border-left: 3px solid #17B0CD;
+}
+
+.more-cont {
+  margin-left: 200px;
+  padding-left: 10px;
+  padding-top: 1px;
+
+}
+
+.more-row .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .more-divider {
   margin-top: 40px;
 }
