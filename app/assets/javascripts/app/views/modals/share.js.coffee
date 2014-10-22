@@ -66,7 +66,7 @@ class window.ShareModal
                   </a>                    
                 </div>
                 <div class='col-xs-3 nopadr nopadl'>
-                  <a target='_blank' href="https://twitter.com/share?url=http%3A%2F%2Fthesustainabilitysudoku.info&hashtags=thesustainabilitysudoku,sustainability,MuSIASEM,dataviz&text=The Sustainability Sudoku: " title="Share this website on Twitter">
+                  <a target='_blank' href="https://twitter.com/share?url=http%3A%2F%2Fthesustainabilitysudoku.info&hashtags=thesustainabilitysudoku,sustainability,MuSIASEM,dataviz&text=The Sustainability Sudoku -" title="Share this website on Twitter">
                     <div class='social twitter'>
                       <i class="fa fa-twitter"></i> Twitter
                     </div>
