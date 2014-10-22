@@ -1,4 +1,23 @@
-<h2><%= Content.text('credits_title', @isMercury) %></h2>
+<div id='musiasem'>
+  <h2><%= Content.text('more_about_us_title', @isMercury)%></h2>
+  <div class='row'>
+    <div class='col-sm-4 more-image'>
+      <% if !@isMercury %>
+        <img src='<%= Content.text('more_img_4', @isMercury, 'raw')%>' title='<%= Content.text('more_imgcred_4', @isMercury, 'raw')%>'><br>
+      <% else %>
+        Image URL + credit (editor only):
+        <%= Content.text('more_img_4', @isMercury)%>
+        <%= Content.text('more_imgcred_4', @isMercury)%>
+      <% end %>
+    </div>
+    <div class='col-sm-8 more-section'>
+      <h3><%= Content.text('more_how_2_title', @isMercury) %></h3>
+      <p><%= Content.text('more_how_2_desc', @isMercury) %></p>
+    </div>
+  </div>
+</div>
+<hr>
 <div class='credits-main'>
+  <h2><%= Content.text('credits_title', @isMercury) %></h2>
   <%= Content.text('credits_desc', @isMercury) %>
 </div>

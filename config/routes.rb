@@ -6,7 +6,7 @@ Sustainabilitychecker::Application.routes.draw do
   get "home"     => "site#index"
   get "more"     => "site#more"
   get "contact"  => "site#contact"
-  get "credits"  => "site#credits"
+  get "about"  => "site#credits"
   get "legal"    => "site#legal"
   get "glossary" => "site#glossary"
 
