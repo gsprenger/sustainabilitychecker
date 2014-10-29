@@ -1067,6 +1067,7 @@ $check: #17B0CD;
   cursor: pointer;
   &:hover, &.active{
     background-color: #17B0CD;
+    color: #fefefe;
   }
   &.dem:hover, &.dem.active {
     background-color: $dem;
