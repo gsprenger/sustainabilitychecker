@@ -192,6 +192,42 @@ a:hover {
 .site-footer .copyright img {
 }
 
+// FEEDBACK
+#feedback { 
+  height: 104px; 
+  width: 104px; 
+  position: fixed; 
+  top: 40%;
+  right: 0; 
+  z-index: 999;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); 
+  -moz-transform: rotate(90deg); 
+  -o-transform: rotate(90deg); 
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+#feedback a { 
+  display: block; 
+  background: #F38630;
+  height: 30px; 
+  width: 94px; 
+  padding: 10px 12px;
+  color: #fff; 
+  font-family: Arial, sans-serif; 
+  font-size: 16px;
+  line-height: 10px;
+  font-weight: bold; 
+  text-decoration: none; 
+  border-bottom: solid 1px #FFD37D;
+  border-left: solid 1px #FFD37D;
+  border-right: solid 1px #C05300;
+}
+
+#feedback a:hover { 
+  background: #FFA04A; 
+}
+
 // COMMON
 .site-body-content {
   clear: both;

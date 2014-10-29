@@ -47,7 +47,7 @@ class window.ShareModal
                   </a>                    
                 </div>
                 <div class='col-xs-3 nopadl'>
-                  <a title="Share this experiment via email" href="mailto:?&subject=The%20Sustainability%20Sudoku&body=Just%20played%20the%20Sustainability%20Sudoku!%20Check%20out%20how%20sustainable%20I%20am%3A%20#{encodeURIComponent(@getSharePermalink())}">
+                  <a title="Share this experiment via email" href="mailto:?&subject=The%20Sustainability%20Sudoku&body=I%20tried%20to%20run%20a%20society%20w%2Fo%20fossil%20energy.%20Impossible!%20#{encodeURIComponent(@getSharePermalink())}">
                     <div class='social email'>
                       via Email
                     </div>
@@ -80,7 +80,7 @@ class window.ShareModal
                   </a>                    
                 </div>
                 <div class='col-xs-3 nopadl'>
-                  <a title="Share this website on via email" href="mailto:?&subject=The%20Sustainability%20Sudoku&body=Just%20played%20the%20Sustainability%20Sudoku!%20Define%20your%20society%20and%20try%20to%20get%20it%20sustainable!%20http%3A%2F%2Fthesustainabilitysudoku.info">
+                  <a title="Share this website on via email" href="mailto:?&subject=The%20Sustainability%20Sudoku&body=The%20Sustainability%20Sudoku%20-%20http%3A%2F%2Fthesustainabilitysudoku.info">
                     <div class='social email'>
                       via Email
                     </div>
