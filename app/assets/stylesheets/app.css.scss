@@ -1201,6 +1201,7 @@ $check: #17B0CD;
   background-color: $black
 }
 
+// SCROLLTOP
 #scrolltopicon-cont {
   position: fixed;
   bottom: -4px;
@@ -1213,6 +1214,11 @@ $check: #17B0CD;
 
 #scrolltopicon-cont.inlevel2, #scrolltopicon-cont.inlevel3 {
   bottom: 57px;
+}
+
+// POPOVER
+.popover-content {
+  color: #000;
 }
 
 /** RESPONSIVE DESIGN **/
