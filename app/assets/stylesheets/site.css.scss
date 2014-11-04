@@ -56,16 +56,23 @@ a:hover {
 }
 
 // HEADER
-.navbar .container {
-  width: 978px;
-  padding: 0;
+.navbar-brand {
+  padding-left: 140px;
+}
+
+.navbar-brand img {
+  width: 44px;
+  float: left;
+  margin-top: -10px;
+  margin-right: 8px;
 }
 
 .navbar-nav {
-  float:none;
+  float: none;
   margin: 0 auto;
   display: table;
   table-layout: fixed;
+  width: 100%;
 }
 
 .navbar-default .navbar-nav > .active > a, 
@@ -83,13 +90,6 @@ a:hover {
 
 .navbar .navbar-brand:hover {
   color: #0097B4;
-}
-
-.navbar-brand img {
-  width: 44px;
-  float: left;
-  margin-top: -10px;
-  margin-right: 8px;
 }
 
 // FOOTER
@@ -493,5 +493,13 @@ a:hover {
   &:hover {
     text-decoration: underline;
     color: #008BAA;
+  }
+}
+
+/** RESPONSIVE DESIGN **/
+// Bigger than phones and small tablets
+@media (min-width: 860px) {
+  .navbar-nav {
+    width: auto;
   }
 }
