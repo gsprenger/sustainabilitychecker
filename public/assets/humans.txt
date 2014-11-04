@@ -1,0 +1,29 @@
+/* TEAM */
+  Name:Mario Giampietro
+  Role:Faculty Advisor
+  Occupation:ICREA Research Professor at ICTA-UAB
+  From:Barcelona, Catalonia, Spain
+
+  Name:François Diaz-Maurin
+  Role:Conception, Research & Design
+  Occupation:Post-doctoral Researcher at ICTA-UAB
+  From:Barcelona, Catalonia, Spain
+
+  Name:Raúl Velasco
+  Role:Data Mining & Research
+  Occupation:PhD Student at ICTA-UAB
+  From:Barcelona, Catalonia, Spain
+
+  Name:Gabriel Sprenger
+  Role:Development & Visualization
+  Occupation:Software Engineer
+  From:Barcelona, Catalonia, Spain
+
+/* THANKS */
+    
+
+/* SITE */
+  Last update:11/2014
+  Language:English
+  Doctype:HTML5
+  IDE:Sublime Text 3
