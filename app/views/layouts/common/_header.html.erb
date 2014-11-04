@@ -14,7 +14,7 @@
     <div class="collapse navbar-collapse" id="site-header">
       <ul class="nav navbar-nav pull-right">
         <li class='<%= action_name == 'index' ? " active" : "" %>'>
-          <a href="/">Home</a>
+          <a href="/" data-no-turbolink='true'>Home</a> <!-- Disable Turbolinks for Home so that the Twitter timeline always gets loaded -->
         </li>
         <li class='<%= action_name == 'app' ? " active" : "" %>'>
           <a href="/start">Play Now</a>
